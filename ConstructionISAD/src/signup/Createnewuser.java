@@ -16,7 +16,7 @@ public class Createnewuser extends javax.swing.JFrame {
     public void refreshtable(){
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://localhost:1433;databaseName=siginDB;user=sa;password=123";
+            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
             Connection con = DriverManager.getConnection(url);
             String showquery = "Select * from tbuser ";
             PreparedStatement mpst = con.prepareStatement(showquery);
@@ -261,7 +261,7 @@ public class Createnewuser extends javax.swing.JFrame {
         String UserName="";
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://localhost:1433;databaseName=siginDB;user=sa;password=123";
+            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
             Connection con = DriverManager.getConnection(url);
             Statement stat = con.createStatement();
             String selectquery = "Select * from tbuser where username='"+txtUsername.getText().trim()+"'";
@@ -301,7 +301,7 @@ public class Createnewuser extends javax.swing.JFrame {
         TableModel tm = tbviewuser.getModel();
         txtuserID.setText(tm.getValueAt(i,0).toString());
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url="jdbc:sqlserver://localhost:1433;databaseName=siginDB;user=sa;password=123";
+        String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
         Connection con = DriverManager.getConnection(url);
         String viewtxtquery = "select * from tbuser where userid=?";
         PreparedStatement tmpst = con.prepareStatement(viewtxtquery);

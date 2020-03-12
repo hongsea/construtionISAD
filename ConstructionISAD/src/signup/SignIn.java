@@ -10,7 +10,7 @@ public class SignIn extends javax.swing.JFrame {
         initComponents();
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://localhost:1433;databaseName=siginDB;user=sa;password=123";
+            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
             Connection con = DriverManager.getConnection(url);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -203,7 +203,7 @@ public class SignIn extends javax.swing.JFrame {
     private void btnsigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsigninActionPerformed
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://localhost:1433;databaseName=siginDB;user=sa;password=123";
+            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
             Connection con = DriverManager.getConnection(url);
             String sql = "Select * from tbuser where username=? and password = ?";
             PreparedStatement pst = con.prepareStatement(sql);
