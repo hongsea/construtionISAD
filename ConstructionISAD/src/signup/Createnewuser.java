@@ -12,6 +12,7 @@ public class Createnewuser extends javax.swing.JFrame {
         initComponents();
         refreshtable();
     }
+    
     public void refreshtable(){
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
