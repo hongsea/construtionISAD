@@ -303,7 +303,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\RUPPYear3\Info.system Analysis &amp; Design I\Assignment\image\signupwallpaper1.jpg"/>
+              <Image iconType="2" name="D:\RUPP\YEAR 3\ISad\construtionISAD\ConstructionISAD\src\image\signupwallpaper1.jpg"/>
             </Property>
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>

@@ -1,5 +1,6 @@
 package signup;
 
+import Application.Application;
 import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -8,13 +9,6 @@ public class SignIn extends javax.swing.JFrame {
 
     public SignIn() {
         initComponents();
-        try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
-            Connection con = DriverManager.getConnection(url);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -176,7 +170,7 @@ public class SignIn extends javax.swing.JFrame {
         jPanel2.add(kGradientPanel1);
         kGradientPanel1.setBounds(250, 100, 300, 380);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RUPPYear3\\Info.system Analysis & Design I\\Assignment\\image\\signupwallpaper1.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\RUPP\\YEAR 3\\ISad\\construtionISAD\\ConstructionISAD\\src\\image\\signupwallpaper1.jpg")); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel2.add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 580);
@@ -201,11 +195,9 @@ public class SignIn extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
     private void btnsigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsigninActionPerformed
+        Connection con = Application.getConnection();
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
-            Connection con = DriverManager.getConnection(url);
-            String sql = "Select * from tbuser where username=? and password = ?";
+            String sql = "Select * from tbUser where username=? and password = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, username.getText().trim());
             pst.setString(2, password.getText().trim());
