@@ -16,7 +16,7 @@ public class Createnewuser extends javax.swing.JFrame {
     public void refreshtable(){
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url="jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
+            String url="jdbc:sqlserver://68.183.176.140;databaseName=signinDB;user=sa;password=Admin2020";
             Connection con = DriverManager.getConnection(url);
             String showquery = "Select * from tbuser ";
             PreparedStatement mpst = con.prepareStatement(showquery);
