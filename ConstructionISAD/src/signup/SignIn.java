@@ -235,7 +235,7 @@ public class SignIn extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          Createnewuser sp = new Createnewuser();
          sp.setVisible(true);
-         close();
+        // close();
          
     }//GEN-LAST:event_jButton1ActionPerformed
 

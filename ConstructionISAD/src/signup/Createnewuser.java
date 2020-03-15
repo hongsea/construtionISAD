@@ -32,9 +32,9 @@ public class Createnewuser extends javax.swing.JFrame {
             model.addColumn("User ID");
             model.addColumn("User Name");
             while (rsl.next()) {
-                model.addRow(new Object[]{rsl.getString(1), rsl.getString(2)});
+                model.addRow(new Object[]{rsl.getString(1), rsl.getString(3)});
                 String staffname = rsl.getString(2) + " " + rsl.getString(3);
-                cboSearch.addItem(rsl.getString(2));
+                cboSearch.addItem(rsl.getString(3));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -139,6 +139,11 @@ public class Createnewuser extends javax.swing.JFrame {
 
         btnUpdate.setFont(new java.awt.Font("AKbalthom Kbach", 0, 13)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnCreate.setFont(new java.awt.Font("AKbalthom Kbach", 0, 13)); // NOI18N
         btnCreate.setText("Create");
@@ -308,15 +313,19 @@ public class Createnewuser extends javax.swing.JFrame {
             tmpst.setString(1, txtuserID.getText().trim());
             ResultSet rsLL = tmpst.executeQuery();
             if (rsLL.next()) {
-                cbostaffName.setSelectedItem(rsLL.getString(1));
-                txtUsername.setText(rsLL.getString(2));
-                cboposition.setSelectedItem(rsLL.getString(3));
-                txtpassword.setText(rsLL.getString(4));
+                cbostaffName.setSelectedItem(rsLL.getString(2));
+                txtUsername.setText(rsLL.getString(3));
+                cboposition.setSelectedItem(rsLL.getString(4));
+                txtpassword.setText(rsLL.getString(5));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_tbviewuserMouseClicked
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        String udpatequey = "udpate tbUser set staff_name=?,username",f;
+    }//GEN-LAST:event_btnUpdateActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
