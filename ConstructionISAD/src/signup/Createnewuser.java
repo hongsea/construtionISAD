@@ -10,20 +10,14 @@ import javax.swing.table.TableModel;
 
 public class Createnewuser extends javax.swing.JFrame {
 
-    Connection con;
+    Connection con=Application.getConnection();;
 
     public Createnewuser() {
         initComponents();
         refreshtable();
     }
-
-    //con
     public void refreshtable() {
-        
-        Connection con  = Application.getConnection();
         try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url="jdbc:sqlserver://68.183.176.140;databaseName=signinDB;user=sa;password=Admin2020";
             String showquery = "Select * from tbUser ";
             PreparedStatement mpst = con.prepareStatement(showquery);
             ResultSet rs1 = mpst.executeQuery();
@@ -264,27 +258,23 @@ public class Createnewuser extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        Connection con  = Application.getConnection();
         String UserName = "";
         try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url = "jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
-//            Connection con = DriverManager.getConnection(url);
             Statement stat = con.createStatement();
-            String selectquery = "Select * from tbuser where username='" + txtUsername.getText().trim() + "'";
+            String selectquery = "Select * from tbUser where username='" + txtUsername.getText().trim() + "'";
             ResultSet rs = stat.executeQuery(selectquery);
             if (rs.next() == true) {
                 sucessfulllable.setText("User Created Already.");
             } else {
-                String query = "insert into tbuser(userid,staffname,username,position,password)values(?,?,?,?,?)";
+                String query = "insert into tbUser(staff_name,username,position,password)values(?,?,?,?)";
                 PreparedStatement pst = con.prepareStatement(query);
-                pst.setString(1, txtuserID.getText().trim());
-                pst.setString(2, cbostaffName.getSelectedItem().toString());
-                pst.setString(3, txtUsername.getText().trim());
-                pst.setString(4, cboposition.getSelectedItem().toString());
-                pst.setString(5, txtpassword.getText().trim());
+               // pst.setString(1, txtuserID.getText().trim());
+                pst.setString(1, cbostaffName.getSelectedItem().toString());
+                pst.setString(2, txtUsername.getText().trim());
+                pst.setString(3, cboposition.getSelectedItem().toString());
+                pst.setString(4, txtpassword.getText().trim());
                 //pst.setString(6,txtconfirmpassword.getText().trim());
-                if (txtuserID.getText().trim().isEmpty() && txtUsername.getText().trim().isEmpty() && txtpassword.getText().trim().isEmpty() && txtconfirmpassword.getText().trim().isEmpty()) {
+                if (txtUsername.getText().trim().isEmpty() && txtpassword.getText().trim().isEmpty() && txtconfirmpassword.getText().trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Error.");
                     txtuserID.requestFocus();
                 } else {
@@ -301,31 +291,20 @@ public class Createnewuser extends javax.swing.JFrame {
 
     }
     private void tbviewuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbviewuserMouseClicked
-         Connection con  = Application.getConnection();
         try {
             int i = tbviewuser.getSelectedRow();
             TableModel tm = tbviewuser.getModel();
             txtuserID.setText(tm.getValueAt(i, 0).toString());
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            String url = "jdbc:sqlserver://192.168.1.91;databaseName=siginDB;user=sa;password=Admin2020";
-//            Connection con = DriverManager.getConnection(url);
-
-            String viewtxtquery = "select * from tbuser where userid=?";
+            String viewtxtquery = "select * from tbUser where id=?";
             PreparedStatement tmpst = con.prepareStatement(viewtxtquery);
             tmpst.setString(1, txtuserID.getText().trim());
             ResultSet rsLL = tmpst.executeQuery();
             if (rsLL.next()) {
-                cbostaffName.setSelectedItem(rsLL.getString(2));
-                txtUsername.setText(rsLL.getString(3));
-                cboposition.setSelectedItem(rsLL.getString(4));
-                txtpassword.setText(rsLL.getString(5));
+                cbostaffName.setSelectedItem(rsLL.getString(1));
+                txtUsername.setText(rsLL.getString(2));
+                cboposition.setSelectedItem(rsLL.getString(3));
+                txtpassword.setText(rsLL.getString(4));
             }
-            if (rsLL.getString(i) == tm.getValueAt(i, 0).toString()) {
-            }
-            //cbostaffName.setSelectedIndex(i);
-            //txtUsername.setText(tm.getValueAt(i,1).toString());
-            //cboposition.setSelectedIndex(i);
-            //txtpassword.setText(tm.getValueAt((i,5).toString());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

@@ -6,7 +6,8 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import java.awt.event.*;
 public class SignIn extends javax.swing.JFrame {
-
+    
+    Connection con = Application.getConnection();
     public SignIn() {
         initComponents();
     }
@@ -195,7 +196,6 @@ public class SignIn extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
     private void btnsigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsigninActionPerformed
-        Connection con = Application.getConnection();
         try{
             String sql = "Select * from tbUser where username=? and password = ?";
             PreparedStatement pst = con.prepareStatement(sql);
