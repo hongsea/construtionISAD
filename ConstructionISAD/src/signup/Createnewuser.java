@@ -7,6 +7,8 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import org.jdesktop.swingx.autocomplete.AutoCompleteStyledDocument;
 
 public class Createnewuser extends javax.swing.JFrame {
 
@@ -15,6 +17,9 @@ public class Createnewuser extends javax.swing.JFrame {
     public Createnewuser() {
         initComponents();
         refreshtable();
+        AutoCompleteDecorator.decorate(cbostaffName);
+        AutoCompleteDecorator.decorate(cboposition);
+        AutoCompleteDecorator.decorate(cboSearch);
     }
     public void refreshtable() {
         try {
