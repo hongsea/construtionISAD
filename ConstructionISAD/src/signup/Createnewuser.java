@@ -4,6 +4,7 @@ import Application.Application;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.sql.*;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -25,13 +26,15 @@ public class Createnewuser extends javax.swing.JFrame {
         try {
             String showquery = "Select * from tbUser ";
             PreparedStatement mpst = con.prepareStatement(showquery);
-            ResultSet rs1 = mpst.executeQuery();
+            ResultSet rsl = mpst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbviewuser.setModel(model);
             model.addColumn("User ID");
             model.addColumn("User Name");
-            while (rs1.next()) {
-                model.addRow(new Object[]{rs1.getString(1), rs1.getString(2)});
+            while (rsl.next()) {
+                model.addRow(new Object[]{rsl.getString(1), rsl.getString(2)});
+                String staffname = rsl.getString(2) + " " + rsl.getString(3);
+                cboSearch.addItem(rsl.getString(2));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
