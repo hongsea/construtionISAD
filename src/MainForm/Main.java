@@ -110,6 +110,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setText("LOGOUT");
+        jButton1.setBorder(null);
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/building.png"))); // NOI18N
@@ -126,20 +127,20 @@ public class Main extends javax.swing.JFrame {
             panelbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelbarLayout.createSequentialGroup()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 400, Short.MAX_VALUE)
                 .addComponent(showlableonclickedmenu, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(314, 314, 314)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelbarLayout.setVerticalGroup(
             panelbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(showlableonclickedmenu, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addComponent(showlableonclickedmenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 30));
@@ -536,10 +537,10 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
 
-        menuhome.getContentPane().add(panelhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1050, 740));
+        menuhome.getContentPane().add(panelhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1050, 750));
 
         DesktopPane.add(menuhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
@@ -612,7 +613,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel21.setText("         Photo");
         jLabel21.setBorder(new javax.swing.border.MatteBorder(null));
-        panelstaffinfomation.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 111, 127));
+        panelstaffinfomation.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 111, 127));
 
         cboroleID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         panelstaffinfomation.add(cboroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 260, 180, 29));
@@ -636,7 +637,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         jLabel32.setText("Choose Photo");
-        panelstaffinfomation.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, -1, -1));
+        panelstaffinfomation.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, 110, -1));
 
         jLabel23.setText("Staff Information");
 
