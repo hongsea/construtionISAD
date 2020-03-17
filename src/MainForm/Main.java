@@ -39,6 +39,15 @@ public class Main extends javax.swing.JFrame {
         panelclicked2 = new javax.swing.JPanel();
         staffmenulable = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        panelmenworker = new javax.swing.JPanel();
+        panelclicked3 = new javax.swing.JPanel();
+        staffmenulable1 = new javax.swing.JLabel();
+        panelmenworker1 = new javax.swing.JPanel();
+        panelclicked4 = new javax.swing.JPanel();
+        staffmenulable2 = new javax.swing.JLabel();
+        panelmenworker2 = new javax.swing.JPanel();
+        panelclicked5 = new javax.swing.JPanel();
+        staffmenulable3 = new javax.swing.JLabel();
         DesktopPane = new javax.swing.JDesktopPane();
         menuhome = new javax.swing.JInternalFrame();
         panelhome = new javax.swing.JPanel();
@@ -46,7 +55,7 @@ public class Main extends javax.swing.JFrame {
         panelproject = new javax.swing.JPanel();
         labelproject = new javax.swing.JLabel();
         labeltotalproject = new javax.swing.JLabel();
-        panelclient = new javax.swing.JPanel();
+        panelcustomer = new javax.swing.JPanel();
         labelclient = new javax.swing.JLabel();
         labeltotalclient = new javax.swing.JLabel();
         panelstaff = new javax.swing.JPanel();
@@ -171,7 +180,8 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 38, Short.MAX_VALUE)
         );
 
-        homemenulable.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        homemenulable.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        homemenulable.setForeground(new java.awt.Color(0, 102, 255));
         homemenulable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/homes.png"))); // NOI18N
         homemenulable.setText("   HOME");
 
@@ -182,8 +192,8 @@ public class Main extends javax.swing.JFrame {
             .addGroup(panelmenuhomeLayout.createSequentialGroup()
                 .addComponent(panelclicked1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(homemenulable, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(homemenulable, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         panelmenuhomeLayout.setVerticalGroup(
             panelmenuhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,9 +229,10 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        staffmenulable.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        staffmenulable.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable.setForeground(new java.awt.Color(0, 102, 255));
         staffmenulable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/staff.png"))); // NOI18N
-        staffmenulable.setText("  STAFF");
+        staffmenulable.setText("  STAFFS");
         staffmenulable.setPreferredSize(new java.awt.Dimension(94, 26));
 
         javax.swing.GroupLayout panelmenustaffLayout = new javax.swing.GroupLayout(panelmenustaff);
@@ -245,6 +256,147 @@ public class Main extends javax.swing.JFrame {
         jLabel16.setText("           WELCOME");
         jLabel16.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
+        panelmenworker.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenworker.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenworker.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenworkerMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenworkerMouseClicked(evt);
+            }
+        });
+
+        panelclicked3.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked3.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked3Layout = new javax.swing.GroupLayout(panelclicked3);
+        panelclicked3.setLayout(panelclicked3Layout);
+        panelclicked3Layout.setHorizontalGroup(
+            panelclicked3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked3Layout.setVerticalGroup(
+            panelclicked3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable1.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/worker.png"))); // NOI18N
+        staffmenulable1.setText("   WORKERS");
+        staffmenulable1.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenworkerLayout = new javax.swing.GroupLayout(panelmenworker);
+        panelmenworker.setLayout(panelmenworkerLayout);
+        panelmenworkerLayout.setHorizontalGroup(
+            panelmenworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenworkerLayout.createSequentialGroup()
+                .addComponent(panelclicked3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelmenworkerLayout.setVerticalGroup(
+            panelmenworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenworker1.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenworker1.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenworker1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenworker1MousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenworker1MouseClicked(evt);
+            }
+        });
+
+        panelclicked4.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked4.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked4Layout = new javax.swing.GroupLayout(panelclicked4);
+        panelclicked4.setLayout(panelclicked4Layout);
+        panelclicked4Layout.setHorizontalGroup(
+            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked4Layout.setVerticalGroup(
+            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable2.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
+        staffmenulable2.setText("   CUSTOMERS");
+        staffmenulable2.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenworker1Layout = new javax.swing.GroupLayout(panelmenworker1);
+        panelmenworker1.setLayout(panelmenworker1Layout);
+        panelmenworker1Layout.setHorizontalGroup(
+            panelmenworker1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenworker1Layout.createSequentialGroup()
+                .addComponent(panelclicked4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelmenworker1Layout.setVerticalGroup(
+            panelmenworker1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenworker2.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenworker2.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenworker2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenworker2MousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenworker2MouseClicked(evt);
+            }
+        });
+
+        panelclicked5.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked5.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked5Layout = new javax.swing.GroupLayout(panelclicked5);
+        panelclicked5.setLayout(panelclicked5Layout);
+        panelclicked5Layout.setHorizontalGroup(
+            panelclicked5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked5Layout.setVerticalGroup(
+            panelclicked5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable3.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable3.setText("   SUPPLIERS");
+        staffmenulable3.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenworker2Layout = new javax.swing.GroupLayout(panelmenworker2);
+        panelmenworker2.setLayout(panelmenworker2Layout);
+        panelmenworker2Layout.setHorizontalGroup(
+            panelmenworker2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenworker2Layout.createSequentialGroup()
+                .addComponent(panelclicked5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelmenworker2Layout.setVerticalGroup(
+            panelmenworker2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelmenuLayout = new javax.swing.GroupLayout(panelmenu);
         panelmenu.setLayout(panelmenuLayout);
         panelmenuLayout.setHorizontalGroup(
@@ -256,7 +408,13 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+            .addGroup(panelmenuLayout.createSequentialGroup()
+                .addGroup(panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenworker, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenworker1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenworker2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panelmenuLayout.setVerticalGroup(
             panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +425,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelmenuhome, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelmenustaff, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(552, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenworker, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenworker1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenworker2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(444, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
@@ -320,36 +484,36 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        panelclient.setBackground(new java.awt.Color(255, 255, 255));
-        panelclient.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(153, 102, 255), new java.awt.Color(153, 102, 255), new java.awt.Color(153, 102, 255), new java.awt.Color(153, 102, 255)));
-        panelclient.setPreferredSize(new java.awt.Dimension(215, 92));
+        panelcustomer.setBackground(new java.awt.Color(255, 255, 255));
+        panelcustomer.setBorder(javax.swing.BorderFactory.createBevelBorder(0, new java.awt.Color(153, 102, 255), new java.awt.Color(153, 102, 255), new java.awt.Color(153, 102, 255), new java.awt.Color(153, 102, 255)));
+        panelcustomer.setPreferredSize(new java.awt.Dimension(215, 92));
 
         labelclient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         labelclient.setForeground(new java.awt.Color(102, 102, 255));
         labelclient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client.png"))); // NOI18N
-        labelclient.setText("       CLIENT");
+        labelclient.setText("       CUSTOMERS");
         labelclient.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(102, 102, 255)));
 
         labeltotalclient.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labeltotalclient.setForeground(new java.awt.Color(102, 102, 255));
         labeltotalclient.setText("10");
 
-        javax.swing.GroupLayout panelclientLayout = new javax.swing.GroupLayout(panelclient);
-        panelclient.setLayout(panelclientLayout);
-        panelclientLayout.setHorizontalGroup(
-            panelclientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelclientLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelcustomerLayout = new javax.swing.GroupLayout(panelcustomer);
+        panelcustomer.setLayout(panelcustomerLayout);
+        panelcustomerLayout.setHorizontalGroup(
+            panelcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcustomerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelclient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelclient, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelclientLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcustomerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labeltotalclient, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
         );
-        panelclientLayout.setVerticalGroup(
-            panelclientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelclientLayout.createSequentialGroup()
+        panelcustomerLayout.setVerticalGroup(
+            panelcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelcustomerLayout.createSequentialGroup()
                 .addComponent(labelclient, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(labeltotalclient, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,7 +611,7 @@ public class Main extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -512,7 +676,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(90, 90, 90)
                         .addGroup(panelhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelclient, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
+                            .addComponent(panelcustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                         .addGap(102, 102, 102)
                         .addGroup(panelhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panelstaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -530,7 +694,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(panelhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelproject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelclient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelcustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelstaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addGroup(panelhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -712,6 +876,30 @@ public class Main extends javax.swing.JFrame {
         panelclicked1.setBackground(paneldefault);
         panelclicked2.setBackground(panelclick);
     }//GEN-LAST:event_panelmenustaffMousePressed
+
+    private void panelmenworkerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenworkerMousePressed
+
+    private void panelmenworkerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenworkerMouseClicked
+
+    private void panelmenworker1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenworker1MousePressed
+
+    private void panelmenworker1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenworker1MouseClicked
+
+    private void panelmenworker2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenworker2MousePressed
+
+    private void panelmenworker2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenworker2MouseClicked
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -773,11 +961,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelbar;
     private javax.swing.JPanel panelclicked1;
     private javax.swing.JPanel panelclicked2;
-    private javax.swing.JPanel panelclient;
+    private javax.swing.JPanel panelclicked3;
+    private javax.swing.JPanel panelclicked4;
+    private javax.swing.JPanel panelclicked5;
+    private javax.swing.JPanel panelcustomer;
     private javax.swing.JPanel panelhome;
     private javax.swing.JPanel panelmenu;
     private javax.swing.JPanel panelmenuhome;
     private javax.swing.JPanel panelmenustaff;
+    private javax.swing.JPanel panelmenworker;
+    private javax.swing.JPanel panelmenworker1;
+    private javax.swing.JPanel panelmenworker2;
     private javax.swing.JPanel panelproject;
     private javax.swing.JPanel panelstaff;
     private javax.swing.JPanel panelstaffinfomation;
@@ -786,6 +980,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelworker;
     private javax.swing.JLabel showlableonclickedmenu;
     private javax.swing.JLabel staffmenulable;
+    private javax.swing.JLabel staffmenulable1;
+    private javax.swing.JLabel staffmenulable2;
+    private javax.swing.JLabel staffmenulable3;
     private javax.swing.JTextField txtAddress;
     private com.toedter.calendar.JDateChooser txtBirthday;
     private com.toedter.calendar.JDateChooser txtHiredDate;
