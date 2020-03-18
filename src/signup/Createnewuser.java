@@ -18,6 +18,7 @@ public class Createnewuser extends javax.swing.JFrame {
     public Createnewuser() {
         initComponents();
         refreshtable();
+        setLocationRelativeTo(null);
         AutoCompleteDecorator.decorate(cbostaffName);
         AutoCompleteDecorator.decorate(cboposition);
         AutoCompleteDecorator.decorate(cboSearch);
