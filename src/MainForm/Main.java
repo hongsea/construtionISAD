@@ -130,8 +130,6 @@ public class Main extends javax.swing.JFrame {
         jtbstaff = new javax.swing.JTable();
         panelstaffinfomation = new javax.swing.JPanel();
         txtstaffID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtstaffName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         txtNationlity = new javax.swing.JTextField();
@@ -145,36 +143,35 @@ public class Main extends javax.swing.JFrame {
         txtAddress = new javax.swing.JTextField();
         txtBirthday = new com.toedter.calendar.JDateChooser();
         txtHiredDate = new com.toedter.calendar.JDateChooser();
-        cboGender = new javax.swing.JComboBox<String>();
+        cboGender = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        cboroleID = new javax.swing.JComboBox<String>();
-        cboStatus = new javax.swing.JComboBox<String>();
+        cboroleID = new javax.swing.JComboBox<>();
+        cboStatus = new javax.swing.JComboBox<>();
         btnNew = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel23 = new javax.swing.JLabel();
         menuworker = new javax.swing.JInternalFrame();
         panelworker = new javax.swing.JPanel();
         menuuser = new javax.swing.JInternalFrame();
         panelcreateuser = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        cboSearch = new javax.swing.JComboBox<String>();
+        cboSearch = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbviewuser = new javax.swing.JTable();
         jLabel25 = new javax.swing.JLabel();
         txtuserID = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        cbostaffName = new javax.swing.JComboBox<String>();
+        cbostaffName = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        cboposition = new javax.swing.JComboBox<String>();
+        cboposition = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -199,7 +196,6 @@ public class Main extends javax.swing.JFrame {
         panelbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lableshownamelogin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lableshownamelogin.setForeground(new java.awt.Color(0, 0, 0));
         lableshownamelogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/staff.png"))); // NOI18N
         lableshownamelogin.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(153, 0, 255)));
         panelbar.add(lableshownamelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1076, 0, 144, 33));
@@ -212,7 +208,6 @@ public class Main extends javax.swing.JFrame {
 
         showlableonclickedmenu.setBackground(new java.awt.Color(51, 255, 102));
         showlableonclickedmenu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        showlableonclickedmenu.setForeground(new java.awt.Color(0, 0, 0));
         panelbar.add(showlableonclickedmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 94, 33));
 
         btnlogout.setBackground(new java.awt.Color(204, 204, 204));
@@ -467,8 +462,8 @@ public class Main extends javax.swing.JFrame {
         );
         panelmenworker2Layout.setVerticalGroup(
             panelmenworker2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         panelmenuuser.setBackground(new java.awt.Color(0, 204, 204));
@@ -533,11 +528,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelmenuLayout.createSequentialGroup()
                 .addGroup(panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                    .addComponent(panelmenworker, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                    .addComponent(panelmenworker1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                    .addComponent(panelmenworker2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
-                    .addComponent(panelmenuuser, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                    .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(panelmenworker, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(panelmenworker1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(panelmenworker2, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(panelmenuuser, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelmenuLayout.setVerticalGroup(
@@ -630,7 +625,7 @@ public class Main extends javax.swing.JFrame {
             panelcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcustomerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelclient, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addComponent(labelclient, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcustomerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -702,7 +697,7 @@ public class Main extends javax.swing.JFrame {
             panelsuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelsuppliersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addComponent(labelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panelsuppliersLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
@@ -772,7 +767,7 @@ public class Main extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -840,7 +835,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffmenu.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("                                                                                 STAFF");
+        jLabel2.setText(" Employee / Satff / New ");
         jLabel2.setAlignmentX(0.5F);
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 153, 153)));
 
@@ -862,13 +857,6 @@ public class Main extends javax.swing.JFrame {
 
         txtstaffID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(txtstaffID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 230, 29));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel3.setText("Staff Name");
-        panelstaffinfomation.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 104, 20));
-
-        txtstaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtstaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 230, 29));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Gender");
@@ -908,7 +896,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, 20));
 
         txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 580, 29));
+        panelstaffinfomation.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 830, 29));
 
         txtBirthday.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(txtBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 250, 29));
@@ -916,29 +904,29 @@ public class Main extends javax.swing.JFrame {
         txtHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(txtHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 250, 29));
 
-        cboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, 29));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel17.setText("Status");
-        panelstaffinfomation.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 320, 60, 20));
+        panelstaffinfomation.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 60, 20));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setText("Role ID");
-        panelstaffinfomation.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, -1, 20));
+        panelstaffinfomation.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, 20));
 
-        jLabel21.setText("         Photo");
+        jLabel21.setText("                  Photo");
         jLabel21.setBorder(new javax.swing.border.MatteBorder(null));
-        panelstaffinfomation.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, 140, 140));
+        panelstaffinfomation.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 140));
 
-        cboroleID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboroleID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(cboroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 180, 29));
+        panelstaffinfomation.add(cboroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 230, 29));
 
-        cboStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(cboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 180, 29));
+        panelstaffinfomation.add(cboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 180, 29));
 
         btnNew.setBackground(new java.awt.Color(0, 153, 153));
         btnNew.setForeground(new java.awt.Color(255, 255, 255));
@@ -961,13 +949,16 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 90, 30));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel22.setText("Staff ID");
+        jLabel22.setText("Staff Name");
         panelstaffinfomation.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, 20));
 
         jButton2.setText("Choose Photo");
-        panelstaffinfomation.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 200, 140, 20));
-
-        jLabel23.setText("Staff Information");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 140, 20));
 
         javax.swing.GroupLayout panelstaffmenuLayout = new javax.swing.GroupLayout(panelstaffmenu);
         panelstaffmenu.setLayout(panelstaffmenuLayout);
@@ -977,12 +968,8 @@ public class Main extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(panelstaffmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelstaffmenuLayout.createSequentialGroup()
-                        .addGroup(panelstaffmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel23)
-                            .addComponent(panelstaffinfomation, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))
-                        .addGap(0, 10, Short.MAX_VALUE)))
+                    .addComponent(panelstaffinfomation, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         panelstaffmenuLayout.setVerticalGroup(
@@ -991,11 +978,9 @@ public class Main extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelstaffinfomation, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelstaffinfomation, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1025,7 +1010,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 30));
 
         cboSearch.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cboSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         jPanel1.add(cboSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 30));
 
@@ -1060,7 +1045,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 102, 20));
 
         cbostaffName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "user0", "user1", "user2", "user3" }));
+        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "user0", "user1", "user2", "user3" }));
         cbostaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cbostaffName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1087,7 +1072,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 102, 20));
 
         cboposition.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cboposition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "IT", "Manager", "Admin", "Staff" }));
+        cboposition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "IT", "Manager", "Admin", "Staff" }));
         cboposition.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cboposition.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1392,6 +1377,10 @@ public class Main extends javax.swing.JFrame {
         si.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnlogoutMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1434,14 +1423,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
@@ -1514,7 +1501,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtconfirmpassword;
     private javax.swing.JTextField txtpassword;
     private javax.swing.JTextField txtstaffID;
-    private javax.swing.JTextField txtstaffName;
     private javax.swing.JTextField txtuserID;
     private javax.swing.JLabel usernameerror;
     // End of variables declaration//GEN-END:variables
