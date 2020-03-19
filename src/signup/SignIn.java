@@ -116,6 +116,11 @@ public class SignIn extends javax.swing.JFrame {
         kGradientPanel1.add(faillable, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 470, 100, 19));
 
         jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(102, 102, 255)));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyReleased(evt);
+            }
+        });
         kGradientPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 260, 40));
 
         btnsignin1.setBackground(new java.awt.Color(102, 102, 255));
@@ -241,6 +246,10 @@ public class SignIn extends javax.swing.JFrame {
     private void btnsignin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignin1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsignin1ActionPerformed
+
+    private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
+        passwordlable.setText("");
+    }//GEN-LAST:event_jPasswordField1KeyReleased
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {

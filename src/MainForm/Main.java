@@ -125,7 +125,7 @@ public class Main extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         menustaff = new javax.swing.JInternalFrame();
         panelstaffmenu = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        labelgidelineofmenustaff = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbstaff = new javax.swing.JTable();
         panelstaffinfomation = new javax.swing.JPanel();
@@ -152,7 +152,7 @@ public class Main extends javax.swing.JFrame {
         btnNew = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         menuworker = new javax.swing.JInternalFrame();
@@ -188,6 +188,14 @@ public class Main extends javax.swing.JFrame {
         btnCancel2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        menutablestaff = new javax.swing.JInternalFrame();
+        panelmenutablestaff = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        labelgidelineoftalestaff = new javax.swing.JLabel();
+        btnopenmenustaffaddnew = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        btnEdittablestaff = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -462,8 +470,8 @@ public class Main extends javax.swing.JFrame {
         );
         panelmenworker2Layout.setVerticalGroup(
             panelmenworker2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         panelmenuuser.setBackground(new java.awt.Color(0, 204, 204));
@@ -552,7 +560,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelmenworker2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelmenuuser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(408, Short.MAX_VALUE))
+                .addContainerGap(409, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
@@ -636,7 +644,7 @@ public class Main extends javax.swing.JFrame {
             panelcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelcustomerLayout.createSequentialGroup()
                 .addComponent(labelclient, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(labeltotalclient, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -674,7 +682,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(labelstaff, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labeltotalstaff, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         panelsuppliers.setBackground(new java.awt.Color(255, 255, 255));
@@ -778,7 +786,7 @@ public class Main extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -822,7 +830,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
         menuhome.getContentPane().add(panelhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1050, 750));
@@ -834,10 +842,9 @@ public class Main extends javax.swing.JFrame {
 
         panelstaffmenu.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText(" Employee / Satff / New ");
-        jLabel2.setAlignmentX(0.5F);
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 153, 153)));
+        labelgidelineofmenustaff.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        labelgidelineofmenustaff.setAlignmentX(0.5F);
+        labelgidelineofmenustaff.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 153, 153)));
 
         jtbstaff.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -943,10 +950,15 @@ public class Main extends javax.swing.JFrame {
         btnUpdate.setText("Update");
         panelstaffinfomation.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 90, 30));
 
-        btnCancel.setBackground(new java.awt.Color(0, 153, 153));
-        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancel.setText("Cancel");
-        panelstaffinfomation.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 90, 30));
+        btnView.setBackground(new java.awt.Color(0, 153, 153));
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
+        btnView.setText("View");
+        btnView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewMouseClicked(evt);
+            }
+        });
+        panelstaffinfomation.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 90, 30));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel22.setText("Staff Name");
@@ -967,7 +979,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(panelstaffmenuLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(panelstaffmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelgidelineofmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelstaffinfomation, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addContainerGap())
@@ -976,11 +988,11 @@ public class Main extends javax.swing.JFrame {
             panelstaffmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelstaffmenuLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelgidelineofmenustaff, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelstaffinfomation, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1197,12 +1209,66 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         menuuser.getContentPane().add(panelcreateuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1040, 730));
 
         DesktopPane.add(menuuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        menutablestaff.setVisible(true);
+        menutablestaff.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelmenutablestaff.setBackground(new java.awt.Color(255, 255, 255));
+        panelmenutablestaff.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Code", "Staff Name", "Gender", "Phone"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        panelmenutablestaff.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 108, 1010, 630));
+
+        labelgidelineoftalestaff.setBackground(new java.awt.Color(255, 0, 51));
+        labelgidelineoftalestaff.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        panelmenutablestaff.add(labelgidelineoftalestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 57, 249, 34));
+
+        btnopenmenustaffaddnew.setBackground(new java.awt.Color(0, 153, 153));
+        btnopenmenustaffaddnew.setForeground(new java.awt.Color(255, 255, 255));
+        btnopenmenustaffaddnew.setText("Add New");
+        btnopenmenustaffaddnew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnopenmenustaffaddnewMouseClicked(evt);
+            }
+        });
+        panelmenutablestaff.add(btnopenmenustaffaddnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 90, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        jComboBox1.setBorder(null);
+        panelmenutablestaff.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 190, 30));
+
+        btnEdittablestaff.setBackground(new java.awt.Color(0, 153, 153));
+        btnEdittablestaff.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnEdittablestaff.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdittablestaff.setText("Edit");
+        btnEdittablestaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEdittablestaffMouseClicked(evt);
+            }
+        });
+        panelmenutablestaff.add(btnEdittablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 60, 80, 30));
+
+        menutablestaff.getContentPane().add(panelmenutablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 750));
+
+        DesktopPane.add(menutablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         getContentPane().add(DesktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 1040, 700));
 
@@ -1224,7 +1290,8 @@ public class Main extends javax.swing.JFrame {
 
     private void panelmenustaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMouseClicked
         menuhome.setVisible(false);
-        menustaff.setVisible(true);
+        //menustaff.setVisible(true);
+        menutablestaff.setVisible(true);
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("STAFF");
     }//GEN-LAST:event_panelmenustaffMouseClicked
@@ -1345,6 +1412,7 @@ public class Main extends javax.swing.JFrame {
             psu.setString(3, cboposition.getSelectedItem().toString());
             psu.setString(4, txtpassword.getText().trim());
 
+//            if ( cbostaffName.getSelectedItem().)
             Statement stat = con.createStatement();
             String selectquery = "Select * from tbUser where username='" + txtUsername.getText().trim() + "'";
             ResultSet rs = stat.executeQuery(selectquery);
@@ -1358,6 +1426,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdate1ActionPerformed
 
     private void panelmenuuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuuserMouseClicked
+        menutablestaff.setVisible(false);
+        menustaff.setVisible(false);
         menuhome.setVisible(false);
         menuuser.setVisible(true);
     }//GEN-LAST:event_panelmenuuserMouseClicked
@@ -1381,6 +1451,29 @@ public class Main extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnopenmenustaffaddnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnopenmenustaffaddnewMouseClicked
+        menuhome.setVisible(false);
+        menutablestaff.setVisible(false);
+        menustaff.setVisible(true);
+        labelgidelineofmenustaff.setText("Employee / Satff / Add New");
+    }//GEN-LAST:event_btnopenmenustaffaddnewMouseClicked
+
+    private void btnViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewMouseClicked
+        menuhome.setVisible(false);
+        menustaff.setVisible(false);
+        menutablestaff.setVisible(true);
+        labelgidelineoftalestaff.setText("Employee / Satff / View");
+    }//GEN-LAST:event_btnViewMouseClicked
+
+    private void btnEdittablestaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEdittablestaffMouseClicked
+        menutablestaff.setVisible(false);
+        menuhome.setVisible(false);
+        menuuser.setVisible(false);
+        menustaff.setVisible(true);
+        labelgidelineofmenustaff.setText("");
+        labelgidelineofmenustaff.setText("Employee / Satff / Edit");
+    }//GEN-LAST:event_btnEdittablestaffMouseClicked
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1392,14 +1485,16 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane DesktopPane;
-    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCancel2;
     private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnEdittablestaff;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
+    private javax.swing.JButton btnView;
     private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnopenmenustaffaddnew;
     private javax.swing.JButton btnsignin;
     private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JComboBox<String> cboSearch;
@@ -1410,6 +1505,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel conpassworderror;
     private javax.swing.JLabel homemenulable;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1419,7 +1515,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1440,10 +1535,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jtbstaff;
     private javax.swing.JLabel labelclient;
+    private javax.swing.JLabel labelgidelineofmenustaff;
+    private javax.swing.JLabel labelgidelineoftalestaff;
     private javax.swing.JLabel labelproject;
     private javax.swing.JLabel labelstaff;
     private javax.swing.JLabel labelsuppliers;
@@ -1455,6 +1554,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lablewelcome;
     private javax.swing.JInternalFrame menuhome;
     private javax.swing.JInternalFrame menustaff;
+    private javax.swing.JInternalFrame menutablestaff;
     private javax.swing.JInternalFrame menuuser;
     private javax.swing.JInternalFrame menuworker;
     private javax.swing.JPanel panelbar;
@@ -1470,6 +1570,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelmenu;
     private javax.swing.JPanel panelmenuhome;
     private javax.swing.JPanel panelmenustaff;
+    private javax.swing.JPanel panelmenutablestaff;
     private javax.swing.JPanel panelmenuuser;
     private javax.swing.JPanel panelmenworker;
     private javax.swing.JPanel panelmenworker1;
