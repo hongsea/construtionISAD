@@ -25,8 +25,16 @@ public class Main extends javax.swing.JFrame {
         
         paneldefault = new Color(0,204,204);
         panelclick = new Color(0,255,0);
+        
         panelclicked1.setBackground(panelclick);
         panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
+        
         showlableonclickedmenu.setText("HOME");
         
    }
@@ -57,13 +65,14 @@ public class Main extends javax.swing.JFrame {
         panelmenuhome.setVisible(false);
         panelmenustaff.setVisible(false);
         panelmenworker.setVisible(false);
-        panelmenworker1.setVisible(false);
-        panelmenworker2.setVisible(false);
+        panelmencutomer.setVisible(false);
+        panelmensupplier.setVisible(false);
         lableshownamelogin.setVisible(false);
         btnlogout.setVisible(false);
         refreshtable();
         showlableonclickedmenu.setText("USER");
         menuuser.setVisible(true);
+        
     }
     public void openhome(){
         menuhome.setVisible(true);
@@ -92,12 +101,18 @@ public class Main extends javax.swing.JFrame {
         panelmenworker = new javax.swing.JPanel();
         panelclicked3 = new javax.swing.JPanel();
         staffmenulable1 = new javax.swing.JLabel();
-        panelmenworker1 = new javax.swing.JPanel();
+        panelmencutomer = new javax.swing.JPanel();
         panelclicked4 = new javax.swing.JPanel();
         staffmenulable2 = new javax.swing.JLabel();
-        panelmenworker2 = new javax.swing.JPanel();
+        panelmensupplier = new javax.swing.JPanel();
         panelclicked5 = new javax.swing.JPanel();
         staffmenulable3 = new javax.swing.JLabel();
+        panelmenuprojectplan = new javax.swing.JPanel();
+        panelclicked7 = new javax.swing.JPanel();
+        staffmenulable5 = new javax.swing.JLabel();
+        panelmenprojectplanlist = new javax.swing.JPanel();
+        panelclicked8 = new javax.swing.JPanel();
+        staffmenulable6 = new javax.swing.JLabel();
         panelmenuuser = new javax.swing.JPanel();
         panelclicked6 = new javax.swing.JPanel();
         staffmenulable4 = new javax.swing.JLabel();
@@ -123,6 +138,14 @@ public class Main extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        menutablestaff = new javax.swing.JInternalFrame();
+        paneltablestaff = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        labelgidelineoftalestaff = new javax.swing.JLabel();
+        btnopenmenustaffaddnew = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<String>();
+        btnEdittablestaff = new javax.swing.JButton();
         menustaff = new javax.swing.JInternalFrame();
         panelstaffmenu = new javax.swing.JPanel();
         labelgidelineofmenustaff = new javax.swing.JLabel();
@@ -143,12 +166,12 @@ public class Main extends javax.swing.JFrame {
         txtAddress = new javax.swing.JTextField();
         txtBirthday = new com.toedter.calendar.JDateChooser();
         txtHiredDate = new com.toedter.calendar.JDateChooser();
-        cboGender = new javax.swing.JComboBox<>();
+        cboGender = new javax.swing.JComboBox<String>();
         jLabel17 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        cboroleID = new javax.swing.JComboBox<>();
-        cboStatus = new javax.swing.JComboBox<>();
+        cboroleID = new javax.swing.JComboBox<String>();
+        cboStatus = new javax.swing.JComboBox<String>();
         btnNew = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
@@ -161,17 +184,17 @@ public class Main extends javax.swing.JFrame {
         panelcreateuser = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        cboSearch = new javax.swing.JComboBox<>();
+        cboSearch = new javax.swing.JComboBox<String>();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbviewuser = new javax.swing.JTable();
         jLabel25 = new javax.swing.JLabel();
         txtuserID = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        cbostaffName = new javax.swing.JComboBox<>();
+        cbostaffName = new javax.swing.JComboBox<String>();
         jLabel27 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        cboposition = new javax.swing.JComboBox<>();
+        cboposition = new javax.swing.JComboBox<String>();
         jLabel29 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -188,14 +211,59 @@ public class Main extends javax.swing.JFrame {
         btnCancel2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        menutablestaff = new javax.swing.JInternalFrame();
-        panelmenutablestaff = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        labelgidelineoftalestaff = new javax.swing.JLabel();
-        btnopenmenustaffaddnew = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        btnEdittablestaff = new javax.swing.JButton();
+        menutableprojectplanlist = new javax.swing.JInternalFrame();
+        paneltableprojectplanlist = new javax.swing.JPanel();
+        cboProplanlistsearch = new javax.swing.JComboBox();
+        lablegidelineprojectplanlist = new javax.swing.JLabel();
+        btnProplanlistAddnew = new javax.swing.JButton();
+        btnProplanlistAddPlanDetail = new javax.swing.JButton();
+        btnProplanlistEdit = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tbProjectplanlistview = new javax.swing.JTable();
+        menuprojectplanlist = new javax.swing.JInternalFrame();
+        panelprojectplanlist = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        cboprojectplanlistID = new javax.swing.JComboBox();
+        labelerrorprojectplanlistID = new javax.swing.JLabel();
+        labelerrorprojectplanID = new javax.swing.JLabel();
+        labelerrorstaffID = new javax.swing.JLabel();
+        labelerrorprojectplan = new javax.swing.JLabel();
+        labelerrorstartdate = new javax.swing.JLabel();
+        labelerrorfinishdate = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        cboprojectplanIDFK = new javax.swing.JComboBox();
+        cbostaffIDFK = new javax.swing.JComboBox();
+        txtprojectplan = new javax.swing.JTextField();
+        txtstartdate = new com.toedter.calendar.JDateChooser();
+        jLabel36 = new javax.swing.JLabel();
+        txtfinishdate = new com.toedter.calendar.JDateChooser();
+        txtstatus = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        btnviewProjectplanlist = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbprojectplanlist = new javax.swing.JTable();
+        btnAddNewprojectplanlist = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        btnupdateprojectplanlist = new javax.swing.JButton();
+        menutableprojectplanlistdetail = new javax.swing.JInternalFrame();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblistprojectplan = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbprojectlanlistdetail = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        btnAddNewprojectplandetail = new javax.swing.JButton();
+        btneditprojectplandetail = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        menutableprojectpla = new javax.swing.JInternalFrame();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -380,14 +448,14 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panelclicked3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelmenworker1.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenworker1.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenworker1.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelmencutomer.setBackground(new java.awt.Color(0, 204, 204));
+        panelmencutomer.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmencutomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenworker1MousePressed(evt);
+                panelmencutomerMousePressed(evt);
             }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenworker1MouseClicked(evt);
+                panelmencutomerMouseClicked(evt);
             }
         });
 
@@ -411,30 +479,30 @@ public class Main extends javax.swing.JFrame {
         staffmenulable2.setText("   CUSTOMERS");
         staffmenulable2.setPreferredSize(new java.awt.Dimension(94, 26));
 
-        javax.swing.GroupLayout panelmenworker1Layout = new javax.swing.GroupLayout(panelmenworker1);
-        panelmenworker1.setLayout(panelmenworker1Layout);
-        panelmenworker1Layout.setHorizontalGroup(
-            panelmenworker1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenworker1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelmencutomerLayout = new javax.swing.GroupLayout(panelmencutomer);
+        panelmencutomer.setLayout(panelmencutomerLayout);
+        panelmencutomerLayout.setHorizontalGroup(
+            panelmencutomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmencutomerLayout.createSequentialGroup()
                 .addComponent(panelclicked4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        panelmenworker1Layout.setVerticalGroup(
-            panelmenworker1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelmencutomerLayout.setVerticalGroup(
+            panelmencutomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelmenworker2.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenworker2.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenworker2.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelmensupplier.setBackground(new java.awt.Color(0, 204, 204));
+        panelmensupplier.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmensupplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenworker2MousePressed(evt);
+                panelmensupplierMousePressed(evt);
             }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenworker2MouseClicked(evt);
+                panelmensupplierMouseClicked(evt);
             }
         });
 
@@ -458,20 +526,114 @@ public class Main extends javax.swing.JFrame {
         staffmenulable3.setText("   SUPPLIERS");
         staffmenulable3.setPreferredSize(new java.awt.Dimension(94, 26));
 
-        javax.swing.GroupLayout panelmenworker2Layout = new javax.swing.GroupLayout(panelmenworker2);
-        panelmenworker2.setLayout(panelmenworker2Layout);
-        panelmenworker2Layout.setHorizontalGroup(
-            panelmenworker2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenworker2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelmensupplierLayout = new javax.swing.GroupLayout(panelmensupplier);
+        panelmensupplier.setLayout(panelmensupplierLayout);
+        panelmensupplierLayout.setHorizontalGroup(
+            panelmensupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmensupplierLayout.createSequentialGroup()
                 .addComponent(panelclicked5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        panelmenworker2Layout.setVerticalGroup(
-            panelmenworker2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelmensupplierLayout.setVerticalGroup(
+            panelmensupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenuprojectplan.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenuprojectplan.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenuprojectplan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenuprojectplanMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenuprojectplanMouseClicked(evt);
+            }
+        });
+
+        panelclicked7.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked7.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked7Layout = new javax.swing.GroupLayout(panelclicked7);
+        panelclicked7.setLayout(panelclicked7Layout);
+        panelclicked7Layout.setHorizontalGroup(
+            panelclicked7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked7Layout.setVerticalGroup(
+            panelclicked7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable5.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable5.setText("   PROJECT PLAN");
+        staffmenulable5.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenuprojectplanLayout = new javax.swing.GroupLayout(panelmenuprojectplan);
+        panelmenuprojectplan.setLayout(panelmenuprojectplanLayout);
+        panelmenuprojectplanLayout.setHorizontalGroup(
+            panelmenuprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenuprojectplanLayout.createSequentialGroup()
+                .addComponent(panelclicked7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelmenuprojectplanLayout.setVerticalGroup(
+            panelmenuprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenprojectplanlist.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenprojectplanlist.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenprojectplanlist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanlistMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanlistMouseClicked(evt);
+            }
+        });
+
+        panelclicked8.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked8.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked8Layout = new javax.swing.GroupLayout(panelclicked8);
+        panelclicked8.setLayout(panelclicked8Layout);
+        panelclicked8Layout.setHorizontalGroup(
+            panelclicked8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked8Layout.setVerticalGroup(
+            panelclicked8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable6.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable6.setText("   PROJECT PLAN LIST");
+        staffmenulable6.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenprojectplanlistLayout = new javax.swing.GroupLayout(panelmenprojectplanlist);
+        panelmenprojectplanlist.setLayout(panelmenprojectplanlistLayout);
+        panelmenprojectplanlistLayout.setHorizontalGroup(
+            panelmenprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenprojectplanlistLayout.createSequentialGroup()
+                .addComponent(panelclicked8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelmenprojectplanlistLayout.setVerticalGroup(
+            panelmenprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         panelmenuuser.setBackground(new java.awt.Color(0, 204, 204));
@@ -531,17 +693,19 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelmenuhome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelmenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lablewelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelmenuLayout.createSequentialGroup()
                 .addGroup(panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                    .addComponent(panelmenworker, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                    .addComponent(panelmenworker1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                    .addComponent(panelmenworker2, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                    .addComponent(panelmenuuser, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
+                    .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenworker, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmencutomer, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmensupplier, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenuuser, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenuprojectplan, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(panelmenprojectplanlist, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(panelmenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lablewelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelmenuLayout.setVerticalGroup(
             panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -555,12 +719,16 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelmenworker, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelmenworker1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelmencutomer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelmenworker2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelmensupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenuprojectplan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenprojectplanlist, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addComponent(panelmenuuser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(409, Short.MAX_VALUE))
+                .addGap(181, 181, 181))
         );
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
@@ -633,7 +801,7 @@ public class Main extends javax.swing.JFrame {
             panelcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcustomerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelclient, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                .addComponent(labelclient, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcustomerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -644,7 +812,7 @@ public class Main extends javax.swing.JFrame {
             panelcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelcustomerLayout.createSequentialGroup()
                 .addComponent(labelclient, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(labeltotalclient, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -682,7 +850,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(labelstaff, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labeltotalstaff, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         panelsuppliers.setBackground(new java.awt.Color(255, 255, 255));
@@ -705,7 +873,7 @@ public class Main extends javax.swing.JFrame {
             panelsuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelsuppliersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                .addComponent(labelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panelsuppliersLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
@@ -808,7 +976,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(panelcustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                         .addGap(102, 102, 102)
                         .addGroup(panelhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelstaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelstaff, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(panelhomeLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -829,13 +997,66 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(panelhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelsuppliers, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
                 .addContainerGap(303, Short.MAX_VALUE))
         );
 
         menuhome.getContentPane().add(panelhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1050, 750));
 
         DesktopPane.add(menuhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        menutablestaff.setVisible(false);
+        menutablestaff.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        paneltablestaff.setBackground(new java.awt.Color(255, 255, 255));
+        paneltablestaff.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Code", "Staff Name", "Gender", "Phone"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        paneltablestaff.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 108, 1010, 620));
+
+        labelgidelineoftalestaff.setBackground(new java.awt.Color(255, 0, 51));
+        labelgidelineoftalestaff.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        paneltablestaff.add(labelgidelineoftalestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 57, 249, 34));
+
+        btnopenmenustaffaddnew.setBackground(new java.awt.Color(0, 153, 153));
+        btnopenmenustaffaddnew.setForeground(new java.awt.Color(255, 255, 255));
+        btnopenmenustaffaddnew.setText("Add New");
+        btnopenmenustaffaddnew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnopenmenustaffaddnewMouseClicked(evt);
+            }
+        });
+        paneltablestaff.add(btnopenmenustaffaddnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, 100, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        paneltablestaff.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 190, 30));
+
+        btnEdittablestaff.setBackground(new java.awt.Color(0, 153, 153));
+        btnEdittablestaff.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnEdittablestaff.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdittablestaff.setText("Edit");
+        btnEdittablestaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEdittablestaffMouseClicked(evt);
+            }
+        });
+        paneltablestaff.add(btnEdittablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 60, 80, 30));
+
+        menutablestaff.getContentPane().add(paneltablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 750));
+
+        DesktopPane.add(menutablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         menustaff.setVisible(false);
         menustaff.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -911,7 +1132,7 @@ public class Main extends javax.swing.JFrame {
         txtHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(txtHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 250, 29));
 
-        cboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        cboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         cboGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, 29));
 
@@ -927,11 +1148,11 @@ public class Main extends javax.swing.JFrame {
         jLabel21.setBorder(new javax.swing.border.MatteBorder(null));
         panelstaffinfomation.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 140));
 
-        cboroleID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        cboroleID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         cboroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 230, 29));
 
-        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        cboStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         cboStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 180, 29));
 
@@ -1022,7 +1243,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 30));
 
         cboSearch.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cboSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        cboSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         cboSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         jPanel1.add(cboSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 30));
 
@@ -1057,7 +1278,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 102, 20));
 
         cbostaffName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "user0", "user1", "user2", "user3" }));
+        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "user0", "user1", "user2", "user3" }));
         cbostaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cbostaffName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1084,7 +1305,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 102, 20));
 
         cboposition.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cboposition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "IT", "Manager", "Admin", "Staff" }));
+        cboposition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "IT", "Manager", "Admin", "Staff" }));
         cboposition.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cboposition.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1216,13 +1437,158 @@ public class Main extends javax.swing.JFrame {
 
         DesktopPane.add(menuuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
-        menutablestaff.setVisible(true);
-        menutablestaff.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        menutableprojectplanlist.setVisible(false);
+        menutableprojectplanlist.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelmenutablestaff.setBackground(new java.awt.Color(255, 255, 255));
-        panelmenutablestaff.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        paneltableprojectplanlist.setBackground(new java.awt.Color(255, 255, 255));
+        paneltableprojectplanlist.setPreferredSize(new java.awt.Dimension(1050, 740));
+        paneltableprojectplanlist.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        cboProplanlistsearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        paneltableprojectplanlist.add(cboProplanlistsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 216, 30));
+
+        lablegidelineprojectplanlist.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lablegidelineprojectplanlist.setText("Project Plan List / View");
+        paneltableprojectplanlist.add(lablegidelineprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 290, 33));
+
+        btnProplanlistAddnew.setBackground(new java.awt.Color(0, 153, 153));
+        btnProplanlistAddnew.setForeground(new java.awt.Color(255, 255, 255));
+        btnProplanlistAddnew.setText("Add New");
+        btnProplanlistAddnew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProplanlistAddnewMouseClicked(evt);
+            }
+        });
+        paneltableprojectplanlist.add(btnProplanlistAddnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 60, -1, 30));
+
+        btnProplanlistAddPlanDetail.setBackground(new java.awt.Color(0, 153, 153));
+        btnProplanlistAddPlanDetail.setForeground(new java.awt.Color(255, 255, 255));
+        btnProplanlistAddPlanDetail.setText("Project Plan Detail");
+        btnProplanlistAddPlanDetail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProplanlistAddPlanDetailMouseClicked(evt);
+            }
+        });
+        paneltableprojectplanlist.add(btnProplanlistAddPlanDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 60, -1, 30));
+
+        btnProplanlistEdit.setBackground(new java.awt.Color(0, 153, 153));
+        btnProplanlistEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnProplanlistEdit.setText("Edit");
+        paneltableprojectplanlist.add(btnProplanlistEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, 100, 30));
+
+        tbProjectplanlistview.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"dd", "dd", "d", "dd", "dd", "dd",  new Boolean(true)}
+            },
+            new String [] {
+                "ProjectPlanListID", "ProjectPlanID", "ProjectPlanName", "StaffID", "Start Date", "Finish Date", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tbProjectplanlistview);
+
+        paneltableprojectplanlist.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1010, 610));
+
+        menutableprojectplanlist.getContentPane().add(paneltableprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 760));
+
+        DesktopPane.add(menutableprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        menuprojectplanlist.setVisible(false);
+        menuprojectplanlist.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelprojectplanlist.setBackground(new java.awt.Color(255, 255, 255));
+        panelprojectplanlist.setPreferredSize(new java.awt.Dimension(1050, 740));
+        panelprojectplanlist.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setText("ProjectPlanList / Add New");
+        jLabel2.setToolTipText("");
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        panelprojectplanlist.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1010, 40));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cboprojectplanlistID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cboprojectplanlistID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 250, 30));
+
+        labelerrorprojectplanlistID.setText("jLabel3");
+        jPanel2.add(labelerrorprojectplanlistID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 200, 20));
+
+        labelerrorprojectplanID.setText("jLabel3");
+        jPanel2.add(labelerrorprojectplanID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 200, 20));
+
+        labelerrorstaffID.setText("jLabel3");
+        jPanel2.add(labelerrorstaffID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 200, 20));
+
+        labelerrorprojectplan.setText("jLabel3");
+        jPanel2.add(labelerrorprojectplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 200, 20));
+
+        labelerrorstartdate.setText("jLabel3");
+        jPanel2.add(labelerrorstartdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 200, 20));
+
+        labelerrorfinishdate.setText("jLabel3");
+        jPanel2.add(labelerrorfinishdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 200, 20));
+
+        jLabel14.setText("ProjectPlanList ID");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 200, 20));
+
+        jLabel16.setText("ProjectPlan ID");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 200, 20));
+
+        jLabel34.setText("Project Plan");
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 200, 20));
+
+        jLabel32.setText("Staff ID");
+        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 200, 20));
+
+        jLabel38.setText("Finish Date");
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 200, 20));
+
+        jLabel40.setText("Status");
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 200, 20));
+
+        cboprojectplanIDFK.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cboprojectplanIDFK, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 250, 30));
+
+        cbostaffIDFK.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cbostaffIDFK, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 250, 30));
+
+        txtprojectplan.setText("jTextField1");
+        jPanel2.add(txtprojectplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 250, 30));
+
+        txtstartdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        jPanel2.add(txtstartdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, 250, 29));
+
+        jLabel36.setText("Start Date");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 200, 20));
+
+        txtfinishdate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        jPanel2.add(txtfinishdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 250, 29));
+
+        txtstatus.setText("jTextField1");
+        jPanel2.add(txtstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 250, 30));
+
+        jLabel41.setText("jLabel3");
+        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 200, 20));
+
+        btnviewProjectplanlist.setBackground(new java.awt.Color(0, 153, 153));
+        btnviewProjectplanlist.setForeground(new java.awt.Color(255, 255, 255));
+        btnviewProjectplanlist.setText("View");
+        btnviewProjectplanlist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnviewProjectplanlistMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnviewProjectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 300, 100, 30));
+
+        tbprojectplanlist.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1230,45 +1596,127 @@ public class Main extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Code", "Staff Name", "Gender", "Phone"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane5.setViewportView(tbprojectplanlist);
 
-        panelmenutablestaff.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 108, 1010, 630));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 990, 250));
 
-        labelgidelineoftalestaff.setBackground(new java.awt.Color(255, 0, 51));
-        labelgidelineoftalestaff.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        panelmenutablestaff.add(labelgidelineoftalestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 57, 249, 34));
+        btnAddNewprojectplanlist.setBackground(new java.awt.Color(0, 153, 153));
+        btnAddNewprojectplanlist.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddNewprojectplanlist.setText("Add");
+        jPanel2.add(btnAddNewprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 100, 30));
 
-        btnopenmenustaffaddnew.setBackground(new java.awt.Color(0, 153, 153));
-        btnopenmenustaffaddnew.setForeground(new java.awt.Color(255, 255, 255));
-        btnopenmenustaffaddnew.setText("Add New");
-        btnopenmenustaffaddnew.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnopenmenustaffaddnewMouseClicked(evt);
+        jButton4.setText("Add");
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 100, 30));
+
+        btnupdateprojectplanlist.setBackground(new java.awt.Color(0, 153, 153));
+        btnupdateprojectplanlist.setForeground(new java.awt.Color(255, 255, 255));
+        btnupdateprojectplanlist.setText("Update");
+        jPanel2.add(btnupdateprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 100, 30));
+
+        panelprojectplanlist.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1010, 630));
+
+        menuprojectplanlist.getContentPane().add(panelprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
+
+        DesktopPane.add(menuprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        menutableprojectplanlistdetail.setVisible(true);
+        menutableprojectplanlistdetail.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(1050, 740));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblistprojectplan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Projectplan Name", "Date", "Status"
+            }
+        ));
+        jScrollPane7.setViewportView(tblistprojectplan);
+
+        jPanel3.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 590));
+
+        tbprojectlanlistdetail.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "N", "Project plan list Detail"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
-        panelmenutablestaff.add(btnopenmenustaffaddnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 90, 30));
+        tbprojectlanlistdetail.setMinimumSize(new java.awt.Dimension(10, 64));
+        jScrollPane6.setViewportView(tbprojectlanlistdetail);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
-        jComboBox1.setBorder(null);
-        panelmenutablestaff.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 190, 30));
+        jPanel3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 360, 590));
 
-        btnEdittablestaff.setBackground(new java.awt.Color(0, 153, 153));
-        btnEdittablestaff.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnEdittablestaff.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdittablestaff.setText("Edit");
-        btnEdittablestaff.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEdittablestaffMouseClicked(evt);
-            }
-        });
-        panelmenutablestaff.add(btnEdittablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 60, 80, 30));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setText("Project plan list detail");
+        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 26, 1000, 40));
 
-        menutablestaff.getContentPane().add(panelmenutablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 750));
+        btnAddNewprojectplandetail.setText("Add New");
+        jPanel3.add(btnAddNewprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 254, -1, 30));
 
-        DesktopPane.add(menutablestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+        btneditprojectplandetail.setText("Edit");
+        jPanel3.add(btneditprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 100, 30));
+
+        jLabel23.setText("Project Plan List Detail");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 200, 30));
+
+        jLabel33.setText("Project Plan ");
+        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 140, 30));
+
+        menutableprojectplanlistdetail.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 710));
+
+        DesktopPane.add(menutableprojectplanlistdetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        menutableprojectpla.setVisible(true);
+
+        javax.swing.GroupLayout menutableprojectplaLayout = new javax.swing.GroupLayout(menutableprojectpla.getContentPane());
+        menutableprojectpla.getContentPane().setLayout(menutableprojectplaLayout);
+        menutableprojectplaLayout.setHorizontalGroup(
+            menutableprojectplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1040, Short.MAX_VALUE)
+        );
+        menutableprojectplaLayout.setVerticalGroup(
+            menutableprojectplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 708, Short.MAX_VALUE)
+        );
+
+        DesktopPane.add(menutableprojectpla, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        DesktopPane.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         getContentPane().add(DesktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 1040, 700));
 
@@ -1279,51 +1727,104 @@ public class Main extends javax.swing.JFrame {
     private void panelmenuhomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMousePressed
         panelclicked1.setBackground(panelclick);
         panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
     }//GEN-LAST:event_panelmenuhomeMousePressed
 
     private void panelmenuhomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMouseClicked
+        
         menustaff.setVisible(false);
+        menutablestaff.setVisible(false);
+        menuuser.setVisible(false);
+        menuworker.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
         menuhome.setVisible(true);
+        
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("HOME");
     }//GEN-LAST:event_panelmenuhomeMouseClicked
 
     private void panelmenustaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMouseClicked
+
         menuhome.setVisible(false);
-        //menustaff.setVisible(true);
+        menutablestaff.setVisible(false);
+        menuuser.setVisible(false);
+        menuworker.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menustaff.setVisible(false);
         menutablestaff.setVisible(true);
+        
         showlableonclickedmenu.setText("");
-        showlableonclickedmenu.setText("STAFF");
+        //showlableonclickedmenu.setText("STAFF");
+        labelgidelineoftalestaff.setText("Employee / Staff / View");
     }//GEN-LAST:event_panelmenustaffMouseClicked
 
     private void panelmenustaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMousePressed
         panelclicked1.setBackground(paneldefault);
         panelclicked2.setBackground(panelclick);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
     }//GEN-LAST:event_panelmenustaffMousePressed
 
     private void panelmenworkerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMousePressed
-        // TODO add your handling code here:
+        panelclicked1.setBackground(paneldefault);
+        panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(panelclick);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
     }//GEN-LAST:event_panelmenworkerMousePressed
 
     private void panelmenworkerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMouseClicked
-        // TODO add your handling code here:
+        
+        menuhome.setVisible(false);
+        menustaff.setVisible(false);
+        menutablestaff.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuworker.setVisible(true);
+        
     }//GEN-LAST:event_panelmenworkerMouseClicked
 
-    private void panelmenworker1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelmenworker1MousePressed
+    private void panelmencutomerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmencutomerMousePressed
+        panelclicked1.setBackground(paneldefault);
+        panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(panelclick);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
+    }//GEN-LAST:event_panelmencutomerMousePressed
 
-    private void panelmenworker1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker1MouseClicked
+    private void panelmencutomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmencutomerMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_panelmenworker1MouseClicked
+    }//GEN-LAST:event_panelmencutomerMouseClicked
 
-    private void panelmenworker2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker2MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelmenworker2MousePressed
+    private void panelmensupplierMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmensupplierMousePressed
+        panelclicked1.setBackground(paneldefault);
+        panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(panelclick);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
+    }//GEN-LAST:event_panelmensupplierMousePressed
 
-    private void panelmenworker2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworker2MouseClicked
+    private void panelmensupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmensupplierMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_panelmenworker2MouseClicked
+    }//GEN-LAST:event_panelmensupplierMouseClicked
 
     private void tbviewuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbviewuserMouseClicked
         try {
@@ -1474,6 +1975,63 @@ public class Main extends javax.swing.JFrame {
         labelgidelineofmenustaff.setText("");
         labelgidelineofmenustaff.setText("Employee / Satff / Edit");
     }//GEN-LAST:event_btnEdittablestaffMouseClicked
+
+    private void panelmenuprojectplanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuprojectplanMousePressed
+        panelclicked1.setBackground(paneldefault);
+        panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(panelclick);
+        panelclicked8.setBackground(paneldefault);
+    }//GEN-LAST:event_panelmenuprojectplanMousePressed
+
+    private void panelmenuprojectplanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuprojectplanMouseClicked
+        
+        menuhome.setVisible(false);
+        menustaff.setVisible(false);
+        menutablestaff.setVisible(false);
+        menuuser.setVisible(false);
+        menuworker.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+    }//GEN-LAST:event_panelmenuprojectplanMouseClicked
+
+    private void panelmenprojectplanlistMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlistMousePressed
+        panelclicked1.setBackground(paneldefault);
+        panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
+        panelclicked4.setBackground(paneldefault);
+        panelclicked5.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(panelclick);
+    }//GEN-LAST:event_panelmenprojectplanlistMousePressed
+
+    private void panelmenprojectplanlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlistMouseClicked
+
+        menuhome.setVisible(false);
+        menustaff.setVisible(false);
+        menutablestaff.setVisible(false);
+        menuuser.setVisible(false);
+        menuworker.setVisible(false);
+        menutableprojectplanlist.setVisible(true);
+    }//GEN-LAST:event_panelmenprojectplanlistMouseClicked
+
+    private void btnviewProjectplanlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewProjectplanlistMouseClicked
+        menuprojectplanlist.setVisible(false);    
+        menutableprojectplanlist.setVisible(true);  
+    }//GEN-LAST:event_btnviewProjectplanlistMouseClicked
+
+    private void btnProplanlistAddnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProplanlistAddnewMouseClicked
+        menutableprojectplanlist.setVisible(false);
+        menuprojectplanlist.setVisible(true);
+    }//GEN-LAST:event_btnProplanlistAddnewMouseClicked
+
+    private void btnProplanlistAddPlanDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProplanlistAddPlanDetailMouseClicked
+        menutableprojectplanlist.setVisible(false);
+        menutableprojectpla.setVisible(true);
+    }//GEN-LAST:event_btnProplanlistAddPlanDetailMouseClicked
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1485,62 +2043,100 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane DesktopPane;
+    private javax.swing.JButton btnAddNewprojectplandetail;
+    private javax.swing.JButton btnAddNewprojectplanlist;
     private javax.swing.JButton btnCancel2;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnEdittablestaff;
     private javax.swing.JButton btnNew;
+    private javax.swing.JButton btnProplanlistAddPlanDetail;
+    private javax.swing.JButton btnProplanlistAddnew;
+    private javax.swing.JButton btnProplanlistEdit;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnView;
+    private javax.swing.JButton btneditprojectplandetail;
     private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnopenmenustaffaddnew;
     private javax.swing.JButton btnsignin;
+    private javax.swing.JButton btnupdateprojectplanlist;
+    private javax.swing.JButton btnviewProjectplanlist;
     private javax.swing.JComboBox<String> cboGender;
+    private javax.swing.JComboBox cboProplanlistsearch;
     private javax.swing.JComboBox<String> cboSearch;
     private javax.swing.JComboBox<String> cboStatus;
     private javax.swing.JComboBox<String> cboposition;
+    private javax.swing.JComboBox cboprojectplanIDFK;
+    private javax.swing.JComboBox cboprojectplanlistID;
     private javax.swing.JComboBox<String> cboroleID;
+    private javax.swing.JComboBox cbostaffIDFK;
     private javax.swing.JComboBox<String> cbostaffName;
     private javax.swing.JLabel conpassworderror;
     private javax.swing.JLabel homemenulable;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jtbstaff;
     private javax.swing.JLabel labelclient;
+    private javax.swing.JLabel labelerrorfinishdate;
+    private javax.swing.JLabel labelerrorprojectplan;
+    private javax.swing.JLabel labelerrorprojectplanID;
+    private javax.swing.JLabel labelerrorprojectplanlistID;
+    private javax.swing.JLabel labelerrorstaffID;
+    private javax.swing.JLabel labelerrorstartdate;
     private javax.swing.JLabel labelgidelineofmenustaff;
     private javax.swing.JLabel labelgidelineoftalestaff;
     private javax.swing.JLabel labelproject;
@@ -1550,10 +2146,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labeltotalproject;
     private javax.swing.JLabel labeltotalstaff;
     private javax.swing.JLabel labeltotalsuppliers;
+    private javax.swing.JLabel lablegidelineprojectplanlist;
     private javax.swing.JLabel lableshownamelogin;
     private javax.swing.JLabel lablewelcome;
     private javax.swing.JInternalFrame menuhome;
+    private javax.swing.JInternalFrame menuprojectplanlist;
     private javax.swing.JInternalFrame menustaff;
+    private javax.swing.JInternalFrame menutableprojectpla;
+    private javax.swing.JInternalFrame menutableprojectplanlist;
+    private javax.swing.JInternalFrame menutableprojectplanlistdetail;
     private javax.swing.JInternalFrame menutablestaff;
     private javax.swing.JInternalFrame menuuser;
     private javax.swing.JInternalFrame menuworker;
@@ -1564,22 +2165,28 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelclicked4;
     private javax.swing.JPanel panelclicked5;
     private javax.swing.JPanel panelclicked6;
+    private javax.swing.JPanel panelclicked7;
+    private javax.swing.JPanel panelclicked8;
     private javax.swing.JPanel panelcreateuser;
     private javax.swing.JPanel panelcustomer;
     private javax.swing.JPanel panelhome;
+    private javax.swing.JPanel panelmencutomer;
+    private javax.swing.JPanel panelmenprojectplanlist;
+    private javax.swing.JPanel panelmensupplier;
     private javax.swing.JPanel panelmenu;
     private javax.swing.JPanel panelmenuhome;
+    private javax.swing.JPanel panelmenuprojectplan;
     private javax.swing.JPanel panelmenustaff;
-    private javax.swing.JPanel panelmenutablestaff;
     private javax.swing.JPanel panelmenuuser;
     private javax.swing.JPanel panelmenworker;
-    private javax.swing.JPanel panelmenworker1;
-    private javax.swing.JPanel panelmenworker2;
     private javax.swing.JPanel panelproject;
+    private javax.swing.JPanel panelprojectplanlist;
     private javax.swing.JPanel panelstaff;
     private javax.swing.JPanel panelstaffinfomation;
     private javax.swing.JPanel panelstaffmenu;
     private javax.swing.JPanel panelsuppliers;
+    private javax.swing.JPanel paneltableprojectplanlist;
+    private javax.swing.JPanel paneltablestaff;
     private javax.swing.JPanel panelworker;
     private javax.swing.JLabel passworderror;
     private javax.swing.JLabel positionerror;
@@ -1589,8 +2196,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel staffmenulable2;
     private javax.swing.JLabel staffmenulable3;
     private javax.swing.JLabel staffmenulable4;
+    private javax.swing.JLabel staffmenulable5;
+    private javax.swing.JLabel staffmenulable6;
     private javax.swing.JLabel staffnamerror;
     private javax.swing.JLabel sucessfulllable;
+    private javax.swing.JTable tbProjectplanlistview;
+    private javax.swing.JTable tblistprojectplan;
+    private javax.swing.JTable tbprojectlanlistdetail;
+    private javax.swing.JTable tbprojectplanlist;
     private javax.swing.JTable tbviewuser;
     private javax.swing.JTextField txtAddress;
     private com.toedter.calendar.JDateChooser txtBirthday;
@@ -1600,8 +2213,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalary;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtconfirmpassword;
+    private com.toedter.calendar.JDateChooser txtfinishdate;
     private javax.swing.JTextField txtpassword;
+    private javax.swing.JTextField txtprojectplan;
     private javax.swing.JTextField txtstaffID;
+    private com.toedter.calendar.JDateChooser txtstartdate;
+    private javax.swing.JTextField txtstatus;
     private javax.swing.JTextField txtuserID;
     private javax.swing.JLabel usernameerror;
     // End of variables declaration//GEN-END:variables
