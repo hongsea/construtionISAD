@@ -224,7 +224,6 @@ public class Main extends javax.swing.JFrame {
         panelprojectplanlist = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        cboprojectplanlistID = new javax.swing.JComboBox();
         labelerrorprojectplanlistID = new javax.swing.JLabel();
         labelerrorprojectplanID = new javax.swing.JLabel();
         labelerrorstaffID = new javax.swing.JLabel();
@@ -251,6 +250,7 @@ public class Main extends javax.swing.JFrame {
         btnAddNewprojectplanlist = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnupdateprojectplanlist = new javax.swing.JButton();
+        txtstatus1 = new javax.swing.JTextField();
         menutableprojectplanlistdetail = new javax.swing.JInternalFrame();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -259,9 +259,10 @@ public class Main extends javax.swing.JFrame {
         tbprojectlanlistdetail = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         btnAddNewprojectplandetail = new javax.swing.JButton();
-        btneditprojectplandetail = new javax.swing.JButton();
+        btnViewprojectplandetail = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        btneditprojectplandetail1 = new javax.swing.JButton();
         menutableprojectpla = new javax.swing.JInternalFrame();
         jInternalFrame1 = new javax.swing.JInternalFrame();
 
@@ -1478,14 +1479,14 @@ public class Main extends javax.swing.JFrame {
 
         tbProjectplanlistview.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"dd", "dd", "d", "dd", "dd", "dd",  new Boolean(true)}
+                {"dd", "dd", "dd", "dd", "dd",  new Boolean(true)}
             },
             new String [] {
-                "ProjectPlanListID", "ProjectPlanID", "ProjectPlanName", "StaffID", "Start Date", "Finish Date", "Status"
+                "ProjectPlanListID", "ProjectPlanID", "StaffID", "Start Date", "Finish Date", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1514,9 +1515,6 @@ public class Main extends javax.swing.JFrame {
         panelprojectplanlist.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1010, 40));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cboprojectplanlistID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(cboprojectplanlistID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 250, 30));
 
         labelerrorprojectplanlistID.setText("jLabel3");
         jPanel2.add(labelerrorprojectplanlistID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 200, 20));
@@ -1573,7 +1571,7 @@ public class Main extends javax.swing.JFrame {
         jPanel2.add(txtfinishdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 250, 29));
 
         txtstatus.setText("jTextField1");
-        jPanel2.add(txtstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 250, 30));
+        jPanel2.add(txtstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 250, 30));
 
         jLabel41.setText("jLabel3");
         jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 200, 20));
@@ -1615,6 +1613,9 @@ public class Main extends javax.swing.JFrame {
         btnupdateprojectplanlist.setForeground(new java.awt.Color(255, 255, 255));
         btnupdateprojectplanlist.setText("Update");
         jPanel2.add(btnupdateprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 100, 30));
+
+        txtstatus1.setText("jTextField1");
+        jPanel2.add(txtstatus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 250, 30));
 
         panelprojectplanlist.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1010, 630));
 
@@ -1675,8 +1676,13 @@ public class Main extends javax.swing.JFrame {
         btnAddNewprojectplandetail.setText("Add New");
         jPanel3.add(btnAddNewprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 254, -1, 30));
 
-        btneditprojectplandetail.setText("Edit");
-        jPanel3.add(btneditprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 100, 30));
+        btnViewprojectplandetail.setText("View");
+        btnViewprojectplandetail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewprojectplandetailMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnViewprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 100, 30));
 
         jLabel23.setText("Project Plan List Detail");
         jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 200, 30));
@@ -1684,11 +1690,14 @@ public class Main extends javax.swing.JFrame {
         jLabel33.setText("Project Plan ");
         jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 140, 30));
 
+        btneditprojectplandetail1.setText("Edit");
+        jPanel3.add(btneditprojectplandetail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 100, 30));
+
         menutableprojectplanlistdetail.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 710));
 
         DesktopPane.add(menutableprojectplanlistdetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
-        menutableprojectpla.setVisible(true);
+        menutableprojectpla.setVisible(false);
 
         javax.swing.GroupLayout menutableprojectplaLayout = new javax.swing.GroupLayout(menutableprojectpla.getContentPane());
         menutableprojectpla.getContentPane().setLayout(menutableprojectplaLayout);
@@ -2032,6 +2041,11 @@ public class Main extends javax.swing.JFrame {
         menutableprojectplanlist.setVisible(false);
         menutableprojectpla.setVisible(true);
     }//GEN-LAST:event_btnProplanlistAddPlanDetailMouseClicked
+
+    private void btnViewprojectplandetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewprojectplandetailMouseClicked
+        menutableprojectplanlistdetail.setVisible(false);
+        menutableprojectplanlist.setVisible(true);
+    }//GEN-LAST:event_btnViewprojectplandetailMouseClicked
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2056,7 +2070,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnView;
-    private javax.swing.JButton btneditprojectplandetail;
+    private javax.swing.JButton btnViewprojectplandetail;
+    private javax.swing.JButton btneditprojectplandetail1;
     private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnopenmenustaffaddnew;
     private javax.swing.JButton btnsignin;
@@ -2068,7 +2083,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboStatus;
     private javax.swing.JComboBox<String> cboposition;
     private javax.swing.JComboBox cboprojectplanIDFK;
-    private javax.swing.JComboBox cboprojectplanlistID;
     private javax.swing.JComboBox<String> cboroleID;
     private javax.swing.JComboBox cbostaffIDFK;
     private javax.swing.JComboBox<String> cbostaffName;
@@ -2219,6 +2233,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtstaffID;
     private com.toedter.calendar.JDateChooser txtstartdate;
     private javax.swing.JTextField txtstatus;
+    private javax.swing.JTextField txtstatus1;
     private javax.swing.JTextField txtuserID;
     private javax.swing.JLabel usernameerror;
     // End of variables declaration//GEN-END:variables
