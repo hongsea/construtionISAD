@@ -6,19 +6,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.TableModel;
 import Application.Application;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import signup.SignIn;
+import java.sql.*;
+import java.text.DateFormat;
+import java.util.*;
+import javax.imageio.ImageIO;
+import sun.java2d.pipe.BufferedBufImgOps;
 
 public class Main extends javax.swing.JFrame {
     
     Connection con = Application.getConnection();
     Color paneldefault;
     Color panelclick;
-    
+    String imagePath = null;
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
@@ -37,6 +53,7 @@ public class Main extends javax.swing.JFrame {
         
         showlableonclickedmenu.setText("HOME");
         
+      
    }
     public void getusername(String user){
         lableshownamelogin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -45,6 +62,7 @@ public class Main extends javax.swing.JFrame {
     
     public void refreshtable() {
         try {
+            cboSearch.removeAllItems();
             String showquery = "Select * from tbUser ";
             PreparedStatement mpst = con.prepareStatement(showquery);
             ResultSet rsl = mpst.executeQuery();
@@ -141,7 +159,7 @@ public class Main extends javax.swing.JFrame {
         menutablestaff = new javax.swing.JInternalFrame();
         paneltablestaff = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbstaffview = new javax.swing.JTable();
         labelgidelineoftalestaff = new javax.swing.JLabel();
         btnopenmenustaffaddnew = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<String>();
@@ -151,34 +169,47 @@ public class Main extends javax.swing.JFrame {
         panelstaffmenu = new javax.swing.JPanel();
         labelgidelineofmenustaff = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtbstaff = new javax.swing.JTable();
+        tbStaff = new javax.swing.JTable();
         panelstaffinfomation = new javax.swing.JPanel();
         txtstaffID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        txtNationlity = new javax.swing.JTextField();
+        txtStaffName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtSalary = new javax.swing.JTextField();
+        txtStaffSalary = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtPhone = new javax.swing.JTextField();
+        txtStaffPhone = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        txtBirthday = new com.toedter.calendar.JDateChooser();
-        txtHiredDate = new com.toedter.calendar.JDateChooser();
-        cboGender = new javax.swing.JComboBox<String>();
+        txtStaffAddress = new javax.swing.JTextField();
+        txtStaffBirthday = new com.toedter.calendar.JDateChooser();
+        txtStaffHiredDate = new com.toedter.calendar.JDateChooser();
+        cboStaffGender = new javax.swing.JComboBox<String>();
         jLabel17 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        cboroleID = new javax.swing.JComboBox<String>();
-        cboStatus = new javax.swing.JComboBox<String>();
-        btnNew = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        labelpictureStaff = new javax.swing.JLabel();
+        cboStaffStatus = new javax.swing.JComboBox<String>();
+        btnStaffNew = new javax.swing.JButton();
+        btnStaffUpdate = new javax.swing.JButton();
+        btnStaffCancel = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnStaffChoosepicture = new javax.swing.JButton();
+        labelmessagestaff = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        cboStaffroleID = new javax.swing.JComboBox<String>();
+        txtStaffNationlity = new javax.swing.JTextField();
+        labelstaffroleidrequired = new javax.swing.JLabel();
+        labelstaffNamerequired = new javax.swing.JLabel();
+        labelstaffidrequired = new javax.swing.JLabel();
+        labelstaffgenderrequired = new javax.swing.JLabel();
+        labelstaffnatrequired = new javax.swing.JLabel();
+        labelstaffbirthrequired = new javax.swing.JLabel();
+        labelstaffhirdrequired = new javax.swing.JLabel();
+        labelstaffsarequired = new javax.swing.JLabel();
+        labelstaffphonerequired = new javax.swing.JLabel();
+        labelstaffaddrerequired = new javax.swing.JLabel();
+        labelstaffstaturequired = new javax.swing.JLabel();
         menuworker = new javax.swing.JInternalFrame();
         panelworker = new javax.swing.JPanel();
         menuuser = new javax.swing.JInternalFrame();
@@ -691,8 +722,8 @@ public class Main extends javax.swing.JFrame {
         );
         panelmenuuserLayout.setVerticalGroup(
             panelmenuuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(staffmenulable4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelmenuLayout = new javax.swing.GroupLayout(panelmenu);
@@ -1021,18 +1052,15 @@ public class Main extends javax.swing.JFrame {
         paneltablestaff.setBackground(new java.awt.Color(255, 255, 255));
         paneltablestaff.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbstaffview.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Code", "Staff Name", "Gender", "Phone"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbstaffview);
 
         paneltablestaff.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 118, 1010, 570));
 
@@ -1080,18 +1108,20 @@ public class Main extends javax.swing.JFrame {
         labelgidelineofmenustaff.setAlignmentX(0.5F);
         labelgidelineofmenustaff.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 153, 153)));
 
-        jtbstaff.setModel(new javax.swing.table.DefaultTableModel(
+        tbStaff.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane2.setViewportView(jtbstaff);
+        tbStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbStaffMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tbStaff);
 
         panelstaffinfomation.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1107,8 +1137,8 @@ public class Main extends javax.swing.JFrame {
         jLabel20.setText("Nationality");
         panelstaffinfomation.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
-        txtNationlity.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtNationlity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 230, 29));
+        txtStaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 230, 29));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel7.setText("Birthday");
@@ -1122,89 +1152,155 @@ public class Main extends javax.swing.JFrame {
         jLabel6.setText("Salary");
         panelstaffinfomation.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 50, 20));
 
-        txtSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 250, 29));
+        txtStaffSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 250, 29));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setText("Phone");
         panelstaffinfomation.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 80, 20));
 
-        txtPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 250, 29));
+        txtStaffPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 250, 29));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel19.setText("Address");
         panelstaffinfomation.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, 20));
 
-        txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 850, 29));
+        txtStaffAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 850, 29));
 
-        txtBirthday.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 250, 29));
+        txtStaffBirthday.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 250, 29));
 
-        txtHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(txtHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 250, 29));
+        txtStaffHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 250, 29));
 
-        cboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
-        cboGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(cboGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 230, 29));
+        cboStaffGender.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cboStaffGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Male", "Female" }));
+        cboStaffGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(cboStaffGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 230, 29));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel17.setText("Status");
         panelstaffinfomation.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 60, 20));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel9.setText("Role ID");
-        panelstaffinfomation.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, 20));
+        jLabel9.setText("Staff Name");
+        panelstaffinfomation.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, 20));
 
-        jLabel21.setText("                  Photo");
-        jLabel21.setBorder(new javax.swing.border.MatteBorder(null));
-        panelstaffinfomation.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 140, 140));
+        labelpictureStaff.setText("         Photo");
+        labelpictureStaff.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 51, 0)));
+        panelstaffinfomation.add(labelpictureStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 120, 120));
 
-        cboroleID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
-        cboroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(cboroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 230, 29));
+        cboStaffStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cboStaffStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Working", "Stoped" }));
+        cboStaffStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(cboStaffStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 230, 29));
 
-        cboStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
-        cboStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation.add(cboStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 180, 29));
-
-        btnNew.setBackground(new java.awt.Color(0, 153, 153));
-        btnNew.setForeground(new java.awt.Color(255, 255, 255));
-        btnNew.setText("New");
-        panelstaffinfomation.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 90, 30));
-
-        btnSave.setBackground(new java.awt.Color(0, 153, 153));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Save");
-        panelstaffinfomation.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 90, 30));
-
-        btnUpdate.setBackground(new java.awt.Color(0, 153, 153));
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
-        panelstaffinfomation.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 90, 30));
-
-        btnCancel.setBackground(new java.awt.Color(0, 153, 153));
-        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancel.setText("Cancel");
-        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnStaffNew.setBackground(new java.awt.Color(0, 153, 153));
+        btnStaffNew.setForeground(new java.awt.Color(255, 255, 255));
+        btnStaffNew.setText("New");
+        btnStaffNew.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCancelMouseClicked(evt);
+                btnStaffNewMouseClicked(evt);
             }
         });
-        panelstaffinfomation.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 90, 30));
+        panelstaffinfomation.add(btnStaffNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 90, 30));
+
+        btnStaffUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnStaffUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnStaffUpdate.setText("Update");
+        btnStaffUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStaffUpdateMouseClicked(evt);
+            }
+        });
+        panelstaffinfomation.add(btnStaffUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 90, 30));
+
+        btnStaffCancel.setBackground(new java.awt.Color(0, 153, 153));
+        btnStaffCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnStaffCancel.setText("Cancel");
+        btnStaffCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStaffCancelMouseClicked(evt);
+            }
+        });
+        panelstaffinfomation.add(btnStaffCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 90, 30));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel22.setText("Staff Name");
+        jLabel22.setText("Staff ID");
         panelstaffinfomation.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, 20));
 
-        jButton2.setText("Choose Photo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        btnStaffChoosepicture.setText("Choose Photo");
+        btnStaffChoosepicture.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStaffChoosepictureMouseClicked(evt);
             }
         });
-        panelstaffinfomation.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 140, 20));
+        btnStaffChoosepicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStaffChoosepictureActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation.add(btnStaffChoosepicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 120, 20));
+        panelstaffinfomation.add(labelmessagestaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 210, 20));
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel33.setText("Role ID");
+        panelstaffinfomation.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, -1, 20));
+
+        cboStaffroleID.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cboStaffroleID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboStaffroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(cboStaffroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 230, 29));
+
+        txtStaffNationlity.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation.add(txtStaffNationlity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 230, 29));
+
+        labelstaffroleidrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffroleidrequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffroleidrequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 220, 190, 20));
+
+        labelstaffNamerequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffNamerequired.setForeground(new java.awt.Color(255, 0, 51));
+        panelstaffinfomation.add(labelstaffNamerequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 190, 20));
+
+        labelstaffidrequired.setBackground(new java.awt.Color(255, 255, 255));
+        labelstaffidrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffidrequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffidrequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 190, 20));
+
+        labelstaffgenderrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffgenderrequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffgenderrequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 190, 20));
+
+        labelstaffnatrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffnatrequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffnatrequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 190, 20));
+
+        labelstaffbirthrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffbirthrequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffbirthrequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 190, 20));
+
+        labelstaffhirdrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffhirdrequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffhirdrequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 190, 20));
+
+        labelstaffsarequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffsarequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffsarequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 190, 20));
+
+        labelstaffphonerequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffphonerequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffphonerequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 190, 20));
+
+        labelstaffaddrerequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffaddrerequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffaddrerequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 190, 20));
+
+        labelstaffstaturequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelstaffstaturequired.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation.add(labelstaffstaturequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 300, 190, 20));
 
         javax.swing.GroupLayout panelstaffmenuLayout = new javax.swing.GroupLayout(panelstaffmenu);
         panelstaffmenu.setLayout(panelstaffmenuLayout);
@@ -1292,7 +1388,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 102, 20));
 
         cbostaffName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "user0", "user1", "user2", "user3" }));
+        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         cbostaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cbostaffName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1820,6 +1916,7 @@ public class Main extends javax.swing.JFrame {
         showlableonclickedmenu.setText("");
         //showlableonclickedmenu.setText("STAFF");
         labelgidelineoftalestaff.setText("EMPLOYEE / STAFF / VIEW");
+        getroleIDNrefreshtablestaff();
     }//GEN-LAST:event_panelmenustaffMouseClicked
 
     private void panelmenustaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMousePressed
@@ -1925,13 +2022,28 @@ public class Main extends javax.swing.JFrame {
         conpassworderror.setText("");
     }//GEN-LAST:event_txtconfirmpasswordKeyReleased
 
+    public void cbogetstaffname(){
+        try{
+            Statement stat = con.createStatement();
+            String selectstaffname = "select name from tbStaff";
+            PreparedStatement mpst = con.prepareStatement(selectstaffname);
+            ResultSet rsl = mpst.executeQuery();
+            while (rsl.next()){
+                cbostaffName.addItem(rsl.getString(1));
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        String UserName = "";
+
         try {
             Statement stat = con.createStatement();
             String selectquery = "Select * from tbUser where username='" + txtUsername.getText().trim() + "'";
             ResultSet rs = stat.executeQuery(selectquery);
             if (rs.next() == true) {
+                System.out.println("username" + rs);
                 sucessfulllable.setText("User Created Already.");
             } else {
                 String query = "insert into tbUser(staff_name,username,position,password)values(?,?,?,?)";
@@ -1942,15 +2054,41 @@ public class Main extends javax.swing.JFrame {
                 pst.setString(3, cboposition.getSelectedItem().toString());
                 pst.setString(4, txtpassword.getText().trim());
                 //pst.setString(6,txtconfirmpassword.getText().trim());
-                if (txtUsername.getText().trim().isEmpty() && txtpassword.getText().trim().isEmpty() && txtconfirmpassword.getText().trim().isEmpty()) {
+                if (cbostaffName.getSelectedItem() == "None"  && txtUsername.getText().trim().isEmpty() && cboposition.getSelectedItem() == "None" && txtpassword.getText().trim().isEmpty() && txtconfirmpassword.getText().trim().isEmpty()) {
                     staffnamerror.setText("Required.");
                     usernameerror.setText("Require.d");
                     positionerror.setText("Required.");
                     passworderror.setText("Required.");
                     conpassworderror.setText("Required.");
                     txtuserID.requestFocus();
-                } else {
+                } 
+                else if (cbostaffName.getSelectedItem() == "None"){
+                    staffnamerror.setText("Required.");
+                    cbostaffName.requestFocus();
+                }
+                else if (txtUsername.getText().trim().isEmpty()){
+                    usernameerror.setText("Required");
+                    txtUsername.requestFocus();
+                }
+                else if (txtpassword.getText().trim().isEmpty()){
+                    passworderror.setText("Required.");
+                    txtpassword.requestFocus();
+                }
+                else if (cboposition.getSelectedItem() == "None"){
+                    positionerror.setText("Required");
+                    cboposition.requestFocus();
+                }
+                else if (txtconfirmpassword.getText().trim().isEmpty()){
+                    conpassworderror.setText("Required");
+                    txtconfirmpassword.requestFocus();
+                }
+                else {
                     pst.executeUpdate();
+                    cbostaffName.setSelectedItem("None");
+                    txtUsername.setText("");
+                    cboposition.setSelectedItem("None");
+                    txtpassword.setText("");
+                    txtconfirmpassword.setText("");
                     sucessfulllable.setText("Create user sucessfully.");
                     refreshtable();
                 }
@@ -1978,6 +2116,11 @@ public class Main extends javax.swing.JFrame {
             ResultSet rs = stat.executeQuery(selectquery);
             psu.executeUpdate();
             refreshtable();
+            cbostaffName.setSelectedItem("None");
+            txtUsername.setText("");
+            cboposition.setSelectedItem("None");
+            txtpassword.setText("");
+            txtconfirmpassword.setText("");
             JOptionPane.showMessageDialog(null, "update sucessfully.");
 
         }catch(Exception e){
@@ -2008,9 +2151,9 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnlogoutMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnStaffChoosepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffChoosepictureActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnStaffChoosepictureActionPerformed
 
     private void btnopenmenustaffaddnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnopenmenustaffaddnewMouseClicked
         menuhome.setVisible(false);
@@ -2019,12 +2162,13 @@ public class Main extends javax.swing.JFrame {
         labelgidelineofmenustaff.setText("EMPLOYEE / STAFF / ADD NEW ");
     }//GEN-LAST:event_btnopenmenustaffaddnewMouseClicked
 
-    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+    private void btnStaffCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffCancelMouseClicked
         menuhome.setVisible(false);
         menustaff.setVisible(false);
         menutablestaff.setVisible(true);
         labelgidelineoftalestaff.setText("EMPLOYEE / STAFF / VIEW");
-    }//GEN-LAST:event_btnCancelMouseClicked
+        getroleIDNrefreshtablestaff();
+    }//GEN-LAST:event_btnStaffCancelMouseClicked
 
     private void btnEdittablestaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEdittablestaffMouseClicked
         menutablestaff.setVisible(false);
@@ -2100,6 +2244,252 @@ public class Main extends javax.swing.JFrame {
     private void btnAddNewprojectplandetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewprojectplandetailMouseClicked
         paneladdprojectplandetail.setVisible(true);
     }//GEN-LAST:event_btnAddNewprojectplandetailMouseClicked
+
+    public void getroleIDNrefreshtablestaff(){
+        
+        txtstaffID.setText("");
+        txtStaffName.setText("");
+        cboStaffGender.setSelectedItem("None");
+        txtStaffNationlity.setText("");
+        txtStaffBirthday.setDate(null);
+        txtStaffHiredDate.setDate(null);
+        txtStaffSalary.setText("");
+        txtStaffPhone.setText("");
+        txtStaffAddress.setText("");
+        cboStaffroleID.setSelectedItem("None");
+        cboStaffStatus.setSelectedItem("None");
+        labelpictureStaff.removeAll();
+                
+        try{
+            //Statement stat = con.createStatement();
+            
+            //getroleID
+            String selectroleid = "select id from tbRole";
+            PreparedStatement pss = con.prepareStatement(selectroleid);
+            ResultSet rsl = pss.executeQuery();
+            while (rsl.next()){
+                cboStaffroleID.addItem(rsl.getString(1));
+            }
+            
+            //refreshtablestaff
+            String selectalltbStaff = "select * from tbStaff";
+            PreparedStatement pst = con.prepareStatement(selectalltbStaff);
+            ResultSet rst = pst.executeQuery();
+            DefaultTableModel model = new DefaultTableModel();
+            tbStaff.setModel(model);
+            tbstaffview.setModel(model);
+            
+            model.addColumn("ID");
+            model.addColumn("Name");
+            model.addColumn("Gender");
+            model.addColumn("Nationality");
+            model.addColumn("Birthday");
+            model.addColumn("Hired Date");
+            model.addColumn("Salary");
+            model.addColumn("Phone Number");
+            model.addColumn("Address");
+            model.addColumn("Role ID");
+            model.addColumn("Status");
+                                    
+            while (rst.next()){
+                model.addRow(new Object[]{rst.getString(1),rst.getString(2),rst.getString(3),rst.getString(4),rst.getString(5),
+                            rst.getString(6),rst.getString(7),rst.getString(8),rst.getString(9),rst.getString(11),
+                            rst.getString(12)});
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+    private void btnStaffNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffNewMouseClicked
+        
+        if (txtStaffName.getText().trim().isEmpty() && cboStaffGender.getSelectedItem() == "None" && txtStaffNationlity.getText().trim().isEmpty() &&
+                txtStaffBirthday.getDate() == null && txtStaffHiredDate.getDate() == null && txtStaffSalary.getText().trim().isEmpty() && 
+                txtStaffPhone.getText().trim().isEmpty() && txtStaffAddress.getText().trim().isEmpty() && cboStaffroleID.getSelectedItem() == "None" &&
+                cboStaffStatus.getSelectedItem() == "None" ){
+            
+            labelstaffNamerequired.setText("required.");
+            labelstaffgenderrequired.setText("required.");
+            labelstaffnatrequired.setText("required.");
+            labelstaffbirthrequired.setText("required.");
+            labelstaffhirdrequired.setText("required.");
+            labelstaffsarequired.setText("required.");
+            labelstaffphonerequired.setText("required.");
+            labelstaffaddrerequired.setText("required.");
+            labelstaffroleidrequired.setText("required.");
+            labelstaffstaturequired.setText("required.");
+            txtStaffName.requestFocus();            
+        }
+                
+        else if (txtStaffName.getText().trim().isEmpty() ){
+            labelstaffNamerequired.setText("required.");
+            txtStaffName.requestFocus();
+        }             
+        else if (cboStaffGender.getSelectedItem() == "None"){
+            labelstaffgenderrequired.setText("required.");
+            cboStaffGender.requestFocus();
+            }
+        else if (txtStaffNationlity.getText().trim().isEmpty()){
+            labelstaffnatrequired.setText("required.");
+            txtStaffNationlity.requestFocus();
+            }
+        else if (txtStaffBirthday.getDate() == null){
+            labelstaffbirthrequired.setText("required.");
+            txtStaffBirthday.requestFocus();
+        }
+        else if (txtStaffHiredDate.getDate() == null){
+            labelstaffhirdrequired.setText("required.");
+            txtStaffHiredDate.requestFocus();
+        }
+        else if (txtStaffSalary.getText().trim().isEmpty()){
+            labelstaffsarequired.setText("required.");
+            txtStaffSalary.requestFocus();
+        }
+        else if (txtStaffPhone.getText().trim().isEmpty()){
+            labelstaffphonerequired.setText("required.");
+            txtStaffPhone.requestFocus();
+        }
+        else if (txtStaffAddress.getText().trim().isEmpty()){
+            labelstaffaddrerequired.setText("required.");
+            txtStaffAddress.requestFocus();
+        }
+        else if (cboStaffroleID.getSelectedItem() == "None"){
+            labelstaffroleidrequired.setText("required.");
+            cboStaffroleID.requestFocus();
+        }
+        else if(cboStaffStatus.getSelectedItem() == "None"){
+            labelstaffstaturequired.setText("required.");
+            cboStaffStatus.requestFocus();
+        }
+        else{
+       
+            try {
+                Statement stat = con.createStatement();
+                String selectquery = "Select * from tbStaff where name='" + txtStaffName.getText().trim() + "'";
+                ResultSet rs = stat.executeQuery(selectquery);
+                if (rs.next() == true){
+                    labelmessagestaff.setText("Staff Create already.");
+                }
+                else{
+                    String querystaff = "insert into tbStaff(name,gender,nationality,birthday,hired_date,salary,phone,address,photo,roleID,status)values(?,?,?,?,?,?,?,?,?,?,?)";
+                    PreparedStatement pst = con.prepareStatement(querystaff);
+
+                    //pst.setString(1, txtstaffID.getText().toString().trim());
+                    pst.setString(1, txtStaffName.getText().trim());
+                    pst.setString(2, cboStaffGender.getSelectedItem().toString());
+                    pst.setString(3, txtStaffNationlity.getText().trim());
+
+                    SimpleDateFormat dataformat = new SimpleDateFormat("dd-mm-yyyy");
+                    String bdate = dataformat.format(txtStaffBirthday.getDate());
+                    String hdate = dataformat.format(txtStaffHiredDate.getDate());
+
+                    pst.setString(4, bdate.toString());
+                    pst.setString(5, hdate.toString());
+
+                    pst.setString(6, txtStaffSalary.getText().toString().trim());
+                    pst.setString(7, txtStaffPhone.getText().toString().trim());
+                    pst.setString(8, txtStaffAddress.getText().toString().trim());
+
+                    InputStream img = new FileInputStream(new File(imagePath));
+                    pst.setBlob(9, img);
+
+                    pst.setString(10,cboStaffroleID.getSelectedItem().toString());
+                    pst.setString(11,cboStaffStatus.getSelectedItem().toString());
+
+                    pst.executeUpdate();
+                    labelmessagestaff.setText("Create staff sucessfully.");
+                    getroleIDNrefreshtablestaff();
+
+                }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnStaffNewMouseClicked
+    public ImageIcon resizePic(String picPath){
+        
+        ImageIcon myImg = new ImageIcon(picPath);
+        Image img = myImg.getImage().getScaledInstance(labelpictureStaff.getWidth(), labelpictureStaff.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon myPicture = new ImageIcon(img);
+        return myPicture;
+    }
+    private void btnStaffChoosepictureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffChoosepictureMouseClicked
+        JFileChooser fc = new JFileChooser();
+        //fc.showOpenDialog(null);
+        
+        //file extension
+        FileNameExtensionFilter filefilter = new FileNameExtensionFilter("*image","png","jpg","gif","svg");
+        fc.addChoosableFileFilter(filefilter);
+        
+        int fileState  = fc.showSaveDialog(null);
+                
+        if(fileState == JFileChooser.APPROVE_OPTION){
+            
+            File selectedFile = fc.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            imagePath = path;
+            //display the image in the lablepicturestaff
+            //labelpictureStaff.setIcon(new ImageIcon(path));
+            
+            labelpictureStaff.setIcon(resizePic(path));
+        }
+        
+        //if the user cancel
+        else if (fileState == JFileChooser.CANCEL_OPTION){
+            System.out.println("No Image Selected");
+        }
+        //ImageIcon staffpicture = new ImageIcon(f.getAbsolutePath());
+        
+    }//GEN-LAST:event_btnStaffChoosepictureMouseClicked
+
+    private void btnStaffUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffUpdateMouseClicked
+        getroleIDNrefreshtablestaff();
+    }//GEN-LAST:event_btnStaffUpdateMouseClicked
+
+    private void tbStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbStaffMouseClicked
+        try{
+            int i = tbStaff.getSelectedRow();
+            TableModel tm = tbStaff.getModel();
+            txtstaffID.setText(tm.getValueAt(i, 0).toString());
+            String viewqurey  = "select * from tbStaff where id=?";
+            PreparedStatement pst = con.prepareStatement(viewqurey);
+            pst.setString(1, txtstaffID.getText().trim());
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                txtStaffName.setText(rs.getString(2));
+                cboStaffGender.setSelectedItem(rs.getString(3));
+                txtStaffNationlity.setText(rs.getString(4));
+                
+                String str = rs.getString(5);
+                DateFormat formatter = new SimpleDateFormat("dd-MMM-yy");
+                java.util.Date date = formatter.parse(str);
+                java.sql.Date sqldate = new Date(date.getTime());
+                System.out.println("String converted to java.sql.Date :" + sqldate);
+                
+                txtStaffBirthday.setDate(date);
+                
+                txtStaffHiredDate.setDateFormatString(rs.getString(6));
+                txtStaffSalary.setText(rs.getString(7));
+                txtStaffPhone.setText(rs.getString(8));
+                txtStaffAddress.setText(rs.getString(9));
+                
+                                
+                Blob im = rs.getBlob(10);
+                byte[] imbyte  = im.getBytes(1, (int)im.length());
+                InputStream in = new ByteArrayInputStream(imbyte);
+                BufferedImage imgFromDb = ImageIO.read(in);
+                Image scaledImage = imgFromDb.getScaledInstance(labelpictureStaff.getWidth(), labelpictureStaff.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon icon = new ImageIcon(scaledImage);              
+                labelpictureStaff.setIcon(icon);
+                
+                cboStaffroleID.setSelectedItem(rs.getString(11));
+                cboStaffStatus.setSelectedItem(rs.getString(12));
+
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_tbStaffMouseClicked
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2113,16 +2503,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDesktopPane DesktopPane;
     private javax.swing.JButton btnAddNewprojectplandetail;
     private javax.swing.JButton btnAddNewprojectplanlist;
-    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCancel2;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnEdittablestaff;
-    private javax.swing.JButton btnNew;
     private javax.swing.JButton btnProplanlistAddPlanDetail;
     private javax.swing.JButton btnProplanlistAddnew;
     private javax.swing.JButton btnProplanlistEdit;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnStaffCancel;
+    private javax.swing.JButton btnStaffChoosepicture;
+    private javax.swing.JButton btnStaffNew;
+    private javax.swing.JButton btnStaffUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnViewprojectplandetail;
     private javax.swing.JButton btnlogout;
@@ -2131,19 +2521,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnupdateprojectplandetail1;
     private javax.swing.JButton btnupdateprojectplanlist;
     private javax.swing.JButton btnviewProjectplanlist;
-    private javax.swing.JComboBox<String> cboGender;
     private javax.swing.JComboBox cboProplanlistsearch;
     private javax.swing.JComboBox<String> cboSearch;
-    private javax.swing.JComboBox<String> cboStatus;
+    private javax.swing.JComboBox<String> cboStaffGender;
+    private javax.swing.JComboBox<String> cboStaffStatus;
+    private javax.swing.JComboBox<String> cboStaffroleID;
     private javax.swing.JComboBox<String> cboposition;
     private javax.swing.JComboBox cboprojectplanIDFK;
-    private javax.swing.JComboBox<String> cboroleID;
     private javax.swing.JComboBox cbostaffIDFK;
     private javax.swing.JComboBox<String> cbostaffName;
     private javax.swing.JLabel conpassworderror;
     private javax.swing.JLabel homemenulable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -2162,7 +2551,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2175,6 +2563,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -2202,10 +2591,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTable jtbstaff;
     private javax.swing.JLabel labelclient;
     private javax.swing.JLabel labelerrorfinishdate;
     private javax.swing.JLabel labelerrorprojectplan;
@@ -2215,8 +2602,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelerrorstartdate;
     private javax.swing.JLabel labelgidelineofmenustaff;
     private javax.swing.JLabel labelgidelineoftalestaff;
+    private javax.swing.JLabel labelmessagestaff;
+    private javax.swing.JLabel labelpictureStaff;
     private javax.swing.JLabel labelproject;
     private javax.swing.JLabel labelstaff;
+    private javax.swing.JLabel labelstaffNamerequired;
+    private javax.swing.JLabel labelstaffaddrerequired;
+    private javax.swing.JLabel labelstaffbirthrequired;
+    private javax.swing.JLabel labelstaffgenderrequired;
+    private javax.swing.JLabel labelstaffhirdrequired;
+    private javax.swing.JLabel labelstaffidrequired;
+    private javax.swing.JLabel labelstaffnatrequired;
+    private javax.swing.JLabel labelstaffphonerequired;
+    private javax.swing.JLabel labelstaffroleidrequired;
+    private javax.swing.JLabel labelstaffsarequired;
+    private javax.swing.JLabel labelstaffstaturequired;
     private javax.swing.JLabel labelsuppliers;
     private javax.swing.JLabel labeltotalclient;
     private javax.swing.JLabel labeltotalproject;
@@ -2278,16 +2678,19 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel staffnamerror;
     private javax.swing.JLabel sucessfulllable;
     private javax.swing.JTable tbProjectplanlistview;
+    private javax.swing.JTable tbStaff;
     private javax.swing.JTable tblistprojectplan;
     private javax.swing.JTable tbprojectlanlistdetail;
     private javax.swing.JTable tbprojectplanlist;
+    private javax.swing.JTable tbstaffview;
     private javax.swing.JTable tbviewuser;
-    private javax.swing.JTextField txtAddress;
-    private com.toedter.calendar.JDateChooser txtBirthday;
-    private com.toedter.calendar.JDateChooser txtHiredDate;
-    private javax.swing.JTextField txtNationlity;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtSalary;
+    private javax.swing.JTextField txtStaffAddress;
+    private com.toedter.calendar.JDateChooser txtStaffBirthday;
+    private com.toedter.calendar.JDateChooser txtStaffHiredDate;
+    private javax.swing.JTextField txtStaffName;
+    private javax.swing.JTextField txtStaffNationlity;
+    private javax.swing.JTextField txtStaffPhone;
+    private javax.swing.JTextField txtStaffSalary;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtconfirmpassword;
     private com.toedter.calendar.JDateChooser txtfinishdate;

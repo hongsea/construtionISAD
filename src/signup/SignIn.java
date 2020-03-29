@@ -234,6 +234,7 @@ public class SignIn extends javax.swing.JFrame {
         ma.setVisible(true);
         ma.create();
         this.setVisible(false);
+        ma.cbogetstaffname();
         
     }//GEN-LAST:event_btncreatenewuserActionPerformed
 
