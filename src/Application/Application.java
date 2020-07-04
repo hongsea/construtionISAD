@@ -20,9 +20,9 @@ public class Application {
         Connection con = null;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con = DriverManager.getConnection("jdbc:sqlserver://68.183.176.140;databaseName=dev_construction;user=sa;password=Admin2020");
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=dev_construction;user=sa;password=Admin2020");
         } catch (Exception e) {
-           con = offlineconnect.getConnectionoffline();
+           System.out.println(e.getMessage());
         }
         return con;
     }

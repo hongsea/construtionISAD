@@ -16,6 +16,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -27,7 +29,8 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.util.*;
 import javax.imageio.ImageIO;
-import sun.java2d.pipe.BufferedBufImgOps;
+import javax.swing.JTextField;
+//import sun.java2d.pipe.BufferedBufImgOps;
 
 public class Main extends javax.swing.JFrame {
     
@@ -162,7 +165,7 @@ public class Main extends javax.swing.JFrame {
         tbstaffview = new javax.swing.JTable();
         labelgidelineoftalestaff = new javax.swing.JLabel();
         btnopenmenustaffaddnew = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         btnEdittablestaff = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
         menustaff = new javax.swing.JInternalFrame();
@@ -185,11 +188,11 @@ public class Main extends javax.swing.JFrame {
         txtStaffAddress = new javax.swing.JTextField();
         txtStaffBirthday = new com.toedter.calendar.JDateChooser();
         txtStaffHiredDate = new com.toedter.calendar.JDateChooser();
-        cboStaffGender = new javax.swing.JComboBox<String>();
+        cboStaffGender = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         labelpictureStaff = new javax.swing.JLabel();
-        cboStaffStatus = new javax.swing.JComboBox<String>();
+        cboStaffStatus = new javax.swing.JComboBox<>();
         btnStaffNew = new javax.swing.JButton();
         btnStaffUpdate = new javax.swing.JButton();
         btnStaffCancel = new javax.swing.JButton();
@@ -197,7 +200,7 @@ public class Main extends javax.swing.JFrame {
         btnStaffChoosepicture = new javax.swing.JButton();
         labelmessagestaff = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        cboStaffroleID = new javax.swing.JComboBox<String>();
+        cboStaffroleID = new javax.swing.JComboBox<>();
         txtStaffNationlity = new javax.swing.JTextField();
         labelstaffroleidrequired = new javax.swing.JLabel();
         labelstaffNamerequired = new javax.swing.JLabel();
@@ -216,17 +219,17 @@ public class Main extends javax.swing.JFrame {
         panelcreateuser = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        cboSearch = new javax.swing.JComboBox<String>();
+        cboSearch = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbviewuser = new javax.swing.JTable();
         jLabel25 = new javax.swing.JLabel();
         txtuserID = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        cbostaffName = new javax.swing.JComboBox<String>();
+        cbostaffName = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        cboposition = new javax.swing.JComboBox<String>();
+        cboposition = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         txtpassword = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -722,8 +725,8 @@ public class Main extends javax.swing.JFrame {
         );
         panelmenuuserLayout.setVerticalGroup(
             panelmenuuserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-            .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(staffmenulable4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelmenuLayout = new javax.swing.GroupLayout(panelmenu);
@@ -1078,7 +1081,7 @@ public class Main extends javax.swing.JFrame {
         });
         paneltablestaff.add(btnopenmenustaffaddnew, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, 40, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         paneltablestaff.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 880, 30));
 
         btnEdittablestaff.setBackground(new java.awt.Color(0, 153, 153));
@@ -1170,13 +1173,15 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(txtStaffAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 850, 29));
 
         txtStaffBirthday.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffBirthday.setDateFormatString("yyyy-mm-dd");
         panelstaffinfomation.add(txtStaffBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 250, 29));
 
         txtStaffHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffHiredDate.setDateFormatString("yyyy-mm-dd");
         panelstaffinfomation.add(txtStaffHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 250, 29));
 
         cboStaffGender.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cboStaffGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Male", "Female" }));
+        cboStaffGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female" }));
         cboStaffGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboStaffGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 230, 29));
 
@@ -1193,7 +1198,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(labelpictureStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 120, 120));
 
         cboStaffStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cboStaffStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Working", "Stoped" }));
+        cboStaffStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Working", "Stoped" }));
         cboStaffStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboStaffStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 230, 29));
 
@@ -1250,7 +1255,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, -1, 20));
 
         cboStaffroleID.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cboStaffroleID.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboStaffroleID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboStaffroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation.add(cboStaffroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 230, 29));
 
@@ -1352,7 +1357,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 30));
 
         cboSearch.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cboSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cboSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         jPanel1.add(cboSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 30));
 
@@ -1388,7 +1393,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 102, 20));
 
         cbostaffName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cbostaffName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cbostaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cbostaffName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1415,7 +1420,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 102, 20));
 
         cboposition.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        cboposition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "IT", "Manager", "Admin", "Staff" }));
+        cboposition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "IT", "Manager", "Admin", "Staff" }));
         cboposition.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         cboposition.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2111,11 +2116,12 @@ public class Main extends javax.swing.JFrame {
             psu.setString(4, txtpassword.getText().trim());
 
 //            if ( cbostaffName.getSelectedItem().)
-            Statement stat = con.createStatement();
-            String selectquery = "Select * from tbUser where username='" + txtUsername.getText().trim() + "'";
-            ResultSet rs = stat.executeQuery(selectquery);
+//            Statement stat = con.createStatement();
+//            String selectquery = "Select * from tbUser where username='" + txtUsername.getText().trim() + "'";
+//            ResultSet rs = stat.executeQuery(selectquery);
             psu.executeUpdate();
             refreshtable();
+            txtuserID.setText("");
             cbostaffName.setSelectedItem("None");
             txtUsername.setText("");
             cboposition.setSelectedItem("None");
@@ -2371,7 +2377,7 @@ public class Main extends javax.swing.JFrame {
                     labelmessagestaff.setText("Staff Create already.");
                 }
                 else{
-                    String querystaff = "insert into tbStaff(name,gender,nationality,birthday,hired_date,salary,phone,address,photo,roleID,status)values(?,?,?,?,?,?,?,?,?,?,?)";
+                    String querystaff = "insert into tbStaff(name,gender,nationality,birthday,hired_date,salary,phone,address,photo,role_id,status)values(?,?,?,?,?,?,?,?,?,?,?)";
                     PreparedStatement pst = con.prepareStatement(querystaff);
 
                     //pst.setString(1, txtstaffID.getText().toString().trim());
@@ -2379,16 +2385,12 @@ public class Main extends javax.swing.JFrame {
                     pst.setString(2, cboStaffGender.getSelectedItem().toString());
                     pst.setString(3, txtStaffNationlity.getText().trim());
 
-                    SimpleDateFormat dataformat = new SimpleDateFormat("dd-mm-yyyy");
-                    String bdate = dataformat.format(txtStaffBirthday.getDate());
-                    String hdate = dataformat.format(txtStaffHiredDate.getDate());
+                    pst.setString(4,((JTextField)txtStaffBirthday.getDateEditor().getUiComponent()).getText());
+                    pst.setString(5,((JTextField)txtStaffHiredDate.getDateEditor().getUiComponent()).getText());
 
-                    pst.setString(4, bdate.toString());
-                    pst.setString(5, hdate.toString());
-
-                    pst.setString(6, txtStaffSalary.getText().toString().trim());
-                    pst.setString(7, txtStaffPhone.getText().toString().trim());
-                    pst.setString(8, txtStaffAddress.getText().toString().trim());
+                    pst.setString(6, txtStaffSalary.getText().trim());
+                    pst.setString(7, txtStaffPhone.getText().trim());
+                    pst.setString(8, txtStaffAddress.getText().trim());
 
                     InputStream img = new FileInputStream(new File(imagePath));
                     pst.setBlob(9, img);
@@ -2443,7 +2445,35 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStaffChoosepictureMouseClicked
 
     private void btnStaffUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffUpdateMouseClicked
-        getroleIDNrefreshtablestaff();
+  
+        int s = tbStaff.getSelectedRow();
+        try{
+            String value=(tbStaff.getModel().getValueAt(s, 0).toString());
+            String updatestaff = "update tbStaff SET name=?, gender=?, nationality=?, birthday=?, hired_date=?, salary=?, phone=?, address=?, photo=?, role_id=?, status=?  where id="+value;
+            PreparedStatement psf = con.prepareStatement(updatestaff);
+            
+            psf.setString(1, txtStaffName.getText().trim());
+            psf.setString(2, cboStaffGender.getSelectedItem().toString());
+            psf.setString(3, txtStaffNationlity.getText().trim());
+            
+             psf.setString(4,((JTextField)txtStaffBirthday.getDateEditor().getUiComponent()).getText());
+             psf.setString(5,((JTextField)txtStaffHiredDate.getDateEditor().getUiComponent()).getText());
+            
+            psf.setString(6, txtStaffSalary.getText().trim());
+            psf.setString(7, txtStaffPhone.getText().trim());
+            psf.setString(8, txtStaffAddress.getText().trim());
+            
+            InputStream img = new FileInputStream(new File(imagePath));
+            psf.setBlob(9, img);
+            
+            psf.setString(10, cboStaffroleID.getSelectedItem().toString());
+            psf.setString(11, cboStaffStatus.getSelectedItem().toString());
+            psf.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Update sucessfully.");
+            getroleIDNrefreshtablestaff();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_btnStaffUpdateMouseClicked
 
     private void tbStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbStaffMouseClicked
@@ -2461,14 +2491,13 @@ public class Main extends javax.swing.JFrame {
                 txtStaffNationlity.setText(rs.getString(4));
                 
                 String str = rs.getString(5);
-                DateFormat formatter = new SimpleDateFormat("dd-MMM-yy");
-                java.util.Date date = formatter.parse(str);
-                java.sql.Date sqldate = new Date(date.getTime());
-                System.out.println("String converted to java.sql.Date :" + sqldate);
+                String str1 = rs.getString(6);
+                DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+                java.util.Date bdate = formatter.parse(str);
+                java.util.Date hdate = formatter.parse(str1);
                 
-                txtStaffBirthday.setDate(date);
-                
-                txtStaffHiredDate.setDateFormatString(rs.getString(6));
+                txtStaffBirthday.setDate(bdate);
+                txtStaffHiredDate.setDate(hdate);
                 txtStaffSalary.setText(rs.getString(7));
                 txtStaffPhone.setText(rs.getString(8));
                 txtStaffAddress.setText(rs.getString(9));
