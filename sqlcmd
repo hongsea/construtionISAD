@@ -1,0 +1,39 @@
+---create database 
+CREATE DATABASE dev_construction
+go
+
+---create table user
+CREATE TABLE tbUser (id INT PRIMARY KEY IDENTITY (1, 1), staff_name VARCHAR (20), username VARCHAR(20), position VARCHAR (20), password VARCHAR(15));
+go
+
+---create table tbRole
+create table tbRole (id int identity primary key, position varchar(45) not null);
+go
+--- insert to table tbRole
+insert into tbRole(position) values('Manager');
+go
+
+---create table staff
+create table tbStaff (id int identity primary key,  name varchar(30) not null, gender varchar(7) not null, nationality  varchar(20) not null,birthday Date, hired_date Date ,salary decimal ,phone varchar(15) not null, address varchar(45) not null, photo varbinary(MAX),role_id int not null references tbRole(id), status varchar(10));
+go
+
+---create table tbUser
+insert into tbUser(staff_name, username,position,password) VALUES('Heng Hongsea', 'hongsea','Manager', 'admin');
+go
+
+
+---create table tbWorker
+create table tbWorker (id int identity primary key, name varchar(30) not null, gender varchar(7) not null,birthday Date not null, hired_date Date not null,salary decimal not null ,phone varchar(15) not null, address varchar(45) not null, photo varbinary(MAX),role_id int not null references tbRole(id),staff_id int not null references tbStaff(id), status varchar(10));
+go
+
+---create tabole tbPayment
+CREATE TABLE tbPayment (
+id INT PRIMARY KEY IDENTITY (1,1),
+payment_date DATE NOT NULL,
+paid_amount DECIMAL NOT NULL,
+customer_id INT NOT NULL,
+FOREIGN KEY (customer_id) REFERENCES tbCustomer(id),
+staff_id INT NOT NULL,
+FOREIGN KEY (staff_id) REFERENCES tbStaff (id),
+);
+go
