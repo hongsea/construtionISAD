@@ -145,6 +145,9 @@ public class Main extends javax.swing.JFrame {
         panelmenuuser = new javax.swing.JPanel();
         panelclicked6 = new javax.swing.JPanel();
         staffmenulable4 = new javax.swing.JLabel();
+        panelmenprojectplanlist1 = new javax.swing.JPanel();
+        panelclicked9 = new javax.swing.JPanel();
+        staffmenulable7 = new javax.swing.JLabel();
         DesktopPane = new javax.swing.JDesktopPane();
         menuuser = new javax.swing.JInternalFrame();
         panelcreateuser = new javax.swing.JPanel();
@@ -305,6 +308,7 @@ public class Main extends javax.swing.JFrame {
         labelworkerstaturequired = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         cboworkercreatebystaff = new javax.swing.JComboBox<>();
+        menucustomer = new javax.swing.JInternalFrame();
         menupayment = new javax.swing.JInternalFrame();
         panelstaffmenu2 = new javax.swing.JPanel();
         labelgidelineofmenuPayment = new javax.swing.JLabel();
@@ -482,7 +486,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tbProjectplanlistview = new javax.swing.JTable();
         jLabel35 = new javax.swing.JLabel();
-        menuprojectplanlist = new javax.swing.JInternalFrame();
+        menuprojectplanlist1111 = new javax.swing.JInternalFrame();
         panelprojectplanlist = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -526,14 +530,7 @@ public class Main extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        paneladdprojectplandetail = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         menuaddprojectplandetail = new javax.swing.JInternalFrame();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -722,11 +719,11 @@ public class Main extends javax.swing.JFrame {
         panelmencutomer.setBackground(new java.awt.Color(0, 204, 204));
         panelmencutomer.setPreferredSize(new java.awt.Dimension(155, 50));
         panelmencutomer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmencutomerMousePressed(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelmencutomerMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmencutomerMousePressed(evt);
             }
         });
 
@@ -863,11 +860,11 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanlist.setBackground(new java.awt.Color(0, 204, 204));
         panelmenprojectplanlist.setPreferredSize(new java.awt.Dimension(155, 50));
         panelmenprojectplanlist.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenprojectplanlistMousePressed(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelmenprojectplanlistMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanlistMousePressed(evt);
             }
         });
 
@@ -888,7 +885,7 @@ public class Main extends javax.swing.JFrame {
         staffmenulable6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         staffmenulable6.setForeground(new java.awt.Color(0, 102, 255));
         staffmenulable6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
-        staffmenulable6.setText("   PROJECT PLAN LIST");
+        staffmenulable6.setText("   PROJECT PLAN");
         staffmenulable6.setPreferredSize(new java.awt.Dimension(94, 26));
 
         javax.swing.GroupLayout panelmenprojectplanlistLayout = new javax.swing.GroupLayout(panelmenprojectplanlist);
@@ -956,14 +953,57 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
+        panelmenprojectplanlist1.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenprojectplanlist1.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenprojectplanlist1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanlist1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanlist1MousePressed(evt);
+            }
+        });
+
+        panelclicked9.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked9.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked9Layout = new javax.swing.GroupLayout(panelclicked9);
+        panelclicked9.setLayout(panelclicked9Layout);
+        panelclicked9Layout.setHorizontalGroup(
+            panelclicked9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked9Layout.setVerticalGroup(
+            panelclicked9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable7.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable7.setText("   PROJECT PLAN LIST");
+        staffmenulable7.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenprojectplanlist1Layout = new javax.swing.GroupLayout(panelmenprojectplanlist1);
+        panelmenprojectplanlist1.setLayout(panelmenprojectplanlist1Layout);
+        panelmenprojectplanlist1Layout.setHorizontalGroup(
+            panelmenprojectplanlist1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenprojectplanlist1Layout.createSequentialGroup()
+                .addComponent(panelclicked9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelmenprojectplanlist1Layout.setVerticalGroup(
+            panelmenprojectplanlist1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelmenuLayout = new javax.swing.GroupLayout(panelmenu);
         panelmenu.setLayout(panelmenuLayout);
         panelmenuLayout.setHorizontalGroup(
             panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lablewelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelmenuLayout.createSequentialGroup()
                 .addGroup(panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelmenustaff, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
@@ -973,8 +1013,13 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(panelmenuuser, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                     .addComponent(panelmenuprojectplan, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                     .addComponent(panelmenprojectplanlist, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                    .addComponent(panelmenprojectplanlist1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                     .addGroup(panelmenuLayout.createSequentialGroup()
-                        .addComponent(panelmenuhome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelmenuhome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelmenuLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lablewelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -997,7 +1042,9 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelmenuprojectplan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelmenprojectplanlist, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenprojectplanlist1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addComponent(panelmenuuser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(181, 181, 181))
         );
@@ -2050,6 +2097,21 @@ public class Main extends javax.swing.JFrame {
 
         DesktopPane.add(menuworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
+        menucustomer.setVisible(true);
+
+        javax.swing.GroupLayout menucustomerLayout = new javax.swing.GroupLayout(menucustomer.getContentPane());
+        menucustomer.getContentPane().setLayout(menucustomerLayout);
+        menucustomerLayout.setHorizontalGroup(
+            menucustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1034, Short.MAX_VALUE)
+        );
+        menucustomerLayout.setVerticalGroup(
+            menucustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 708, Short.MAX_VALUE)
+        );
+
+        DesktopPane.add(menucustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
         menupayment.setVisible(false);
         menupayment.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -3015,8 +3077,8 @@ public class Main extends javax.swing.JFrame {
 
         DesktopPane.add(menutableprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
-        menuprojectplanlist.setVisible(false);
-        menuprojectplanlist.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        menuprojectplanlist1111.setVisible(false);
+        menuprojectplanlist1111.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelprojectplanlist.setBackground(new java.awt.Color(255, 255, 255));
         panelprojectplanlist.setPreferredSize(new java.awt.Dimension(1050, 740));
@@ -3129,9 +3191,9 @@ public class Main extends javax.swing.JFrame {
 
         panelprojectplanlist.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 1010, 650));
 
-        menuprojectplanlist.getContentPane().add(panelprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
+        menuprojectplanlist1111.getContentPane().add(panelprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
 
-        DesktopPane.add(menuprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+        DesktopPane.add(menuprojectplanlist1111, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         menutableprojectplanlistdetail.setVisible(false);
         menutableprojectplanlistdetail.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3223,25 +3285,6 @@ public class Main extends javax.swing.JFrame {
 
         DesktopPane.add(menutableprojectplanlistdetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
-        paneladdprojectplandetail.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel39.setText("Add Plan Detail");
-        paneladdprojectplandetail.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 20));
-
-        jTextField1.setText("jTextField1");
-        paneladdprojectplandetail.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 450, 30));
-
-        jButton1.setText("Cancel");
-        paneladdprojectplandetail.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 90, -1));
-
-        jButton3.setText("Update");
-        paneladdprojectplandetail.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 90, -1));
-
-        jButton4.setText("Add");
-        paneladdprojectplandetail.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, -1));
-
-        DesktopPane.add(paneladdprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, -1));
-
         menuaddprojectplandetail.setVisible(false);
 
         javax.swing.GroupLayout menuaddprojectplandetailLayout = new javax.swing.GroupLayout(menuaddprojectplandetail.getContentPane());
@@ -3256,21 +3299,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         DesktopPane.add(menuaddprojectplandetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
-
-        jInternalFrame1.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
-        );
-
-        DesktopPane.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         getContentPane().add(DesktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 1040, 700));
 
@@ -3291,12 +3319,19 @@ public class Main extends javax.swing.JFrame {
 
     private void panelmenuhomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMouseClicked
         
-        menustaff.setVisible(false);
-        menutablestaff.setVisible(false);
-        menuuser.setVisible(false);
-        menuworker.setVisible(false);
-        menutableprojectplanlist.setVisible(false);
         menuhome.setVisible(true);
+        menutablestaff.setVisible(false);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
+        menuworker.setVisible(false);
+        menupayment.setVisible(false);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
+        
         
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("HOME");
@@ -3305,12 +3340,17 @@ public class Main extends javax.swing.JFrame {
     private void panelmenustaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMouseClicked
 
         menuhome.setVisible(false);
-        menutablestaff.setVisible(false);
-        menuuser.setVisible(false);
-        menuworker.setVisible(false);
-        menutableprojectplanlist.setVisible(false);
-        menustaff.setVisible(false);
         menutablestaff.setVisible(true);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
+        menuworker.setVisible(false);
+        menupayment.setVisible(false);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
         
         showlableonclickedmenu.setText("");
         labelgidelineoftalestaff.setText("EMPLOYEE / STAFF / VIEW");
@@ -3345,11 +3385,18 @@ public class Main extends javax.swing.JFrame {
     private void panelmenworkerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMouseClicked
         
         menuhome.setVisible(false);
-        menustaff.setVisible(false);
         menutablestaff.setVisible(false);
-        menuuser.setVisible(false);
-        menutableprojectplanlist.setVisible(false);
+        menustaff.setVisible(false);
         menutableworker.setVisible(true);
+        menuworker.setVisible(false);
+        menupayment.setVisible(false);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
+        
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("WORKER");
         
@@ -3371,7 +3418,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_panelmencutomerMousePressed
 
     private void panelmencutomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmencutomerMouseClicked
-        // TODO add your handling code here:
+        menuhome.setVisible(false);
+        menutablestaff.setVisible(false);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
+        menuworker.setVisible(false);
+        menupayment.setVisible(false);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
     }//GEN-LAST:event_panelmencutomerMouseClicked
 
     private void panelmensupplierMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmensupplierMousePressed
@@ -3386,7 +3444,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_panelmensupplierMousePressed
 
     private void panelmensupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmensupplierMouseClicked
+        menuhome.setVisible(true);
+        menutablestaff.setVisible(false);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
+        menuworker.setVisible(false);
         menupayment.setVisible(true);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
     }//GEN-LAST:event_panelmensupplierMouseClicked
 
     private void tbviewuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbviewuserMouseClicked
@@ -3599,14 +3668,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_panelmenuprojectplanMousePressed
 
     private void panelmenuprojectplanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuprojectplanMouseClicked
-        
-        menuhome.setVisible(false);
-        menustaff.setVisible(false);
+        menuhome.setVisible(true);
         menutablestaff.setVisible(false);
-        menuuser.setVisible(false);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menutableprojectplanlist.setVisible(false);
+        menupayment.setVisible(false);
         menuinvoice.setVisible(true);
+        menuprojectplan.setVisible(false);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
     }//GEN-LAST:event_panelmenuprojectplanMouseClicked
 
     private void panelmenprojectplanlistMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlistMousePressed
@@ -3623,21 +3696,27 @@ public class Main extends javax.swing.JFrame {
     private void panelmenprojectplanlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlistMouseClicked
 
         menuhome.setVisible(false);
-        menustaff.setVisible(false);
         menutablestaff.setVisible(false);
-        menuuser.setVisible(false);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menutableprojectplanlist.setVisible(true);
+        menupayment.setVisible(false);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(true);
+        menutableprojectplanlist.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(false);
     }//GEN-LAST:event_panelmenprojectplanlistMouseClicked
 
     private void btnviewProjectplanlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewProjectplanlistMouseClicked
-        menuprojectplanlist.setVisible(false);    
+        menuprojectplanlist1111.setVisible(false);    
         menutableprojectplanlist.setVisible(true);  
     }//GEN-LAST:event_btnviewProjectplanlistMouseClicked
 
     private void btnProplanlistAddnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProplanlistAddnewMouseClicked
         menutableprojectplanlist.setVisible(false);
-        menuprojectplanlist.setVisible(true);
+        menuprojectplanlist1111.setVisible(true);
     }//GEN-LAST:event_btnProplanlistAddnewMouseClicked
 
     private void btnProplanlistAddPlanDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProplanlistAddPlanDetailMouseClicked
@@ -3651,7 +3730,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewprojectplandetailMouseClicked
 
     private void btnAddNewprojectplandetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewprojectplandetailMouseClicked
-        paneladdprojectplandetail.setVisible(true);
     }//GEN-LAST:event_btnAddNewprojectplandetailMouseClicked
 
     public void getroleIDNrefreshtablestaff(){
@@ -4312,6 +4390,24 @@ public class Main extends javax.swing.JFrame {
     private void btnInvoiceCancel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvoiceCancel4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInvoiceCancel4MouseClicked
+
+    private void panelmenprojectplanlist1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlist1MouseClicked
+        menuhome.setVisible(false);
+        menutablestaff.setVisible(false);
+        menustaff.setVisible(false);
+        menutableworker.setVisible(false);
+        menuworker.setVisible(false);
+        menupayment.setVisible(false);
+        menuinvoice.setVisible(false);
+        menuprojectplan.setVisible(false);
+        menuuser.setVisible(false);
+        menutableprojectplanlistdetail.setVisible(false);
+        menuprojectplanList.setVisible(true);
+    }//GEN-LAST:event_panelmenprojectplanlist1MouseClicked
+
+    private void panelmenprojectplanlist1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlist1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmenprojectplanlist1MousePressed
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -4391,13 +4487,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboworkerroleID;
     private javax.swing.JLabel conpassworderror;
     private javax.swing.JLabel homemenulable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4430,7 +4522,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
@@ -4514,7 +4605,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel labelclient;
     private javax.swing.JLabel labelerrorfinishdate;
@@ -4604,12 +4694,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lableshownamelogin;
     private javax.swing.JLabel lablewelcome;
     private javax.swing.JInternalFrame menuaddprojectplandetail;
+    private javax.swing.JInternalFrame menucustomer;
     private javax.swing.JInternalFrame menuhome;
     private javax.swing.JInternalFrame menuinvoice;
     private javax.swing.JInternalFrame menupayment;
     private javax.swing.JInternalFrame menuprojectplan;
     private javax.swing.JInternalFrame menuprojectplanList;
-    private javax.swing.JInternalFrame menuprojectplanlist;
+    private javax.swing.JInternalFrame menuprojectplanlist1111;
     private javax.swing.JInternalFrame menustaff;
     private javax.swing.JInternalFrame menutableprojectplanlist;
     private javax.swing.JInternalFrame menutableprojectplanlistdetail;
@@ -4617,7 +4708,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JInternalFrame menutableworker;
     private javax.swing.JInternalFrame menuuser;
     private javax.swing.JInternalFrame menuworker;
-    private javax.swing.JPanel paneladdprojectplandetail;
     private javax.swing.JPanel panelbar;
     private javax.swing.JPanel panelclicked1;
     private javax.swing.JPanel panelclicked2;
@@ -4627,11 +4717,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelclicked6;
     private javax.swing.JPanel panelclicked7;
     private javax.swing.JPanel panelclicked8;
+    private javax.swing.JPanel panelclicked9;
     private javax.swing.JPanel panelcreateuser;
     private javax.swing.JPanel panelcustomer;
     private javax.swing.JPanel panelhome;
     private javax.swing.JPanel panelmencutomer;
     private javax.swing.JPanel panelmenprojectplanlist;
+    private javax.swing.JPanel panelmenprojectplanlist1;
     private javax.swing.JPanel panelmensupplier;
     private javax.swing.JPanel panelmenu;
     private javax.swing.JPanel panelmenuhome;
@@ -4669,6 +4761,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel staffmenulable4;
     private javax.swing.JLabel staffmenulable5;
     private javax.swing.JLabel staffmenulable6;
+    private javax.swing.JLabel staffmenulable7;
     private javax.swing.JLabel staffnamerror;
     private javax.swing.JLabel sucessfulllable;
     private javax.swing.JTable tbInvoice;
