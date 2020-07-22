@@ -9,6 +9,7 @@ import Application.Application;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -23,8 +24,18 @@ public class Customer {
 
     Connection con = Application.getConnection();
 
+    public void clear(JTextField id,JTextField name , String gender, JTextField phone, JTextField address, JComboBox staff_id){
+        id.setText("");
+        name.setText("");
+        gender="";
+        phone.setText("");
+        address.setText("");
+        
+        staff_id.removeAllItems();
+        staff_id.addItem("select");
+        staff_id.setSelectedItem("select");
+    }
     public void getCustomer(JTable tableName) {
-
         try {
 
             String customerQuery = "select * from tbCustomer";
@@ -41,7 +52,7 @@ public class Customer {
             model.addColumn("Address");
 
             while (rst.next()) {
-                model.addRow(new Object[]{rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4)});
+                model.addRow(new Object[]{rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5)});
             }
 
         } catch (Exception ex) {
@@ -49,15 +60,16 @@ public class Customer {
         }
     }
 
-    public void create(JTextField name , String gender, JTextField phone, JTextField address, JLabel labelName, JTable tableName) {
+    public void create(JTextField name , String gender, JTextField phone, JTextField address, int staffID, JLabel labelName, JTable tableName) {
         try {
-            String customer = "insert into tbCustomer(name , gender, phone , address)values(?,?,?,?)";
+            String customer = "insert into tbCustomer(name , gender, phone , address,staff_id)values(?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(customer);
 
             pst.setString(1, name.getText().trim()); 
             pst.setString(2, gender.trim()); 
             pst.setString(3, phone.getText().trim()); 
-            pst.setString(4, address.getText().trim()); 
+            pst.setString(4, address.getText().trim());
+            pst.setInt(5, staffID);
             
             pst.executeUpdate();
             getCustomer(tableName);

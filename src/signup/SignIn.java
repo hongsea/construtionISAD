@@ -186,10 +186,10 @@ public class SignIn extends javax.swing.JFrame {
     }
     private void btnsigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsigninActionPerformed
         try{
-            String sql = "Select * from tbUser where username=? and password = ?";
+            String sql = "Select * from tbUser where username=? and password =?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, username.getText().trim());
-            String user = username.getText().trim().toString();
+            String user = username.getText().trim();
             //pst.setString(2, password.getText().trim());
             pst.setString(2,String.valueOf(jPasswordField1.getPassword()));
             

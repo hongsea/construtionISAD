@@ -10,6 +10,7 @@ import Controller.ConstractionEquiment;
 import Controller.Customer;
 import Controller.Import;
 import Controller.ProjectInforamtion;
+import Controller.Staff;
 import Controller.Supplier;
 import Controller.Usage;
 import java.awt.Image;
@@ -826,6 +827,8 @@ public class Main extends javax.swing.JFrame {
         jLabel129 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         jLabel130 = new javax.swing.JLabel();
+        cboCustomer_CreatebyStaff = new javax.swing.JComboBox<>();
+        jLabel132 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnworkerNew2 = new javax.swing.JButton();
         jScrollPane23 = new javax.swing.JScrollPane();
@@ -4642,8 +4645,8 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation7.add(txtCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 29));
 
         jLabel103.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel103.setText("Customer Name");
-        panelstaffinfomation7.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 150, 20));
+        jLabel103.setText("Create By Staff");
+        panelstaffinfomation7.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 150, 20));
 
         jLabel104.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel104.setText("Address");
@@ -4721,6 +4724,14 @@ public class Main extends javax.swing.JFrame {
         jLabel130.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel130.setText("Phone");
         panelstaffinfomation7.add(jLabel130, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, 20));
+
+        cboCustomer_CreatebyStaff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
+        cboCustomer_CreatebyStaff.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation7.add(cboCustomer_CreatebyStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 250, 30));
+
+        jLabel132.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel132.setText("Customer Name");
+        panelstaffinfomation7.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 150, 20));
 
         btnworkerNew2.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerNew2.setForeground(new java.awt.Color(255, 255, 255));
@@ -7152,7 +7163,13 @@ public class Main extends javax.swing.JFrame {
     private void menuCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCustomerMouseClicked
 
         showList(customer_list);
-
+        
+//        Staff st = new Staff();
+//        for (String stafflist : st.getAllStaff()){
+//            cboCustomer_CreatebyStaff.addItem(stafflist);
+//        }
+        
+        
         //list customer
         Customer customer = new Customer();
         customer.getCustomer(tbCustomer);
@@ -7353,6 +7370,16 @@ public class Main extends javax.swing.JFrame {
         projectInformation.getProjectInformation(tbProjectInformation);
 
         bracCustomerForm.setText("CUSTOMER / NEW");
+        
+        customer.clear(txtCode, txtName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
+        
+        Staff st = new Staff();
+        for (String stafflist : st.getAllStaff()){
+            cboCustomer_CreatebyStaff.addItem(stafflist);
+        }
+        
+        
+//        customer.clear(txtCode, txtName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
     }//GEN-LAST:event_btnCustomerMouseClicked
 
     private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
@@ -7369,9 +7396,12 @@ public class Main extends javax.swing.JFrame {
 
     private void btnCustomerNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerNewActionPerformed
         // TODO add your handling code here:
-
+        int staffID=0;
         Customer customer = new Customer();
-        customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress, lbMessageCustomer,tbCustomer_form);
+        Staff st = new Staff();
+        staffID = st.getStaffID_ByName(cboCustomer_CreatebyStaff);
+        customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress,staffID, lbMessageCustomer,tbCustomer_form);
+        customer.clear(txtCode, txtName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
     }//GEN-LAST:event_btnCustomerNewActionPerformed
 
     private void btnworkerUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate1MouseClicked
@@ -7478,6 +7508,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerUpdate2;
     private javax.swing.JButton btnworkerUpdate4;
     private javax.swing.JButton btnworkerUpdate5;
+    private javax.swing.JComboBox<String> cboCustomer_CreatebyStaff;
     private javax.swing.JComboBox<String> cboInvoicePaymentID;
     private javax.swing.JComboBox<String> cboInvoicestaffrName;
     private javax.swing.JComboBox<String> cboPaymentCreatebystaff;
@@ -7556,6 +7587,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
