@@ -7151,7 +7151,7 @@ public class Main extends javax.swing.JFrame {
 
     private void menuCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCustomerMouseClicked
 
-//        showList(customer_list);
+        showList(customer_list);
 
         //list customer
         Customer customer = new Customer();
