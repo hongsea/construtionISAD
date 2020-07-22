@@ -227,6 +227,9 @@ public class Main extends javax.swing.JFrame {
         panelclicked10 = new javax.swing.JPanel();
         staffmenulable10 = new javax.swing.JLabel();
         lablewelcome = new javax.swing.JLabel();
+        menuCustomer = new javax.swing.JPanel();
+        panelclicked4 = new javax.swing.JPanel();
+        staffmenulable2 = new javax.swing.JLabel();
         DesktopPane = new javax.swing.JDesktopPane();
         menuuser = new javax.swing.JInternalFrame();
         panelcreateuser = new javax.swing.JPanel();
@@ -1171,6 +1174,55 @@ public class Main extends javax.swing.JFrame {
         lablewelcome.setText("                   WELCOME");
         lablewelcome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         panelmenu.add(lablewelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 238, 40));
+
+        menuCustomer.setBackground(new java.awt.Color(0, 204, 204));
+        menuCustomer.setPreferredSize(new java.awt.Dimension(155, 50));
+        menuCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuCustomerMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuCustomerMousePressed(evt);
+            }
+        });
+
+        panelclicked4.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked4.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked4Layout = new javax.swing.GroupLayout(panelclicked4);
+        panelclicked4.setLayout(panelclicked4Layout);
+        panelclicked4Layout.setHorizontalGroup(
+            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked4Layout.setVerticalGroup(
+            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable2.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
+        staffmenulable2.setText("   CUSTOMERS");
+        staffmenulable2.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout menuCustomerLayout = new javax.swing.GroupLayout(menuCustomer);
+        menuCustomer.setLayout(menuCustomerLayout);
+        menuCustomerLayout.setHorizontalGroup(
+            menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuCustomerLayout.createSequentialGroup()
+                .addComponent(panelclicked4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        menuCustomerLayout.setVerticalGroup(
+            menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(menuCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 260, 30));
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
 
@@ -5877,6 +5929,23 @@ public class Main extends javax.swing.JFrame {
     private void btnEdittablestaff4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEdittablestaff4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEdittablestaff4MouseClicked
+
+    private void menuCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCustomerMouseClicked
+
+        showList(customer_list);
+
+        //list customer
+        Customer customer = new Customer();
+        customer.getCustomer(tbCustomer);
+
+        lbBracCustomerList.setText("CUSTOMER / LIST ");
+
+    }//GEN-LAST:event_menuCustomerMouseClicked
+
+    private void menuCustomerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCustomerMousePressed
+
+        setHideAllMenus(panelclicked4);
+    }//GEN-LAST:event_menuCustomerMousePressed
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -6181,6 +6250,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lableshownamelogin;
     private javax.swing.JLabel lablewelcome;
     private javax.swing.JLabel lbBracImportList;
+    private javax.swing.JPanel menuCustomer;
     private javax.swing.JInternalFrame menucustomer;
     private javax.swing.JInternalFrame menuhome;
     private javax.swing.JInternalFrame menuinvoice;
@@ -6197,6 +6267,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelCustomer3;
     private javax.swing.JPanel panelbar;
     private javax.swing.JPanel panelclicked10;
+    private javax.swing.JPanel panelclicked4;
     private javax.swing.JPanel panelclickedhome;
     private javax.swing.JPanel panelclickedinvoice;
     private javax.swing.JPanel panelclickedpayment;
@@ -6247,6 +6318,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel staffmenulable;
     private javax.swing.JLabel staffmenulable1;
     private javax.swing.JLabel staffmenulable10;
+    private javax.swing.JLabel staffmenulable2;
     private javax.swing.JLabel staffmenulable3;
     private javax.swing.JLabel staffmenulable4;
     private javax.swing.JLabel staffmenulable5;
