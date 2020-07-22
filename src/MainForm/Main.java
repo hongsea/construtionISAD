@@ -53,7 +53,6 @@ public class Main extends javax.swing.JFrame {
         
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
@@ -160,7 +159,6 @@ public class Main extends javax.swing.JFrame {
         panelmenuhome.setVisible(false);
         panelmenustaff.setVisible(false);
         panelmenworker.setVisible(false);
-        panelmencutomer.setVisible(false);
         panelmenpayment.setVisible(false);
         panelmenuinvoice.setVisible(false);
         panelmenprojectplan.setVisible(false);
@@ -172,7 +170,6 @@ public class Main extends javax.swing.JFrame {
         panelmenuhome.setVisible(false);
         panelmenustaff.setVisible(false);
         panelmenworker.setVisible(false);
-        panelmencutomer.setVisible(false);
         panelmenpayment.setVisible(false);
         lableshownamelogin.setVisible(false);
         btnlogout.setVisible(false);
@@ -3539,7 +3536,6 @@ public class Main extends javax.swing.JFrame {
     
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
@@ -3596,7 +3592,6 @@ public class Main extends javax.swing.JFrame {
     private void panelmenustaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMousePressed
         panelclickedhome.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
@@ -3608,7 +3603,6 @@ public class Main extends javax.swing.JFrame {
     private void panelmenworkerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMousePressed
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
@@ -3647,7 +3641,6 @@ public class Main extends javax.swing.JFrame {
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
         panelclickedprojectplanlist.setBackground(paneldefault);
@@ -3878,7 +3871,6 @@ public class Main extends javax.swing.JFrame {
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
         panelclickedprojectplanlist.setBackground(paneldefault);
@@ -3911,7 +3903,6 @@ public class Main extends javax.swing.JFrame {
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplanlist.setBackground(paneldefault);
@@ -5692,7 +5683,6 @@ public class Main extends javax.swing.JFrame {
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
@@ -5764,7 +5754,6 @@ public class Main extends javax.swing.JFrame {
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
         panelclickedworker.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(paneldefault);
         panelclickedpayment.setBackground(paneldefault);
         panelclickedinvoice.setBackground(paneldefault);
         panelclickedprojectplan.setBackground(paneldefault);
