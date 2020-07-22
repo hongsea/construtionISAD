@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.TableModel;
 import Application.Application;
+import Controller.Import;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -201,7 +202,6 @@ public class Main extends javax.swing.JFrame {
         panelmenustaff = new javax.swing.JPanel();
         panelclickedstaff = new javax.swing.JPanel();
         staffmenulable = new javax.swing.JLabel();
-        lablewelcome = new javax.swing.JLabel();
         panelmenworker = new javax.swing.JPanel();
         panelclickedworker = new javax.swing.JPanel();
         staffmenulable1 = new javax.swing.JLabel();
@@ -229,6 +229,10 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanview = new javax.swing.JPanel();
         panelclickedprojectplanview = new javax.swing.JPanel();
         staffmenulable8 = new javax.swing.JLabel();
+        panelmenImport = new javax.swing.JPanel();
+        panelclicked10 = new javax.swing.JPanel();
+        staffmenulable10 = new javax.swing.JLabel();
+        lablewelcome = new javax.swing.JLabel();
         DesktopPane = new javax.swing.JDesktopPane();
         menuuser = new javax.swing.JInternalFrame();
         panelcreateuser = new javax.swing.JPanel();
@@ -591,6 +595,48 @@ public class Main extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tbProjectplanlistview = new javax.swing.JTable();
         jLabel35 = new javax.swing.JLabel();
+        import_form = new javax.swing.JInternalFrame();
+        panelstaffmenu9 = new javax.swing.JPanel();
+        bracImportForm = new javax.swing.JLabel();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        tbImport_form = new javax.swing.JTable();
+        panelstaffinfomation10 = new javax.swing.JPanel();
+        jLabel111 = new javax.swing.JLabel();
+        jLabel112 = new javax.swing.JLabel();
+        btnworkerNew5 = new javax.swing.JButton();
+        btnworkerUpdate4 = new javax.swing.JButton();
+        btnworkerCancel4 = new javax.swing.JButton();
+        jLabel113 = new javax.swing.JLabel();
+        labelmessageworker9 = new javax.swing.JLabel();
+        labelworkerroleidrequired9 = new javax.swing.JLabel();
+        labelworkergenderrequired4 = new javax.swing.JLabel();
+        labelworkerbirthrequired4 = new javax.swing.JLabel();
+        labelworkersaryequired4 = new javax.swing.JLabel();
+        labelworkerphonerequired4 = new javax.swing.JLabel();
+        labelworkeraddrerequired4 = new javax.swing.JLabel();
+        labelworkerstaturequired4 = new javax.swing.JLabel();
+        txtCustomerId5 = new javax.swing.JTextField();
+        txtCustomerId6 = new javax.swing.JTextField();
+        jLabel114 = new javax.swing.JLabel();
+        txtCustomerId7 = new javax.swing.JTextField();
+        jLabel115 = new javax.swing.JLabel();
+        txtCustomerId8 = new javax.swing.JTextField();
+        jLabel116 = new javax.swing.JLabel();
+        txtCustomerId9 = new javax.swing.JTextField();
+        jLabel117 = new javax.swing.JLabel();
+        txtCustomerId10 = new javax.swing.JTextField();
+        jLabel118 = new javax.swing.JLabel();
+        txtCustomerId11 = new javax.swing.JTextField();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        import_list = new javax.swing.JInternalFrame();
+        panelCustomer3 = new javax.swing.JPanel();
+        jScrollImport = new javax.swing.JScrollPane();
+        tbImport = new javax.swing.JTable();
+        lbBracImportList = new javax.swing.JLabel();
+        btnImport = new javax.swing.JButton();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        btnEdittablestaff4 = new javax.swing.JButton();
+        jLabel107 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -678,12 +724,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         panelmenu.add(panelmenustaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 117, 260, 30));
-
-        lablewelcome.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        lablewelcome.setForeground(new java.awt.Color(255, 255, 255));
-        lablewelcome.setText("                   WELCOME");
-        lablewelcome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        panelmenu.add(lablewelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 238, 40));
 
         panelmenworker.setBackground(new java.awt.Color(0, 204, 204));
         panelmenworker.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1132,6 +1172,61 @@ public class Main extends javax.swing.JFrame {
 
         panelmenu.add(panelmenprojectplanview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 260, 30));
 
+        panelmenImport.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenImport.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenImport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenImportMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenImportMousePressed(evt);
+            }
+        });
+
+        panelclicked10.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked10.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked10Layout = new javax.swing.GroupLayout(panelclicked10);
+        panelclicked10.setLayout(panelclicked10Layout);
+        panelclicked10Layout.setHorizontalGroup(
+            panelclicked10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked10Layout.setVerticalGroup(
+            panelclicked10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        staffmenulable10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable10.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable10.setText("   Import");
+        staffmenulable10.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenImportLayout = new javax.swing.GroupLayout(panelmenImport);
+        panelmenImport.setLayout(panelmenImportLayout);
+        panelmenImportLayout.setHorizontalGroup(
+            panelmenImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenImportLayout.createSequentialGroup()
+                .addComponent(panelclicked10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
+        panelmenImportLayout.setVerticalGroup(
+            panelmenImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelclicked10, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(staffmenulable10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(panelmenImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 260, 30));
+
+        lablewelcome.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lablewelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lablewelcome.setText("                   WELCOME");
+        lablewelcome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        panelmenu.add(lablewelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 238, 40));
+
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
 
         DesktopPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1483,7 +1578,7 @@ public class Main extends javax.swing.JFrame {
             panelsuppliersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelsuppliersLayout.createSequentialGroup()
                 .addComponent(labelsuppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(labeltotalpayment, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2176,7 +2271,7 @@ public class Main extends javax.swing.JFrame {
         );
         menucustomerLayout.setVerticalGroup(
             menucustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 710, Short.MAX_VALUE)
         );
 
         DesktopPane.add(menucustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
@@ -3260,6 +3355,231 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview1.getContentPane().add(paneltableprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1050, 760));
 
         DesktopPane.add(menutableprojectview1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        import_form.setVisible(false);
+        import_form.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelstaffmenu9.setBackground(new java.awt.Color(255, 255, 255));
+
+        bracImportForm.setAlignmentX(0.5F);
+        bracImportForm.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 153, 153)));
+
+        tbImport_form.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tbImport_form.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbImport_formMouseClicked(evt);
+            }
+        });
+        jScrollPane24.setViewportView(tbImport_form);
+
+        panelstaffinfomation10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel111.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel111.setText("Custraction Equipment Name");
+        panelstaffinfomation10.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 220, 20));
+
+        jLabel112.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel112.setText("Supplier id");
+        panelstaffinfomation10.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 20));
+
+        btnworkerNew5.setBackground(new java.awt.Color(0, 153, 153));
+        btnworkerNew5.setForeground(new java.awt.Color(255, 255, 255));
+        btnworkerNew5.setText("New");
+        btnworkerNew5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnworkerNew5MouseClicked(evt);
+            }
+        });
+        panelstaffinfomation10.add(btnworkerNew5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 90, 30));
+
+        btnworkerUpdate4.setBackground(new java.awt.Color(0, 153, 153));
+        btnworkerUpdate4.setForeground(new java.awt.Color(255, 255, 255));
+        btnworkerUpdate4.setText("Update");
+        btnworkerUpdate4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnworkerUpdate4MouseClicked(evt);
+            }
+        });
+        panelstaffinfomation10.add(btnworkerUpdate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 90, 30));
+
+        btnworkerCancel4.setBackground(new java.awt.Color(0, 153, 153));
+        btnworkerCancel4.setForeground(new java.awt.Color(255, 255, 255));
+        btnworkerCancel4.setText("Cancel");
+        btnworkerCancel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnworkerCancel4MouseClicked(evt);
+            }
+        });
+        panelstaffinfomation10.add(btnworkerCancel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 310, 90, 30));
+
+        jLabel113.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel113.setText("Staff ID");
+        panelstaffinfomation10.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
+
+        labelmessageworker9.setForeground(new java.awt.Color(0, 255, 51));
+        panelstaffinfomation10.add(labelmessageworker9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 210, 20));
+
+        labelworkerroleidrequired9.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkerroleidrequired9.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkerroleidrequired9, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 230, 20));
+
+        labelworkergenderrequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkergenderrequired4.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkergenderrequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 230, 20));
+
+        labelworkerbirthrequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkerbirthrequired4.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkerbirthrequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 190, 20));
+
+        labelworkersaryequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkersaryequired4.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkersaryequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 250, 20));
+
+        labelworkerphonerequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkerphonerequired4.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkerphonerequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 250, 20));
+
+        labelworkeraddrerequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkeraddrerequired4.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkeraddrerequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 190, 20));
+
+        labelworkerstaturequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        labelworkerstaturequired4.setForeground(new java.awt.Color(255, 0, 0));
+        panelstaffinfomation10.add(labelworkerstaturequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 230, 20));
+
+        txtCustomerId5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
+
+        txtCustomerId6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
+
+        jLabel114.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel114.setText("Phone");
+        panelstaffinfomation10.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, -1));
+
+        txtCustomerId7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 230, 30));
+
+        jLabel115.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel115.setText("Import qty");
+        panelstaffinfomation10.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 230, 20));
+
+        txtCustomerId8.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 230, 29));
+
+        jLabel116.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel116.setText("Import Date");
+        panelstaffinfomation10.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 230, 20));
+
+        txtCustomerId9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 230, 29));
+
+        jLabel117.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel117.setText("Unit price");
+        panelstaffinfomation10.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 230, -1));
+
+        txtCustomerId10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 230, 30));
+
+        jLabel118.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel118.setText("Amount");
+        panelstaffinfomation10.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 230, -1));
+
+        txtCustomerId11.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtCustomerId11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 230, 30));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelstaffinfomation10.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 30));
+
+        javax.swing.GroupLayout panelstaffmenu9Layout = new javax.swing.GroupLayout(panelstaffmenu9);
+        panelstaffmenu9.setLayout(panelstaffmenu9Layout);
+        panelstaffmenu9Layout.setHorizontalGroup(
+            panelstaffmenu9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelstaffmenu9Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(panelstaffmenu9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bracImportForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelstaffinfomation10, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
+                    .addComponent(jScrollPane24))
+                .addContainerGap())
+        );
+        panelstaffmenu9Layout.setVerticalGroup(
+            panelstaffmenu9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelstaffmenu9Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(bracImportForm, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelstaffinfomation10, javax.swing.GroupLayout.PREFERRED_SIZE, 349, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        import_form.getContentPane().add(panelstaffmenu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 740));
+
+        DesktopPane.add(import_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
+
+        import_list.setVisible(false);
+        import_list.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelCustomer3.setBackground(new java.awt.Color(255, 255, 255));
+        panelCustomer3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tbImport.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollImport.setViewportView(tbImport);
+
+        panelCustomer3.add(jScrollImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 118, 1010, 570));
+
+        lbBracImportList.setBackground(new java.awt.Color(255, 0, 51));
+        lbBracImportList.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 153, 153)));
+        panelCustomer3.add(lbBracImportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 1000, 20));
+
+        btnImport.setBackground(new java.awt.Color(0, 153, 153));
+        btnImport.setForeground(new java.awt.Color(255, 255, 255));
+        btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add.png"))); // NOI18N
+        btnImport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnImportMouseClicked(evt);
+            }
+        });
+        panelCustomer3.add(btnImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, 40, 30));
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        panelCustomer3.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 880, 30));
+
+        btnEdittablestaff4.setBackground(new java.awt.Color(0, 153, 153));
+        btnEdittablestaff4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnEdittablestaff4.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdittablestaff4.setText("Edit");
+        btnEdittablestaff4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEdittablestaff4MouseClicked(evt);
+            }
+        });
+        panelCustomer3.add(btnEdittablestaff4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 700, 100, 30));
+
+        jLabel107.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel107.setText("Search");
+        panelCustomer3.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 77, 60, 30));
+
+        import_list.getContentPane().add(panelCustomer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 750));
+
+        DesktopPane.add(import_list, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         getContentPane().add(DesktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 1040, 700));
 
@@ -5605,6 +5925,53 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbViewProjectPlanListMouseClicked
+
+    private void panelmenImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenImportMouseClicked
+        // TODO add your handling code here:
+//        showList(import_list);
+        import_list.setVisible(true);
+        Import importList = new Import();
+        importList.getImport(tbImport);
+
+        lbBracImportList.setText("IMPORT / LIST ");
+
+    }//GEN-LAST:event_panelmenImportMouseClicked
+
+    private void panelmenImportMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenImportMousePressed
+        // TODO add your handling code here:
+//        setHideAllMenus(panelclicked10);
+    }//GEN-LAST:event_panelmenImportMousePressed
+
+    private void tbImport_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbImport_formMouseClicked
+
+    private void btnworkerNew5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerNew5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnworkerNew5MouseClicked
+
+    private void btnworkerUpdate4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnworkerUpdate4MouseClicked
+
+    private void btnworkerCancel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnworkerCancel4MouseClicked
+
+    private void btnImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportMouseClicked
+        // TODO add your handling code here:
+        import_list.setVisible(false);
+        import_form.setVisible(true);
+
+        Import importObj = new Import();
+        importObj.getImport(tbImport_form);
+
+        bracImportForm.setText("IMPORT / NEW");
+    }//GEN-LAST:event_btnImportMouseClicked
+
+    private void btnEdittablestaff4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEdittablestaff4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEdittablestaff4MouseClicked
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -5616,9 +5983,12 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane DesktopPane;
+    private javax.swing.JLabel bracImportForm;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnEdittablestaff;
+    private javax.swing.JButton btnEdittablestaff4;
     private javax.swing.JButton btnEdittableworker;
+    private javax.swing.JButton btnImport;
     private javax.swing.JButton btnInvoiceCancel;
     private javax.swing.JButton btnInvoiceCancel3;
     private javax.swing.JButton btnInvoiceNew;
@@ -5651,8 +6021,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnopenmenuworker;
     private javax.swing.JButton btnsignin;
     private javax.swing.JButton btnworkerCancel;
+    private javax.swing.JButton btnworkerCancel4;
     private javax.swing.JButton btnworkerNew;
+    private javax.swing.JButton btnworkerNew5;
     private javax.swing.JButton btnworkerUpdate;
+    private javax.swing.JButton btnworkerUpdate4;
     private javax.swing.JComboBox<String> cboInvoicePaymentID;
     private javax.swing.JComboBox<String> cboInvoicestaffrName;
     private javax.swing.JComboBox<String> cboPaymentCreatebystaff;
@@ -5679,10 +6052,23 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboworkerroleID;
     private javax.swing.JLabel conpassworderror;
     private javax.swing.JLabel homemenulable;
+    private javax.swing.JInternalFrame import_form;
+    private javax.swing.JInternalFrame import_list;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -5773,6 +6159,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollImport;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -5782,6 +6169,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
@@ -5825,6 +6213,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelmessageworker3;
     private javax.swing.JLabel labelmessageworker4;
     private javax.swing.JLabel labelmessageworker5;
+    private javax.swing.JLabel labelmessageworker9;
     private javax.swing.JLabel labelpaymentCustomerrequired;
     private javax.swing.JLabel labelpaymentNamerequired4;
     private javax.swing.JLabel labelpaymentOwesrequired;
@@ -5864,21 +6253,29 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labeltotalworker;
     private javax.swing.JLabel labelworkerNamerequired;
     private javax.swing.JLabel labelworkeraddrerequired;
+    private javax.swing.JLabel labelworkeraddrerequired4;
     private javax.swing.JLabel labelworkerbirthrequired;
+    private javax.swing.JLabel labelworkerbirthrequired4;
     private javax.swing.JLabel labelworkercreatebystaff;
     private javax.swing.JLabel labelworkergenderrequired;
+    private javax.swing.JLabel labelworkergenderrequired4;
     private javax.swing.JLabel labelworkerhirdrequired;
     private javax.swing.JLabel labelworkerphonerequired;
+    private javax.swing.JLabel labelworkerphonerequired4;
     private javax.swing.JLabel labelworkerroleidrequired;
     private javax.swing.JLabel labelworkerroleidrequired1;
     private javax.swing.JLabel labelworkerroleidrequired3;
     private javax.swing.JLabel labelworkerroleidrequired4;
     private javax.swing.JLabel labelworkerroleidrequired5;
+    private javax.swing.JLabel labelworkerroleidrequired9;
     private javax.swing.JLabel labelworkersaryequired;
+    private javax.swing.JLabel labelworkersaryequired4;
     private javax.swing.JLabel labelworkerstaturequired;
+    private javax.swing.JLabel labelworkerstaturequired4;
     private javax.swing.JLabel lablegidelineprojectplanlist;
     private javax.swing.JLabel lableshownamelogin;
     private javax.swing.JLabel lablewelcome;
+    private javax.swing.JLabel lbBracImportList;
     private javax.swing.JInternalFrame menucustomer;
     private javax.swing.JInternalFrame menuhome;
     private javax.swing.JInternalFrame menuinvoice;
@@ -5892,7 +6289,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JInternalFrame menutableworker;
     private javax.swing.JInternalFrame menuuser;
     private javax.swing.JInternalFrame menuworker;
+    private javax.swing.JPanel panelCustomer3;
     private javax.swing.JPanel panelbar;
+    private javax.swing.JPanel panelclicked10;
     private javax.swing.JPanel panelclickedcustomer;
     private javax.swing.JPanel panelclickedhome;
     private javax.swing.JPanel panelclickedinvoice;
@@ -5906,6 +6305,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelcreateuser;
     private javax.swing.JPanel panelcustomer;
     private javax.swing.JPanel panelhome;
+    private javax.swing.JPanel panelmenImport;
     private javax.swing.JPanel panelmencutomer;
     private javax.swing.JPanel panelmenpayment;
     private javax.swing.JPanel panelmenprojectplan;
@@ -5921,6 +6321,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelstaff;
     private javax.swing.JPanel panelstaffinfomation;
     private javax.swing.JPanel panelstaffinfomation1;
+    private javax.swing.JPanel panelstaffinfomation10;
     private javax.swing.JPanel panelstaffinfomation2;
     private javax.swing.JPanel panelstaffinfomation3;
     private javax.swing.JPanel panelstaffinfomation4;
@@ -5932,6 +6333,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelstaffmenu3;
     private javax.swing.JPanel panelstaffmenu4;
     private javax.swing.JPanel panelstaffmenu5;
+    private javax.swing.JPanel panelstaffmenu9;
     private javax.swing.JPanel panelsuppliers;
     private javax.swing.JPanel paneltableprojectplanlist;
     private javax.swing.JPanel paneltablestaff;
@@ -5941,6 +6343,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel showlableonclickedmenu;
     private javax.swing.JLabel staffmenulable;
     private javax.swing.JLabel staffmenulable1;
+    private javax.swing.JLabel staffmenulable10;
     private javax.swing.JLabel staffmenulable2;
     private javax.swing.JLabel staffmenulable3;
     private javax.swing.JLabel staffmenulable4;
@@ -5950,6 +6353,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel staffmenulable8;
     private javax.swing.JLabel staffnamerror;
     private javax.swing.JLabel sucessfulllable;
+    private javax.swing.JTable tbImport;
+    private javax.swing.JTable tbImport_form;
     private javax.swing.JTable tbInvoice;
     private javax.swing.JTable tbInvoice3;
     private javax.swing.JTable tbPayment;
@@ -5964,6 +6369,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbviewuser;
     private javax.swing.JTable tbworker;
     private javax.swing.JTable tbworkerview;
+    private javax.swing.JTextField txtCustomerId10;
+    private javax.swing.JTextField txtCustomerId11;
+    private javax.swing.JTextField txtCustomerId5;
+    private javax.swing.JTextField txtCustomerId6;
+    private javax.swing.JTextField txtCustomerId7;
+    private javax.swing.JTextField txtCustomerId8;
+    private javax.swing.JTextField txtCustomerId9;
     private javax.swing.JTextField txtInvoiceCustomer;
     private com.toedter.calendar.JDateChooser txtInvoiceDate;
     private javax.swing.JTextField txtInvoiceId;
