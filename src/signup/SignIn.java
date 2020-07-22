@@ -80,6 +80,11 @@ public class SignIn extends javax.swing.JFrame {
         btncreatenewuser.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btncreatenewuser.setText("Create New User");
         btncreatenewuser.setBorder(null);
+        btncreatenewuser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncreatenewuserMouseClicked(evt);
+            }
+        });
         btncreatenewuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncreatenewuserActionPerformed(evt);
@@ -251,6 +256,11 @@ public class SignIn extends javax.swing.JFrame {
     private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
         passwordlable.setText("");
     }//GEN-LAST:event_jPasswordField1KeyReleased
+
+    private void btncreatenewuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncreatenewuserMouseClicked
+        Main ma = new Main();
+        ma.create();
+    }//GEN-LAST:event_btncreatenewuserMouseClicked
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
