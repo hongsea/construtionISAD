@@ -49,7 +49,7 @@ public class Customer {
         }
     }
 
-    public void create(JTextField name , String gender, JTextField phone, JTextField address, JLabel labelName) {
+    public void create(JTextField name , String gender, JTextField phone, JTextField address, JLabel labelName, JTable tableName) {
         try {
             String customer = "insert into tbCustomer(name , gender, phone , address)values(?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(customer);
@@ -60,6 +60,7 @@ public class Customer {
             pst.setString(4, address.getText().trim()); 
             
             pst.executeUpdate();
+            getCustomer(tableName);
             labelName.setText("create customer success");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
