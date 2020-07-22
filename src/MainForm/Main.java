@@ -205,9 +205,6 @@ public class Main extends javax.swing.JFrame {
         panelmenworker = new javax.swing.JPanel();
         panelclickedworker = new javax.swing.JPanel();
         staffmenulable1 = new javax.swing.JLabel();
-        panelmencutomer = new javax.swing.JPanel();
-        panelclickedcustomer = new javax.swing.JPanel();
-        staffmenulable2 = new javax.swing.JLabel();
         panelmenpayment = new javax.swing.JPanel();
         panelclickedpayment = new javax.swing.JPanel();
         staffmenulable3 = new javax.swing.JLabel();
@@ -773,55 +770,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         panelmenu.add(panelmenworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 153, 260, 30));
-
-        panelmencutomer.setBackground(new java.awt.Color(0, 204, 204));
-        panelmencutomer.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmencutomer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmencutomerMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmencutomerMousePressed(evt);
-            }
-        });
-
-        panelclickedcustomer.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedcustomer.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclickedcustomerLayout = new javax.swing.GroupLayout(panelclickedcustomer);
-        panelclickedcustomer.setLayout(panelclickedcustomerLayout);
-        panelclickedcustomerLayout.setHorizontalGroup(
-            panelclickedcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclickedcustomerLayout.setVerticalGroup(
-            panelclickedcustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable2.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
-        staffmenulable2.setText("   CUSTOMERS");
-        staffmenulable2.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout panelmencutomerLayout = new javax.swing.GroupLayout(panelmencutomer);
-        panelmencutomer.setLayout(panelmencutomerLayout);
-        panelmencutomerLayout.setHorizontalGroup(
-            panelmencutomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmencutomerLayout.createSequentialGroup()
-                .addComponent(panelclickedcustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelmencutomerLayout.setVerticalGroup(
-            panelmencutomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedcustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(panelmencutomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 189, 260, 30));
 
         panelmenpayment.setBackground(new java.awt.Color(0, 204, 204));
         panelmenpayment.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -3695,38 +3643,6 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_panelmenworkerMouseClicked
 
-    private void panelmencutomerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmencutomerMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedcustomer.setBackground(panelclick);
-
-    }//GEN-LAST:event_panelmencutomerMousePressed
-
-    private void panelmencutomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmencutomerMouseClicked
-
-        menuhome.setVisible(false);
-        menuuser.setVisible(false);
-        menutablestaff.setVisible(false);
-        menustaff.setVisible(false);
-        menutableworker.setVisible(false);
-        menuworker.setVisible(false);
-        menupayment.setVisible(false);
-        menuinvoice.setVisible(false);
-        menuprojectplan.setVisible(false);
-        menutableprojectview.setVisible(false);
-        menuprojectplanList.setVisible(false);
-        menucustomer.setVisible(true);
-        
-        showlableonclickedmenu.setText("");
-        showlableonclickedmenu.setText("CUSTOMER");
-    }//GEN-LAST:event_panelmencutomerMouseClicked
-
     private void panelmenpaymentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenpaymentMousePressed
         panelclickedhome.setBackground(paneldefault);
         panelclickedstaff.setBackground(paneldefault);
@@ -6292,7 +6208,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelCustomer3;
     private javax.swing.JPanel panelbar;
     private javax.swing.JPanel panelclicked10;
-    private javax.swing.JPanel panelclickedcustomer;
     private javax.swing.JPanel panelclickedhome;
     private javax.swing.JPanel panelclickedinvoice;
     private javax.swing.JPanel panelclickedpayment;
@@ -6306,7 +6221,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelcustomer;
     private javax.swing.JPanel panelhome;
     private javax.swing.JPanel panelmenImport;
-    private javax.swing.JPanel panelmencutomer;
     private javax.swing.JPanel panelmenpayment;
     private javax.swing.JPanel panelmenprojectplan;
     private javax.swing.JPanel panelmenprojectplanlist;
@@ -6344,7 +6258,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel staffmenulable;
     private javax.swing.JLabel staffmenulable1;
     private javax.swing.JLabel staffmenulable10;
-    private javax.swing.JLabel staffmenulable2;
     private javax.swing.JLabel staffmenulable3;
     private javax.swing.JLabel staffmenulable4;
     private javax.swing.JLabel staffmenulable5;
