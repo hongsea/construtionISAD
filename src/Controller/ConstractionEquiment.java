@@ -50,7 +50,7 @@ public class ConstractionEquiment {
         }
     }
 
-    public void create(JTextField name) throws SQLException {
+    public void create(JTextField name, JTable tableName) {
         try {
             String ce = "insert into tbCustractionEquipment(name)values(?)";
             PreparedStatement pst = con.prepareStatement(ce);
@@ -58,6 +58,7 @@ public class ConstractionEquiment {
             pst.setString(1, name.getText().trim());
 
             pst.executeUpdate();
+            getConstractionEquiment(tableName);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

@@ -52,7 +52,7 @@ public class Supplier {
         }
     }
 
-    public void createSupplier(JTextField name, String gender, JTextField phone, JTextField address, JLabel labelName) {
+    public void createSupplier(JTextField name, String gender, JTextField phone, JTextField address, JLabel labelName, JTable tableName) {
         try {
             String supplier = "insert into tbSupplier(name,gender,phone,address)values(?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(supplier);
@@ -63,6 +63,7 @@ public class Supplier {
             pst.setString(4, address.getText().trim());
 
             pst.executeUpdate();
+            getSupplier(tableName);
             labelName.setText("Create supplier sucessfully.");
 
         } catch (Exception ex) {

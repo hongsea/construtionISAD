@@ -1,4 +1,3 @@
-
 package MainForm;
 
 import java.awt.Color;
@@ -44,7 +43,7 @@ import javax.swing.JTextField;
 //import sun.java2d.pipe.BufferedBufImgOps;
 
 public class Main extends javax.swing.JFrame {
-    
+
     Connection con = Application.getConnection();
     Color paneldefault;
     Color panelclick;
@@ -52,37 +51,38 @@ public class Main extends javax.swing.JFrame {
     String filename = null;
     byte[] staff_image = null;
     byte[] worker_image = null;
-    
-    public void setHideAllMenus(JPanel jpanelName){          
-//        panelclicked1.setBackground(paneldefault);
-//        panelclicked2.setBackground(paneldefault);
-//        panelclicked3.setBackground(paneldefault);
+
+    public void setHideAllMenus(JPanel jpanelName) {
+        panelclicked1.setBackground(paneldefault);
+        panelclicked2.setBackground(paneldefault);
+        panelclicked3.setBackground(paneldefault);
         panelclicked4.setBackground(paneldefault);
         panelclicked5.setBackground(paneldefault);
-//        panelclicked6.setBackground(paneldefault);
-//        panelclicked7.setBackground(paneldefault);
-//        panelclicked8.setBackground(paneldefault);
+        panelclicked6.setBackground(paneldefault);
+        panelclicked7.setBackground(paneldefault);
+        panelclicked8.setBackground(paneldefault);
         panelclicked9.setBackground(paneldefault);
         panelclicked10.setBackground(paneldefault);
         panelclicked11.setBackground(paneldefault);
-//        panelclicked12.setBackground(paneldefault);
+        panelclicked12.setBackground(paneldefault);
+        panelclicked13.setBackground(paneldefault);
         jpanelName.setBackground(panelclick);
     }
-    
-    public void showList(JInternalFrame jFrameName){
-        menuhome.setVisible(false);
-        menutablestaff.setVisible(false);
-        menustaff.setVisible(false);
-        menutableworker.setVisible(true);
-        menuworker.setVisible(false);
-        menupayment.setVisible(false);
-        menuinvoice.setVisible(false);
-        menuprojectplan.setVisible(false);
-//        menutableprojectplanlist.setVisible(false);
-        menuuser.setVisible(false);
-//        menutableprojectplanlistdetail.setVisible(false);
-        menuprojectplanList.setVisible(false);
-        
+
+    public void showList(JInternalFrame jFrameName) {
+//        menuhome.setVisible(false);
+//        menuuser.setVisible(false);
+//        menutablestaff.setVisible(false);
+//        menustaff.setVisible(false);
+//        menucustomer.setVisible(false);
+//        menupayment.setVisible(false);
+//        menuinvoice.setVisible(false);
+//        menuprojectplan.setVisible(false);
+//        menutableprojectview.setVisible(false);
+//        menuprojectplanList.setVisible(false);
+//        menuworker.setVisible(false);
+//        menutableworker.setVisible(false);
+
         supplier_list.setVisible(false);
         customer_list.setVisible(false);
         import_list.setVisible(false);
@@ -90,25 +90,18 @@ public class Main extends javax.swing.JFrame {
         ce_list.setVisible(false);
         jFrameName.setVisible(true);
     }
-        
+
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
-        
-        paneldefault = new Color(0,204,204);
-        panelclick = new Color(0,255,0);
-        
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedhome.setBackground(panelclick);
-        
+
+        paneldefault = new Color(0, 204, 204);
+        panelclick = new Color(0, 255, 0);
+
+         setHideAllMenus(panelclicked1);
+
         showlableonclickedmenu.setText("HOME");
-        
+
         txtstaffID.setEditable(false);
         txtworkerID.setEnabled(false);
         txtPaymentID.setEnabled(false);
@@ -120,17 +113,17 @@ public class Main extends javax.swing.JFrame {
         txtProjectPlanID.setEnabled(false);
         txtProjectPlanListID.setEnabled(false);
         txtProjectPlanDetailID.setEnabled(false);
-        
-        jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        countAll();
-        
-      
-   }
-    public void countAll(){
 
-        try{
-        //count staff
+        jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        countAll();
+
+    }
+
+    public void countAll() {
+
+        try {
+            //count staff
             String countstaff = "select count(name) from tbStaff";
             PreparedStatement ps = con.prepareStatement(countstaff);
             ResultSet rs = ps.executeQuery();
@@ -138,8 +131,8 @@ public class Main extends javax.swing.JFrame {
             int counts = rs.getInt(1);
             labeltotalstaff.setHorizontalAlignment(SwingConstants.CENTER);
             labeltotalstaff.setText("Total: " + Integer.toString(counts));
-            
-        //count worker
+
+            //count worker
             String countworker = "select count(name) from tbWorker";
             PreparedStatement psw = con.prepareStatement(countworker);
             ResultSet rss = psw.executeQuery();
@@ -147,9 +140,9 @@ public class Main extends javax.swing.JFrame {
             int countw = rss.getInt(1);
             labeltotalworker.setHorizontalAlignment(SwingConstants.CENTER);
             labeltotalworker.setText("Total: " + Integer.toString(countw));
-        //count customer
-        
-        //count payment
+            //count customer
+
+            //count payment
             String counpayment = "select count(id) from tbPayment";
             PreparedStatement psp = con.prepareStatement(counpayment);
             ResultSet rsp = psp.executeQuery();
@@ -157,8 +150,8 @@ public class Main extends javax.swing.JFrame {
             int countp = rsp.getInt(1);
             labeltotalpayment.setHorizontalAlignment(SwingConstants.CENTER);
             labeltotalpayment.setText("Total: " + Integer.toString(countp));
-            
-        //count invoice
+
+            //count invoice
             String countinvoice = "select count(id) from tbInvoice";
             PreparedStatement psi = con.prepareStatement(countinvoice);
             ResultSet rsi = psi.executeQuery();
@@ -166,23 +159,24 @@ public class Main extends javax.swing.JFrame {
             int counti = rsi.getInt(1);
             labeltotalinvoice.setHorizontalAlignment(SwingConstants.CENTER);
             labeltotalinvoice.setText("Total: " + Integer.toString(counti));
-        //count worker
+            //count worker
             String countprojectplan = "select count(id) from tbProjectPlan";
             PreparedStatement pspr = con.prepareStatement(countprojectplan);
             ResultSet rspr = pspr.executeQuery();
             rspr.next();
             int countpr = rspr.getInt(1);
             labeltotalprojectplan.setHorizontalAlignment(SwingConstants.CENTER);
-            labeltotalprojectplan.setText("Total: " + Integer.toString(countpr));            
-        }catch(Exception e){
+            labeltotalprojectplan.setText("Total: " + Integer.toString(countpr));
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }         
+        }
     }
-    public void getusername(String user){
+
+    public void getusername(String user) {
         lableshownamelogin.setHorizontalAlignment(SwingConstants.CENTER);
         lableshownamelogin.setText(" " + user);
     }
-    
+
     public void refreshtable() {
         try {
             cboSearch.removeAllItems();
@@ -202,7 +196,8 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    public void disablemenu(){
+
+    public void disablemenu() {
         panelmenuhome.setVisible(false);
         panelmenustaff.setVisible(false);
         panelmenworker.setVisible(false);
@@ -213,7 +208,8 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanview.setVisible(false);
         panelmenuuser.setVisible(true);
     }
-    public void create(){
+
+    public void create() {
         panelmenuhome.setVisible(false);
         panelmenustaff.setVisible(false);
         panelmenworker.setVisible(false);
@@ -224,15 +220,18 @@ public class Main extends javax.swing.JFrame {
         refreshtable();
         showlableonclickedmenu.setText("USER");
         menuuser.setVisible(true);
-        
+
     }
-    public void openhome(){
+
+    public void openhome() {
         menuhome.setVisible(true);
     }
-    public void closeuser(){
+
+    public void closeuser() {
         panelmenuuser.setVisible(false);
         menuuser.setVisible(false);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -243,49 +242,49 @@ public class Main extends javax.swing.JFrame {
         showlableonclickedmenu = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
         panelmenu = new javax.swing.JPanel();
-        panelmenustaff = new javax.swing.JPanel();
-        panelclickedstaff = new javax.swing.JPanel();
-        staffmenulable = new javax.swing.JLabel();
-        panelmenworker = new javax.swing.JPanel();
-        panelclickedworker = new javax.swing.JPanel();
-        staffmenulable1 = new javax.swing.JLabel();
-        panelmenpayment = new javax.swing.JPanel();
-        panelclickedpayment = new javax.swing.JPanel();
-        staffmenulable3 = new javax.swing.JLabel();
-        panelmenuinvoice = new javax.swing.JPanel();
-        panelclickedinvoice = new javax.swing.JPanel();
-        staffmenulable5 = new javax.swing.JLabel();
-        panelmenprojectplan = new javax.swing.JPanel();
-        panelclickedprojectplan = new javax.swing.JPanel();
-        staffmenulable6 = new javax.swing.JLabel();
+        lablewelcome = new javax.swing.JLabel();
         panelmenuuser = new javax.swing.JPanel();
         panelclickeduser = new javax.swing.JPanel();
         staffmenulable4 = new javax.swing.JLabel();
         panelmenuhome = new javax.swing.JPanel();
-        panelclickedhome = new javax.swing.JPanel();
+        panelclicked1 = new javax.swing.JPanel();
         homemenulable = new javax.swing.JLabel();
+        panelmenustaff = new javax.swing.JPanel();
+        panelclicked2 = new javax.swing.JPanel();
+        staffmenulable = new javax.swing.JLabel();
+        panelmenworker = new javax.swing.JPanel();
+        panelclicked3 = new javax.swing.JPanel();
+        staffmenulable1 = new javax.swing.JLabel();
+        menuCustomer = new javax.swing.JPanel();
+        panelclicked4 = new javax.swing.JPanel();
+        staffmenulable2 = new javax.swing.JLabel();
+        panelmenpayment = new javax.swing.JPanel();
+        panelclicked5 = new javax.swing.JPanel();
+        staffmenulable3 = new javax.swing.JLabel();
+        panelmenuinvoice = new javax.swing.JPanel();
+        panelclicked6 = new javax.swing.JPanel();
+        staffmenulable5 = new javax.swing.JLabel();
+        panelmenprojectplan = new javax.swing.JPanel();
+        panelclicked7 = new javax.swing.JPanel();
+        staffmenulable6 = new javax.swing.JLabel();
         panelmenprojectplanlist = new javax.swing.JPanel();
-        panelclickedprojectplanlist = new javax.swing.JPanel();
+        panelclicked8 = new javax.swing.JPanel();
         staffmenulable7 = new javax.swing.JLabel();
         panelmenprojectplanview = new javax.swing.JPanel();
-        panelclickedprojectplanview = new javax.swing.JPanel();
+        panelclicked9 = new javax.swing.JPanel();
         staffmenulable8 = new javax.swing.JLabel();
         panelmenImport = new javax.swing.JPanel();
         panelclicked10 = new javax.swing.JPanel();
         staffmenulable10 = new javax.swing.JLabel();
-        lablewelcome = new javax.swing.JLabel();
-        menuCustomer = new javax.swing.JPanel();
-        panelclicked4 = new javax.swing.JPanel();
-        staffmenulable2 = new javax.swing.JLabel();
-        menuSupplier = new javax.swing.JPanel();
-        panelclicked5 = new javax.swing.JPanel();
-        staffmenulable9 = new javax.swing.JLabel();
-        menuUsage = new javax.swing.JPanel();
-        panelclicked9 = new javax.swing.JPanel();
-        staffmenulable11 = new javax.swing.JLabel();
         menuCE = new javax.swing.JPanel();
         panelclicked11 = new javax.swing.JPanel();
         staffmenulable12 = new javax.swing.JLabel();
+        menuSupplier = new javax.swing.JPanel();
+        panelclicked12 = new javax.swing.JPanel();
+        staffmenulable9 = new javax.swing.JLabel();
+        menuUsage = new javax.swing.JPanel();
+        panelclicked13 = new javax.swing.JPanel();
+        staffmenulable11 = new javax.swing.JLabel();
         DesktopPane = new javax.swing.JDesktopPane();
         menuuser = new javax.swing.JInternalFrame();
         panelcreateuser = new javax.swing.JPanel();
@@ -742,7 +741,7 @@ public class Main extends javax.swing.JFrame {
         labelworkerphonerequired3 = new javax.swing.JLabel();
         labelworkeraddrerequired3 = new javax.swing.JLabel();
         labelworkerstaturequired3 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtCEName = new javax.swing.JTextField();
         txtCode = new javax.swing.JTextField();
         jLabel110 = new javax.swing.JLabel();
         txtUnitPrice = new javax.swing.JTextField();
@@ -872,250 +871,11 @@ public class Main extends javax.swing.JFrame {
         panelmenu.setBackground(new java.awt.Color(0, 153, 153));
         panelmenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelmenustaff.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenustaff.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenustaff.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenustaffMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenustaffMousePressed(evt);
-            }
-        });
-
-        panelclickedstaff.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedstaff.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclickedstaffLayout = new javax.swing.GroupLayout(panelclickedstaff);
-        panelclickedstaff.setLayout(panelclickedstaffLayout);
-        panelclickedstaffLayout.setHorizontalGroup(
-            panelclickedstaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclickedstaffLayout.setVerticalGroup(
-            panelclickedstaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/staff.png"))); // NOI18N
-        staffmenulable.setText("  STAFFS");
-        staffmenulable.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout panelmenustaffLayout = new javax.swing.GroupLayout(panelmenustaff);
-        panelmenustaff.setLayout(panelmenustaffLayout);
-        panelmenustaffLayout.setHorizontalGroup(
-            panelmenustaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenustaffLayout.createSequentialGroup()
-                .addComponent(panelclickedstaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelmenustaffLayout.setVerticalGroup(
-            panelmenustaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedstaff, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(panelmenustaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 117, 260, 30));
-
-        panelmenworker.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenworker.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenworker.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenworkerMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenworkerMousePressed(evt);
-            }
-        });
-
-        panelclickedworker.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedworker.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclickedworkerLayout = new javax.swing.GroupLayout(panelclickedworker);
-        panelclickedworker.setLayout(panelclickedworkerLayout);
-        panelclickedworkerLayout.setHorizontalGroup(
-            panelclickedworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclickedworkerLayout.setVerticalGroup(
-            panelclickedworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable1.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/worker.png"))); // NOI18N
-        staffmenulable1.setText("   WORKERS");
-        staffmenulable1.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout panelmenworkerLayout = new javax.swing.GroupLayout(panelmenworker);
-        panelmenworker.setLayout(panelmenworkerLayout);
-        panelmenworkerLayout.setHorizontalGroup(
-            panelmenworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenworkerLayout.createSequentialGroup()
-                .addComponent(panelclickedworker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 105, Short.MAX_VALUE))
-        );
-        panelmenworkerLayout.setVerticalGroup(
-            panelmenworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedworker, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(panelmenworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 153, 260, 30));
-
-        panelmenpayment.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenpayment.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenpayment.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenpaymentMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenpaymentMousePressed(evt);
-            }
-        });
-
-        panelclickedpayment.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedpayment.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclickedpaymentLayout = new javax.swing.GroupLayout(panelclickedpayment);
-        panelclickedpayment.setLayout(panelclickedpaymentLayout);
-        panelclickedpaymentLayout.setHorizontalGroup(
-            panelclickedpaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclickedpaymentLayout.setVerticalGroup(
-            panelclickedpaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable3.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pay.png"))); // NOI18N
-        staffmenulable3.setText("   PAYMENT");
-        staffmenulable3.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout panelmenpaymentLayout = new javax.swing.GroupLayout(panelmenpayment);
-        panelmenpayment.setLayout(panelmenpaymentLayout);
-        panelmenpaymentLayout.setHorizontalGroup(
-            panelmenpaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenpaymentLayout.createSequentialGroup()
-                .addComponent(panelclickedpayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 89, Short.MAX_VALUE))
-        );
-        panelmenpaymentLayout.setVerticalGroup(
-            panelmenpaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedpayment, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(panelmenpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 225, 260, 30));
-
-        panelmenuinvoice.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenuinvoice.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenuinvoice.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenuinvoiceMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenuinvoiceMousePressed(evt);
-            }
-        });
-
-        panelclickedinvoice.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedinvoice.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclickedinvoiceLayout = new javax.swing.GroupLayout(panelclickedinvoice);
-        panelclickedinvoice.setLayout(panelclickedinvoiceLayout);
-        panelclickedinvoiceLayout.setHorizontalGroup(
-            panelclickedinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclickedinvoiceLayout.setVerticalGroup(
-            panelclickedinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable5.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/invoice.png"))); // NOI18N
-        staffmenulable5.setText("   INVOICE");
-        staffmenulable5.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout panelmenuinvoiceLayout = new javax.swing.GroupLayout(panelmenuinvoice);
-        panelmenuinvoice.setLayout(panelmenuinvoiceLayout);
-        panelmenuinvoiceLayout.setHorizontalGroup(
-            panelmenuinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenuinvoiceLayout.createSequentialGroup()
-                .addComponent(panelclickedinvoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelmenuinvoiceLayout.setVerticalGroup(
-            panelmenuinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedinvoice, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(panelmenuinvoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 261, 260, 30));
-
-        panelmenprojectplan.setBackground(new java.awt.Color(0, 204, 204));
-        panelmenprojectplan.setPreferredSize(new java.awt.Dimension(155, 50));
-        panelmenprojectplan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelmenprojectplanMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelmenprojectplanMousePressed(evt);
-            }
-        });
-
-        panelclickedprojectplan.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedprojectplan.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclickedprojectplanLayout = new javax.swing.GroupLayout(panelclickedprojectplan);
-        panelclickedprojectplan.setLayout(panelclickedprojectplanLayout);
-        panelclickedprojectplanLayout.setHorizontalGroup(
-            panelclickedprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclickedprojectplanLayout.setVerticalGroup(
-            panelclickedprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable6.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/projectplan.png"))); // NOI18N
-        staffmenulable6.setText("   PROJECT PLAN");
-        staffmenulable6.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout panelmenprojectplanLayout = new javax.swing.GroupLayout(panelmenprojectplan);
-        panelmenprojectplan.setLayout(panelmenprojectplanLayout);
-        panelmenprojectplanLayout.setHorizontalGroup(
-            panelmenprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelmenprojectplanLayout.createSequentialGroup()
-                .addComponent(panelclickedprojectplan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelmenprojectplanLayout.setVerticalGroup(
-            panelmenprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedprojectplan, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(panelmenprojectplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 297, 260, 30));
+        lablewelcome.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lablewelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lablewelcome.setText("                   WELCOME");
+        lablewelcome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        panelmenu.add(lablewelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 238, 40));
 
         panelmenuuser.setBackground(new java.awt.Color(0, 204, 204));
         panelmenuuser.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1160,17 +920,17 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        panelclickedhome.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedhome.setPreferredSize(new java.awt.Dimension(5, 38));
+        panelclicked1.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked1.setPreferredSize(new java.awt.Dimension(5, 38));
 
-        javax.swing.GroupLayout panelclickedhomeLayout = new javax.swing.GroupLayout(panelclickedhome);
-        panelclickedhome.setLayout(panelclickedhomeLayout);
-        panelclickedhomeLayout.setHorizontalGroup(
-            panelclickedhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelclicked1Layout = new javax.swing.GroupLayout(panelclicked1);
+        panelclicked1.setLayout(panelclicked1Layout);
+        panelclicked1Layout.setHorizontalGroup(
+            panelclicked1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 5, Short.MAX_VALUE)
         );
-        panelclickedhomeLayout.setVerticalGroup(
-            panelclickedhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelclicked1Layout.setVerticalGroup(
+            panelclicked1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 38, Short.MAX_VALUE)
         );
 
@@ -1184,7 +944,7 @@ public class Main extends javax.swing.JFrame {
         panelmenuhomeLayout.setHorizontalGroup(
             panelmenuhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelmenuhomeLayout.createSequentialGroup()
-                .addComponent(panelclickedhome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelclicked1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(homemenulable, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -1193,7 +953,7 @@ public class Main extends javax.swing.JFrame {
             panelmenuhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelmenuhomeLayout.createSequentialGroup()
                 .addGroup(panelmenuhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelclickedhome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelclicked1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(homemenulable))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1221,6 +981,300 @@ public class Main extends javax.swing.JFrame {
 
         panelmenu.add(panelmenuuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 81, 436, 30));
 
+        panelmenustaff.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenustaff.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenustaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenustaffMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenustaffMousePressed(evt);
+            }
+        });
+
+        panelclicked2.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked2.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked2Layout = new javax.swing.GroupLayout(panelclicked2);
+        panelclicked2.setLayout(panelclicked2Layout);
+        panelclicked2Layout.setHorizontalGroup(
+            panelclicked2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked2Layout.setVerticalGroup(
+            panelclicked2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/staff.png"))); // NOI18N
+        staffmenulable.setText("  STAFFS");
+        staffmenulable.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenustaffLayout = new javax.swing.GroupLayout(panelmenustaff);
+        panelmenustaff.setLayout(panelmenustaffLayout);
+        panelmenustaffLayout.setHorizontalGroup(
+            panelmenustaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenustaffLayout.createSequentialGroup()
+                .addComponent(panelclicked2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelmenustaffLayout.setVerticalGroup(
+            panelmenustaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(panelmenustaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 117, 260, 30));
+
+        panelmenworker.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenworker.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenworker.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenworkerMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenworkerMousePressed(evt);
+            }
+        });
+
+        panelclicked3.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked3.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked3Layout = new javax.swing.GroupLayout(panelclicked3);
+        panelclicked3.setLayout(panelclicked3Layout);
+        panelclicked3Layout.setHorizontalGroup(
+            panelclicked3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked3Layout.setVerticalGroup(
+            panelclicked3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable1.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/worker.png"))); // NOI18N
+        staffmenulable1.setText("   WORKERS");
+        staffmenulable1.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenworkerLayout = new javax.swing.GroupLayout(panelmenworker);
+        panelmenworker.setLayout(panelmenworkerLayout);
+        panelmenworkerLayout.setHorizontalGroup(
+            panelmenworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenworkerLayout.createSequentialGroup()
+                .addComponent(panelclicked3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 105, Short.MAX_VALUE))
+        );
+        panelmenworkerLayout.setVerticalGroup(
+            panelmenworkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(panelmenworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 153, 260, 30));
+
+        menuCustomer.setBackground(new java.awt.Color(0, 204, 204));
+        menuCustomer.setPreferredSize(new java.awt.Dimension(155, 50));
+        menuCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuCustomerMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuCustomerMousePressed(evt);
+            }
+        });
+
+        panelclicked4.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked4.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked4Layout = new javax.swing.GroupLayout(panelclicked4);
+        panelclicked4.setLayout(panelclicked4Layout);
+        panelclicked4Layout.setHorizontalGroup(
+            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked4Layout.setVerticalGroup(
+            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable2.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
+        staffmenulable2.setText("   CUSTOMERS");
+        staffmenulable2.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout menuCustomerLayout = new javax.swing.GroupLayout(menuCustomer);
+        menuCustomer.setLayout(menuCustomerLayout);
+        menuCustomerLayout.setHorizontalGroup(
+            menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuCustomerLayout.createSequentialGroup()
+                .addComponent(panelclicked4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        menuCustomerLayout.setVerticalGroup(
+            menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(menuCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 260, 30));
+
+        panelmenpayment.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenpayment.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenpayment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenpaymentMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenpaymentMousePressed(evt);
+            }
+        });
+
+        panelclicked5.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked5.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked5Layout = new javax.swing.GroupLayout(panelclicked5);
+        panelclicked5.setLayout(panelclicked5Layout);
+        panelclicked5Layout.setHorizontalGroup(
+            panelclicked5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked5Layout.setVerticalGroup(
+            panelclicked5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable3.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pay.png"))); // NOI18N
+        staffmenulable3.setText("   PAYMENT");
+        staffmenulable3.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenpaymentLayout = new javax.swing.GroupLayout(panelmenpayment);
+        panelmenpayment.setLayout(panelmenpaymentLayout);
+        panelmenpaymentLayout.setHorizontalGroup(
+            panelmenpaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenpaymentLayout.createSequentialGroup()
+                .addComponent(panelclicked5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 89, Short.MAX_VALUE))
+        );
+        panelmenpaymentLayout.setVerticalGroup(
+            panelmenpaymentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(panelmenpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 225, 260, 30));
+
+        panelmenuinvoice.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenuinvoice.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenuinvoice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenuinvoiceMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenuinvoiceMousePressed(evt);
+            }
+        });
+
+        panelclicked6.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked6.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked6Layout = new javax.swing.GroupLayout(panelclicked6);
+        panelclicked6.setLayout(panelclicked6Layout);
+        panelclicked6Layout.setHorizontalGroup(
+            panelclicked6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked6Layout.setVerticalGroup(
+            panelclicked6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable5.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/invoice.png"))); // NOI18N
+        staffmenulable5.setText("   INVOICE");
+        staffmenulable5.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenuinvoiceLayout = new javax.swing.GroupLayout(panelmenuinvoice);
+        panelmenuinvoice.setLayout(panelmenuinvoiceLayout);
+        panelmenuinvoiceLayout.setHorizontalGroup(
+            panelmenuinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenuinvoiceLayout.createSequentialGroup()
+                .addComponent(panelclicked6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelmenuinvoiceLayout.setVerticalGroup(
+            panelmenuinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(panelmenuinvoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 261, 260, 30));
+
+        panelmenprojectplan.setBackground(new java.awt.Color(0, 204, 204));
+        panelmenprojectplan.setPreferredSize(new java.awt.Dimension(155, 50));
+        panelmenprojectplan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelmenprojectplanMousePressed(evt);
+            }
+        });
+
+        panelclicked7.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked7.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked7Layout = new javax.swing.GroupLayout(panelclicked7);
+        panelclicked7.setLayout(panelclicked7Layout);
+        panelclicked7Layout.setHorizontalGroup(
+            panelclicked7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked7Layout.setVerticalGroup(
+            panelclicked7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable6.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/projectplan.png"))); // NOI18N
+        staffmenulable6.setText("   PROJECT PLAN");
+        staffmenulable6.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout panelmenprojectplanLayout = new javax.swing.GroupLayout(panelmenprojectplan);
+        panelmenprojectplan.setLayout(panelmenprojectplanLayout);
+        panelmenprojectplanLayout.setHorizontalGroup(
+            panelmenprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenprojectplanLayout.createSequentialGroup()
+                .addComponent(panelclicked7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelmenprojectplanLayout.setVerticalGroup(
+            panelmenprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(panelmenprojectplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 297, 260, 30));
+
         panelmenprojectplanlist.setBackground(new java.awt.Color(0, 204, 204));
         panelmenprojectplanlist.setPreferredSize(new java.awt.Dimension(155, 50));
         panelmenprojectplanlist.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1232,17 +1286,17 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        panelclickedprojectplanlist.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedprojectplanlist.setPreferredSize(new java.awt.Dimension(5, 38));
+        panelclicked8.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked8.setPreferredSize(new java.awt.Dimension(5, 38));
 
-        javax.swing.GroupLayout panelclickedprojectplanlistLayout = new javax.swing.GroupLayout(panelclickedprojectplanlist);
-        panelclickedprojectplanlist.setLayout(panelclickedprojectplanlistLayout);
-        panelclickedprojectplanlistLayout.setHorizontalGroup(
-            panelclickedprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelclicked8Layout = new javax.swing.GroupLayout(panelclicked8);
+        panelclicked8.setLayout(panelclicked8Layout);
+        panelclicked8Layout.setHorizontalGroup(
+            panelclicked8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 5, Short.MAX_VALUE)
         );
-        panelclickedprojectplanlistLayout.setVerticalGroup(
-            panelclickedprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelclicked8Layout.setVerticalGroup(
+            panelclicked8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -1257,7 +1311,7 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanlistLayout.setHorizontalGroup(
             panelmenprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelmenprojectplanlistLayout.createSequentialGroup()
-                .addComponent(panelclickedprojectplanlist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelclicked8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1265,7 +1319,7 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanlistLayout.setVerticalGroup(
             panelmenprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedprojectplanlist, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         panelmenu.add(panelmenprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 333, 260, 30));
@@ -1281,17 +1335,17 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        panelclickedprojectplanview.setBackground(new java.awt.Color(0, 255, 0));
-        panelclickedprojectplanview.setPreferredSize(new java.awt.Dimension(5, 38));
+        panelclicked9.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked9.setPreferredSize(new java.awt.Dimension(5, 38));
 
-        javax.swing.GroupLayout panelclickedprojectplanviewLayout = new javax.swing.GroupLayout(panelclickedprojectplanview);
-        panelclickedprojectplanview.setLayout(panelclickedprojectplanviewLayout);
-        panelclickedprojectplanviewLayout.setHorizontalGroup(
-            panelclickedprojectplanviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelclicked9Layout = new javax.swing.GroupLayout(panelclicked9);
+        panelclicked9.setLayout(panelclicked9Layout);
+        panelclicked9Layout.setHorizontalGroup(
+            panelclicked9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 5, Short.MAX_VALUE)
         );
-        panelclickedprojectplanviewLayout.setVerticalGroup(
-            panelclickedprojectplanviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelclicked9Layout.setVerticalGroup(
+            panelclicked9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -1306,7 +1360,7 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanviewLayout.setHorizontalGroup(
             panelmenprojectplanviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelmenprojectplanviewLayout.createSequentialGroup()
-                .addComponent(panelclickedprojectplanview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelclicked9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1314,7 +1368,7 @@ public class Main extends javax.swing.JFrame {
         panelmenprojectplanviewLayout.setVerticalGroup(
             panelmenprojectplanviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclickedprojectplanview, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         panelmenu.add(panelmenprojectplanview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 260, 30));
@@ -1367,159 +1421,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         panelmenu.add(panelmenImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 260, 30));
-
-        lablewelcome.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        lablewelcome.setForeground(new java.awt.Color(255, 255, 255));
-        lablewelcome.setText("                   WELCOME");
-        lablewelcome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        panelmenu.add(lablewelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 238, 40));
-
-        menuCustomer.setBackground(new java.awt.Color(0, 204, 204));
-        menuCustomer.setPreferredSize(new java.awt.Dimension(155, 50));
-        menuCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuCustomerMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuCustomerMousePressed(evt);
-            }
-        });
-
-        panelclicked4.setBackground(new java.awt.Color(0, 255, 0));
-        panelclicked4.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclicked4Layout = new javax.swing.GroupLayout(panelclicked4);
-        panelclicked4.setLayout(panelclicked4Layout);
-        panelclicked4Layout.setHorizontalGroup(
-            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclicked4Layout.setVerticalGroup(
-            panelclicked4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable2.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
-        staffmenulable2.setText("   CUSTOMERS");
-        staffmenulable2.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout menuCustomerLayout = new javax.swing.GroupLayout(menuCustomer);
-        menuCustomer.setLayout(menuCustomerLayout);
-        menuCustomerLayout.setHorizontalGroup(
-            menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuCustomerLayout.createSequentialGroup()
-                .addComponent(panelclicked4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        menuCustomerLayout.setVerticalGroup(
-            menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclicked4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(menuCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 260, 30));
-
-        menuSupplier.setBackground(new java.awt.Color(0, 204, 204));
-        menuSupplier.setPreferredSize(new java.awt.Dimension(155, 50));
-        menuSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSupplierMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuSupplierMousePressed(evt);
-            }
-        });
-
-        panelclicked5.setBackground(new java.awt.Color(0, 255, 0));
-        panelclicked5.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclicked5Layout = new javax.swing.GroupLayout(panelclicked5);
-        panelclicked5.setLayout(panelclicked5Layout);
-        panelclicked5Layout.setHorizontalGroup(
-            panelclicked5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclicked5Layout.setVerticalGroup(
-            panelclicked5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable9.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
-        staffmenulable9.setText("   SUPPLIER");
-        staffmenulable9.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout menuSupplierLayout = new javax.swing.GroupLayout(menuSupplier);
-        menuSupplier.setLayout(menuSupplierLayout);
-        menuSupplierLayout.setHorizontalGroup(
-            menuSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuSupplierLayout.createSequentialGroup()
-                .addComponent(panelclicked5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        menuSupplierLayout.setVerticalGroup(
-            menuSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(menuSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 260, 30));
-
-        menuUsage.setBackground(new java.awt.Color(0, 204, 204));
-        menuUsage.setPreferredSize(new java.awt.Dimension(155, 50));
-        menuUsage.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuUsageMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                menuUsageMousePressed(evt);
-            }
-        });
-
-        panelclicked9.setBackground(new java.awt.Color(0, 255, 0));
-        panelclicked9.setPreferredSize(new java.awt.Dimension(5, 38));
-
-        javax.swing.GroupLayout panelclicked9Layout = new javax.swing.GroupLayout(panelclicked9);
-        panelclicked9.setLayout(panelclicked9Layout);
-        panelclicked9Layout.setHorizontalGroup(
-            panelclicked9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-        panelclicked9Layout.setVerticalGroup(
-            panelclicked9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        staffmenulable11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        staffmenulable11.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
-        staffmenulable11.setText("   USAGE");
-        staffmenulable11.setPreferredSize(new java.awt.Dimension(94, 26));
-
-        javax.swing.GroupLayout menuUsageLayout = new javax.swing.GroupLayout(menuUsage);
-        menuUsage.setLayout(menuUsageLayout);
-        menuUsageLayout.setHorizontalGroup(
-            menuUsageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuUsageLayout.createSequentialGroup()
-                .addComponent(panelclicked9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(staffmenulable11, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
-        );
-        menuUsageLayout.setVerticalGroup(
-            menuUsageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(staffmenulable11, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(panelclicked9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        panelmenu.add(menuUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 260, 30));
 
         menuCE.setBackground(new java.awt.Color(0, 204, 204));
         menuCE.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1574,6 +1475,104 @@ public class Main extends javax.swing.JFrame {
         );
 
         panelmenu.add(menuCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 260, 30));
+
+        menuSupplier.setBackground(new java.awt.Color(0, 204, 204));
+        menuSupplier.setPreferredSize(new java.awt.Dimension(155, 50));
+        menuSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSupplierMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuSupplierMousePressed(evt);
+            }
+        });
+
+        panelclicked12.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked12.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked12Layout = new javax.swing.GroupLayout(panelclicked12);
+        panelclicked12.setLayout(panelclicked12Layout);
+        panelclicked12Layout.setHorizontalGroup(
+            panelclicked12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked12Layout.setVerticalGroup(
+            panelclicked12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable9.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
+        staffmenulable9.setText("   SUPPLIER");
+        staffmenulable9.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout menuSupplierLayout = new javax.swing.GroupLayout(menuSupplier);
+        menuSupplier.setLayout(menuSupplierLayout);
+        menuSupplierLayout.setHorizontalGroup(
+            menuSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuSupplierLayout.createSequentialGroup()
+                .addComponent(panelclicked12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        menuSupplierLayout.setVerticalGroup(
+            menuSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked12, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(menuSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 260, 30));
+
+        menuUsage.setBackground(new java.awt.Color(0, 204, 204));
+        menuUsage.setPreferredSize(new java.awt.Dimension(155, 50));
+        menuUsage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuUsageMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuUsageMousePressed(evt);
+            }
+        });
+
+        panelclicked13.setBackground(new java.awt.Color(0, 255, 0));
+        panelclicked13.setPreferredSize(new java.awt.Dimension(5, 38));
+
+        javax.swing.GroupLayout panelclicked13Layout = new javax.swing.GroupLayout(panelclicked13);
+        panelclicked13.setLayout(panelclicked13Layout);
+        panelclicked13Layout.setHorizontalGroup(
+            panelclicked13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        panelclicked13Layout.setVerticalGroup(
+            panelclicked13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        staffmenulable11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        staffmenulable11.setForeground(new java.awt.Color(0, 102, 255));
+        staffmenulable11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable11.setText("   USAGE");
+        staffmenulable11.setPreferredSize(new java.awt.Dimension(94, 26));
+
+        javax.swing.GroupLayout menuUsageLayout = new javax.swing.GroupLayout(menuUsage);
+        menuUsage.setLayout(menuUsageLayout);
+        menuUsageLayout.setHorizontalGroup(
+            menuUsageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuUsageLayout.createSequentialGroup()
+                .addComponent(panelclicked13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(staffmenulable11, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(125, Short.MAX_VALUE))
+        );
+        menuUsageLayout.setVerticalGroup(
+            menuUsageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(staffmenulable11, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(panelclicked13, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelmenu.add(menuUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 260, 30));
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
 
@@ -4007,7 +4006,9 @@ public class Main extends javax.swing.JFrame {
         jLabel106.setText("Supplier ID");
         panelstaffinfomation8.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
 
+        txtSupplierId.setBackground(new java.awt.Color(204, 204, 204));
         txtSupplierId.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtSupplierId.setEnabled(false);
         panelstaffinfomation8.add(txtSupplierId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
 
         male1.setActionCommand("Male");
@@ -4145,8 +4146,10 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtStockQty.setBackground(new java.awt.Color(204, 204, 204));
         txtStockQty.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         txtStockQty.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtStockQty.setEnabled(false);
         txtStockQty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStockQtyActionPerformed(evt);
@@ -4198,7 +4201,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation9.add(btnCECancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 180, 90, 30));
 
         jLabel109.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel109.setText("Code");
+        jLabel109.setText("ID");
         panelstaffinfomation9.add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
 
         labelmessageworker8.setForeground(new java.awt.Color(0, 255, 51));
@@ -4236,17 +4239,21 @@ public class Main extends javax.swing.JFrame {
         labelworkerstaturequired3.setForeground(new java.awt.Color(255, 0, 0));
         panelstaffinfomation9.add(labelworkerstaturequired3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 230, 20));
 
-        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation9.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
+        txtCEName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation9.add(txtCEName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
 
+        txtCode.setBackground(new java.awt.Color(204, 204, 204));
         txtCode.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtCode.setEnabled(false);
         panelstaffinfomation9.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
 
         jLabel110.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel110.setText("Unit price");
         panelstaffinfomation9.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, -1));
 
+        txtUnitPrice.setBackground(new java.awt.Color(204, 204, 204));
         txtUnitPrice.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtUnitPrice.setEnabled(false);
         panelstaffinfomation9.add(txtUnitPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 230, 30));
 
         javax.swing.GroupLayout panelstaffmenu8Layout = new javax.swing.GroupLayout(panelstaffmenu8);
@@ -4813,21 +4820,14 @@ public class Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-       int x,y;
+       int x, y;
     private void panelmenuhomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMousePressed
-    
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedhome.setBackground(panelclick);
+
+      setHideAllMenus(panelclicked1);
     }//GEN-LAST:event_panelmenuhomeMousePressed
 
     private void panelmenuhomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMouseClicked
-        
+
         menuuser.setVisible(false);
         menutablestaff.setVisible(false);
         menustaff.setVisible(false);
@@ -4840,16 +4840,16 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview.setVisible(false);
         menuprojectplanList.setVisible(false);
         menuhome.setVisible(true);
-        
+
         countAll();
-        
+
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("HOME");
     }//GEN-LAST:event_panelmenuhomeMouseClicked
 
     private void panelmenustaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMouseClicked
 
-        menuhome.setVisible(false);        
+        menuhome.setVisible(false);
         menuuser.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
@@ -4860,42 +4860,28 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview.setVisible(false);
         menuprojectplanList.setVisible(false);
         menustaff.setVisible(false);
-        menutablestaff.setVisible(true);        
-        
+        menutablestaff.setVisible(true);
+
         showlableonclickedmenu.setText("");
         labelgidelineoftalestaff.setText("EMPLOYEE / STAFF / VIEW");
         getroleIDNrefreshtablestaff();
-        
+
         showlableonclickedmenu.setText("");
-        showlableonclickedmenu.setText("STAFF");             
+        showlableonclickedmenu.setText("STAFF");
 
     }//GEN-LAST:event_panelmenustaffMouseClicked
 
     private void panelmenustaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenustaffMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedstaff.setBackground(panelclick);
+        setHideAllMenus(panelclicked2);
     }//GEN-LAST:event_panelmenustaffMousePressed
 
     private void panelmenworkerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedworker.setBackground(panelclick);
+        setHideAllMenus(panelclicked3);
 
     }//GEN-LAST:event_panelmenworkerMousePressed
 
     private void panelmenworkerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenworkerMouseClicked
-        
+
         menuhome.setVisible(false);
         menuuser.setVisible(false);
         menutablestaff.setVisible(false);
@@ -4908,26 +4894,18 @@ public class Main extends javax.swing.JFrame {
         menuprojectplanList.setVisible(false);
         menuworker.setVisible(false);
         menutableworker.setVisible(true);
-        
-        
+
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("WORKER");
-        
+
         labelgidelineoftalebworker.setText("EMPLOYEE / WORKER / VIEW");
         getroleIDNrefreshtableworker();
-        
-        
+
+
     }//GEN-LAST:event_panelmenworkerMouseClicked
 
     private void panelmenpaymentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenpaymentMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedpayment.setBackground(panelclick);
+       setHideAllMenus(panelclicked5);
 
     }//GEN-LAST:event_panelmenpaymentMousePressed
 
@@ -4945,10 +4923,10 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview.setVisible(false);
         menuprojectplanList.setVisible(false);
         menupayment.setVisible(true);
-        
+
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("PAYMENT");
-        
+
         getcustomerstaffNrefreshtablepayment();
     }//GEN-LAST:event_panelmenpaymentMouseClicked
 
@@ -4992,20 +4970,20 @@ public class Main extends javax.swing.JFrame {
         conpassworderror.setText("");
     }//GEN-LAST:event_txtconfirmpasswordKeyReleased
 
-    public void cbogetstaffname(){
-        try{
+    public void cbogetstaffname() {
+        try {
             Statement stat = con.createStatement();
             String selectstaffname = "select name from tbStaff";
             PreparedStatement mpst = con.prepareStatement(selectstaffname);
             ResultSet rsl = mpst.executeQuery();
-            while (rsl.next()){
+            while (rsl.next()) {
                 cbostaffName.addItem(rsl.getString(1));
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    
+
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
 
         try {
@@ -5023,35 +5001,29 @@ public class Main extends javax.swing.JFrame {
                 pst.setString(3, cboposition.getSelectedItem().toString());
                 pst.setString(4, txtpassword.getText().trim());
                 //pst.setString(6,txtconfirmpassword.getText().trim());
-                if (cbostaffName.getSelectedItem() == "None"  && txtUsername.getText().trim().isEmpty() && cboposition.getSelectedItem() == "None" && txtpassword.getText().trim().isEmpty() && txtconfirmpassword.getText().trim().isEmpty()) {
+                if (cbostaffName.getSelectedItem() == "None" && txtUsername.getText().trim().isEmpty() && cboposition.getSelectedItem() == "None" && txtpassword.getText().trim().isEmpty() && txtconfirmpassword.getText().trim().isEmpty()) {
                     staffnamerror.setText("Required.");
                     usernameerror.setText("Require.d");
                     positionerror.setText("Required.");
                     passworderror.setText("Required.");
                     conpassworderror.setText("Required.");
                     txtuserID.requestFocus();
-                } 
-                else if (cbostaffName.getSelectedItem() == "None"){
+                } else if (cbostaffName.getSelectedItem() == "None") {
                     staffnamerror.setText("Required.");
                     cbostaffName.requestFocus();
-                }
-                else if (txtUsername.getText().trim().isEmpty()){
+                } else if (txtUsername.getText().trim().isEmpty()) {
                     usernameerror.setText("Required");
                     txtUsername.requestFocus();
-                }
-                else if (txtpassword.getText().trim().isEmpty()){
+                } else if (txtpassword.getText().trim().isEmpty()) {
                     passworderror.setText("Required.");
                     txtpassword.requestFocus();
-                }
-                else if (cboposition.getSelectedItem() == "None"){
+                } else if (cboposition.getSelectedItem() == "None") {
                     positionerror.setText("Required");
                     cboposition.requestFocus();
-                }
-                else if (txtconfirmpassword.getText().trim().isEmpty()){
+                } else if (txtconfirmpassword.getText().trim().isEmpty()) {
                     conpassworderror.setText("Required");
                     txtconfirmpassword.requestFocus();
-                }
-                else {
+                } else {
                     pst.executeUpdate();
                     cbostaffName.setSelectedItem("None");
                     txtUsername.setText("");
@@ -5069,9 +5041,9 @@ public class Main extends javax.swing.JFrame {
 
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
         int i = tbviewuser.getSelectedRow();
-        try{
-            String value=(tbviewuser.getModel().getValueAt(i, 0).toString());
-            String updatequery = "update tbUser SET staff_name=?, username=?, position=?,password=? where id="+value;
+        try {
+            String value = (tbviewuser.getModel().getValueAt(i, 0).toString());
+            String updatequery = "update tbUser SET staff_name=?, username=?, position=?,password=? where id=" + value;
             PreparedStatement psu = con.prepareStatement(updatequery);
             //psu.setString(1,txtuserID.getText().trim());
             psu.setString(1, cbostaffName.getSelectedItem().toString());
@@ -5093,7 +5065,7 @@ public class Main extends javax.swing.JFrame {
             txtconfirmpassword.setText("");
             JOptionPane.showMessageDialog(null, "update sucessfully.");
 
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnUpdate1ActionPerformed
@@ -5150,14 +5122,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEdittablestaffMouseClicked
 
     private void panelmenuinvoiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuinvoiceMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(panelclick);
+        setHideAllMenus(panelclicked6);
 
     }//GEN-LAST:event_panelmenuinvoiceMousePressed
 
@@ -5174,22 +5139,15 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview.setVisible(false);
         menuprojectplanList.setVisible(false);
         menuinvoice.setVisible(true);
-        
+
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("INVOICE");
-        
+
         getPaymentInfoNrefreshtablepayment();
     }//GEN-LAST:event_panelmenuinvoiceMouseClicked
 
     private void panelmenprojectplanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(panelclick);
+        setHideAllMenus(panelclicked7);
     }//GEN-LAST:event_panelmenprojectplanMousePressed
 
     private void panelmenprojectplanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanMouseClicked
@@ -5206,10 +5164,10 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview.setVisible(false);
         menuprojectplanList.setVisible(false);
         menuprojectplan.setVisible(true);
-        
+
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("PROJECTPLAN");
-        
+
         getProinfoNrefreshtableProjectPlan();
     }//GEN-LAST:event_panelmenprojectplanMouseClicked
 
@@ -5221,95 +5179,97 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview1.setVisible(false);
         menutableprojectview.setVisible(true);
     }//GEN-LAST:event_btnProplanlistAddPlanDetailMouseClicked
-    public void getProjectPlanName(){
+    public void getProjectPlanName() {
         cboViewProjectPlanName.removeAllItems();
         cboViewProjectPlanName.addItem("select");
         cboViewProjectPlanName.setSelectedItem("select");
-        try{
+        try {
             //getprojectplanName
             String selectproplanname = "select projectplan_name from tbProjectPlan";
             PreparedStatement ps = con.prepareStatement(selectproplanname);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 cboViewProjectPlanName.addItem(rs.getString(1));
-            }            
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    public void getProPlanDetailNrefreshtableProjectPlanListDetail(){
+
+    public void getProPlanDetailNrefreshtableProjectPlanListDetail() {
         txtProjectPlanDetailID.setText("");
         cboProjectPlanDetail_ListName.removeAllItems();
         cboProjectPlanDetail_ListName.addItem("select");
         cboProjectPlanDetail_ListName.setSelectedItem("select");
         txtProjectPlanDetailDateline.setDate(null);
-        
+
         txtProjectPlanDetailName.setText("");
-        try{
+        try {
             //getprojectplanlist
             String selectproplandetail = "select projectplanlist_name from tbProjectPlanList";
             PreparedStatement ps = con.prepareStatement(selectproplandetail);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 cboProjectPlanDetail_ListName.addItem(rs.getString(1));
             }
-            
+
             //refreshtableProjectPlanListdetail
             String selectalltbProjectPlanlistdetail = "select * from tbProjectPlanListDetail";
             PreparedStatement pst = con.prepareStatement(selectalltbProjectPlanlistdetail);
             ResultSet rst = pst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbProjectPlanListDetail.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("ProjectPlanListDetail Name");
             model.addColumn("ProjectPlanList Name");
             model.addColumn("Date Line");
-         
-            while (rst.next()){
+
+            while (rst.next()) {
                 int getidprojectplanlist = rst.getInt(4);
                 String selectprojectdetail = "select projectplanlist_name from tbProjectPlanList where id='" + getidprojectplanlist + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectprojectdetail);
 
-                while(rss.next()){
-                    model.addRow(new Object[]{rst.getString(1),rst.getString(2),rss.getString(1),rst.getString(3)});   
+                while (rss.next()) {
+                    model.addRow(new Object[]{rst.getString(1), rst.getString(2), rss.getString(1), rst.getString(3)});
                 }
-            }             
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,ex);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
-    }    
-    public void getProPlanNrefreshtableProjectPlanList(){
-        
+    }
+
+    public void getProPlanNrefreshtableProjectPlanList() {
+
         txtProjectPlanListID.setText("");
-        
+
         cboProjectPlanList_ProjectPlanName.removeAllItems();
         cboProjectPlanList_ProjectPlanName.addItem("select");
         cboProjectPlanList_ProjectPlanName.setSelectedItem("select");
-        
+
         cboProjectPlanListStaff.removeAllItems();
         cboProjectPlanListStaff.addItem("select");
         cboProjectPlanListStaff.setSelectedItem("select");
-        
+
         txtProjectPlanListName.setText("");
         txtProjectPlanListStartDate.setDate(null);
         txtProjectPlanListFinishDate.setDate(null);
         cboProjectPlanListStatus.setSelectedItem("select");
-        
-        try{
+
+        try {
             //get projectplan name
             String selectproplan = "select projectplan_name from tbProjectPlan";
             PreparedStatement ps = con.prepareStatement(selectproplan);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 cboProjectPlanList_ProjectPlanName.addItem(rs.getString(1));
-            }            
+            }
             //get staff name
             String selectstaff = "select name from tbstaff";
             PreparedStatement pss = con.prepareStatement(selectstaff);
             ResultSet rss = pss.executeQuery();
-            while (rss.next()){
+            while (rss.next()) {
                 cboProjectPlanListStaff.addItem(rss.getString(1));
             }
             //refreshtableProjectPlanList
@@ -5318,7 +5278,7 @@ public class Main extends javax.swing.JFrame {
             ResultSet rst = pst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbProjectPlanList.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("ProjectPlanList Name");
             model.addColumn("ProjectPlan Name");
@@ -5326,46 +5286,47 @@ public class Main extends javax.swing.JFrame {
             model.addColumn("Start Date");
             model.addColumn("Finish Date");
             model.addColumn("Status");
-         
-            while (rst.next()){
+
+            while (rst.next()) {
                 int getidprojectplan = rst.getInt(6);
                 String selectproinfoid = "select projectplan_name from tbProjectPlan where id='" + getidprojectplan + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectproinfoid);
-                
+
                 int getidstaff = rst.getInt(7);
                 String selectstaffname = "select name from tbStaff where id='" + getidstaff + "'";
                 Statement pssss = con.createStatement();
                 ResultSet rssss = pssss.executeQuery(selectstaffname);
-                
-                while(rsss.next()){
-                    while(rssss.next()){
-                        model.addRow(new Object[]{rst.getString(1),rst.getString(2),rsss.getString(1),rssss.getString(1),rst.getString(4),rst.getString(5),rst.getString(3)});   
+
+                while (rsss.next()) {
+                    while (rssss.next()) {
+                        model.addRow(new Object[]{rst.getString(1), rst.getString(2), rsss.getString(1), rssss.getString(1), rst.getString(4), rst.getString(5), rst.getString(3)});
                     }
                 }
-            }  
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    public void getProinfoNrefreshtableProjectPlan(){
-        
+
+    public void getProinfoNrefreshtableProjectPlan() {
+
         txtProjectPlanID.setText("");
         txtProjectPlanName.setText("");
         cboProjectPlanInfoName.removeAllItems();
         cboProjectPlanInfoName.addItem("select");
         cboProjectPlanInfoName.setSelectedItem("select");
-        
+
         txtProjectPlanLocation.setText("");
         txtProjectPlanTimeLine.setDate(null);
         cboProjectPlanStatus.setSelectedItem("select");
-        
-        try{
+
+        try {
             //get pro info
             String selectproinfo = "select file_name from tbProjectInformation";
             PreparedStatement ps = con.prepareStatement(selectproinfo);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 cboProjectPlanInfoName.addItem(rs.getString(1));
             }
 
@@ -5375,31 +5336,31 @@ public class Main extends javax.swing.JFrame {
             ResultSet rst = pst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbProjectPlan.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("ProjectPlan Name");
             model.addColumn("Project Information");
             model.addColumn("Location");
             model.addColumn("Time Line");
             model.addColumn("Status");
-         
-            while (rst.next()){
+
+            while (rst.next()) {
                 int getids = rst.getInt(6);
                 String selectproinfoname = "select file_name from tbProjectInformation where id='" + getids + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectproinfoname);
-                while(rss.next()){
-                    model.addRow(new Object[]{rst.getString(1),rst.getString(2),rss.getString(1),rst.getString(3),rst.getString(5),
-                            rst.getString(4)});
+                while (rss.next()) {
+                    model.addRow(new Object[]{rst.getString(1), rst.getString(2), rss.getString(1), rst.getString(3), rst.getString(5),
+                        rst.getString(4)});
                 }
-            }            
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    
-    public void getroleIDNrefreshtablestaff(){
-        
+
+    public void getroleIDNrefreshtablestaff() {
+
         txtstaffID.setText("");
         txtStaffName.setText("");
         cboStaffGender.setSelectedItem("None");
@@ -5414,17 +5375,17 @@ public class Main extends javax.swing.JFrame {
         cboStaffroleID.setSelectedItem("None");
         cboStaffStatus.setSelectedItem("None");
         labelpictureStaff.setIcon(null);
-        
-        try{
-           
+
+        try {
+
             //getroleID
             String selectroleid = "select position from tbRole";
             PreparedStatement pss = con.prepareStatement(selectroleid);
             ResultSet rsl = pss.executeQuery();
-            while (rsl.next()){
+            while (rsl.next()) {
                 cboStaffroleID.addItem(rsl.getString(1));
             }
-            
+
             //refreshtablestaff
             String selectalltbStaff = "select * from tbStaff";
             PreparedStatement pst = con.prepareStatement(selectalltbStaff);
@@ -5432,7 +5393,7 @@ public class Main extends javax.swing.JFrame {
             DefaultTableModel model = new DefaultTableModel();
             tbStaff.setModel(model);
             tbstaffview.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("Name");
             model.addColumn("Gender");
@@ -5445,24 +5406,24 @@ public class Main extends javax.swing.JFrame {
             model.addColumn("Role");
             model.addColumn("Status");
 
-         
-            while (rst.next()){
+            while (rst.next()) {
                 int getids = rst.getInt(11);
                 String selectrolename = "select position from tbRole where id='" + getids + "'";
                 Statement ps = con.createStatement();
                 ResultSet rss = ps.executeQuery(selectrolename);
-                while(rss.next()){
-                model.addRow(new Object[]{rst.getString(1),rst.getString(2),rst.getString(3),rst.getString(4),rst.getString(5),
-                            rst.getString(6),rst.getString(7),rst.getString(8),rst.getString(9),rss.getString(1),rst.getString(12)});
+                while (rss.next()) {
+                    model.addRow(new Object[]{rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5),
+                        rst.getString(6), rst.getString(7), rst.getString(8), rst.getString(9), rss.getString(1), rst.getString(12)});
                 }
             }
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    public void getPaymentInfoNrefreshtablepayment(){
-        
+
+    public void getPaymentInfoNrefreshtablepayment() {
+
         cboInvoicePaymentID.removeAllItems();
         cboInvoicePaymentID.addItem("select");
         cboInvoicePaymentID.setSelectedItem("select");
@@ -5471,23 +5432,23 @@ public class Main extends javax.swing.JFrame {
         cboInvoicestaffrName.removeAllItems();
         cboInvoicestaffrName.addItem("select");
         cboInvoicestaffrName.setSelectedItem("select");
-        
-        try{
+
+        try {
             //getpaymentid
             String selectidpayment = "select id from tbPayment";
             PreparedStatement ps = con.prepareStatement(selectidpayment);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 cboInvoicePaymentID.addItem(rs.getString(1));
             }
-            
+
             //getstaffname
             String selectnamestaff = "select name from tbStaff";
             PreparedStatement pss = con.prepareStatement(selectnamestaff);
             ResultSet rss = pss.executeQuery();
-            while (rss.next()){
+            while (rss.next()) {
                 cboInvoicestaffrName.addItem(rss.getString(1));
-            }            
+            }
 
             //refrash table Invoice
             String selectinvoice = "select * from tbInvoice";
@@ -5495,7 +5456,7 @@ public class Main extends javax.swing.JFrame {
             ResultSet rsv = psv.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbInvoice.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("Payment ID");
             model.addColumn("Customer Name");
@@ -5504,70 +5465,71 @@ public class Main extends javax.swing.JFrame {
             model.addColumn("Owes Amount");
             model.addColumn("Invoice Date");
             model.addColumn("Staff Name");
-         
-            while (rsv.next()){
+
+            while (rsv.next()) {
                 int getcustomerid = rsv.getInt(7);
                 System.out.println("Customer ID: " + rsv.getInt(6));
                 String selectrolename = "select name from tbCustomer where id='" + getcustomerid + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectrolename);
-                
+
                 int getstaffid = rsv.getInt(6);
                 String selectstaffid = "select name from tbStaff where id='" + getstaffid + "'";
                 Statement pssss = con.createStatement();
                 ResultSet rssss = pssss.executeQuery(selectstaffid);
-                
-                while(rsss.next()){
-                    while(rssss.next()){
+
+                while (rsss.next()) {
+                    while (rssss.next()) {
                         System.out.println("ID: " + rsv.getString(1));
-                        model.addRow(new Object[]{rsv.getString(1),rsv.getString(8),rsss.getString(1),rsv.getString(2),rsv.getInt(3),rsv.getString(4),rsv.getString(5),rssss.getString(1)});
+                        model.addRow(new Object[]{rsv.getString(1), rsv.getString(8), rsss.getString(1), rsv.getString(2), rsv.getInt(3), rsv.getString(4), rsv.getString(5), rssss.getString(1)});
                     }
                 }
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    public void getcustomerstaffNrefreshtablepayment(){
-        try{
+
+    public void getcustomerstaffNrefreshtablepayment() {
+        try {
             txtPaymentID.setText("");
-            
+
             cboPaymentCutomerName.removeAllItems();
             cboPaymentCutomerName.addItem("select");
             cboPaymentCutomerName.setSelectedItem("select");
-            
+
             cboPaymentCreatebystaff.removeAllItems();
             cboPaymentCreatebystaff.addItem("select");
             cboPaymentCreatebystaff.setSelectedItem("select");
-            
+
             txtPaymentTotalAmount.setText("");
             txtPaymentPaidAmount.setText("");
             txtPaymentOwesAmount.setText("");
             txtPaymentDate.setDate(null);
-            
+
             //customerName
             String selectcustomername = "select name from tbCustomer";
             PreparedStatement ps = con.prepareStatement(selectcustomername);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 cboPaymentCutomerName.addItem(rs.getString(1));
             }
-            
+
             //staff name
             String selectstaffname = "select name from tbStaff";
             PreparedStatement pss = con.prepareStatement(selectstaffname);
             ResultSet rss = pss.executeQuery();
-            while (rss.next()){
+            while (rss.next()) {
                 cboPaymentCreatebystaff.addItem(rss.getString(1));
             }
-            
+
             //refreshtablepayment
             String selectpayment = "select * from tbPayment";
             PreparedStatement psp = con.prepareStatement(selectpayment);
             ResultSet rsp = psp.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbPayment.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("Customer Name");
             model.addColumn("Staff Name");
@@ -5575,76 +5537,77 @@ public class Main extends javax.swing.JFrame {
             model.addColumn("Paid Amount");
             model.addColumn("Owes Amount");
             model.addColumn("Payment Date");
-         
-            while (rsp.next()){
+
+            while (rsp.next()) {
                 int getcustomerid = rsp.getInt(6);
                 String selectrolename = "select name from tbCustomer where id='" + getcustomerid + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectrolename);
-                
+
                 int getstaffid = rsp.getInt(7);
                 String selectstaffid = "select name from tbStaff where id='" + getstaffid + "'";
                 Statement pssss = con.createStatement();
-                ResultSet rssss = pssss.executeQuery(selectstaffid);     
-                while(rsss.next()){
-                    while(rssss.next()){
-                        model.addRow(new Object[]{rsp.getString(1),rsss.getString(1),rssss.getString(1),rsp.getString(2),rsp.getInt(3),rsp.getString(4),rsp.getString(5)});
+                ResultSet rssss = pssss.executeQuery(selectstaffid);
+                while (rsss.next()) {
+                    while (rssss.next()) {
+                        model.addRow(new Object[]{rsp.getString(1), rsss.getString(1), rssss.getString(1), rsp.getString(2), rsp.getInt(3), rsp.getString(4), rsp.getString(5)});
                     }
                 }
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    public void getroleIDNrefreshtableworker(){
+
+    public void getroleIDNrefreshtableworker() {
         txtworkerID.setText("");
         txtworkerName.setText("");
-        
+
         cboworkercreatebystaff.removeAllItems();
         cboworkercreatebystaff.addItem("select");
         cboworkercreatebystaff.setSelectedItem("select");
         cboworkercreatebystaff.setSelectedItem("select");
-        
+
         cboworkerGender.setSelectedItem("select");
         txtworkerAddress.setText("");
         txtworkerBirthday.setDate(null);
         txtworkerHiredDate.setDate(null);
         txtworkerPhone.setText("");
         txtworkerSalary.setText("");
-        
+
         cboworkerroleID.removeAllItems();
         cboworkerroleID.addItem("select");
         cboworkerroleID.setSelectedItem("select");
         cboworkerStatus.setSelectedItem("select");
-        
+
         labelpictureworker.setIcon(null);
         txtworkerName.requestFocus();
-        
-        try{
-           
+
+        try {
+
             //getroleID
             String selectroleid = "select position from tbRole";
             PreparedStatement pss = con.prepareStatement(selectroleid);
             ResultSet rss = pss.executeQuery();
-            while (rss.next()){
+            while (rss.next()) {
                 cboworkerroleID.addItem(rss.getString(1));
             }
-            
+
             //getstaffname
             String selectstaffnameinfo = "select name from tbStaff";
             PreparedStatement psss = con.prepareStatement(selectstaffnameinfo);
             ResultSet rsss = psss.executeQuery();
-            while (rsss.next()){
+            while (rsss.next()) {
                 cboworkercreatebystaff.addItem(rsss.getString(1));
             }
-           //refreshtableWorker
+            //refreshtableWorker
             String selectalltbWorker = "select * from tbWorker";
             PreparedStatement pst = con.prepareStatement(selectalltbWorker);
             ResultSet rst = pst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tbworker.setModel(model);
             tbworkerview.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("Name");
             model.addColumn("Gender");
@@ -5656,38 +5619,38 @@ public class Main extends javax.swing.JFrame {
             model.addColumn("Role");
             model.addColumn("Staff Name");
             model.addColumn("Status");
-                                    
-            while (rst.next()){
+
+            while (rst.next()) {
                 int getidrole = rst.getInt(10);
                 String selectrolename = "select position from tbRole where id='" + getidrole + "'";
                 Statement pssa = con.createStatement();
-                ResultSet rs = pssa.executeQuery(selectrolename);                
-                
+                ResultSet rs = pssa.executeQuery(selectrolename);
+
                 int getidstaff = rst.getInt(11);
                 String selectstaffname = "select name from tbStaff where id='" + getidstaff + "'";
                 Statement psr = con.createStatement();
                 ResultSet rssa = psr.executeQuery(selectstaffname);
-                
-                while(rs.next()){
-                    while(rssa.next()){
-                        model.addRow(new Object[]{rst.getString(1),rst.getString(2),rst.getString(3),rst.getString(4),rst.getString(5),
-                                rst.getString(6),rst.getString(7),rst.getString(8),rs.getString(1),rssa.getString(1),rst.getString(12)});
+
+                while (rs.next()) {
+                    while (rssa.next()) {
+                        model.addRow(new Object[]{rst.getString(1), rst.getString(2), rst.getString(3), rst.getString(4), rst.getString(5),
+                            rst.getString(6), rst.getString(7), rst.getString(8), rs.getString(1), rssa.getString(1), rst.getString(12)});
 
                     }
                 }
             }
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
     private void btnStaffNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffNewMouseClicked
-        
-        if (txtStaffName.getText().trim().isEmpty() && cboStaffGender.getSelectedItem() == "None" && txtStaffNationlity.getText().trim().isEmpty() &&
-                txtStaffBirthday.getDate() == null && txtStaffHiredDate.getDate() == null && txtStaffSalary.getText().trim().isEmpty() && 
-                txtStaffPhone.getText().trim().isEmpty() && txtStaffAddress.getText().trim().isEmpty() && cboStaffroleID.getSelectedItem() == "None" &&
-                cboStaffStatus.getSelectedItem() == "None" ){
-            
+
+        if (txtStaffName.getText().trim().isEmpty() && cboStaffGender.getSelectedItem() == "None" && txtStaffNationlity.getText().trim().isEmpty()
+                && txtStaffBirthday.getDate() == null && txtStaffHiredDate.getDate() == null && txtStaffSalary.getText().trim().isEmpty()
+                && txtStaffPhone.getText().trim().isEmpty() && txtStaffAddress.getText().trim().isEmpty() && cboStaffroleID.getSelectedItem() == "None"
+                && cboStaffStatus.getSelectedItem() == "None") {
+
             labelstaffNamerequired.setText("required.");
             labelstaffgenderrequired.setText("required.");
             labelstaffnatrequired.setText("required.");
@@ -5698,59 +5661,46 @@ public class Main extends javax.swing.JFrame {
             labelstaffaddrerequired.setText("required.");
             labelstaffroleidrequired.setText("required.");
             labelstaffstaturequired.setText("required.");
-            txtStaffName.requestFocus();            
-        }
-                
-        else if (txtStaffName.getText().trim().isEmpty() ){
+            txtStaffName.requestFocus();
+        } else if (txtStaffName.getText().trim().isEmpty()) {
             labelstaffNamerequired.setText("required.");
             txtStaffName.requestFocus();
-        }             
-        else if (cboStaffGender.getSelectedItem() == "None"){
+        } else if (cboStaffGender.getSelectedItem() == "None") {
             labelstaffgenderrequired.setText("required.");
             cboStaffGender.requestFocus();
-            }
-        else if (txtStaffNationlity.getText().trim().isEmpty()){
+        } else if (txtStaffNationlity.getText().trim().isEmpty()) {
             labelstaffnatrequired.setText("required.");
             txtStaffNationlity.requestFocus();
-            }
-        else if (txtStaffBirthday.getDate() == null){
+        } else if (txtStaffBirthday.getDate() == null) {
             labelstaffbirthrequired.setText("required.");
             txtStaffBirthday.requestFocus();
-        }
-        else if (txtStaffHiredDate.getDate() == null){
+        } else if (txtStaffHiredDate.getDate() == null) {
             labelstaffhirdrequired.setText("required.");
             txtStaffHiredDate.requestFocus();
-        }
-        else if (txtStaffSalary.getText().trim().isEmpty()){
+        } else if (txtStaffSalary.getText().trim().isEmpty()) {
             labelstaffsarequired.setText("required.");
             txtStaffSalary.requestFocus();
-        }
-        else if (txtStaffPhone.getText().trim().isEmpty()){
+        } else if (txtStaffPhone.getText().trim().isEmpty()) {
             labelstaffphonerequired.setText("required.");
             txtStaffPhone.requestFocus();
-        }
-        else if (txtStaffAddress.getText().trim().isEmpty()){
+        } else if (txtStaffAddress.getText().trim().isEmpty()) {
             labelstaffaddrerequired.setText("required.");
             txtStaffAddress.requestFocus();
-        }
-        else if (cboStaffroleID.getSelectedItem() == "None"){
+        } else if (cboStaffroleID.getSelectedItem() == "None") {
             labelstaffroleidrequired.setText("required.");
             cboStaffroleID.requestFocus();
-        }
-        else if(cboStaffStatus.getSelectedItem() == "None"){
+        } else if (cboStaffStatus.getSelectedItem() == "None") {
             labelstaffstaturequired.setText("required.");
             cboStaffStatus.requestFocus();
-        }
-        else{
-       
+        } else {
+
             try {
                 Statement stat = con.createStatement();
                 String selectquery = "Select * from tbStaff where name='" + txtStaffName.getText().trim() + "'";
                 ResultSet rs = stat.executeQuery(selectquery);
-                if (rs.next() == true){
+                if (rs.next() == true) {
                     labelmessagestaff.setText("Staff Create already.");
-                }
-                else{
+                } else {
                     String querystaff = "insert into tbStaff(name,gender,nationality,birthday,hired_date,salary,phone,address,photo,role_id,status)values(?,?,?,?,?,?,?,?,?,?,?)";
                     PreparedStatement pst = con.prepareStatement(querystaff);
 
@@ -5759,8 +5709,8 @@ public class Main extends javax.swing.JFrame {
                     pst.setString(2, cboStaffGender.getSelectedItem().toString());
                     pst.setString(3, txtStaffNationlity.getText().trim());
 
-                    pst.setString(4,((JTextField)txtStaffBirthday.getDateEditor().getUiComponent()).getText());
-                    pst.setString(5,((JTextField)txtStaffHiredDate.getDateEditor().getUiComponent()).getText());
+                    pst.setString(4, ((JTextField) txtStaffBirthday.getDateEditor().getUiComponent()).getText());
+                    pst.setString(5, ((JTextField) txtStaffHiredDate.getDateEditor().getUiComponent()).getText());
 
                     pst.setString(6, txtStaffSalary.getText().trim());
                     pst.setString(7, txtStaffPhone.getText().trim());
@@ -5770,156 +5720,152 @@ public class Main extends javax.swing.JFrame {
                     pst.setBlob(9, img);
 
                     // insert roleID
-                    try{
-                    String getstaffrole = cboStaffroleID.getSelectedItem().toString();
-                    String selectroleid = "select id from tbRole where position='" + getstaffrole + "'";
-                    Statement pss = con.createStatement();
-                    ResultSet rss = pss.executeQuery(selectroleid);
-                    while(rss.next()){
-                        int id = rss.getInt(1);
-                        pst.setInt(10,id);
-                    }
-                    }catch(Exception ex){
+                    try {
+                        String getstaffrole = cboStaffroleID.getSelectedItem().toString();
+                        String selectroleid = "select id from tbRole where position='" + getstaffrole + "'";
+                        Statement pss = con.createStatement();
+                        ResultSet rss = pss.executeQuery(selectroleid);
+                        while (rss.next()) {
+                            int id = rss.getInt(1);
+                            pst.setInt(10, id);
+                        }
+                    } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, ex);
                     }
-                     
-                    pst.setString(11,cboStaffStatus.getSelectedItem().toString());
+
+                    pst.setString(11, cboStaffStatus.getSelectedItem().toString());
 
                     pst.executeUpdate();
                     labelmessagestaff.setText("Create staff sucessfully.");
                     getroleIDNrefreshtablestaff();
 
                 }
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
     }//GEN-LAST:event_btnStaffNewMouseClicked
-    public ImageIcon resizePic(String picPath){
-        
+    public ImageIcon resizePic(String picPath) {
+
         ImageIcon myImg = new ImageIcon(picPath);
-        Image img = myImg.getImage().getScaledInstance(labelpictureStaff.getWidth(), labelpictureStaff.getHeight(),Image.SCALE_SMOOTH);
+        Image img = myImg.getImage().getScaledInstance(labelpictureStaff.getWidth(), labelpictureStaff.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon myPicture = new ImageIcon(img);
         return myPicture;
     }
     private void btnStaffChoosepictureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffChoosepictureMouseClicked
         JFileChooser fc = new JFileChooser();
         //fc.showOpenDialog(null);
-        
+
         //file extension
-        FileNameExtensionFilter filefilter = new FileNameExtensionFilter("*image","png","jpg","gif","svg");
+        FileNameExtensionFilter filefilter = new FileNameExtensionFilter("*image", "png", "jpg", "gif", "svg");
         fc.addChoosableFileFilter(filefilter);
-        
-        int fileState  = fc.showSaveDialog(null);
-                
-        if(fileState == JFileChooser.APPROVE_OPTION){
-            
+
+        int fileState = fc.showSaveDialog(null);
+
+        if (fileState == JFileChooser.APPROVE_OPTION) {
+
             File selectedFile = fc.getSelectedFile();
             String path = selectedFile.getAbsolutePath();
             imagePath = path;
             //display the image in the lablepicturestaff
             //labelpictureStaff.setIcon(new ImageIcon(path));
-            
+
             labelpictureStaff.setIcon(resizePic(path));
-        }
-        
-        //if the user cancel
-        else if (fileState == JFileChooser.CANCEL_OPTION){
+        } //if the user cancel
+        else if (fileState == JFileChooser.CANCEL_OPTION) {
             System.out.println("No Image Selected");
         }
         //ImageIcon staffpicture = new ImageIcon(f.getAbsolutePath());
-        
+
     }//GEN-LAST:event_btnStaffChoosepictureMouseClicked
 
     private void btnStaffUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStaffUpdateMouseClicked
-  
+
         int s = tbStaff.getSelectedRow();
-        try{
-            String value=(tbStaff.getModel().getValueAt(s, 0).toString());
-            String updatestaff = "update tbStaff SET name=?, gender=?, nationality=?, birthday=?, hired_date=?, salary=?, phone=?, address=?, photo=?, role_id=?, status=?  where id="+value;
+        try {
+            String value = (tbStaff.getModel().getValueAt(s, 0).toString());
+            String updatestaff = "update tbStaff SET name=?, gender=?, nationality=?, birthday=?, hired_date=?, salary=?, phone=?, address=?, photo=?, role_id=?, status=?  where id=" + value;
             PreparedStatement psf = con.prepareStatement(updatestaff);
-            
+
             psf.setString(1, txtStaffName.getText().trim());
             psf.setString(2, cboStaffGender.getSelectedItem().toString());
             psf.setString(3, txtStaffNationlity.getText().trim());
-            
-             psf.setString(4,((JTextField)txtStaffBirthday.getDateEditor().getUiComponent()).getText());
-             psf.setString(5,((JTextField)txtStaffHiredDate.getDateEditor().getUiComponent()).getText());
-            
+
+            psf.setString(4, ((JTextField) txtStaffBirthday.getDateEditor().getUiComponent()).getText());
+            psf.setString(5, ((JTextField) txtStaffHiredDate.getDateEditor().getUiComponent()).getText());
+
             psf.setString(6, txtStaffSalary.getText().trim());
             psf.setString(7, txtStaffPhone.getText().trim());
             psf.setString(8, txtStaffAddress.getText().trim());
-            
+
             InputStream img = new FileInputStream(new File(imagePath));
             psf.setBlob(9, img);
-            
-            // insert roleID
 
+            // insert roleID
             String getstaffrole = cboStaffroleID.getSelectedItem().toString();
             String selectroleid = "select id from tbRole where position='" + getstaffrole + "'";
             Statement pss = con.createStatement();
             ResultSet rss = pss.executeQuery(selectroleid);
-            while(rss.next()){
+            while (rss.next()) {
                 int id = rss.getInt(1);
-                psf.setInt(10,id);
+                psf.setInt(10, id);
             }
-            
+
             psf.setString(11, cboStaffStatus.getSelectedItem().toString());
             psf.executeUpdate();
             labelmessagestaff.setText("Update staff successfully.");
             getroleIDNrefreshtablestaff();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnStaffUpdateMouseClicked
 
     private void tbStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbStaffMouseClicked
-        try{
+        try {
             int i = tbStaff.getSelectedRow();
             TableModel tm = tbStaff.getModel();
             txtstaffID.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbStaff where id=?";
+            String viewqurey = "select * from tbStaff where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtstaffID.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 txtStaffName.setText(rs.getString(2));
                 cboStaffGender.setSelectedItem(rs.getString(3));
                 txtStaffNationlity.setText(rs.getString(4));
-                
+
                 String str = rs.getString(5);
                 String str1 = rs.getString(6);
                 DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 java.util.Date bdate = formatter.parse(str);
                 java.util.Date hdate = formatter.parse(str1);
-                
+
                 txtStaffBirthday.setDate(bdate);
                 txtStaffHiredDate.setDate(hdate);
                 txtStaffSalary.setText(rs.getString(7));
                 txtStaffPhone.setText(rs.getString(8));
                 txtStaffAddress.setText(rs.getString(9));
-                
-                                
+
                 Blob im = rs.getBlob(10);
-                byte[] imbyte  = im.getBytes(1, (int)im.length());
+                byte[] imbyte = im.getBytes(1, (int) im.length());
                 InputStream in = new ByteArrayInputStream(imbyte);
                 BufferedImage imgFromDb = ImageIO.read(in);
                 Image scaledImage = imgFromDb.getScaledInstance(labelpictureStaff.getWidth(), labelpictureStaff.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(scaledImage);              
+                ImageIcon icon = new ImageIcon(scaledImage);
                 labelpictureStaff.setIcon(icon);
-                
+
                 String getid = rs.getString(11);
                 String selectroleid = "select position from tbRole where id='" + getid + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectroleid);
-                while(rss.next()){
+                while (rss.next()) {
                     cboStaffroleID.setSelectedItem(rss.getString(1));
                 }
-                
+
                 cboStaffStatus.setSelectedItem(rs.getString(12));
 
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbStaffMouseClicked
@@ -5935,70 +5881,68 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEdittableworkerMouseClicked
 
     private void tbworkerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbworkerMouseClicked
-        try{
+        try {
             int i = tbworker.getSelectedRow();
             TableModel tm = tbworker.getModel();
             txtworkerID.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbWorker where id=?";
+            String viewqurey = "select * from tbWorker where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtworkerID.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 txtworkerName.setText(rs.getString(2));
-                
+
                 String getidstaff = rs.getString(11);
                 String selectroleid = "select name from tbStaff where id='" + getidstaff + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectroleid);
-                while(rss.next()){
+                while (rss.next()) {
                     cboworkercreatebystaff.setSelectedItem(rss.getString(1));
                 }
-                
-                
+
                 cboworkerGender.setSelectedItem(rs.getString(3));
-                
+
                 String str = rs.getString(4);
                 String str1 = rs.getString(5);
                 DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 java.util.Date bdate = formatter.parse(str);
                 java.util.Date hdate = formatter.parse(str1);
-                
+
                 txtworkerBirthday.setDate(bdate);
                 txtworkerHiredDate.setDate(hdate);
                 txtworkerSalary.setText(rs.getString(6));
                 txtworkerPhone.setText(rs.getString(7));
                 txtworkerAddress.setText(rs.getString(8));
-                
-                                
+
                 Blob im = rs.getBlob(9);
-                byte[] imbyte  = im.getBytes(1, (int)im.length());
+                byte[] imbyte = im.getBytes(1, (int) im.length());
                 InputStream in = new ByteArrayInputStream(imbyte);
                 BufferedImage imgFromDb = ImageIO.read(in);
                 Image scaledImage = imgFromDb.getScaledInstance(labelpictureworker.getWidth(), labelpictureworker.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(scaledImage);              
+                ImageIcon icon = new ImageIcon(scaledImage);
                 labelpictureworker.setIcon(icon);
-                
+
                 String getidrole = rs.getString(10);
                 String selectroleidrole = "select position from tbRole where id='" + getidrole + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectroleidrole);
-                while(rsss.next()){
+                while (rsss.next()) {
                     cboworkerroleID.setSelectedItem(rsss.getString(1));
                 }
-                
+
                 cboworkerStatus.setSelectedItem(rs.getString(12));
 
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbworkerMouseClicked
 
     private void btnworkerNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerNewMouseClicked
-        if (txtworkerName.getText().trim().isEmpty() && cboworkercreatebystaff.getSelectedItem() == "select" && cboworkerGender.getSelectedItem() == "select" &&
-            txtworkerAddress.getText().trim().isEmpty() && txtworkerBirthday.getDate() == null && txtworkerHiredDate.getDate() == null && txtworkerSalary.getText().trim().isEmpty() && 
-            txtworkerPhone.getText().trim().isEmpty() && cboworkerroleID.getSelectedItem() == "select" && cboworkerStatus.getSelectedItem() == "select" ){
-            
+        if (txtworkerName.getText().trim().isEmpty() && cboworkercreatebystaff.getSelectedItem() == "select" && cboworkerGender.getSelectedItem() == "select"
+                && txtworkerAddress.getText().trim().isEmpty() && txtworkerBirthday.getDate() == null && txtworkerHiredDate.getDate() == null && txtworkerSalary.getText().trim().isEmpty()
+                && txtworkerPhone.getText().trim().isEmpty() && cboworkerroleID.getSelectedItem() == "select" && cboworkerStatus.getSelectedItem() == "select") {
+
             labelworkerNamerequired.setText("required.");
             labelworkercreatebystaff.setText("required.");
             labelworkergenderrequired.setText("required.");
@@ -6010,63 +5954,51 @@ public class Main extends javax.swing.JFrame {
             labelworkerroleidrequired.setText("required.");
             labelworkerstaturequired.setText("required.");
             txtworkerName.requestFocus();
-            
-        }
-                
-        else if (txtworkerName.getText().trim().isEmpty() ){
+
+        } else if (txtworkerName.getText().trim().isEmpty()) {
             labelworkerNamerequired.setText("required.");
             txtworkerName.requestFocus();
-        }             
-        else if (cboworkercreatebystaff.getSelectedItem() == "select"){
+        } else if (cboworkercreatebystaff.getSelectedItem() == "select") {
             labelworkercreatebystaff.setText("required.");
             cboworkercreatebystaff.requestFocus();
-            }
-        else if (cboworkerGender.getSelectedItem() == "select"){
+        } else if (cboworkerGender.getSelectedItem() == "select") {
             labelworkergenderrequired.setText("required.");
             cboworkerGender.requestFocus();
-            }
-        else if (txtworkerAddress.getText().trim().isEmpty()){
+        } else if (txtworkerAddress.getText().trim().isEmpty()) {
             labelworkeraddrerequired.setText("required.");
             txtworkerAddress.requestFocus();
-        }
-        else if (txtworkerBirthday.getDate() == null){
+        } else if (txtworkerBirthday.getDate() == null) {
             labelworkerbirthrequired.setText("required.");
             txtworkerBirthday.requestFocus();
-        }
-        else if (txtworkerHiredDate.getDate() == null ){
+        } else if (txtworkerHiredDate.getDate() == null) {
             labelworkerhirdrequired.setText("required.");
             txtworkerHiredDate.requestFocus();
-        }
-        else if (txtworkerPhone.getText().trim().isEmpty()){
+        } else if (txtworkerPhone.getText().trim().isEmpty()) {
             labelworkerphonerequired.setText("required.");
             txtworkerPhone.requestFocus();
-        }
-        else if (cboworkerroleID.getSelectedItem() == "None"){
+        } else if (cboworkerroleID.getSelectedItem() == "None") {
             labelworkerroleidrequired.setText("required.");
             cboworkerroleID.requestFocus();
-        }
-        else if(cboworkerStatus.getSelectedItem() == "None"){
+        } else if (cboworkerStatus.getSelectedItem() == "None") {
             labelworkerstaturequired.setText("required.");
             cboworkerStatus.requestFocus();
-        }
-        else{
-       
+        } else {
+
             try {
                 Statement stat = con.createStatement();
                 String selectquery = "Select * from tbWorker where name='" + txtworkerName.getText().trim() + "'";
                 ResultSet rs = stat.executeQuery(selectquery);
-                if (rs.next() == true){
+                if (rs.next() == true) {
                     labelmessageworker.setText("worker Create already.");
-                }
-                else{
+                } else {
                     String queryworker = "insert into tbWorker(name,gender,birthday,hired_date,salary,phone,address,photo,role_id,staff_id,status)values(?,?,?,?,?,?,?,?,?,?,?)";
                     PreparedStatement pst = con.prepareStatement(queryworker);
 
                     pst.setString(1, txtworkerName.getText().trim());
                     pst.setString(2, cboworkerGender.getSelectedItem().toString());
 
-                    pst.setString(3,((JTextField)txtworkerBirthday.getDateEditor().getUiComponent()).getText());
-                    pst.setString(4,((JTextField)txtworkerHiredDate.getDateEditor().getUiComponent()).getText());
+                    pst.setString(3, ((JTextField) txtworkerBirthday.getDateEditor().getUiComponent()).getText());
+                    pst.setString(4, ((JTextField) txtworkerHiredDate.getDateEditor().getUiComponent()).getText());
 
                     pst.setString(5, txtworkerSalary.getText().trim());
                     pst.setString(6, txtworkerPhone.getText().trim());
@@ -6078,75 +6010,75 @@ public class Main extends javax.swing.JFrame {
                     String selectroleid = "select id from tbRole where position='" + position + "'";
                     Statement pss = con.createStatement();
                     ResultSet rss = pss.executeQuery(selectroleid);
-                    
+
                     String staffname = cboworkercreatebystaff.getSelectedItem().toString();
                     String selectstaffname = "select id from tbStaff where name='" + staffname + "'";
                     Statement psss = con.createStatement();
-                    ResultSet rsss = psss.executeQuery(selectstaffname);                    
-                    
-                    while(rss.next()){
-                        pst.setString(9,rss.getString(1));
+                    ResultSet rsss = psss.executeQuery(selectstaffname);
+
+                    while (rss.next()) {
+                        pst.setString(9, rss.getString(1));
                     }
-                    
-                    while (rsss.next()){
-                        pst.setString(10,rsss.getString(1));
-                                           
+
+                    while (rsss.next()) {
+                        pst.setString(10, rsss.getString(1));
+
                     }
-                
+
                     pst.setString(11, cboworkerStatus.getSelectedItem().toString());
-                    
+
                     pst.executeUpdate();
                     labelmessageworker.setText("Create worker sucessfully.");
                     getroleIDNrefreshtableworker();
                 }
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
-        } 
+        }
     }//GEN-LAST:event_btnworkerNewMouseClicked
 
     private void btnworkerUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdateMouseClicked
-  
+
         int s = tbworker.getSelectedRow();
-        try{
-            String value=(tbworker.getModel().getValueAt(s, 0).toString());
-            String updateworker = "update tbWorker SET name=?, gender=?, birthday=?, hired_date=?, salary=?, phone=?, address=?, photo=?, role_id=?,staff_id=?, status=?  where id="+value;
+        try {
+            String value = (tbworker.getModel().getValueAt(s, 0).toString());
+            String updateworker = "update tbWorker SET name=?, gender=?, birthday=?, hired_date=?, salary=?, phone=?, address=?, photo=?, role_id=?,staff_id=?, status=?  where id=" + value;
             PreparedStatement psf = con.prepareStatement(updateworker);
-            
+
             psf.setString(1, txtworkerName.getText().trim());
             psf.setString(2, cboworkerGender.getSelectedItem().toString());
-            
-            psf.setString(3,((JTextField)txtworkerBirthday.getDateEditor().getUiComponent()).getText());
-            psf.setString(4,((JTextField)txtworkerHiredDate.getDateEditor().getUiComponent()).getText());
-            
+
+            psf.setString(3, ((JTextField) txtworkerBirthday.getDateEditor().getUiComponent()).getText());
+            psf.setString(4, ((JTextField) txtworkerHiredDate.getDateEditor().getUiComponent()).getText());
+
             psf.setString(5, txtworkerSalary.getText().trim());
             psf.setString(6, txtworkerPhone.getText().trim());
             psf.setString(7, txtworkerAddress.getText().trim());
-            
+
             psf.setBytes(8, worker_image);
 
             String getposition = cboworkerroleID.getSelectedItem().toString();
             String selectroleid = "select id from tbRole where position='" + getposition + "'";
             Statement pss = con.createStatement();
-            ResultSet rss = pss.executeQuery(selectroleid);    
+            ResultSet rss = pss.executeQuery(selectroleid);
 
             String getstaffname = cboworkercreatebystaff.getSelectedItem().toString();
             String selectstaffname = "select id from tbStaff where name='" + getstaffname + "'";
             Statement psss = con.createStatement();
-            ResultSet rsss = psss.executeQuery(selectstaffname);             
-                    
-            while(rss.next()){
-                psf.setString(9,rss.getString(1));
+            ResultSet rsss = psss.executeQuery(selectstaffname);
+
+            while (rss.next()) {
+                psf.setString(9, rss.getString(1));
             }
-            while(rsss.next()){
-                psf.setString(10,rsss.getString(1));
+            while (rsss.next()) {
+                psf.setString(10, rsss.getString(1));
             }
 
             psf.setString(11, cboworkerStatus.getSelectedItem().toString());
             psf.executeUpdate();
             labelmessageworker.setText("Update worker successfully.");
             getroleIDNrefreshtableworker();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnworkerUpdateMouseClicked
@@ -6177,20 +6109,20 @@ public class Main extends javax.swing.JFrame {
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
         filename = f.getAbsolutePath();
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(labelpictureworker.getWidth(),labelpictureworker.getHeight(),Image.SCALE_SMOOTH));
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(labelpictureworker.getWidth(), labelpictureworker.getHeight(), Image.SCALE_SMOOTH));
         labelpictureworker.setIcon(imageIcon);
-        try{
+        try {
             File image = new File(filename);
             FileInputStream fis = new FileInputStream(image);
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             byte[] buf = new byte[1024];
-            for (int readNum;(readNum=fis.read(buf)) !=-1;){
-                bos.write(buf,0,readNum);
+            for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                bos.write(buf, 0, readNum);
             }
-            worker_image=bos.toByteArray();
-        }catch(Exception e){
+            worker_image = bos.toByteArray();
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }   
+        }
     }//GEN-LAST:event_btnWorkerChoosepictureMouseClicked
 
     private void btnWorkerChoosepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWorkerChoosepictureActionPerformed
@@ -6198,127 +6130,120 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnWorkerChoosepictureActionPerformed
 
     private void tbPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPaymentMouseClicked
-        try{
+        try {
             int i = tbPayment.getSelectedRow();
             TableModel tm = tbPayment.getModel();
             txtPaymentID.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbPayment where id=?";
+            String viewqurey = "select * from tbPayment where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtPaymentID.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 txtPaymentTotalAmount.setText(rs.getString(2));
                 txtPaymentPaidAmount.setText(rs.getString(3));
                 txtPaymentOwesAmount.setText(rs.getString(4));
-                
+
                 String str = rs.getString(5);
                 DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 java.util.Date pdate = formatter.parse(str);
                 txtPaymentDate.setDate(pdate);
-                
+
                 String getcustomerid = rs.getString(6);
                 String selectcustomerid = "select name from tbCustomer where id='" + getcustomerid + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectcustomerid);
-                
+
                 String getstaffid = rs.getString(7);
                 String selectstaffid = "select name from tbStaff where id='" + getstaffid + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectstaffid);
-                
-                while(rss.next()){
+
+                while (rss.next()) {
                     cboPaymentCutomerName.setSelectedItem(rss.getString(1));
                 }
-                while (rsss.next()){
+                while (rsss.next()) {
                     cboPaymentCreatebystaff.setSelectedItem(rsss.getString(1));
                 }
-        }
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbPaymentMouseClicked
 
     private void btnPaymentclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPaymentclearMouseClicked
-        getcustomerstaffNrefreshtablepayment();    
+        getcustomerstaffNrefreshtablepayment();
     }//GEN-LAST:event_btnPaymentclearMouseClicked
 
     private void btnPaymentUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPaymentUpdateMouseClicked
         int s = tbPayment.getSelectedRow();
-        try{
-            String value=(tbPayment.getModel().getValueAt(s, 0).toString());
-            String updatpayment = "update tbPayment SET total_amount=?, paid_amount=?,owes_amount=? , payment_date=?, customer_id=?, staff_id=?  where id="+value;
+        try {
+            String value = (tbPayment.getModel().getValueAt(s, 0).toString());
+            String updatpayment = "update tbPayment SET total_amount=?, paid_amount=?,owes_amount=? , payment_date=?, customer_id=?, staff_id=?  where id=" + value;
             PreparedStatement psp = con.prepareStatement(updatpayment);
-            
+
             psp.setString(1, txtPaymentTotalAmount.getText().trim());
             psp.setString(2, txtPaymentPaidAmount.getText().trim());
             psp.setString(3, txtPaymentOwesAmount.getText().trim());
-            psp.setString(4,((JTextField)txtPaymentDate.getDateEditor().getUiComponent()).getText());
-            
+            psp.setString(4, ((JTextField) txtPaymentDate.getDateEditor().getUiComponent()).getText());
+
             String getcustomerid = cboPaymentCutomerName.getSelectedItem().toString();
             String selectcustomerid = "select id from tbCustomer where name='" + getcustomerid + "'";
             Statement ps = con.createStatement();
-            ResultSet rs = ps.executeQuery(selectcustomerid);    
+            ResultSet rs = ps.executeQuery(selectcustomerid);
 
             String getstaffname = cboPaymentCreatebystaff.getSelectedItem().toString();
             String selectstaffname = "select id from tbStaff where name='" + getstaffname + "'";
             Statement pss = con.createStatement();
-            ResultSet rss = pss.executeQuery(selectstaffname);             
-                    
-            while(rs.next()){
-                psp.setInt(5,rs.getInt(1));
+            ResultSet rss = pss.executeQuery(selectstaffname);
+
+            while (rs.next()) {
+                psp.setInt(5, rs.getInt(1));
             }
-            while(rss.next()){
-                psp.setInt(6,rss.getInt(1));
+            while (rss.next()) {
+                psp.setInt(6, rss.getInt(1));
             }
 
             psp.executeUpdate();
             labelpaymentresult.setText("Update Payment successfully.");
             getcustomerstaffNrefreshtablepayment();
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnPaymentUpdateMouseClicked
 
     private void btnPaymentNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPaymentNewMouseClicked
-       
-        if ( cboPaymentCutomerName.getSelectedItem() == "select" && cboPaymentCreatebystaff.getSelectedItem() == "select" && txtPaymentPaidAmount.getText().trim().isEmpty() &&
-             txtPaymentDate.getDate() == null && txtPaymentTotalAmount.getText().trim().isEmpty() && txtPaymentOwesAmount.getText().trim().isEmpty() ){
-                labelpaymentstaffrequire.setText("require");
-                labelpaymentCustomerrequired.setText("require");
-                labelpaymentPaidrequired.setText("require");
-                labelpaymentPaymentrequired.setText("require");
-                labelpaymentTotalrequired.setText("require");
-                labelpaymentOwesrequired.setText("require");
-                
-                cboPaymentCutomerName.requestFocus();
-        }
-        else if (cboPaymentCutomerName.getSelectedItem() == "select"){
+
+        if (cboPaymentCutomerName.getSelectedItem() == "select" && cboPaymentCreatebystaff.getSelectedItem() == "select" && txtPaymentPaidAmount.getText().trim().isEmpty()
+                && txtPaymentDate.getDate() == null && txtPaymentTotalAmount.getText().trim().isEmpty() && txtPaymentOwesAmount.getText().trim().isEmpty()) {
+            labelpaymentstaffrequire.setText("require");
+            labelpaymentCustomerrequired.setText("require");
+            labelpaymentPaidrequired.setText("require");
+            labelpaymentPaymentrequired.setText("require");
+            labelpaymentTotalrequired.setText("require");
+            labelpaymentOwesrequired.setText("require");
+
+            cboPaymentCutomerName.requestFocus();
+        } else if (cboPaymentCutomerName.getSelectedItem() == "select") {
             labelpaymentCustomerrequired.setText("require");
             cboPaymentCutomerName.requestFocus();
-        }
-        else if (cboPaymentCreatebystaff.getSelectedItem() == "select"){
+        } else if (cboPaymentCreatebystaff.getSelectedItem() == "select") {
             labelpaymentstaffrequire.setText("require");
             cboPaymentCreatebystaff.requestFocus();
-        }
-        else if (txtPaymentPaidAmount.getText().trim().isEmpty()){
+        } else if (txtPaymentPaidAmount.getText().trim().isEmpty()) {
             labelpaymentPaidrequired.setText("require");
             txtPaymentPaidAmount.requestFocus();
-        }
-        else if (txtPaymentDate.getDate() == null){
+        } else if (txtPaymentDate.getDate() == null) {
             labelpaymentPaymentrequired.setText("require");
             txtPaymentDate.requestFocus();
-        }
-        else if (txtPaymentTotalAmount.getText().trim().isEmpty()){
+        } else if (txtPaymentTotalAmount.getText().trim().isEmpty()) {
             labelpaymentTotalrequired.setText("require");
             txtPaymentTotalAmount.requestFocus();
-        }
-        else if (txtPaymentOwesAmount.getText().trim().isEmpty()){
+        } else if (txtPaymentOwesAmount.getText().trim().isEmpty()) {
             labelpaymentOwesrequired.setText("require");
             txtPaymentOwesAmount.requestFocus();
-        }
-        else{
-      
+        } else {
+
             try {
                 String querypayment = "insert into tbPayment(customer_id,staff_id,total_amount,paid_amount,owes_amount,payment_date)values(?,?,?,?,?,?)";
                 PreparedStatement psp = con.prepareStatement(querypayment);
@@ -6327,122 +6252,117 @@ public class Main extends javax.swing.JFrame {
                 String selectcustomername = "select id from tbCustomer where name='" + getcustomername + "'";
                 Statement ps = con.createStatement();
                 ResultSet rs = ps.executeQuery(selectcustomername);
-                    
+
                 String staffname = cboPaymentCreatebystaff.getSelectedItem().toString();
                 String selectstaffname = "select id from tbStaff where name='" + staffname + "'";
                 Statement pss = con.createStatement();
-                ResultSet rss = pss.executeQuery(selectstaffname);                    
-                    
-                while(rs.next()){
-                    psp.setString(1,rs.getString(1));
+                ResultSet rss = pss.executeQuery(selectstaffname);
+
+                while (rs.next()) {
+                    psp.setString(1, rs.getString(1));
                 }
-                    
-                while (rss.next()){
-                    psp.setString(2,rss.getString(1));
-                                           
-                }                
+
+                while (rss.next()) {
+                    psp.setString(2, rss.getString(1));
+
+                }
 
                 psp.setString(3, txtPaymentTotalAmount.getText().trim());
-                psp.setString(4,txtPaymentPaidAmount.getText().trim());
+                psp.setString(4, txtPaymentPaidAmount.getText().trim());
                 psp.setString(5, txtPaymentOwesAmount.getText().trim());
-                psp.setString(6,((JTextField)txtPaymentDate.getDateEditor().getUiComponent()).getText());
+                psp.setString(6, ((JTextField) txtPaymentDate.getDateEditor().getUiComponent()).getText());
 
                 psp.executeUpdate();
                 labelpaymentresult.setText("Create payment sucessfully.");
                 getcustomerstaffNrefreshtablepayment();
-          
-            }catch(Exception ex){
+
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
     }//GEN-LAST:event_btnPaymentNewMouseClicked
 
     private void tbInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbInvoiceMouseClicked
-        try{
+        try {
             int i = tbInvoice.getSelectedRow();
             TableModel tm = tbInvoice.getModel();
             txtInvoiceId.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbInvoice where id=?";
+            String viewqurey = "select * from tbInvoice where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtInvoiceId.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 cboInvoicePaymentID.setSelectedItem(rs.getString(8));
-               
+
                 String str = rs.getString(5);
                 DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 java.util.Date pdate = formatter.parse(str);
                 txtInvoiceDate.setDate(pdate);
-                
-               
+
                 String getstaffid = rs.getString(6);
                 String selectstaffid = "select name from tbStaff where id='" + getstaffid + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectstaffid);
-                
-                while (rsss.next()){
+
+                while (rsss.next()) {
                     cboInvoicestaffrName.setSelectedItem(rsss.getString(1));
                 }
-        }
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbInvoiceMouseClicked
 
     private void btnInvoiceNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvoiceNewMouseClicked
-        if ( cboInvoicePaymentID.getSelectedItem() == "select" && txtInvoiceDate.getDate() == null && cboInvoicestaffrName.getSelectedItem() == "select" ){
+        if (cboInvoicePaymentID.getSelectedItem() == "select" && txtInvoiceDate.getDate() == null && cboInvoicestaffrName.getSelectedItem() == "select") {
             labelInvoicePaymentIDrequired.setText("require");
             labelInvoiceDatterequired.setText("require");
             labelInvoicestaffrequired.setText("require");
             cboInvoicePaymentID.requestFocus();
-        }
-        else if ( cboInvoicePaymentID.getSelectedItem() == "select" ){
+        } else if (cboInvoicePaymentID.getSelectedItem() == "select") {
             labelInvoicePaymentIDrequired.setText("require");
             cboInvoicePaymentID.requestFocus();
-        }
-        else if ( txtInvoiceDate.getDate() == null ){
+        } else if (txtInvoiceDate.getDate() == null) {
             labelInvoiceDatterequired.setText("require");
             txtInvoiceDate.requestFocus();
-        }
-        else if ( cboInvoicestaffrName.getSelectedItem() == "select" ){
+        } else if (cboInvoicestaffrName.getSelectedItem() == "select") {
             labelInvoicestaffrequired.setText("require");
             cboInvoicestaffrName.requestFocus();
-        }
-        else {
-            try{
+        } else {
+            try {
                 String queryinvoice = "insert into tbInvoice(payment_id,customer_id,total_amount,paid_amount,owes_amount,invoice_date,staff_id)values(?,?,?,?,?,?,?)";
                 PreparedStatement psv = con.prepareStatement(queryinvoice);
 
                 String getpyment = cboInvoicePaymentID.getSelectedItem().toString();
                 int p = Integer.parseInt(getpyment);
                 psv.setInt(1, p);
-                
+
                 String getcustomername = txtInvoiceCustomer.getText().trim();
                 String selectcustomername = "select id from tbCustomer where name='" + getcustomername + "'";
                 Statement ps = con.createStatement();
                 ResultSet rs = ps.executeQuery(selectcustomername);
-                 while(rs.next()){
-                    psv.setString(2,rs.getString(1));
+                while (rs.next()) {
+                    psv.setString(2, rs.getString(1));
                 }
-                 
-                psv.setString(3,txtInvoiceTotalAmount.getText().trim());
+
+                psv.setString(3, txtInvoiceTotalAmount.getText().trim());
                 psv.setString(4, txtInvoicePaidAmount.getText().trim());
                 psv.setString(5, txtInvoiceOwesAmount.getText().trim());
-                psv.setString(6,((JTextField)txtInvoiceDate.getDateEditor().getUiComponent()).getText());
-                
+                psv.setString(6, ((JTextField) txtInvoiceDate.getDateEditor().getUiComponent()).getText());
+
                 String staffname = cboInvoicestaffrName.getSelectedItem().toString();
                 String selectstaffname = "select id from tbStaff where name='" + staffname + "'";
                 Statement pss = con.createStatement();
-                ResultSet rss = pss.executeQuery(selectstaffname);                    
-                while (rss.next()){
-                    psv.setString(7,rss.getString(1));
-                                           
-                }  
-                
+                ResultSet rss = pss.executeQuery(selectstaffname);
+                while (rss.next()) {
+                    psv.setString(7, rss.getString(1));
+
+                }
+
                 psv.executeUpdate();
                 labelInvoiceResult.setText("Create Invoice sucessfully.");
                 getPaymentInfoNrefreshtablepayment();
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
@@ -6450,40 +6370,40 @@ public class Main extends javax.swing.JFrame {
 
     private void btnInvoiceUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvoiceUpdateMouseClicked
         int s = tbInvoice.getSelectedRow();
-        try{
-            String value=(tbInvoice.getModel().getValueAt(s, 0).toString());
-            String updatinvoice = "update tbInvoice SET payment_id=?,customer_id=? , total_amount=?, paid_amount=?,owes_amount=? , invoice_date=?, staff_id=? where id="+value;
+        try {
+            String value = (tbInvoice.getModel().getValueAt(s, 0).toString());
+            String updatinvoice = "update tbInvoice SET payment_id=?,customer_id=? , total_amount=?, paid_amount=?,owes_amount=? , invoice_date=?, staff_id=? where id=" + value;
             PreparedStatement psi = con.prepareStatement(updatinvoice);
-            
+
             psi.setString(1, cboInvoicePaymentID.getSelectedItem().toString());
 
             String getcutomername = txtInvoiceCustomer.getText().trim();
             String selectcustomername = "select id from tbCustomer where name='" + getcutomername + "'";
             Statement ps = con.createStatement();
-            ResultSet rs = ps.executeQuery(selectcustomername);             
-            while (rs.next()){
+            ResultSet rs = ps.executeQuery(selectcustomername);
+            while (rs.next()) {
                 psi.setInt(2, rs.getInt(1));
             }
-            
+
             psi.setString(3, txtInvoiceTotalAmount.getText().trim());
             psi.setString(4, txtInvoicePaidAmount.getText().trim());
             psi.setString(5, txtInvoiceOwesAmount.getText().trim());
-            psi.setString(6,((JTextField)txtInvoiceDate.getDateEditor().getUiComponent()).getText());
+            psi.setString(6, ((JTextField) txtInvoiceDate.getDateEditor().getUiComponent()).getText());
 
             String getstaffname = cboInvoicestaffrName.getSelectedItem().toString();
             String selectstaffname = "select id from tbStaff where name='" + getstaffname + "'";
             Statement pss = con.createStatement();
-            ResultSet rss = pss.executeQuery(selectstaffname);             
-                    
-            while(rss.next()){
-                psi.setInt(7,rss.getInt(1));
+            ResultSet rss = pss.executeQuery(selectstaffname);
+
+            while (rss.next()) {
+                psi.setInt(7, rss.getInt(1));
             }
 
             psi.executeUpdate();
             labelInvoiceResult.setText("Update Invoice successfully.");
             getPaymentInfoNrefreshtablepayment();
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnInvoiceUpdateMouseClicked
@@ -6493,83 +6413,74 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInvoiceCancelMouseClicked
 
     private void tbProjectPlanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProjectPlanMouseClicked
-        try{
+        try {
             int i = tbProjectPlan.getSelectedRow();
             TableModel tm = tbProjectPlan.getModel();
             txtProjectPlanID.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbProjectPlan where id=?";
+            String viewqurey = "select * from tbProjectPlan where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtProjectPlanID.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
-                
+            if (rs.next()) {
+
                 txtProjectPlanName.setText(rs.getString(2));
                 txtProjectPlanLocation.setText(rs.getString(3));
                 cboProjectPlanStatus.setSelectedItem(rs.getString(4));
-                
+
                 String str = rs.getString(5);
                 DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 java.util.Date pdate = formatter.parse(str);
                 txtProjectPlanTimeLine.setDate(pdate);
-                
+
                 int getidproinfo = rs.getInt(6);
                 String selectproinfo = "select file_name from tbProjectInformation where id='" + getidproinfo + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectproinfo);
-                
-                while (rss.next()){
+
+                while (rss.next()) {
                     cboProjectPlanInfoName.setSelectedItem(rss.getString(1));
                 }
-        }
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbProjectPlanMouseClicked
 
     private void btnProjectPlanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanMouseClicked
-        if ( txtProjectPlanName.getText().trim().isEmpty() && cboProjectPlanInfoName.getSelectedItem() == "select" && txtProjectPlanLocation.getText().trim().isEmpty() &&
-                txtProjectPlanTimeLine.getDate() == null && cboProjectPlanInfoName.getSelectedItem() == "select" && cboProjectPlanStatus.getSelectedItem() == "select" ){
+        if (txtProjectPlanName.getText().trim().isEmpty() && cboProjectPlanInfoName.getSelectedItem() == "select" && txtProjectPlanLocation.getText().trim().isEmpty()
+                && txtProjectPlanTimeLine.getDate() == null && cboProjectPlanInfoName.getSelectedItem() == "select" && cboProjectPlanStatus.getSelectedItem() == "select") {
             labelProjectPlanName.setText("require");
             labelProjectPlanInfoName.setText("require");
             labelProjectPlanLocation.setText("require");
             labelProjectPlanTimeLine.setText("require");
             labelProjectPlanStatus.setText("require");
             txtProjectPlanName.requestFocus();
-        }
-        else if ( txtProjectPlanName.getText().trim().isEmpty() ){
+        } else if (txtProjectPlanName.getText().trim().isEmpty()) {
             labelProjectPlanName.setText("require");
             txtProjectPlanName.requestFocus();
-        }
-        else if ( cboProjectPlanInfoName.getSelectedItem() == "select" ){
+        } else if (cboProjectPlanInfoName.getSelectedItem() == "select") {
             labelProjectPlanInfoName.setText("require");
             txtProjectPlanLocation.requestFocus();
-        }
-        else if ( txtProjectPlanLocation.getText().trim().isEmpty() ){
+        } else if (txtProjectPlanLocation.getText().trim().isEmpty()) {
             labelProjectPlanLocation.setText("require");
             txtProjectPlanLocation.requestFocus();
-        }
-        else if ( txtProjectPlanTimeLine.getDate() == null ){
+        } else if (txtProjectPlanTimeLine.getDate() == null) {
             labelProjectPlanTimeLine.setText("require");
-            txtProjectPlanTimeLine.requestFocus(); 
-        }
-        else if ( cboProjectPlanInfoName.getSelectedItem() == "select" ){
+            txtProjectPlanTimeLine.requestFocus();
+        } else if (cboProjectPlanInfoName.getSelectedItem() == "select") {
             labelProjectPlanStatus.setText("require");
             txtProjectPlanName.requestFocus();
-        }
-        else if ( cboProjectPlanStatus.getSelectedItem() == "select"){
+        } else if (cboProjectPlanStatus.getSelectedItem() == "select") {
             labelProjectPlanStatus.setText("require");
             cboProjectPlanStatus.requestFocus();
-        }
-        else {
-            try{
+        } else {
+            try {
                 Statement stat = con.createStatement();
                 String selectquery = "Select * from tbProjectPlan where projectplan_name='" + txtProjectPlanName.getText().trim() + "'";
                 ResultSet rss = stat.executeQuery(selectquery);
-                if (rss.next() == true){
+                if (rss.next() == true) {
                     labelProjectPlanResult.setText("ProjectPlan Create already.");
-                }
-                
-                else{
+                } else {
                     String queryprojectplan = "insert into tbProjectPlan(projectplan_name, projectinformation_id, location, timeline, status)values(?,?,?,?,?)";
                     PreparedStatement psp = con.prepareStatement(queryprojectplan);
 
@@ -6579,19 +6490,19 @@ public class Main extends javax.swing.JFrame {
                     String selectproinfoname = "select id from tbProjectInformation where file_name='" + getproinfoname + "'";
                     Statement ps = con.createStatement();
                     ResultSet rs = ps.executeQuery(selectproinfoname);
-                     while(rs.next()){
-                        psp.setInt(2,rs.getInt(1));
+                    while (rs.next()) {
+                        psp.setInt(2, rs.getInt(1));
                     }
 
-                    psp.setString(3,txtProjectPlanLocation.getText().trim());
-                    psp.setString(4, ((JTextField)txtProjectPlanTimeLine.getDateEditor().getUiComponent()).getText());
+                    psp.setString(3, txtProjectPlanLocation.getText().trim());
+                    psp.setString(4, ((JTextField) txtProjectPlanTimeLine.getDateEditor().getUiComponent()).getText());
                     psp.setString(5, cboProjectPlanStatus.getSelectedItem().toString());
 
                     psp.executeUpdate();
                     labelProjectPlanResult.setText("Create ProjectPlan sucessfully.");
-                    getProinfoNrefreshtableProjectPlan();    
+                    getProinfoNrefreshtableProjectPlan();
                 }
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
@@ -6599,57 +6510,57 @@ public class Main extends javax.swing.JFrame {
 
     private void btnProjectPlanUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanUpdateMouseClicked
         int s = tbProjectPlan.getSelectedRow();
-        try{
-            String value=(tbProjectPlan.getModel().getValueAt(s, 0).toString());
-            String updatprojectplan = "update tbProjectPlan SET projectplan_name=?, projectinformation_id=?, location=?, timeline=?, status=?  where id="+value;
+        try {
+            String value = (tbProjectPlan.getModel().getValueAt(s, 0).toString());
+            String updatprojectplan = "update tbProjectPlan SET projectplan_name=?, projectinformation_id=?, location=?, timeline=?, status=?  where id=" + value;
             PreparedStatement psp = con.prepareStatement(updatprojectplan);
-            
+
             psp.setString(1, txtProjectPlanName.getText().trim());
 
             String getproinfoname = cboProjectPlanInfoName.getSelectedItem().toString();
             String selectproinfoname = "select id from tbProjectInformation where file_name='" + getproinfoname + "'";
             Statement ps = con.createStatement();
             ResultSet rs = ps.executeQuery(selectproinfoname);
-            while(rs.next()){
-                psp.setInt(2,rs.getInt(1));
+            while (rs.next()) {
+                psp.setInt(2, rs.getInt(1));
             }
 
-            psp.setString(3,txtProjectPlanLocation.getText().trim());
-            psp.setString(4, ((JTextField)txtProjectPlanTimeLine.getDateEditor().getUiComponent()).getText());
+            psp.setString(3, txtProjectPlanLocation.getText().trim());
+            psp.setString(4, ((JTextField) txtProjectPlanTimeLine.getDateEditor().getUiComponent()).getText());
             psp.setString(5, cboProjectPlanStatus.getSelectedItem().toString());
 
             psp.executeUpdate();
             labelProjectPlanResult.setText("Update ProjectPlan sucessfully.");
-            getProinfoNrefreshtableProjectPlan();  
-            
-        }catch(Exception ex){
+            getProinfoNrefreshtableProjectPlan();
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnProjectPlanUpdateMouseClicked
 
     private void btnProjectPlanClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanClearMouseClicked
-        getProinfoNrefreshtableProjectPlan();  
+        getProinfoNrefreshtableProjectPlan();
     }//GEN-LAST:event_btnProjectPlanClearMouseClicked
 
     private void tbProjectPlanListDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProjectPlanListDetailMouseClicked
-        try{
+        try {
             int i = tbProjectPlanListDetail.getSelectedRow();
             TableModel tm = tbProjectPlanListDetail.getModel();
             txtProjectPlanDetailID.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbProjectPlanListDetail where id=?";
+            String viewqurey = "select * from tbProjectPlanListDetail where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtProjectPlanDetailID.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
-                
+            if (rs.next()) {
+
                 txtProjectPlanDetailName.setText(rs.getString(2));
-                
+
                 int getprojectlist = rs.getInt(4);
                 String selectproinfo = "select projectplanlist_name from tbProjectPlanList where id='" + getprojectlist + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectproinfo);
-                
-                while (rss.next()){
+
+                while (rss.next()) {
                     cboProjectPlanDetail_ListName.setSelectedItem(rss.getString(1));
                 }
 
@@ -6657,18 +6568,18 @@ public class Main extends javax.swing.JFrame {
                 DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                 java.util.Date pdate = formatter.parse(str);
                 txtProjectPlanDetailDateline.setDate(pdate);
-                
-        }
-        }catch(Exception ex){
+
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbProjectPlanListDetailMouseClicked
 
     private void btnProjectPlanListNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanListNewMouseClicked
-        if ( cboProjectPlanList_ProjectPlanName.getSelectedItem() == "select" && cboProjectPlanListStaff.getSelectedItem() == "select" &&
-                txtProjectPlanListName.getText().trim().isEmpty() && txtProjectPlanListStartDate.getDate() == null &&
-                txtProjectPlanListFinishDate.getDate() == null && cboProjectPlanListStatus.getSelectedItem() == "select" ){
-            
+        if (cboProjectPlanList_ProjectPlanName.getSelectedItem() == "select" && cboProjectPlanListStaff.getSelectedItem() == "select"
+                && txtProjectPlanListName.getText().trim().isEmpty() && txtProjectPlanListStartDate.getDate() == null
+                && txtProjectPlanListFinishDate.getDate() == null && cboProjectPlanListStatus.getSelectedItem() == "select") {
+
             labelPPLName.setText("*");
             labelPPL_PPName.setText("*");
             labelPPLStaff.setText("*");
@@ -6676,40 +6587,32 @@ public class Main extends javax.swing.JFrame {
             labelPPLFinishDate.setText("*");
             labelPPLStatus.setText("*");
             cboProjectPlanList_ProjectPlanName.requestFocus();
-        }
-        else if ( cboProjectPlanList_ProjectPlanName.getSelectedItem() == "select" ){
-           labelPPL_PPName.setText("*");
+        } else if (cboProjectPlanList_ProjectPlanName.getSelectedItem() == "select") {
+            labelPPL_PPName.setText("*");
             cboProjectPlanList_ProjectPlanName.requestFocus();
-        }
-        else if ( cboProjectPlanListStaff.getSelectedItem() == "select"  ){
+        } else if (cboProjectPlanListStaff.getSelectedItem() == "select") {
             labelPPL_PPName.setText("*");
             cboProjectPlanListStaff.requestFocus();
-        }
-        else if( txtProjectPlanListName.getText().trim().isEmpty() ){
+        } else if (txtProjectPlanListName.getText().trim().isEmpty()) {
             labelPPLName.setText("*");
             txtProjectPlanListName.requestFocus();
-        }
-        else if ( txtProjectPlanListStartDate.getDate() == null ){
+        } else if (txtProjectPlanListStartDate.getDate() == null) {
             labelPPLStartDate.setText("*");
             txtProjectPlanListStartDate.requestFocus();
-        }
-        else if (  txtProjectPlanListFinishDate.getDate() == null ){
+        } else if (txtProjectPlanListFinishDate.getDate() == null) {
             labelPPLFinishDate.setText("*");
             txtProjectPlanListFinishDate.requestFocus();
-        }
-        else if ( cboProjectPlanListStatus.getSelectedItem() == "select" ){
+        } else if (cboProjectPlanListStatus.getSelectedItem() == "select") {
             labelPPLStatus.setText("*");
             cboProjectPlanListStatus.requestFocus();
-        }
-        else {
-            try{
+        } else {
+            try {
                 Statement stat = con.createStatement();
                 String selectquery = "Select * from tbProjectPlanList where projectplanlist_name='" + txtProjectPlanListName.getText().trim() + "'";
                 ResultSet rs = stat.executeQuery(selectquery);
-                if (rs.next() == true){
+                if (rs.next() == true) {
                     labelProjectPlanResult.setText("ProjectPlanList Create already.");
-                }        
-                else{
+                } else {
                     String queryprojectplanlist = "insert into tbProjectPlanList (projectplan_id, staff_id, projectplanlist_name ,start_date, finish_date, status)values(?,?,?,?,?,?)";
                     PreparedStatement psp = con.prepareStatement(queryprojectplanlist);
 
@@ -6717,70 +6620,70 @@ public class Main extends javax.swing.JFrame {
                     String selectproinfoname = "select id from tbProjectPlan where projectplan_name='" + getprojectplan + "'";
                     Statement pss = con.createStatement();
                     ResultSet rss = pss.executeQuery(selectproinfoname);
-                     while(rss.next()){
-                        psp.setInt(1,rss.getInt(1));
+                    while (rss.next()) {
+                        psp.setInt(1, rss.getInt(1));
                     }
 
                     String getstaff = cboProjectPlanListStaff.getSelectedItem().toString();
                     String selectstattname = "select id from tbStaff where name='" + getstaff + "'";
                     Statement psss = con.createStatement();
                     ResultSet rsss = psss.executeQuery(selectstattname);
-                     while(rsss.next()){
-                        psp.setInt(2,rsss.getInt(1));
+                    while (rsss.next()) {
+                        psp.setInt(2, rsss.getInt(1));
                     }
-                    
+
                     psp.setString(3, txtProjectPlanListName.getText().trim());
-                    psp.setString(4, ((JTextField)txtProjectPlanListStartDate.getDateEditor().getUiComponent()).getText());
-                    psp.setString(5, ((JTextField)txtProjectPlanListFinishDate.getDateEditor().getUiComponent()).getText());
+                    psp.setString(4, ((JTextField) txtProjectPlanListStartDate.getDateEditor().getUiComponent()).getText());
+                    psp.setString(5, ((JTextField) txtProjectPlanListFinishDate.getDateEditor().getUiComponent()).getText());
                     psp.setString(6, cboProjectPlanListStatus.getSelectedItem().toString());
 
                     psp.executeUpdate();
-                    labelPPLResult.setText("Create ProjectPlanList sucessfully.");        
+                    labelPPLResult.setText("Create ProjectPlanList sucessfully.");
                     getProPlanNrefreshtableProjectPlanList();
                     getProPlanDetailNrefreshtableProjectPlanListDetail();
                 }
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
-        
+
     }//GEN-LAST:event_btnProjectPlanListNewMouseClicked
 
     private void btnProjectPlanListUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanListUpdateMouseClicked
         int s = tbProjectPlanList.getSelectedRow();
-        try{
-            String value=(tbProjectPlanList.getModel().getValueAt(s, 0).toString());
-            String updatprojectplanlist = "update tbProjectPlanList SET projectplanlist_name=?, projectplan_id=?, staff_id=?,start_date=?, finish_date=?, status=? where id="+value;
+        try {
+            String value = (tbProjectPlanList.getModel().getValueAt(s, 0).toString());
+            String updatprojectplanlist = "update tbProjectPlanList SET projectplanlist_name=?, projectplan_id=?, staff_id=?,start_date=?, finish_date=?, status=? where id=" + value;
             PreparedStatement psp = con.prepareStatement(updatprojectplanlist);
-            
+
             psp.setString(1, txtProjectPlanListName.getText().trim());
 
             String getprojectlist = cboProjectPlanList_ProjectPlanName.getSelectedItem().toString();
             String selectprojectlist = "select id from tbProjectPlan where projectplan_name='" + getprojectlist + "'";
             Statement ps = con.createStatement();
             ResultSet rs = ps.executeQuery(selectprojectlist);
-            while(rs.next()){
-                psp.setInt(2,rs.getInt(1));
+            while (rs.next()) {
+                psp.setInt(2, rs.getInt(1));
             }
 
             String getstaffid = cboProjectPlanListStaff.getSelectedItem().toString();
             String selectstaff = "select id from tbStaff where name='" + getstaffid + "'";
             Statement pss = con.createStatement();
             ResultSet rss = pss.executeQuery(selectstaff);
-            while(rss.next()){
-                psp.setInt(3,rss.getInt(1));
+            while (rss.next()) {
+                psp.setInt(3, rss.getInt(1));
             }
-            
-            psp.setString(4, ((JTextField)txtProjectPlanListStartDate.getDateEditor().getUiComponent()).getText());
-            psp.setString(5, ((JTextField)txtProjectPlanListFinishDate.getDateEditor().getUiComponent()).getText());
+
+            psp.setString(4, ((JTextField) txtProjectPlanListStartDate.getDateEditor().getUiComponent()).getText());
+            psp.setString(5, ((JTextField) txtProjectPlanListFinishDate.getDateEditor().getUiComponent()).getText());
             psp.setString(6, cboProjectPlanListStatus.getSelectedItem().toString());
 
             psp.executeUpdate();
             labelPPLResult.setText("Update ProjectPlanList sucessfully.");
-            getProPlanNrefreshtableProjectPlanList();  
+            getProPlanNrefreshtableProjectPlanList();
             getProPlanDetailNrefreshtableProjectPlanListDetail();
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnProjectPlanListUpdateMouseClicked
@@ -6806,38 +6709,38 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_tbInvoice3MouseClicked
 
     private void tbProjectPlanListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProjectPlanListMouseClicked
-        try{
+        try {
             int i = tbProjectPlanList.getSelectedRow();
             TableModel tm = tbProjectPlanList.getModel();
             txtProjectPlanListID.setText(tm.getValueAt(i, 0).toString());
-            String viewqurey  = "select * from tbProjectPlanList where id=?";
+            String viewqurey = "select * from tbProjectPlanList where id=?";
             PreparedStatement pst = con.prepareStatement(viewqurey);
             pst.setString(1, txtProjectPlanListID.getText().trim());
             ResultSet rs = pst.executeQuery();
-            if(rs.next()){
-                
+            if (rs.next()) {
+
                 txtProjectPlanListName.setText(rs.getString(2));
-                
+
                 int projectplanid = rs.getInt(6);
                 System.out.println("get planid:" + projectplanid);
                 String selectplanid = "select projectplan_name from tbProjectPlan where id='" + projectplanid + "'";
                 Statement psss = con.createStatement();
                 ResultSet rsss = psss.executeQuery(selectplanid);
-                while (rsss.next()){
+                while (rsss.next()) {
                     System.out.println("Project");
                     cboProjectPlanList_ProjectPlanName.setSelectedItem(rsss.getString(1));
                 }
-                
+
                 int staffid = rs.getInt(7);
                 String selectstaffid = "select name from tbStaff where id='" + staffid + "'";
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectstaffid);
-                while (rss.next()){
+                while (rss.next()) {
                     cboProjectPlanListStaff.setSelectedItem(rss.getString(1));
                 }
-                
-                DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");    
-                
+
+                DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+
                 String str = rs.getString(4);
                 java.util.Date sdate = formatter.parse(str);
                 txtProjectPlanListStartDate.setDate(sdate);
@@ -6847,90 +6750,85 @@ public class Main extends javax.swing.JFrame {
                 txtProjectPlanListFinishDate.setDate(fdate);
 
                 cboProjectPlanListStatus.setSelectedItem(rs.getString(3));
-        }
-        }catch(Exception ex){
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbProjectPlanListMouseClicked
 
     private void btnProjectPlanListDetailNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanListDetailNewMouseClicked
-        try{
-            if ( txtProjectPlanDetailName.getText().trim().isEmpty() && cboProjectPlanDetail_ListName.getSelectedItem() == "select" && txtProjectPlanDetailDateline.getDate() == null ){
+        try {
+            if (txtProjectPlanDetailName.getText().trim().isEmpty() && cboProjectPlanDetail_ListName.getSelectedItem() == "select" && txtProjectPlanDetailDateline.getDate() == null) {
                 labelPPLDDetailname.setText("*");
                 labelPPLDProjectplanListName.setText("*");
                 labelPPLDDateline.setText("*");
                 cboProjectPlanDetail_ListName.requestFocus();
-            }
-            else if ( txtProjectPlanDetailName.getText().trim().isEmpty() ){
+            } else if (txtProjectPlanDetailName.getText().trim().isEmpty()) {
                 labelPPLDDetailname.setText("*");
                 txtProjectPlanDetailName.requestFocus();
-            }
-            else if ( cboProjectPlanDetail_ListName.getSelectedItem() == "select" ){
+            } else if (cboProjectPlanDetail_ListName.getSelectedItem() == "select") {
                 labelPPLDProjectplanListName.setText("*");
                 cboProjectPlanDetail_ListName.requestFocus();
-            }
-            else if ( txtProjectPlanDetailDateline.getDate() == null ){
+            } else if (txtProjectPlanDetailDateline.getDate() == null) {
                 labelPPLDDateline.setText("*");
                 txtProjectPlanDetailDateline.requestFocus();
-            }
-            else {
+            } else {
                 Statement stat = con.createStatement();
                 String selectquery = "Select * from tbProjectPlanListDetail where projectplanlistdetail_name='" + txtProjectPlanDetailName.getText().trim() + "'";
                 ResultSet rs = stat.executeQuery(selectquery);
-                if (rs.next() == true){
+                if (rs.next() == true) {
                     labelPPLDResult.setText("ProjectPlanListDetail Create already.");
-                }        
-                else{
+                } else {
                     String queryprojectplanlistdetail = "insert into tbProjectPlanListDetail (projectplanlistDetail_name, projectplanlist_id, dateline)values(?,?,?)";
                     PreparedStatement psp = con.prepareStatement(queryprojectplanlistdetail);
 
                     psp.setString(1, txtProjectPlanDetailName.getText().trim());
-                    
+
                     String getprojectplandetail = cboProjectPlanDetail_ListName.getSelectedItem().toString();
                     String selectprojectdetail = "select id from tbProjectPlanList where projectplanlist_name='" + getprojectplandetail + "'";
                     Statement pss = con.createStatement();
                     ResultSet rss = pss.executeQuery(selectprojectdetail);
-                     while(rss.next()){
-                        psp.setInt(2,rss.getInt(1));
+                    while (rss.next()) {
+                        psp.setInt(2, rss.getInt(1));
                     }
 
-                    psp.setString(3, ((JTextField)txtProjectPlanDetailDateline.getDateEditor().getUiComponent()).getText());
+                    psp.setString(3, ((JTextField) txtProjectPlanDetailDateline.getDateEditor().getUiComponent()).getText());
 
                     psp.executeUpdate();
-                    labelPPLDResult.setText("Create sucessfully.");        
+                    labelPPLDResult.setText("Create sucessfully.");
                     getProPlanDetailNrefreshtableProjectPlanListDetail();
-                }                
+                }
             }
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnProjectPlanListDetailNewMouseClicked
 
     private void btnProjectPlanDetailUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProjectPlanDetailUpdateMouseClicked
         int s = tbProjectPlanListDetail.getSelectedRow();
-        try{
-            String value=(tbProjectPlanListDetail.getModel().getValueAt(s, 0).toString());
-            String updatprojectplanlistdetail = "update tbProjectPlanListDetail SET projectplanlistDetail_name=?, projectplanlist_id=?, dateline=? where id="+value;
+        try {
+            String value = (tbProjectPlanListDetail.getModel().getValueAt(s, 0).toString());
+            String updatprojectplanlistdetail = "update tbProjectPlanListDetail SET projectplanlistDetail_name=?, projectplanlist_id=?, dateline=? where id=" + value;
             PreparedStatement psp = con.prepareStatement(updatprojectplanlistdetail);
-            
+
             psp.setString(1, txtProjectPlanDetailName.getText().trim());
 
             String getprojectlistdetail = cboProjectPlanDetail_ListName.getSelectedItem().toString();
             String selectprojectlistdetail = "select id from tbProjectPlanList where projectplanlist_name='" + getprojectlistdetail + "'";
             Statement ps = con.createStatement();
             ResultSet rs = ps.executeQuery(selectprojectlistdetail);
-            while(rs.next()){
-                psp.setInt(2,rs.getInt(1));
+            while (rs.next()) {
+                psp.setInt(2, rs.getInt(1));
             }
-            
-            psp.setString(3, ((JTextField)txtProjectPlanDetailDateline.getDateEditor().getUiComponent()).getText());
+
+            psp.setString(3, ((JTextField) txtProjectPlanDetailDateline.getDateEditor().getUiComponent()).getText());
 
             psp.executeUpdate();
-            labelPPLDResult.setText("Update sucessfully."); 
+            labelPPLDResult.setText("Update sucessfully.");
             getProPlanDetailNrefreshtableProjectPlanListDetail();
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnProjectPlanDetailUpdateMouseClicked
@@ -6953,61 +6851,51 @@ public class Main extends javax.swing.JFrame {
         menutableprojectview.setVisible(false);
         menuprojectplanList.setVisible(true);
 
-        
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("PROJECTPLAN LIST");
-        
+
         getProPlanNrefreshtableProjectPlanList();
         getProPlanDetailNrefreshtableProjectPlanListDetail();
     }//GEN-LAST:event_panelmenprojectplanlistMouseClicked
 
     private void panelmenprojectplanlistMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanlistMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(panelclick);
+        setHideAllMenus(panelclicked8);
     }//GEN-LAST:event_panelmenprojectplanlistMousePressed
 
     private void cboInvoicePaymentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboInvoicePaymentIDActionPerformed
-        try{
-            if ( cboInvoicePaymentID.getSelectedItem() == "select" ){
+        try {
+            if (cboInvoicePaymentID.getSelectedItem() == "select") {
                 labelInvoicePaymentIDrequired.setText("Please select Payment ID");
                 txtInvoiceCustomer.setText("");
                 txtInvoiceTotalAmount.setText("");
                 txtInvoicePaidAmount.setText("");
                 txtInvoiceOwesAmount.setText("");
-            }
-            else if (cboInvoicePaymentID.getSelectedItem() == null ){
-                
-            }
-            else{
+            } else if (cboInvoicePaymentID.getSelectedItem() == null) {
+
+            } else {
                 // getinfopayment customer, Total Amount, Paid Amount, Owes Amount
                 labelInvoicePaymentIDrequired.setText("");
-                
+
                 String getpaymentid = cboInvoicePaymentID.getSelectedItem().toString();
                 String selectinfopayment = "select * from tbPayment where id='" + getpaymentid + "'";
                 PreparedStatement pss = con.prepareStatement(selectinfopayment);
                 ResultSet rss = pss.executeQuery();
-                while (rss.next()){
+                while (rss.next()) {
                     //getcustomername
                     int getcustomerid = rss.getInt(6);
                     String selectcustomerid = "select name from tbCustomer where id='" + getcustomerid + "'";
                     PreparedStatement psss = con.prepareStatement(selectcustomerid);
                     ResultSet rsss = psss.executeQuery();
-                    while (rsss.next()){
+                    while (rsss.next()) {
                         txtInvoiceCustomer.setText(rsss.getString(1));
                     }
                     //gettotal amount
                     txtInvoiceTotalAmount.setText(rss.getString(2));
                     txtInvoicePaidAmount.setText(rss.getString(3));
                     txtInvoiceOwesAmount.setText(rss.getString(4));
-                }            
+                }
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_cboInvoicePaymentIDActionPerformed
@@ -7025,22 +6913,15 @@ public class Main extends javax.swing.JFrame {
         menuprojectplan.setVisible(false);
         menuprojectplanList.setVisible(false);
         menutableprojectview.setVisible(true);
-        
+
         showlableonclickedmenu.setText("");
         showlableonclickedmenu.setText("PROJECTPLAN VIEW");
-        
-       getProjectPlanName();
+
+        getProjectPlanName();
     }//GEN-LAST:event_panelmenprojectplanviewMouseClicked
 
     private void panelmenprojectplanviewMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenprojectplanviewMousePressed
-        panelclickedhome.setBackground(paneldefault);
-        panelclickedstaff.setBackground(paneldefault);
-        panelclickedworker.setBackground(paneldefault);
-        panelclickedpayment.setBackground(paneldefault);
-        panelclickedinvoice.setBackground(paneldefault);
-        panelclickedprojectplan.setBackground(paneldefault);
-        panelclickedprojectplanlist.setBackground(paneldefault);
-        panelclickedprojectplanview.setBackground(panelclick);
+        setHideAllMenus(panelclicked9);
 
     }//GEN-LAST:event_panelmenprojectplanviewMousePressed
 
@@ -7050,36 +6931,34 @@ public class Main extends javax.swing.JFrame {
         model.setRowCount(0);
         model.addColumn("ID");
         model.addColumn("ProjectPlanList Name");
-        model.addColumn("Status");  
-        if ( cboViewProjectPlanName.getSelectedItem() == "select" ){
+        model.addColumn("Status");
+        if (cboViewProjectPlanName.getSelectedItem() == "select") {
             cboViewProjectPlanName.requestFocus();
             model.setRowCount(0);
-        }
-        else if ( cboViewProjectPlanName.getSelectedItem() == null ){
+        } else if (cboViewProjectPlanName.getSelectedItem() == null) {
             model.setRowCount(0);
-        }
-        else {
-            try{
+        } else {
+            try {
                 //get table ProjectPlanlist View
                 String getprojectplanname = cboViewProjectPlanName.getSelectedItem().toString();
                 String selectplanname = "select id from tbProjectPlan where projectplan_name='" + getprojectplanname + "'";
                 PreparedStatement ps = con.prepareStatement(selectplanname);
                 ResultSet rs = ps.executeQuery();
-                while (rs.next()){
+                while (rs.next()) {
                     int getidproplan = rs.getInt(1);
                     String selectproplanid = "select * from tbProjectPlanList where projectplan_id='" + getidproplan + "'";
                     PreparedStatement pss = con.prepareStatement(selectproplanid);
                     ResultSet rss = pss.executeQuery();
-                      
-                    while (rss.next()){
-                      
-                        model.addRow(new Object[]{rss.getString(1),rss.getString(2),rss.getString(3)});                      
+
+                    while (rss.next()) {
+
+                        model.addRow(new Object[]{rss.getString(1), rss.getString(2), rss.getString(3)});
                     }
-                }                
-          
-            }catch(Exception ex){
+                }
+
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
-            }            
+            }
         }
 
     }//GEN-LAST:event_cboViewProjectPlanNameActionPerformed
@@ -7091,24 +6970,24 @@ public class Main extends javax.swing.JFrame {
         model.addColumn("ID");
         model.addColumn("ProjectPlanListDetail Name");
         model.addColumn("Date Line");
-        try{
+        try {
             int index = tbViewProjectPlanList.getSelectedRow();
             TableModel models = tbViewProjectPlanList.getModel();
-            String projectlistname = models.getValueAt(index, 1).toString(); 
-            
+            String projectlistname = models.getValueAt(index, 1).toString();
+
             String getidprojectdetail = "select id from tbProjectPlanList where projectplanlist_name='" + projectlistname + "'";
             PreparedStatement ps = con.prepareStatement(getidprojectdetail);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 int getidprojectplandetail = rs.getInt(1);
                 String selectprojectdetailname = "select * from tbProjectPlanListDetail where projectplanlist_id='" + getidprojectplandetail + "'";
                 PreparedStatement pss = con.prepareStatement(selectprojectdetailname);
                 ResultSet rss = pss.executeQuery();
-                while(rss.next()){
-                    model.addRow(new Object[]{rss.getString(1),rss.getString(2),rss.getString(3)});   
+                while (rss.next()) {
+                    model.addRow(new Object[]{rss.getString(1), rss.getString(2), rss.getString(3)});
                 }
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_tbViewProjectPlanListMouseClicked
@@ -7126,7 +7005,7 @@ public class Main extends javax.swing.JFrame {
 
     private void panelmenImportMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenImportMousePressed
         // TODO add your handling code here:
-//        setHideAllMenus(panelclicked10);
+        setHideAllMenus(panelclicked10);
     }//GEN-LAST:event_panelmenImportMousePressed
 
     private void tbImport_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_formMouseClicked
@@ -7180,7 +7059,7 @@ public class Main extends javax.swing.JFrame {
 
     private void menuCustomerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCustomerMousePressed
 
-//        setHideAllMenus(panelclicked4);
+        setHideAllMenus(panelclicked4);
     }//GEN-LAST:event_menuCustomerMousePressed
 
     private void menuSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSupplierMouseClicked
@@ -7196,7 +7075,7 @@ public class Main extends javax.swing.JFrame {
 
     private void menuSupplierMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSupplierMousePressed
         // TODO add your handling code here:
-        setHideAllMenus(panelclicked5);
+        setHideAllMenus(panelclicked12);
     }//GEN-LAST:event_menuSupplierMousePressed
 
     private void menuUsageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuUsageMouseClicked
@@ -7211,7 +7090,7 @@ public class Main extends javax.swing.JFrame {
 
     private void menuUsageMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuUsageMousePressed
 
-        setHideAllMenus(panelclicked9);
+        setHideAllMenus(panelclicked13);
     }//GEN-LAST:event_menuUsageMousePressed
 
     private void panelclicked11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelclicked11MousePressed
@@ -7240,7 +7119,7 @@ public class Main extends javax.swing.JFrame {
     private void btnSupplierNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierNewActionPerformed
         // TODO add your handling code here:
         Supplier supplier = new Supplier();
-        supplier.createSupplier(txtSupplierName, gender, txtSupplierPhone ,txtSupplierAddress ,lbMessageSupplier);
+        supplier.createSupplier(txtSupplierName, gender, txtSupplierPhone, txtSupplierAddress, lbMessageSupplier, tbSupplier_form);
 
     }//GEN-LAST:event_btnSupplierNewActionPerformed
 
@@ -7286,15 +7165,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_txtStockQtyActionPerformed
 
     private void btnCENewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCENewMouseClicked
-        try {
-            // TODO add your handling code here:
 
-            ConstractionEquiment constractionEquiment = new ConstractionEquiment();
+        ConstractionEquiment constractionEquiment = new ConstractionEquiment();
+        constractionEquiment.create(txtCEName,tbCE_form);
 
-            constractionEquiment.create(txtName);
-        } catch (SQLException ex) {
-//            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }//GEN-LAST:event_btnCENewMouseClicked
 
@@ -7371,7 +7245,7 @@ public class Main extends javax.swing.JFrame {
 
         bracCustomerForm.setText("CUSTOMER / NEW");
         
-        customer.clear(txtCode, txtName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
+//        customer.clear(txtCode, txtName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
         
         Staff st = new Staff();
         for (String stafflist : st.getAllStaff()){
@@ -7401,7 +7275,7 @@ public class Main extends javax.swing.JFrame {
         Staff st = new Staff();
         staffID = st.getStaffID_ByName(cboCustomer_CreatebyStaff);
         customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress,staffID, lbMessageCustomer,tbCustomer_form);
-        customer.clear(txtCode, txtName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
+        customer.clear(txtCode, txtCustomerName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
     }//GEN-LAST:event_btnCustomerNewActionPerformed
 
     private void btnworkerUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate1MouseClicked
@@ -7430,7 +7304,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbProjectInformationMouseClicked
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
@@ -7855,20 +7729,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelCustomer3;
     private javax.swing.JPanel panelCustomer4;
     private javax.swing.JPanel panelbar;
+    private javax.swing.JPanel panelclicked1;
     private javax.swing.JPanel panelclicked10;
     private javax.swing.JPanel panelclicked11;
+    private javax.swing.JPanel panelclicked12;
+    private javax.swing.JPanel panelclicked13;
+    private javax.swing.JPanel panelclicked2;
+    private javax.swing.JPanel panelclicked3;
     private javax.swing.JPanel panelclicked4;
     private javax.swing.JPanel panelclicked5;
+    private javax.swing.JPanel panelclicked6;
+    private javax.swing.JPanel panelclicked7;
+    private javax.swing.JPanel panelclicked8;
     private javax.swing.JPanel panelclicked9;
-    private javax.swing.JPanel panelclickedhome;
-    private javax.swing.JPanel panelclickedinvoice;
-    private javax.swing.JPanel panelclickedpayment;
-    private javax.swing.JPanel panelclickedprojectplan;
-    private javax.swing.JPanel panelclickedprojectplanlist;
-    private javax.swing.JPanel panelclickedprojectplanview;
-    private javax.swing.JPanel panelclickedstaff;
     private javax.swing.JPanel panelclickeduser;
-    private javax.swing.JPanel panelclickedworker;
     private javax.swing.JPanel panelcreateuser;
     private javax.swing.JPanel panelcustomer;
     private javax.swing.JPanel panelhome;
@@ -7957,6 +7831,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbviewuser;
     private javax.swing.JTable tbworker;
     private javax.swing.JTable tbworkerview;
+    private javax.swing.JTextField txtCEName;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerId;
@@ -7981,7 +7856,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtInvoiceOwesAmount;
     private javax.swing.JTextField txtInvoicePaidAmount;
     private javax.swing.JTextField txtInvoiceTotalAmount;
-    private javax.swing.JTextField txtName;
     private javax.swing.JComboBox<String> txtPaymentCreatebystaff4;
     private javax.swing.JComboBox<String> txtPaymentCreatebystaff5;
     private javax.swing.JComboBox<String> txtPaymentCreatebystaff6;
@@ -8036,6 +7910,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JInternalFrame usage_list;
     private javax.swing.JLabel usernameerror;
     // End of variables declaration//GEN-END:variables
-    
+
     private String gender;
 }
