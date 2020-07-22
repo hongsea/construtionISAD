@@ -7371,7 +7371,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         Customer customer = new Customer();
-        customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress, lbMessageCustomer);
+        customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress, lbMessageCustomer,tbCustomer_form);
     }//GEN-LAST:event_btnCustomerNewActionPerformed
 
     private void btnworkerUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate1MouseClicked
