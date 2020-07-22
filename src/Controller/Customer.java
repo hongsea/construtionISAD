@@ -61,6 +61,7 @@ public class Customer {
     }
 
     public void create(JTextField name , String gender, JTextField phone, JTextField address, int staffID, JLabel labelName, JTable tableName) {
+        if ( name.getText().trim().isEmpty() )
         try {
             String customer = "insert into tbCustomer(name , gender, phone , address,staff_id)values(?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(customer);
