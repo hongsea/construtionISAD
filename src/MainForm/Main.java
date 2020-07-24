@@ -239,8 +239,6 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        textInputPassBeanInfo1 = new jcmouse.materialdesign.TextInputPassBeanInfo();
-        textInputBeanInfo1 = new jcmouse.materialdesign.TextInputBeanInfo();
         panelbar = new javax.swing.JPanel();
         lableshownamelogin = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -428,8 +426,8 @@ public class Main extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         labelpictureworker = new javax.swing.JLabel();
-        cboworkerStatus = new javax.swing.JComboBox<>();
         btnworkerNew = new javax.swing.JButton();
+        cboworkerStatus = new javax.swing.JComboBox<>();
         btnworkerUpdate = new javax.swing.JButton();
         btnworkerCancel = new javax.swing.JButton();
         jLabel52 = new javax.swing.JLabel();
@@ -449,7 +447,6 @@ public class Main extends javax.swing.JFrame {
         labelworkerstaturequired = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         cboworkercreatebystaff = new javax.swing.JComboBox<>();
-        menucustomer = new javax.swing.JInternalFrame();
         menupayment = new javax.swing.JInternalFrame();
         panelstaffmenu2 = new javax.swing.JPanel();
         labelgidelineofmenuPayment = new javax.swing.JLabel();
@@ -820,7 +817,7 @@ public class Main extends javax.swing.JFrame {
         txtCustomerAddress = new javax.swing.JTextField();
         jLabel128 = new javax.swing.JLabel();
         btnCustomerNew = new javax.swing.JButton();
-        btnworkerUpdate1 = new javax.swing.JButton();
+        btnUpdateCustomer = new javax.swing.JButton();
         btnworkerCancel1 = new javax.swing.JButton();
         lbMessageCustomer = new javax.swing.JLabel();
         txtCustomerId = new javax.swing.JTextField();
@@ -2470,11 +2467,6 @@ public class Main extends javax.swing.JFrame {
         labelpictureworker.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 51, 0)));
         panelstaffinfomation1.add(labelpictureworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 120, 120));
 
-        cboworkerStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cboworkerStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Working", "Stoped" }));
-        cboworkerStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation1.add(cboworkerStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 230, 29));
-
         btnworkerNew.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerNew.setForeground(new java.awt.Color(255, 255, 255));
         btnworkerNew.setText("New");
@@ -2484,6 +2476,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
         panelstaffinfomation1.add(btnworkerNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 90, 30));
+
+        cboworkerStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cboworkerStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Working", "Stoped" }));
+        cboworkerStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation1.add(cboworkerStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 230, 29));
 
         btnworkerUpdate.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerUpdate.setForeground(new java.awt.Color(255, 255, 255));
@@ -2610,21 +2607,6 @@ public class Main extends javax.swing.JFrame {
         menuworker.getContentPane().add(panelstaffmenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 740));
 
         DesktopPane.add(menuworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
-
-        menucustomer.setVisible(true);
-
-        javax.swing.GroupLayout menucustomerLayout = new javax.swing.GroupLayout(menucustomer.getContentPane());
-        menucustomer.getContentPane().setLayout(menucustomerLayout);
-        menucustomerLayout.setHorizontalGroup(
-            menucustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1034, Short.MAX_VALUE)
-        );
-        menucustomerLayout.setVerticalGroup(
-            menucustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
-        );
-
-        DesktopPane.add(menucustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1050, 740));
 
         menupayment.setVisible(false);
         menupayment.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4707,15 +4689,15 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation7.add(btnCustomerNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 90, 30));
 
-        btnworkerUpdate1.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerUpdate1.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerUpdate1.setText("Update");
-        btnworkerUpdate1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnUpdateCustomer.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpdateCustomer.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateCustomer.setText("Update");
+        btnUpdateCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerUpdate1MouseClicked(evt);
+                btnUpdateCustomerMouseClicked(evt);
             }
         });
-        panelstaffinfomation7.add(btnworkerUpdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 90, 30));
+        panelstaffinfomation7.add(btnUpdateCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 90, 30));
 
         btnworkerCancel1.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerCancel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -4730,9 +4712,9 @@ public class Main extends javax.swing.JFrame {
         lbMessageCustomer.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         panelstaffinfomation7.add(lbMessageCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 230, 20));
 
-        txtCustomerId.setBackground(new java.awt.Color(204, 204, 204));
+        txtCustomerId.setEditable(false);
+        txtCustomerId.setForeground(new java.awt.Color(255, 0, 0));
         txtCustomerId.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        txtCustomerId.setEnabled(false);
         panelstaffinfomation7.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
 
         buttonGroup1.add(male);
@@ -4866,7 +4848,6 @@ public class Main extends javax.swing.JFrame {
         menustaff.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuinvoice.setVisible(false);
         menuprojectplan.setVisible(false);
@@ -4886,7 +4867,6 @@ public class Main extends javax.swing.JFrame {
         menuuser.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuinvoice.setVisible(false);
         menuprojectplan.setVisible(false);
@@ -4919,7 +4899,6 @@ public class Main extends javax.swing.JFrame {
         menuuser.setVisible(false);
         menutablestaff.setVisible(false);
         menustaff.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuinvoice.setVisible(false);
         menuprojectplan.setVisible(false);
@@ -4950,7 +4929,6 @@ public class Main extends javax.swing.JFrame {
         menustaff.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menuinvoice.setVisible(false);
         menuprojectplan.setVisible(false);
         menutableprojectview.setVisible(false);
@@ -5166,7 +5144,6 @@ public class Main extends javax.swing.JFrame {
         menustaff.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuprojectplan.setVisible(false);
         menutableprojectview.setVisible(false);
@@ -5191,7 +5168,6 @@ public class Main extends javax.swing.JFrame {
         menustaff.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuinvoice.setVisible(false);
         menutableprojectview.setVisible(false);
@@ -6877,7 +6853,6 @@ public class Main extends javax.swing.JFrame {
         menustaff.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuinvoice.setVisible(false);
         menuprojectplan.setVisible(false);
@@ -6940,7 +6915,6 @@ public class Main extends javax.swing.JFrame {
         menustaff.setVisible(false);
         menutableworker.setVisible(false);
         menuworker.setVisible(false);
-        menucustomer.setVisible(false);
         menupayment.setVisible(false);
         menuinvoice.setVisible(false);
         menuprojectplan.setVisible(false);
@@ -7286,7 +7260,7 @@ public class Main extends javax.swing.JFrame {
 
         bracCustomerForm.setText("CUSTOMER / NEW");
         
-//        customer.clear(txtCode, txtName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
+        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
         
         Staff st = new Staff();
         for (String stafflist : st.getAllStaff()){
@@ -7306,7 +7280,15 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEdittablestaff1MouseClicked
 
     private void tbCustomer_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCustomer_formMouseClicked
-        // TODO add your handling code here:
+        Customer cu = new Customer();
+        String getcu = cu.getAllcustomer(txtCustomerId, txtCustomerName, txtPhone, txtCustomerAddress,cboCustomer_CreatebyStaff,tbCustomer_form);
+        
+        if (getcu.equals("Male")) {
+            male.setSelected(true);
+        } 
+        else { 
+            female.setSelected(true);
+        }
     }//GEN-LAST:event_tbCustomer_formMouseClicked
 
     private void btnCustomerNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerNewActionPerformed
@@ -7316,12 +7298,32 @@ public class Main extends javax.swing.JFrame {
         Staff st = new Staff();
         staffID = st.getStaffID_ByName(cboCustomer_CreatebyStaff);
         customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress,staffID, lbMessageCustomer,tbCustomer_form);
-        customer.clear(txtCode, txtCustomerName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
+        
+        customer.getCustomer(tbCustomer_form);
+        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
+        for (String stafflist : st.getAllStaff()){
+            cboCustomer_CreatebyStaff.addItem(stafflist);
+        }
+        
     }//GEN-LAST:event_btnCustomerNewActionPerformed
 
-    private void btnworkerUpdate1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerUpdate1MouseClicked
+    private void btnUpdateCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateCustomerMouseClicked
+        Staff st = new Staff();
+        Customer customer = new Customer();
+        int staffID = st.getStaffID_ByName(cboCustomer_CreatebyStaff);
+        if (male.equals("Male")) {
+            gender = "Male";
+        } 
+        else { 
+            gender = "Female";
+        }
+        customer.update(txtCustomerName, gender, txtPhone, txtCustomerAddress,staffID, lbMessageCustomer,tbCustomer_form);
+        
+        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
+        for (String stafflist : st.getAllStaff()){
+            cboCustomer_CreatebyStaff.addItem(stafflist);
+        }
+    }//GEN-LAST:event_btnUpdateCustomerMouseClicked
 
     private void btnworkerCancel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel1MouseClicked
         // TODO add your handling code here:
@@ -7451,6 +7453,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnSupplierCreate;
     private javax.swing.JButton btnSupplierNew;
     private javax.swing.JButton btnUpdate1;
+    private javax.swing.JButton btnUpdateCustomer;
     private javax.swing.JButton btnUsage;
     private javax.swing.JButton btnWorkerChoosepicture;
     private javax.swing.JButton btnlogout;
@@ -7467,7 +7470,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerNew2;
     private javax.swing.JButton btnworkerNew6;
     private javax.swing.JButton btnworkerUpdate;
-    private javax.swing.JButton btnworkerUpdate1;
     private javax.swing.JButton btnworkerUpdate2;
     private javax.swing.JButton btnworkerUpdate4;
     private javax.swing.JButton btnworkerUpdate5;
@@ -7796,7 +7798,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel menuCustomer;
     private javax.swing.JPanel menuSupplier;
     private javax.swing.JPanel menuUsage;
-    private javax.swing.JInternalFrame menucustomer;
     private javax.swing.JInternalFrame menuhome;
     private javax.swing.JInternalFrame menuinvoice;
     private javax.swing.JInternalFrame menupayment;
@@ -7919,8 +7920,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbviewuser;
     private javax.swing.JTable tbworker;
     private javax.swing.JTable tbworkerview;
-    private jcmouse.materialdesign.TextInputBeanInfo textInputBeanInfo1;
-    private jcmouse.materialdesign.TextInputPassBeanInfo textInputPassBeanInfo1;
     private javax.swing.JTextField txtAmountImport1;
     private javax.swing.JTextField txtCEName;
     private javax.swing.JTextField txtCode;
