@@ -3731,11 +3731,6 @@ public class Main extends javax.swing.JFrame {
         btnImportUpdate.setBackground(new java.awt.Color(0, 153, 153));
         btnImportUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnImportUpdate.setText("Update");
-        btnImportUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnImportUpdateMouseClicked(evt);
-            }
-        });
         panelstaffinfomation10.add(btnImportUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 90, 30));
 
         btnworkerCancel4.setBackground(new java.awt.Color(0, 153, 153));
@@ -7019,9 +7014,6 @@ public class Main extends javax.swing.JFrame {
         Import im = new Import();
         im.getSelecttbImport(txtImportDate, cbStaffNameImport, cbSupplierNameImport, tbImport_form);
     }//GEN-LAST:event_tbImport_formMouseClicked
-
-    private void btnImportUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportUpdateMouseClicked
-    }//GEN-LAST:event_btnImportUpdateMouseClicked
 
     private void btnworkerCancel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel4MouseClicked
         // TODO add your handling code here:
