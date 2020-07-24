@@ -265,7 +265,11 @@ public class SignIn extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignIn().setVisible(true);
+//                new SignIn().setVisible(true);
+                    Main ma = new Main();
+                    ma.setVisible(true);
+                    ma.openhome();
+                    ma.closeuser();
             }
         });
     }

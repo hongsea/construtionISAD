@@ -10,6 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -63,5 +66,39 @@ public class ConstractionEquiment {
             JOptionPane.showMessageDialog(null, ex);
         }
 //        labelName.setText("Create CunstractionEquipment sucessfully.");
+    }
+    
+    public int getCEByName (JComboBox cbName){
+        int getCEId=0;
+        try{
+            String cEName = cbName.getSelectedItem().toString();
+            String CE = "select id from tbCustractionEquipment where name='" + cEName + "'";
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(CE);                    
+            while(rs.next()){
+                getCEId = rs.getInt(1);
+            }
+           
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+         return getCEId;
+    }
+
+    public  ArrayList<String> getAllCE() {
+        ArrayList<String> cEList = new ArrayList<>();
+        try{
+            String CE = "select name from tbCustractionEquipment";
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(CE);  
+            
+            while(rs.next()){
+                cEList.add(rs.getString(1));
+            }
+           
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }        
+        return cEList;
     }
 }

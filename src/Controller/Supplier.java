@@ -13,6 +13,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -69,5 +72,39 @@ public class Supplier {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+    }
+    
+    public int getSupplierIdByName (JComboBox cbName){
+        int getSupplierId=0;
+        try{
+            String supplier = cbName.getSelectedItem().toString();
+            String selectstaffID = "select id from tbSupplier where name='" + supplier + "'";
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(selectstaffID);                    
+            while(rs.next()){
+                getSupplierId = rs.getInt(1);
+            }
+           
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+         return getSupplierId;
+    }
+
+    public  ArrayList<String> getAllSupplier() {
+        ArrayList<String> supplierList = new ArrayList<>();
+        try{
+            String supplier = "select name from tbSupplier";
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(supplier);  
+            
+            while(rs.next()){
+                supplierList.add(rs.getString(1));
+            }
+           
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }        
+        return supplierList;
     }
 }

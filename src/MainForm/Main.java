@@ -12,6 +12,7 @@ import Controller.ProjectInforamtion;
 import Controller.Staff;
 import Controller.Supplier;
 import Controller.Usage;
+import DateConvert.SimpleFormat;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -34,6 +35,7 @@ import javax.swing.table.DefaultTableModel;
 import signup.SignIn;
 import java.sql.*;
 import java.text.DateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
@@ -236,6 +238,9 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        textInputPassBeanInfo1 = new jcmouse.materialdesign.TextInputPassBeanInfo();
+        textInputBeanInfo1 = new jcmouse.materialdesign.TextInputBeanInfo();
         panelbar = new javax.swing.JPanel();
         lableshownamelogin = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -653,33 +658,31 @@ public class Main extends javax.swing.JFrame {
         jScrollPane24 = new javax.swing.JScrollPane();
         tbImport_form = new javax.swing.JTable();
         panelstaffinfomation10 = new javax.swing.JPanel();
-        jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
-        btnworkerNew5 = new javax.swing.JButton();
+        btnImportNew = new javax.swing.JButton();
         btnworkerUpdate4 = new javax.swing.JButton();
         btnworkerCancel4 = new javax.swing.JButton();
         jLabel113 = new javax.swing.JLabel();
-        labelmessageworker9 = new javax.swing.JLabel();
-        labelworkerroleidrequired9 = new javax.swing.JLabel();
-        labelworkergenderrequired4 = new javax.swing.JLabel();
-        labelworkerbirthrequired4 = new javax.swing.JLabel();
-        labelworkersaryequired4 = new javax.swing.JLabel();
-        labelworkerphonerequired4 = new javax.swing.JLabel();
-        labelworkeraddrerequired4 = new javax.swing.JLabel();
-        labelworkerstaturequired4 = new javax.swing.JLabel();
-        txtCustomerId5 = new javax.swing.JTextField();
-        txtCustomerId6 = new javax.swing.JTextField();
-        jLabel114 = new javax.swing.JLabel();
-        txtCustomerId7 = new javax.swing.JTextField();
-        jLabel115 = new javax.swing.JLabel();
-        txtCustomerId8 = new javax.swing.JTextField();
         jLabel116 = new javax.swing.JLabel();
-        txtCustomerId9 = new javax.swing.JTextField();
-        jLabel117 = new javax.swing.JLabel();
-        txtCustomerId10 = new javax.swing.JTextField();
-        jLabel118 = new javax.swing.JLabel();
-        txtCustomerId11 = new javax.swing.JTextField();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        txtImportDate = new javax.swing.JTextField();
+        cbSupplierNameImport = new javax.swing.JComboBox<>();
+        cbStaffNameImport = new javax.swing.JComboBox<>();
+        panelstaffinfomation12 = new javax.swing.JPanel();
+        jLabel133 = new javax.swing.JLabel();
+        btnImportNew1 = new javax.swing.JButton();
+        btnworkerUpdate6 = new javax.swing.JButton();
+        btnworkerCancel6 = new javax.swing.JButton();
+        jLabel136 = new javax.swing.JLabel();
+        txtImportQty1 = new javax.swing.JTextField();
+        jLabel138 = new javax.swing.JLabel();
+        txtUnitPriceImport1 = new javax.swing.JTextField();
+        jLabel139 = new javax.swing.JLabel();
+        txtAmountImport1 = new javax.swing.JTextField();
+        cbCEImport1 = new javax.swing.JComboBox<>();
+        jLabel140 = new javax.swing.JLabel();
+        txtUnitPriceImport2 = new javax.swing.JTextField();
+        jScrollPane26 = new javax.swing.JScrollPane();
+        tbImport_form_detail = new javax.swing.JTable();
         import_list = new javax.swing.JInternalFrame();
         panelCustomer3 = new javax.swing.JPanel();
         jScrollImport = new javax.swing.JScrollPane();
@@ -3729,23 +3732,19 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel111.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel111.setText("Custraction Equipment Name");
-        panelstaffinfomation10.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 220, 20));
-
         jLabel112.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel112.setText("Supplier id");
-        panelstaffinfomation10.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 20));
+        jLabel112.setText("Supplier name");
+        panelstaffinfomation10.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 230, 20));
 
-        btnworkerNew5.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerNew5.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerNew5.setText("New");
-        btnworkerNew5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerNew5MouseClicked(evt);
+        btnImportNew.setBackground(new java.awt.Color(0, 153, 153));
+        btnImportNew.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportNew.setText("New");
+        btnImportNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportNewActionPerformed(evt);
             }
         });
-        panelstaffinfomation10.add(btnworkerNew5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 90, 30));
+        panelstaffinfomation10.add(btnImportNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 90, 30));
 
         btnworkerUpdate4.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerUpdate4.setForeground(new java.awt.Color(255, 255, 255));
@@ -3755,7 +3754,7 @@ public class Main extends javax.swing.JFrame {
                 btnworkerUpdate4MouseClicked(evt);
             }
         });
-        panelstaffinfomation10.add(btnworkerUpdate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 90, 30));
+        panelstaffinfomation10.add(btnworkerUpdate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 90, 30));
 
         btnworkerCancel4.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerCancel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -3765,86 +3764,112 @@ public class Main extends javax.swing.JFrame {
                 btnworkerCancel4MouseClicked(evt);
             }
         });
-        panelstaffinfomation10.add(btnworkerCancel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 310, 90, 30));
+        panelstaffinfomation10.add(btnworkerCancel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, 90, 30));
 
         jLabel113.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel113.setText("Staff ID");
+        jLabel113.setText("Create by staff name ");
         panelstaffinfomation10.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
-
-        labelmessageworker9.setForeground(new java.awt.Color(0, 255, 51));
-        panelstaffinfomation10.add(labelmessageworker9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 210, 20));
-
-        labelworkerroleidrequired9.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerroleidrequired9.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkerroleidrequired9, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 230, 20));
-
-        labelworkergenderrequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkergenderrequired4.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkergenderrequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 230, 20));
-
-        labelworkerbirthrequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerbirthrequired4.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkerbirthrequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 190, 20));
-
-        labelworkersaryequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkersaryequired4.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkersaryequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 250, 20));
-
-        labelworkerphonerequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerphonerequired4.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkerphonerequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 250, 20));
-
-        labelworkeraddrerequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkeraddrerequired4.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkeraddrerequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 190, 20));
-
-        labelworkerstaturequired4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerstaturequired4.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation10.add(labelworkerstaturequired4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 230, 20));
-
-        txtCustomerId5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
-
-        txtCustomerId6.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
-
-        jLabel114.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel114.setText("Phone");
-        panelstaffinfomation10.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, -1));
-
-        txtCustomerId7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 230, 30));
-
-        jLabel115.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel115.setText("Import qty");
-        panelstaffinfomation10.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 230, 20));
-
-        txtCustomerId8.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 230, 29));
 
         jLabel116.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel116.setText("Import Date");
-        panelstaffinfomation10.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 230, 20));
+        panelstaffinfomation10.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 20));
 
-        txtCustomerId9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 230, 29));
+        txtImportDate.setEditable(false);
+        txtImportDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation10.add(txtImportDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
 
-        jLabel117.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel117.setText("Unit price");
-        panelstaffinfomation10.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 230, -1));
+        panelstaffinfomation10.add(cbSupplierNameImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 230, 30));
 
-        txtCustomerId10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 230, 30));
+        panelstaffinfomation10.add(cbStaffNameImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
 
-        jLabel118.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel118.setText("Amount");
-        panelstaffinfomation10.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 230, -1));
+        panelstaffinfomation12.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCustomerId11.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation10.add(txtCustomerId11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 230, 30));
+        jLabel133.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel133.setText("Custraction Equipment Name");
+        panelstaffinfomation12.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 220, 20));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelstaffinfomation10.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 30));
+        btnImportNew1.setBackground(new java.awt.Color(0, 153, 153));
+        btnImportNew1.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportNew1.setText("New");
+        btnImportNew1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnImportNew1MouseClicked(evt);
+            }
+        });
+        btnImportNew1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportNew1ActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation12.add(btnImportNew1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 30));
+
+        btnworkerUpdate6.setBackground(new java.awt.Color(0, 153, 153));
+        btnworkerUpdate6.setForeground(new java.awt.Color(255, 255, 255));
+        btnworkerUpdate6.setText("Update");
+        btnworkerUpdate6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnworkerUpdate6MouseClicked(evt);
+            }
+        });
+        panelstaffinfomation12.add(btnworkerUpdate6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 90, 30));
+
+        btnworkerCancel6.setBackground(new java.awt.Color(0, 153, 153));
+        btnworkerCancel6.setForeground(new java.awt.Color(255, 255, 255));
+        btnworkerCancel6.setText("Cancel");
+        btnworkerCancel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnworkerCancel6MouseClicked(evt);
+            }
+        });
+        panelstaffinfomation12.add(btnworkerCancel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, 90, 30));
+
+        jLabel136.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel136.setText("Import qty");
+        panelstaffinfomation12.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 230, 20));
+
+        txtImportQty1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtImportQty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 230, 29));
+
+        jLabel138.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel138.setText("Unit price");
+        panelstaffinfomation12.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 230, -1));
+
+        txtUnitPriceImport1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtUnitPriceImport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 230, 30));
+
+        jLabel139.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel139.setText("Amount");
+        panelstaffinfomation12.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 230, -1));
+
+        txtAmountImport1.setEditable(false);
+        txtAmountImport1.setBackground(new java.awt.Color(204, 204, 204));
+        txtAmountImport1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtAmountImport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, 30));
+
+        panelstaffinfomation12.add(cbCEImport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
+
+        jLabel140.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel140.setText("Import Id");
+        panelstaffinfomation12.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 230, -1));
+
+        txtUnitPriceImport2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtUnitPriceImport2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 230, 30));
+
+        tbImport_form_detail.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tbImport_form_detail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbImport_form_detailMouseClicked(evt);
+            }
+        });
+        jScrollPane26.setViewportView(tbImport_form_detail);
 
         javax.swing.GroupLayout panelstaffmenu9Layout = new javax.swing.GroupLayout(panelstaffmenu9);
         panelstaffmenu9.setLayout(panelstaffmenu9Layout);
@@ -3853,6 +3878,8 @@ public class Main extends javax.swing.JFrame {
             .addGroup(panelstaffmenu9Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(panelstaffmenu9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane26)
+                    .addComponent(panelstaffinfomation12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bracImportForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelstaffinfomation10, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
                     .addComponent(jScrollPane24))
@@ -3864,9 +3891,13 @@ public class Main extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(bracImportForm, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelstaffinfomation10, javax.swing.GroupLayout.PREFERRED_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(panelstaffinfomation10, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelstaffinfomation12, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane26, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -4704,6 +4735,7 @@ public class Main extends javax.swing.JFrame {
         txtCustomerId.setEnabled(false);
         panelstaffinfomation7.add(txtCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
 
+        buttonGroup1.add(male);
         male.setActionCommand("Male");
         male.setLabel("Male");
         male.addActionListener(new java.awt.event.ActionListener() {
@@ -4713,6 +4745,7 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation7.add(male, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        buttonGroup1.add(female);
         female.setLabel("Felmale");
         female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -7012,10 +7045,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbImport_formMouseClicked
 
-    private void btnworkerNew5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerNew5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerNew5MouseClicked
-
     private void btnworkerUpdate4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnworkerUpdate4MouseClicked
@@ -7033,6 +7062,18 @@ public class Main extends javax.swing.JFrame {
         importObj.getImport(tbImport_form);
 
         bracImportForm.setText("IMPORT / NEW");
+        
+        Staff staff = new Staff();
+         for (String staffList : staff.getAllStaff()){
+            cbStaffNameImport.addItem(staffList);
+        }
+        
+        java.sql.Date importDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        txtImportDate.setText(importDate.toString());
+        Supplier supplier = new Supplier();
+        for (String supplierList : supplier.getAllSupplier()){
+            cbSupplierNameImport.addItem(supplierList);
+        }
     }//GEN-LAST:event_btnImportMouseClicked
 
     private void btnEdittablestaff4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEdittablestaff4MouseClicked
@@ -7303,6 +7344,52 @@ public class Main extends javax.swing.JFrame {
     private void tbProjectInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProjectInformationMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbProjectInformationMouseClicked
+
+    private void btnImportNew1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportNew1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImportNew1MouseClicked
+
+    private void btnworkerUpdate6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnworkerUpdate6MouseClicked
+
+    private void btnworkerCancel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnworkerCancel6MouseClicked
+
+    private void btnImportNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportNew1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImportNew1ActionPerformed
+
+    private void tbImport_form_detailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_form_detailMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbImport_form_detailMouseClicked
+
+    private void btnImportNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportNewActionPerformed
+        // TODO add your handling code here:
+         int staffId=0;
+         int supplierId = 0;
+        Import importObj = new Import();
+        Supplier supplier = new Supplier();
+        Staff st = new Staff();
+        
+        java.sql.Date importDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        staffId = st.getStaffID_ByName(cbStaffNameImport);
+        supplierId = supplier.getSupplierIdByName(cbSupplierNameImport);
+        importObj.createImport(importDate, staffId, supplierId);
+        importObj.getImport(tbImport_form);
+        importObj.clear(txtImportDate, cbStaffNameImport, cbSupplierNameImport);
+        
+        Staff staff = new Staff();
+         for (String staffList : staff.getAllStaff()){
+            cbStaffNameImport.addItem(staffList);
+        }
+        
+        for (String supplierList : supplier.getAllSupplier()){
+            cbSupplierNameImport.addItem(supplierList);
+        }
+        
+    }//GEN-LAST:event_btnImportNewActionPerformed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -7334,6 +7421,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEdittablestaff5;
     private javax.swing.JButton btnEdittableworker;
     private javax.swing.JButton btnImport;
+    private javax.swing.JButton btnImportNew;
+    private javax.swing.JButton btnImportNew1;
     private javax.swing.JButton btnInvoiceCancel;
     private javax.swing.JButton btnInvoiceCancel3;
     private javax.swing.JButton btnInvoiceNew;
@@ -7373,15 +7462,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerCancel2;
     private javax.swing.JButton btnworkerCancel4;
     private javax.swing.JButton btnworkerCancel5;
+    private javax.swing.JButton btnworkerCancel6;
     private javax.swing.JButton btnworkerNew;
     private javax.swing.JButton btnworkerNew2;
-    private javax.swing.JButton btnworkerNew5;
     private javax.swing.JButton btnworkerNew6;
     private javax.swing.JButton btnworkerUpdate;
     private javax.swing.JButton btnworkerUpdate1;
     private javax.swing.JButton btnworkerUpdate2;
     private javax.swing.JButton btnworkerUpdate4;
     private javax.swing.JButton btnworkerUpdate5;
+    private javax.swing.JButton btnworkerUpdate6;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cbCEImport1;
+    private javax.swing.JComboBox<String> cbStaffNameImport;
+    private javax.swing.JComboBox<String> cbSupplierNameImport;
     private javax.swing.JComboBox<String> cboCustomer_CreatebyStaff;
     private javax.swing.JComboBox<String> cboInvoicePaymentID;
     private javax.swing.JComboBox<String> cboInvoicestaffrName;
@@ -7424,7 +7518,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -7439,14 +7532,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel110;
-    private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel114;
-    private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
-    private javax.swing.JLabel jLabel117;
-    private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
@@ -7462,7 +7550,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel136;
+    private javax.swing.JLabel jLabel138;
+    private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel140;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -7575,6 +7668,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
@@ -7620,7 +7714,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelmessageworker4;
     private javax.swing.JLabel labelmessageworker5;
     private javax.swing.JLabel labelmessageworker8;
-    private javax.swing.JLabel labelmessageworker9;
     private javax.swing.JLabel labelpaymentCustomerrequired;
     private javax.swing.JLabel labelpaymentNamerequired4;
     private javax.swing.JLabel labelpaymentOwesrequired;
@@ -7661,22 +7754,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelworkerNamerequired;
     private javax.swing.JLabel labelworkeraddrerequired;
     private javax.swing.JLabel labelworkeraddrerequired3;
-    private javax.swing.JLabel labelworkeraddrerequired4;
     private javax.swing.JLabel labelworkeraddrerequired5;
     private javax.swing.JLabel labelworkerbirthrequired;
     private javax.swing.JLabel labelworkerbirthrequired3;
-    private javax.swing.JLabel labelworkerbirthrequired4;
     private javax.swing.JLabel labelworkerbirthrequired5;
     private javax.swing.JLabel labelworkercreatebystaff;
     private javax.swing.JLabel labelworkercreatebystaff3;
     private javax.swing.JLabel labelworkergenderrequired;
     private javax.swing.JLabel labelworkergenderrequired3;
-    private javax.swing.JLabel labelworkergenderrequired4;
     private javax.swing.JLabel labelworkergenderrequired5;
     private javax.swing.JLabel labelworkerhirdrequired;
     private javax.swing.JLabel labelworkerphonerequired;
     private javax.swing.JLabel labelworkerphonerequired3;
-    private javax.swing.JLabel labelworkerphonerequired4;
     private javax.swing.JLabel labelworkerphonerequired5;
     private javax.swing.JLabel labelworkerroleidrequired;
     private javax.swing.JLabel labelworkerroleidrequired1;
@@ -7685,14 +7774,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelworkerroleidrequired4;
     private javax.swing.JLabel labelworkerroleidrequired5;
     private javax.swing.JLabel labelworkerroleidrequired8;
-    private javax.swing.JLabel labelworkerroleidrequired9;
     private javax.swing.JLabel labelworkersaryequired;
     private javax.swing.JLabel labelworkersaryequired3;
-    private javax.swing.JLabel labelworkersaryequired4;
     private javax.swing.JLabel labelworkersaryequired5;
     private javax.swing.JLabel labelworkerstaturequired;
     private javax.swing.JLabel labelworkerstaturequired3;
-    private javax.swing.JLabel labelworkerstaturequired4;
     private javax.swing.JLabel labelworkerstaturequired5;
     private javax.swing.JLabel lablegidelineprojectplanlist;
     private javax.swing.JLabel lableshownamelogin;
@@ -7763,6 +7849,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel panelstaffinfomation1;
     private javax.swing.JPanel panelstaffinfomation10;
     private javax.swing.JPanel panelstaffinfomation11;
+    private javax.swing.JPanel panelstaffinfomation12;
     private javax.swing.JPanel panelstaffinfomation2;
     private javax.swing.JPanel panelstaffinfomation3;
     private javax.swing.JPanel panelstaffinfomation4;
@@ -7812,6 +7899,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbCustomer_form;
     private javax.swing.JTable tbImport;
     private javax.swing.JTable tbImport_form;
+    private javax.swing.JTable tbImport_form_detail;
     private javax.swing.JTable tbInvoice;
     private javax.swing.JTable tbInvoice3;
     private javax.swing.JTable tbPayment;
@@ -7831,12 +7919,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbviewuser;
     private javax.swing.JTable tbworker;
     private javax.swing.JTable tbworkerview;
+    private jcmouse.materialdesign.TextInputBeanInfo textInputBeanInfo1;
+    private jcmouse.materialdesign.TextInputPassBeanInfo textInputPassBeanInfo1;
+    private javax.swing.JTextField txtAmountImport1;
     private javax.swing.JTextField txtCEName;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerId;
-    private javax.swing.JTextField txtCustomerId10;
-    private javax.swing.JTextField txtCustomerId11;
     private javax.swing.JTextField txtCustomerId12;
     private javax.swing.JTextField txtCustomerId13;
     private javax.swing.JTextField txtCustomerId14;
@@ -7844,12 +7933,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerId16;
     private javax.swing.JTextField txtCustomerId17;
     private javax.swing.JTextField txtCustomerId18;
-    private javax.swing.JTextField txtCustomerId5;
-    private javax.swing.JTextField txtCustomerId6;
-    private javax.swing.JTextField txtCustomerId7;
-    private javax.swing.JTextField txtCustomerId8;
-    private javax.swing.JTextField txtCustomerId9;
     private javax.swing.JTextField txtCustomerName;
+    private javax.swing.JTextField txtImportDate;
+    private javax.swing.JTextField txtImportQty1;
     private javax.swing.JTextField txtInvoiceCustomer;
     private com.toedter.calendar.JDateChooser txtInvoiceDate;
     private javax.swing.JTextField txtInvoiceId;
@@ -7894,6 +7980,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSupplierName;
     private javax.swing.JTextField txtSupplierPhone;
     private javax.swing.JTextField txtUnitPrice;
+    private javax.swing.JTextField txtUnitPriceImport1;
+    private javax.swing.JTextField txtUnitPriceImport2;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtconfirmpassword;
     private javax.swing.JTextField txtpassword;

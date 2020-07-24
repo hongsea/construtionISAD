@@ -10,8 +10,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -32,12 +34,11 @@ public class Import {
             ResultSet rst = pst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tableName.setModel(model);
-            tableName.setModel(model);
             
             model.addColumn("ID");
             model.addColumn("Staff ID");
             model.addColumn("Supplier ID");
-            model.addColumn("Import Qty");
+            model.addColumn("Import Date");
             model.addColumn("Total Amount");
            
                                     
@@ -51,8 +52,33 @@ public class Import {
         }
     }
      
-     public void createImport(){
+     public void createImport(Date impoDate , int staffId, int supplierId){
+         try {
+            String importQ = "insert into tbImport(import_date , staff_id, supplier_id )values(?,?,?)";
+            PreparedStatement pst = con.prepareStatement(importQ);
+
+            pst.setDate(1, impoDate); 
+            pst.setInt(2, staffId); 
+            pst.setInt(3, supplierId); 
+          
+            pst.executeUpdate();
+          
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+     }
+     
+     public void clear(JTextField importDate,JComboBox cbName, JComboBox cbName2){
          
+        importDate.setText(" ");
+        
+        cbName.removeAllItems();
+        cbName.addItem("select");
+        cbName.setSelectedItem("select");
+        
+        cbName2.removeAllItems();
+        cbName2.addItem("select");
+        cbName2.setSelectedItem("select");
      }
     
 }

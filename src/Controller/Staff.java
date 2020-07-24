@@ -30,21 +30,7 @@ public class Staff {
         }
          return getstaffid;
     }
-//    public  getAllNameStaff (){
-//        String[] ListAllStaff = new String[]{};
-//        try{
-//            String selectstaffID = "select name from tbStaff";
-//            Statement ps = con.createStatement();
-//            ResultSet rs = ps.executeQuery(selectstaffID);                    
-//            while(rs.next()){
-//                ListAllStaff = rs.getString(1);
-//            }
-//           
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null, ex);
-//        }
-//        return ListAllStaff[];
-//    }
+
     public  ArrayList<String> getAllStaff() {
         ArrayList<String> stafflist = new ArrayList<>();
         try{
