@@ -677,7 +677,7 @@ public class Main extends javax.swing.JFrame {
         txtAmountImportDetails = new javax.swing.JTextField();
         cbCEImportDetails = new javax.swing.JComboBox<>();
         jLabel140 = new javax.swing.JLabel();
-        txtImportId = new javax.swing.JTextField();
+        txtImportId_Detail = new javax.swing.JTextField();
         jScrollPane26 = new javax.swing.JScrollPane();
         tbImport_form_detail = new javax.swing.JTable();
         import_list = new javax.swing.JInternalFrame();
@@ -3835,8 +3835,8 @@ public class Main extends javax.swing.JFrame {
         jLabel140.setText("Import Id");
         panelstaffinfomation12.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 230, -1));
 
-        txtImportId.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation12.add(txtImportId, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 230, 30));
+        txtImportId_Detail.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtImportId_Detail, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 230, 30));
 
         tbImport_form_detail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -7018,6 +7018,8 @@ public class Main extends javax.swing.JFrame {
     private void tbImport_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_formMouseClicked
         Import im = new Import();
         im.getSelecttbImport(txtImportDate, cbStaffNameImport, cbSupplierNameImport, tbImport_form);
+        
+        im.getImportID(txtImportId_Detail, tbImport_form);
     }//GEN-LAST:event_tbImport_formMouseClicked
 
     private void btnworkerCancel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel4MouseClicked
@@ -7951,7 +7953,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerId18;
     private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtImportDate;
-    private javax.swing.JTextField txtImportId;
+    private javax.swing.JTextField txtImportId_Detail;
     private javax.swing.JTextField txtImportQtyImportDetails;
     private javax.swing.JTextField txtInvoiceCustomer;
     private com.toedter.calendar.JDateChooser txtInvoiceDate;

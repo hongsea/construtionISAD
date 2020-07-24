@@ -14,7 +14,7 @@ import javax.swing.JTable;
 public class Staff {
     Connection con = Application.getConnection();
     
-    public int getStaffID_ByName (JComboBox StaffName){
+    public int getStaffIdByName (JComboBox StaffName){
         int getstaffid=0;
         try{
             String staffName = StaffName.getSelectedItem().toString();

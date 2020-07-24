@@ -30,6 +30,20 @@ import javax.swing.table.TableModel;
 public class Import {
      Connection con = Application.getConnection();
      
+     public void getImportID(JTextField importid, JTable tbgetimport){
+         try{
+             int i = tbgetimport.getSelectedRow();
+             TableModel tm = tbgetimport.getModel();
+             String id = tm.getValueAt(i, 0).toString();
+             String viewqurey = "select * from tbImport where id=?";
+             PreparedStatement ps = con.prepareStatement(viewqurey);
+             importid.setText(id);
+              
+             
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);
+         }
+     }
      public void getSelecttbImport(JTextField impoDate , JComboBox staffId, JComboBox supplierId, JTable tbgetimport){
         
          try{
