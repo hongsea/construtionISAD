@@ -89,6 +89,7 @@ public class Import {
                 Statement pss = con.createStatement();
                 ResultSet rss = pss.executeQuery(selectstaffID);  
                 
+                
                  //get supplier name
                 int getidsupplier = rst.getInt(4);
                 String selectsupplierID = "select name from tbSupplier where id='" + getidsupplier + "'";
