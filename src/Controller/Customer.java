@@ -23,11 +23,11 @@ public class Customer {
 
     Connection con = Application.getConnection();
 
-    public String getAllcustomer(JTextField id,JTextField name , JTextField phone, JTextField address, JComboBox staffName,JTable TableCustomer){
+    public String addCustomerSelect(JTextField id,JTextField name , JTextField phone, JTextField address, JComboBox staffName,JTable tableCustomer){
         String getgender = null;
         try{
-            int i = TableCustomer.getSelectedRow();
-            TableModel tm = TableCustomer.getModel();
+            int i = tableCustomer.getSelectedRow();
+            TableModel tm = tableCustomer.getModel();
             id.setText(tm.getValueAt(i, 0).toString());
             String viewqurey = "select * from tbCustomer where id=?";
             PreparedStatement ps = con.prepareStatement(viewqurey);

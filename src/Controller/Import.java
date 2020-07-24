@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Calendar;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -73,7 +74,7 @@ public class Import {
             ResultSet rst = pst.executeQuery();
             DefaultTableModel model = new DefaultTableModel();
             tableName.setModel(model);
-            
+
             model.addColumn("ID");
             model.addColumn("Staff Name");
             model.addColumn("Supplier Name");
@@ -103,39 +104,59 @@ public class Import {
                 }
             }
             con.close();
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+
+    public void createImport(Date impoDate, int staffId, int supplierId) {
+        try {
+            String importQ = "insert into tbImport(import_date , staff_id, supplier_id )values(?,?,?)";
+            PreparedStatement pst = con.prepareStatement(importQ);
+
+            pst.setDate(1, impoDate);
+            pst.setInt(2, staffId);
+            pst.setInt(3, supplierId);
+
+            pst.executeUpdate();
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+
+    public void clear(JTextField importDate, JComboBox cbName, JComboBox cbName2) {
+
+        importDate.setText(" ");
+
+        cbName.removeAllItems();
+        cbName.addItem("select");
+        cbName.setSelectedItem("select");
+
+        cbName2.removeAllItems();
+        cbName2.addItem("select");
+        cbName2.setSelectedItem("select");
+    }
+    
+    
+     public void update (int staffID,int supplierID, JLabel lbMessageCustomer, JTable tableName){
+        int s = tableName.getSelectedRow();
+        try{
+            String value = (tableName.getModel().getValueAt(s, 0).toString());
+            String updateImport = "update tbImport SET staff_id=?, supplier_id=? where id=" + value;
+            PreparedStatement psc = con.prepareStatement(updateImport);
+            
+            psc.setInt(1, staffID);
+            psc.setInt(2, supplierID);
+            
+            
+            psc.executeUpdate();
+            lbMessageCustomer.setText("Update Import success");
             
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-     
-     public void createImport(Date impoDate , int staffId, int supplierId){
-         try {
-            String importQ = "insert into tbImport(import_date , staff_id, supplier_id )values(?,?,?)";
-            PreparedStatement pst = con.prepareStatement(importQ);
 
-            pst.setDate(1, impoDate); 
-            pst.setInt(2, staffId); 
-            pst.setInt(3, supplierId); 
-          
-            pst.executeUpdate();
-          
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-     }
-     
-     public void clear(JTextField importDate,JComboBox cbName, JComboBox cbName2){
-         
-        importDate.setText(" ");
-        
-        cbName.removeAllItems();
-        cbName.addItem("select");
-        cbName.setSelectedItem("select");
-        
-        cbName2.removeAllItems();
-        cbName2.addItem("select");
-        cbName2.setSelectedItem("select");
-     }
-    
 }

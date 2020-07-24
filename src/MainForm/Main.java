@@ -100,7 +100,7 @@ public class Main extends javax.swing.JFrame {
         paneldefault = new Color(0, 204, 204);
         panelclick = new Color(0, 255, 0);
 
-         setHideAllMenus(panelclicked1);
+        setHideAllMenus(panelclicked1);
 
         showlableonclickedmenu.setText("HOME");
 
@@ -670,14 +670,14 @@ public class Main extends javax.swing.JFrame {
         btnworkerUpdate6 = new javax.swing.JButton();
         btnworkerCancel6 = new javax.swing.JButton();
         jLabel136 = new javax.swing.JLabel();
-        txtImportQty1 = new javax.swing.JTextField();
+        txtImportQtyImportDetails = new javax.swing.JTextField();
         jLabel138 = new javax.swing.JLabel();
-        txtUnitPriceImport1 = new javax.swing.JTextField();
+        txtUnitPriceImportDetails = new javax.swing.JTextField();
         jLabel139 = new javax.swing.JLabel();
-        txtAmountImport1 = new javax.swing.JTextField();
-        cbCEImport1 = new javax.swing.JComboBox<>();
+        txtAmountImportDetails = new javax.swing.JTextField();
+        cbCEImportDetails = new javax.swing.JComboBox<>();
         jLabel140 = new javax.swing.JLabel();
-        txtUnitPriceImport2 = new javax.swing.JTextField();
+        txtImportId = new javax.swing.JTextField();
         jScrollPane26 = new javax.swing.JScrollPane();
         tbImport_form_detail = new javax.swing.JTable();
         import_list = new javax.swing.JInternalFrame();
@@ -3731,6 +3731,11 @@ public class Main extends javax.swing.JFrame {
         btnImportUpdate.setBackground(new java.awt.Color(0, 153, 153));
         btnImportUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnImportUpdate.setText("Update");
+        btnImportUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportUpdateActionPerformed(evt);
+            }
+        });
         panelstaffinfomation10.add(btnImportUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 90, 30));
 
         btnworkerCancel4.setBackground(new java.awt.Color(0, 153, 153));
@@ -3805,33 +3810,33 @@ public class Main extends javax.swing.JFrame {
         jLabel136.setText("Import qty");
         panelstaffinfomation12.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 230, 20));
 
-        txtImportQty1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation12.add(txtImportQty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 230, 29));
+        txtImportQtyImportDetails.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtImportQtyImportDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 230, 29));
 
         jLabel138.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel138.setText("Unit price");
         panelstaffinfomation12.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 230, -1));
 
-        txtUnitPriceImport1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation12.add(txtUnitPriceImport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 230, 30));
+        txtUnitPriceImportDetails.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtUnitPriceImportDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 230, 30));
 
         jLabel139.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel139.setText("Amount");
         panelstaffinfomation12.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 230, -1));
 
-        txtAmountImport1.setEditable(false);
-        txtAmountImport1.setBackground(new java.awt.Color(204, 204, 204));
-        txtAmountImport1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation12.add(txtAmountImport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, 30));
+        txtAmountImportDetails.setEditable(false);
+        txtAmountImportDetails.setBackground(new java.awt.Color(204, 204, 204));
+        txtAmountImportDetails.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtAmountImportDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, 30));
 
-        panelstaffinfomation12.add(cbCEImport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
+        panelstaffinfomation12.add(cbCEImportDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
 
         jLabel140.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel140.setText("Import Id");
         panelstaffinfomation12.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 230, -1));
 
-        txtUnitPriceImport2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation12.add(txtUnitPriceImport2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 230, 30));
+        txtImportId.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation12.add(txtImportId, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 230, 30));
 
         tbImport_form_detail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -3993,9 +3998,9 @@ public class Main extends javax.swing.JFrame {
         btnworkerUpdate2.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerUpdate2.setForeground(new java.awt.Color(255, 255, 255));
         btnworkerUpdate2.setText("Update");
-        btnworkerUpdate2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerUpdate2MouseClicked(evt);
+        btnworkerUpdate2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnworkerUpdate2ActionPerformed(evt);
             }
         });
         panelstaffinfomation8.add(btnworkerUpdate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 90, 30));
@@ -4833,7 +4838,7 @@ public class Main extends javax.swing.JFrame {
        int x, y;
     private void panelmenuhomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMousePressed
 
-      setHideAllMenus(panelclicked1);
+        setHideAllMenus(panelclicked1);
     }//GEN-LAST:event_panelmenuhomeMousePressed
 
     private void panelmenuhomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenuhomeMouseClicked
@@ -4912,7 +4917,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_panelmenworkerMouseClicked
 
     private void panelmenpaymentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelmenpaymentMousePressed
-       setHideAllMenus(panelclicked5);
+        setHideAllMenus(panelclicked5);
 
     }//GEN-LAST:event_panelmenpaymentMousePressed
 
@@ -7028,18 +7033,25 @@ public class Main extends javax.swing.JFrame {
         importObj.getImport(tbImport_form);
 
         bracImportForm.setText("IMPORT / NEW");
-        
+
         Staff staff = new Staff();
-         for (String staffList : staff.getAllStaff()){
+        for (String staffList : staff.getAllStaff()) {
             cbStaffNameImport.addItem(staffList);
         }
-        
+
         java.sql.Date importDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         txtImportDate.setText(importDate.toString());
+        
         Supplier supplier = new Supplier();
-        for (String supplierList : supplier.getAllSupplier()){
+        for (String supplierList : supplier.getAllSupplier()) {
             cbSupplierNameImport.addItem(supplierList);
         }
+        
+        ConstractionEquiment ce = new ConstractionEquiment();
+        for (String ceList : ce.getAllCE()) {
+            cbCEImportDetails.addItem(ceList);
+        }
+        
     }//GEN-LAST:event_btnImportMouseClicked
 
     private void btnEdittablestaff4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEdittablestaff4MouseClicked
@@ -7049,13 +7061,11 @@ public class Main extends javax.swing.JFrame {
     private void menuCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCustomerMouseClicked
 
         showList(customer_list);
-        
+
 //        Staff st = new Staff();
 //        for (String stafflist : st.getAllStaff()){
 //            cboCustomer_CreatebyStaff.addItem(stafflist);
 //        }
-        
-        
         //list customer
         Customer customer = new Customer();
         customer.getCustomer(tbCustomer);
@@ -7130,10 +7140,6 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSupplierNewActionPerformed
 
-    private void btnworkerUpdate2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerUpdate2MouseClicked
-
     private void btnworkerCancel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnworkerCancel2MouseClicked
@@ -7174,7 +7180,7 @@ public class Main extends javax.swing.JFrame {
     private void btnCENewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCENewMouseClicked
 
         ConstractionEquiment constractionEquiment = new ConstractionEquiment();
-        constractionEquiment.create(txtCEName,tbCE_form);
+        constractionEquiment.create(txtCEName, tbCE_form);
 
 
     }//GEN-LAST:event_btnCENewMouseClicked
@@ -7251,15 +7257,14 @@ public class Main extends javax.swing.JFrame {
         projectInformation.getProjectInformation(tbProjectInformation);
 
         bracCustomerForm.setText("CUSTOMER / NEW");
-        
+
         customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
-        
+
         Staff st = new Staff();
-        for (String stafflist : st.getAllStaff()){
+        for (String stafflist : st.getAllStaff()) {
             cboCustomer_CreatebyStaff.addItem(stafflist);
         }
-        
-        
+
 //        customer.clear(txtCode, txtName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
     }//GEN-LAST:event_btnCustomerMouseClicked
 
@@ -7273,46 +7278,44 @@ public class Main extends javax.swing.JFrame {
 
     private void tbCustomer_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCustomer_formMouseClicked
         Customer cu = new Customer();
-        String getcu = cu.getAllcustomer(txtCustomerId, txtCustomerName, txtPhone, txtCustomerAddress,cboCustomer_CreatebyStaff,tbCustomer_form);
-        
+        String getcu = cu.addCustomerSelect(txtCustomerId, txtCustomerName, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff, tbCustomer_form);
+
         if (getcu.equals("Male")) {
             male.setSelected(true);
-        } 
-        else { 
+        } else {
             female.setSelected(true);
         }
     }//GEN-LAST:event_tbCustomer_formMouseClicked
 
     private void btnCustomerNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerNewActionPerformed
         // TODO add your handling code here:
-        int staffID=0;
+        int staffID = 0;
         Customer customer = new Customer();
         Staff st = new Staff();
-        staffID = st.getStaffID_ByName(cboCustomer_CreatebyStaff);
-        customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress,staffID, lbMessageCustomer,tbCustomer_form);
-        
+        staffID = st.getStaffIdByName(cboCustomer_CreatebyStaff);
+        customer.create(txtCustomerName, gender, txtPhone, txtCustomerAddress, staffID, lbMessageCustomer, tbCustomer_form);
+
         customer.getCustomer(tbCustomer_form);
-        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
-        for (String stafflist : st.getAllStaff()){
+        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
+        for (String stafflist : st.getAllStaff()) {
             cboCustomer_CreatebyStaff.addItem(stafflist);
         }
-        
+
     }//GEN-LAST:event_btnCustomerNewActionPerformed
 
     private void btnUpdateCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateCustomerMouseClicked
         Staff st = new Staff();
         Customer customer = new Customer();
-        int staffID = st.getStaffID_ByName(cboCustomer_CreatebyStaff);
+        int staffID = st.getStaffIdByName(cboCustomer_CreatebyStaff);
         if (male.equals("Male")) {
             gender = "Male";
-        } 
-        else { 
+        } else {
             gender = "Female";
         }
-        customer.update(txtCustomerName, gender, txtPhone, txtCustomerAddress,staffID, lbMessageCustomer,tbCustomer_form);
-        
-        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone,txtCustomerAddress, cboCustomer_CreatebyStaff);
-        for (String stafflist : st.getAllStaff()){
+        customer.update(txtCustomerName, gender, txtPhone, txtCustomerAddress, staffID, lbMessageCustomer, tbCustomer_form);
+
+        customer.clear(txtCustomerId, txtCustomerName, gender, txtPhone, txtCustomerAddress, cboCustomer_CreatebyStaff);
+        for (String stafflist : st.getAllStaff()) {
             cboCustomer_CreatebyStaff.addItem(stafflist);
         }
     }//GEN-LAST:event_btnUpdateCustomerMouseClicked
@@ -7361,29 +7364,51 @@ public class Main extends javax.swing.JFrame {
 
     private void btnImportNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportNewActionPerformed
         // TODO add your handling code here:
-         int staffId=0;
-         int supplierId = 0;
+        int staffId = 0;
+        int supplierId = 0;
         Import importObj = new Import();
         Supplier supplier = new Supplier();
         Staff st = new Staff();
-        
+
         java.sql.Date importDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        staffId = st.getStaffID_ByName(cbStaffNameImport);
+        staffId = st.getStaffIdByName(cbStaffNameImport);
         supplierId = supplier.getSupplierIdByName(cbSupplierNameImport);
         importObj.createImport(importDate, staffId, supplierId);
         importObj.getImport(tbImport_form);
         importObj.clear(txtImportDate, cbStaffNameImport, cbSupplierNameImport);
-        
+
         Staff staff = new Staff();
-         for (String staffList : staff.getAllStaff()){
+        for (String staffList : staff.getAllStaff()) {
             cbStaffNameImport.addItem(staffList);
         }
-        
-        for (String supplierList : supplier.getAllSupplier()){
+
+        for (String supplierList : supplier.getAllSupplier()) {
             cbSupplierNameImport.addItem(supplierList);
         }
-        
+
     }//GEN-LAST:event_btnImportNewActionPerformed
+
+    private void btnImportUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        int staffId = 0;
+        int supplierId = 0;
+        Import importObj = new Import();
+        Supplier supplier = new Supplier();
+        Staff st = new Staff();
+
+        staffId = st.getStaffIdByName(cbStaffNameImport);
+        supplierId = supplier.getSupplierIdByName(cbSupplierNameImport);
+ 
+        importObj.update(staffId, supplierId, lbMessageCustomer, tbImport_form);
+        importObj.getImport(tbImport_form);
+        
+    }//GEN-LAST:event_btnImportUpdateActionPerformed
+
+    private void btnworkerUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnworkerUpdate2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnworkerUpdate2ActionPerformed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -7467,7 +7492,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerUpdate5;
     private javax.swing.JButton btnworkerUpdate6;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cbCEImport1;
+    private javax.swing.JComboBox<String> cbCEImportDetails;
     private javax.swing.JComboBox<String> cbStaffNameImport;
     private javax.swing.JComboBox<String> cbSupplierNameImport;
     private javax.swing.JComboBox<String> cboCustomer_CreatebyStaff;
@@ -7912,7 +7937,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbviewuser;
     private javax.swing.JTable tbworker;
     private javax.swing.JTable tbworkerview;
-    private javax.swing.JTextField txtAmountImport1;
+    private javax.swing.JTextField txtAmountImportDetails;
     private javax.swing.JTextField txtCEName;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCustomerAddress;
@@ -7926,7 +7951,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtCustomerId18;
     private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtImportDate;
-    private javax.swing.JTextField txtImportQty1;
+    private javax.swing.JTextField txtImportId;
+    private javax.swing.JTextField txtImportQtyImportDetails;
     private javax.swing.JTextField txtInvoiceCustomer;
     private com.toedter.calendar.JDateChooser txtInvoiceDate;
     private javax.swing.JTextField txtInvoiceId;
@@ -7971,8 +7997,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSupplierName;
     private javax.swing.JTextField txtSupplierPhone;
     private javax.swing.JTextField txtUnitPrice;
-    private javax.swing.JTextField txtUnitPriceImport1;
-    private javax.swing.JTextField txtUnitPriceImport2;
+    private javax.swing.JTextField txtUnitPriceImportDetails;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtconfirmpassword;
     private javax.swing.JTextField txtpassword;
