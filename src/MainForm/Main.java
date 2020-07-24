@@ -657,7 +657,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation10 = new javax.swing.JPanel();
         jLabel112 = new javax.swing.JLabel();
         btnImportNew = new javax.swing.JButton();
-        btnworkerUpdate4 = new javax.swing.JButton();
+        btnImportUpdate = new javax.swing.JButton();
         btnworkerCancel4 = new javax.swing.JButton();
         jLabel113 = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
@@ -3728,15 +3728,15 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation10.add(btnImportNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 90, 30));
 
-        btnworkerUpdate4.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerUpdate4.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerUpdate4.setText("Update");
-        btnworkerUpdate4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnImportUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnImportUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportUpdate.setText("Update");
+        btnImportUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerUpdate4MouseClicked(evt);
+                btnImportUpdateMouseClicked(evt);
             }
         });
-        panelstaffinfomation10.add(btnworkerUpdate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 90, 30));
+        panelstaffinfomation10.add(btnImportUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 90, 30));
 
         btnworkerCancel4.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerCancel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -3760,7 +3760,7 @@ public class Main extends javax.swing.JFrame {
         txtImportDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation10.add(txtImportDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
 
-        panelstaffinfomation10.add(cbSupplierNameImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 230, 30));
+        panelstaffinfomation10.add(cbSupplierNameImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 230, 30));
 
         panelstaffinfomation10.add(cbStaffNameImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
 
@@ -7016,12 +7016,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_panelmenImportMousePressed
 
     private void tbImport_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_formMouseClicked
-        // TODO add your handling code here:
+        Import im = new Import();
+        im.getSelecttbImport(txtImportDate, cbStaffNameImport, cbSupplierNameImport, tbImport_form);
     }//GEN-LAST:event_tbImport_formMouseClicked
 
-    private void btnworkerUpdate4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerUpdate4MouseClicked
+    private void btnImportUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportUpdateMouseClicked
+    }//GEN-LAST:event_btnImportUpdateMouseClicked
 
     private void btnworkerCancel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel4MouseClicked
         // TODO add your handling code here:
@@ -7425,6 +7425,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnImport;
     private javax.swing.JButton btnImportNew;
     private javax.swing.JButton btnImportNew1;
+    private javax.swing.JButton btnImportUpdate;
     private javax.swing.JButton btnInvoiceCancel;
     private javax.swing.JButton btnInvoiceCancel3;
     private javax.swing.JButton btnInvoiceNew;
@@ -7471,7 +7472,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerNew6;
     private javax.swing.JButton btnworkerUpdate;
     private javax.swing.JButton btnworkerUpdate2;
-    private javax.swing.JButton btnworkerUpdate4;
     private javax.swing.JButton btnworkerUpdate5;
     private javax.swing.JButton btnworkerUpdate6;
     private javax.swing.ButtonGroup buttonGroup1;

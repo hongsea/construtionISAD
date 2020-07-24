@@ -13,11 +13,14 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -26,6 +29,42 @@ import javax.swing.table.DefaultTableModel;
 public class Import {
      Connection con = Application.getConnection();
      
+     public void getSelecttbImport(JTextField impoDate , JComboBox staffId, JComboBox supplierId, JTable tbgetimport){
+        
+         try{
+             int i = tbgetimport.getSelectedRow();
+             TableModel tm = tbgetimport.getModel();
+             String id = tm.getValueAt(i, 0).toString();
+             String viewqurey = "select * from tbImport where id=?";
+             PreparedStatement ps = con.prepareStatement(viewqurey);
+              ps.setString(1, id);
+             ResultSet rs = ps.executeQuery();
+             if (rs.next()){
+                impoDate.setText(rs.getString(2));
+                 
+                //get staff name
+                int getidstaff = rs.getInt(3);
+                String selectstaffID = "select name from tbStaff where id='" + getidstaff + "'";
+                Statement pss = con.createStatement();
+                ResultSet rss = pss.executeQuery(selectstaffID);                    
+                while(rss.next()){
+                    staffId.setSelectedItem(rss.getString(1));
+                }
+                
+                //get supplier name
+                int getidsupplier = rs.getInt(4);
+                String selectsupplierID = "select name from tbSupplier where id='" + getidsupplier + "'";
+                Statement psss = con.createStatement();
+                ResultSet rsss = psss.executeQuery(selectsupplierID);                    
+                while(rsss.next()){
+                    supplierId.setSelectedItem(rsss.getString(1));
+                }                 
+             }
+             
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);
+         }
+     }
      public void getImport(JTable tableName){
          try{
             
@@ -36,14 +75,31 @@ public class Import {
             tableName.setModel(model);
             
             model.addColumn("ID");
-            model.addColumn("Staff ID");
-            model.addColumn("Supplier ID");
+            model.addColumn("Staff Name");
+            model.addColumn("Supplier Name");
             model.addColumn("Import Date");
             model.addColumn("Total Amount");
            
                                     
             while (rst.next()){
-                model.addRow(new Object[]{rst.getString(1),rst.getString(2),rst.getString(3),rst.getString(4)});
+                
+                //get staff name
+                int getidstaff = rst.getInt(3);
+                String selectstaffID = "select name from tbStaff where id='" + getidstaff + "'";
+                Statement pss = con.createStatement();
+                ResultSet rss = pss.executeQuery(selectstaffID);  
+                
+                 //get supplier name
+                int getidsupplier = rst.getInt(4);
+                String selectsupplierID = "select name from tbStaff where id='" + getidsupplier + "'";
+                Statement psss = con.createStatement();
+                ResultSet rssu = psss.executeQuery(selectsupplierID);                    
+                
+                while(rss.next()){
+                    while (rssu.next()) {
+                       model.addRow(new Object[]{rst.getString(1),rss.getString(1),rssu.getString(1),rst.getString(2),rst.getString(5)});  
+                    }
+                }
             }
             con.close();
             
