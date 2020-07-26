@@ -771,33 +771,17 @@ public class Main extends javax.swing.JFrame {
         jScrollPane25 = new javax.swing.JScrollPane();
         tbUsage_form = new javax.swing.JTable();
         panelstaffinfomation11 = new javax.swing.JPanel();
-        jLabel119 = new javax.swing.JLabel();
-        jLabel120 = new javax.swing.JLabel();
-        btnworkerNew6 = new javax.swing.JButton();
-        btnworkerUpdate5 = new javax.swing.JButton();
-        btnworkerCancel5 = new javax.swing.JButton();
         jLabel121 = new javax.swing.JLabel();
-        labelmessageworker10 = new javax.swing.JLabel();
-        labelworkerroleidrequired10 = new javax.swing.JLabel();
-        labelworkergenderrequired5 = new javax.swing.JLabel();
-        labelworkerbirthrequired5 = new javax.swing.JLabel();
-        labelworkersaryequired5 = new javax.swing.JLabel();
-        labelworkerphonerequired5 = new javax.swing.JLabel();
-        labelworkeraddrerequired5 = new javax.swing.JLabel();
-        labelworkerstaturequired5 = new javax.swing.JLabel();
-        txtCustomerId12 = new javax.swing.JTextField();
-        txtCustomerId13 = new javax.swing.JTextField();
-        jLabel122 = new javax.swing.JLabel();
-        txtCustomerId14 = new javax.swing.JTextField();
-        jLabel123 = new javax.swing.JLabel();
-        txtCustomerId15 = new javax.swing.JTextField();
+        cbStaffUsage = new javax.swing.JComboBox<>();
+        jLabel119 = new javax.swing.JLabel();
+        cbCEUsage = new javax.swing.JComboBox<>();
         jLabel124 = new javax.swing.JLabel();
-        txtCustomerId16 = new javax.swing.JTextField();
-        jLabel125 = new javax.swing.JLabel();
-        txtCustomerId17 = new javax.swing.JTextField();
+        txtDateUse = new javax.swing.JTextField();
         jLabel126 = new javax.swing.JLabel();
-        txtCustomerId18 = new javax.swing.JTextField();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        txtTotalQtyUsae = new javax.swing.JTextField();
+        btnNewUsage = new javax.swing.JButton();
+        btnNewUsage1 = new javax.swing.JButton();
+        btnNewUsage2 = new javax.swing.JButton();
         customer_list = new javax.swing.JInternalFrame();
         panelCustomer = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -4671,122 +4655,67 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation11.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         panelstaffinfomation11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel121.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel121.setText("Create by staff name");
+        panelstaffinfomation11.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
+
+        panelstaffinfomation11.add(cbStaffUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
+
         jLabel119.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel119.setText("Custraction Equipment Name");
         panelstaffinfomation11.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 220, 20));
 
-        jLabel120.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel120.setText("Supplier id");
-        panelstaffinfomation11.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 20));
-
-        btnworkerNew6.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerNew6.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerNew6.setText("New");
-        btnworkerNew6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerNew6MouseClicked(evt);
-            }
-        });
-        panelstaffinfomation11.add(btnworkerNew6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 90, 30));
-
-        btnworkerUpdate5.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerUpdate5.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerUpdate5.setText("Update");
-        btnworkerUpdate5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerUpdate5MouseClicked(evt);
-            }
-        });
-        panelstaffinfomation11.add(btnworkerUpdate5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, 90, 30));
-
-        btnworkerCancel5.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerCancel5.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerCancel5.setText("Cancel");
-        btnworkerCancel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerCancel5MouseClicked(evt);
-            }
-        });
-        panelstaffinfomation11.add(btnworkerCancel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 310, 90, 30));
-
-        jLabel121.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel121.setText("Staff ID");
-        panelstaffinfomation11.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
-
-        labelmessageworker10.setForeground(new java.awt.Color(0, 255, 51));
-        panelstaffinfomation11.add(labelmessageworker10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 210, 20));
-
-        labelworkerroleidrequired10.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerroleidrequired10.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkerroleidrequired10, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 230, 20));
-
-        labelworkergenderrequired5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkergenderrequired5.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkergenderrequired5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 230, 20));
-
-        labelworkerbirthrequired5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerbirthrequired5.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkerbirthrequired5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 190, 20));
-
-        labelworkersaryequired5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkersaryequired5.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkersaryequired5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 250, 20));
-
-        labelworkerphonerequired5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerphonerequired5.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkerphonerequired5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 250, 20));
-
-        labelworkeraddrerequired5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkeraddrerequired5.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkeraddrerequired5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 190, 20));
-
-        labelworkerstaturequired5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        labelworkerstaturequired5.setForeground(new java.awt.Color(255, 0, 0));
-        panelstaffinfomation11.add(labelworkerstaturequired5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 230, 20));
-
-        txtCustomerId12.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 29));
-
-        txtCustomerId13.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
-
-        jLabel122.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel122.setText("Phone");
-        panelstaffinfomation11.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, -1));
-
-        txtCustomerId14.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 230, 30));
-
-        jLabel123.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel123.setText("Import qty");
-        panelstaffinfomation11.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 230, 20));
-
-        txtCustomerId15.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 230, 29));
+        panelstaffinfomation11.add(cbCEUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 30));
 
         jLabel124.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel124.setText("Import Date");
-        panelstaffinfomation11.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 230, 20));
+        jLabel124.setText("Usage Date");
+        panelstaffinfomation11.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 230, 20));
 
-        txtCustomerId16.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 230, 29));
-
-        jLabel125.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel125.setText("Unit price");
-        panelstaffinfomation11.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 230, -1));
-
-        txtCustomerId17.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 230, 30));
+        txtDateUse.setEditable(false);
+        txtDateUse.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        panelstaffinfomation11.add(txtDateUse, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, 29));
 
         jLabel126.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel126.setText("Amount");
-        panelstaffinfomation11.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 230, -1));
+        jLabel126.setText("Total qty");
+        panelstaffinfomation11.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 230, -1));
 
-        txtCustomerId18.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
-        panelstaffinfomation11.add(txtCustomerId18, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 230, 30));
+        txtTotalQtyUsae.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtTotalQtyUsae.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalQtyUsaeActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation11.add(txtTotalQtyUsae, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 230, 29));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelstaffinfomation11.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 30));
+        btnNewUsage.setBackground(new java.awt.Color(0, 153, 153));
+        btnNewUsage.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewUsage.setText("New");
+        btnNewUsage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewUsageActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation11.add(btnNewUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 170, 90, 30));
+
+        btnNewUsage1.setBackground(new java.awt.Color(0, 153, 153));
+        btnNewUsage1.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewUsage1.setText("New");
+        btnNewUsage1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewUsage1ActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation11.add(btnNewUsage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 90, 30));
+
+        btnNewUsage2.setBackground(new java.awt.Color(0, 153, 153));
+        btnNewUsage2.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewUsage2.setText("New");
+        btnNewUsage2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewUsage2ActionPerformed(evt);
+            }
+        });
+        panelstaffinfomation11.add(btnNewUsage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 90, 30));
 
         javax.swing.GroupLayout panelstaffmenu10Layout = new javax.swing.GroupLayout(panelstaffmenu10);
         panelstaffmenu10.setLayout(panelstaffmenu10Layout);
@@ -4806,10 +4735,9 @@ public class Main extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(bracUsageForm, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelstaffinfomation11, javax.swing.GroupLayout.PREFERRED_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(panelstaffinfomation11, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE))
         );
 
         usage_form.getContentPane().add(panelstaffmenu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 740));
@@ -7490,8 +7418,21 @@ public class Main extends javax.swing.JFrame {
         usage_list.setVisible(false);
         usage_form.setVisible(true);
 
-        ConstractionEquiment constractionEquiment = new ConstractionEquiment();
-        constractionEquiment.getConstractionEquiment(tbUsage_form);
+        ConstractionEquiment ce = new ConstractionEquiment();
+        for (String ceList : ce.getAllCE()){
+            cbCEUsage.addItem(ceList);
+        }
+            
+         Staff staff = new Staff();
+        for (String staffList : staff.getAllStaff()) {
+            cbStaffUsage.addItem(staffList);
+        }
+        
+        java.sql.Date usageDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        txtDateUse.setText(usageDate.toString());
+
+             
+//        for (String staffList : staff.get)
 
         bracUsageForm.setText("USAGE / NEW ");
     }//GEN-LAST:event_btnUsageMouseClicked
@@ -7503,18 +7444,6 @@ public class Main extends javax.swing.JFrame {
     private void tbUsage_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsage_formMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbUsage_formMouseClicked
-
-    private void btnworkerNew6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerNew6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerNew6MouseClicked
-
-    private void btnworkerUpdate5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerUpdate5MouseClicked
-
-    private void btnworkerCancel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerCancel5MouseClicked
 
     private void btnCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerMouseClicked
         // TODO add your handling code here:
@@ -7904,6 +7833,55 @@ public class Main extends javax.swing.JFrame {
     private void txtProjectPlanDetailDatelineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanDetailDatelineMousePressed
         labelPPLDDateline.setText("");
     }//GEN-LAST:event_txtProjectPlanDetailDatelineMousePressed
+
+    private void txtTotalQtyUsaeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalQtyUsaeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalQtyUsaeActionPerformed
+
+    private void btnNewUsageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUsageActionPerformed
+        // TODO add your handling code here:
+        int ceID = 0;
+        int staffId = 0;
+        ConstractionEquiment ce = new ConstractionEquiment();
+        ceID = ce.getCEByName(cbStaffUsage);
+
+        Staff staff = new Staff();
+        staff.getStaffIdByName(cbStaffUsage);
+
+        java.sql.Date usageDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
+        int totalQty =  Integer.parseInt(txtTotalQtyUsae.getText());
+
+        Usage usage = new Usage();
+//        usage.create(usageDate, totalQty, staffId, ceID);
+
+        usage.getUsage(tbUsage_form);
+    }//GEN-LAST:event_btnNewUsageActionPerformed
+
+    private void btnNewUsage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUsage1ActionPerformed
+        // TODO add your handling code here:
+        
+        int ceID = 0;
+        int staffId = 0;
+        ConstractionEquiment ce = new ConstractionEquiment();
+        ceID = ce.getCEByName(cbCEUsage);
+        
+        Staff staff = new Staff();
+        staffId = staff.getStaffIdByName(cbStaffUsage);
+        
+        java.sql.Date usageDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        
+        int totalQty =  Integer.parseInt(txtTotalQtyUsae.getText());
+        
+        Usage usage = new Usage();
+        usage.create(usageDate, totalQty, staffId, ceID);
+        
+        usage.getUsage(tbUsage_form);
+    }//GEN-LAST:event_btnNewUsage1ActionPerformed
+
+    private void btnNewUsage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUsage2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewUsage2ActionPerformed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -7945,6 +7923,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnInvoiceNew3;
     private javax.swing.JButton btnInvoiceUpdate;
     private javax.swing.JButton btnInvoiceUpdate3;
+    private javax.swing.JButton btnNewUsage;
+    private javax.swing.JButton btnNewUsage1;
+    private javax.swing.JButton btnNewUsage2;
     private javax.swing.JButton btnPaymentNew;
     private javax.swing.JButton btnPaymentUpdate;
     private javax.swing.JButton btnPaymentclear;
@@ -7979,17 +7960,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerCancel;
     private javax.swing.JButton btnworkerCancel1;
     private javax.swing.JButton btnworkerCancel4;
-    private javax.swing.JButton btnworkerCancel5;
     private javax.swing.JButton btnworkerCancel6;
     private javax.swing.JButton btnworkerNew;
     private javax.swing.JButton btnworkerNew2;
-    private javax.swing.JButton btnworkerNew6;
     private javax.swing.JButton btnworkerUpdate;
-    private javax.swing.JButton btnworkerUpdate5;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbCEImportDetails;
+    private javax.swing.JComboBox<String> cbCEUsage;
     private javax.swing.JComboBox<String> cbStaffNameImport;
+    private javax.swing.JComboBox<String> cbStaffUsage;
     private javax.swing.JComboBox<String> cbSupplierNameImport;
     private javax.swing.JComboBox<String> cboCustomer_CreatebyStaff;
     private javax.swing.JComboBox<String> cboInvoicePaymentID;
@@ -8033,7 +8013,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -8052,12 +8031,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel122;
-    private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel124;
-    private javax.swing.JLabel jLabel125;
     private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
@@ -8223,7 +8198,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelmessagestaff;
     private javax.swing.JLabel labelmessageworker;
     private javax.swing.JLabel labelmessageworker1;
-    private javax.swing.JLabel labelmessageworker10;
     private javax.swing.JLabel labelmessageworker2;
     private javax.swing.JLabel labelmessageworker3;
     private javax.swing.JLabel labelmessageworker4;
@@ -8269,32 +8243,25 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel labelworkerNamerequired;
     private javax.swing.JLabel labelworkeraddrerequired;
     private javax.swing.JLabel labelworkeraddrerequired3;
-    private javax.swing.JLabel labelworkeraddrerequired5;
     private javax.swing.JLabel labelworkerbirthrequired;
     private javax.swing.JLabel labelworkerbirthrequired3;
-    private javax.swing.JLabel labelworkerbirthrequired5;
     private javax.swing.JLabel labelworkercreatebystaff;
     private javax.swing.JLabel labelworkercreatebystaff3;
     private javax.swing.JLabel labelworkergenderrequired;
     private javax.swing.JLabel labelworkergenderrequired3;
-    private javax.swing.JLabel labelworkergenderrequired5;
     private javax.swing.JLabel labelworkerhirdrequired;
     private javax.swing.JLabel labelworkerphonerequired;
     private javax.swing.JLabel labelworkerphonerequired3;
-    private javax.swing.JLabel labelworkerphonerequired5;
     private javax.swing.JLabel labelworkerroleidrequired;
     private javax.swing.JLabel labelworkerroleidrequired1;
-    private javax.swing.JLabel labelworkerroleidrequired10;
     private javax.swing.JLabel labelworkerroleidrequired3;
     private javax.swing.JLabel labelworkerroleidrequired4;
     private javax.swing.JLabel labelworkerroleidrequired5;
     private javax.swing.JLabel labelworkerroleidrequired8;
     private javax.swing.JLabel labelworkersaryequired;
     private javax.swing.JLabel labelworkersaryequired3;
-    private javax.swing.JLabel labelworkersaryequired5;
     private javax.swing.JLabel labelworkerstaturequired;
     private javax.swing.JLabel labelworkerstaturequired3;
-    private javax.swing.JLabel labelworkerstaturequired5;
     private javax.swing.JLabel lablegidelineprojectplanlist;
     private javax.swing.JLabel lableshownamelogin;
     private javax.swing.JLabel lablewelcome;
@@ -8438,14 +8405,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCustomerAddress;
     private javax.swing.JTextField txtCustomerId;
-    private javax.swing.JTextField txtCustomerId12;
-    private javax.swing.JTextField txtCustomerId13;
-    private javax.swing.JTextField txtCustomerId14;
-    private javax.swing.JTextField txtCustomerId15;
-    private javax.swing.JTextField txtCustomerId16;
-    private javax.swing.JTextField txtCustomerId17;
-    private javax.swing.JTextField txtCustomerId18;
     private javax.swing.JTextField txtCustomerName;
+    private javax.swing.JTextField txtDateUse;
     private javax.swing.JTextField txtImportDate;
     private javax.swing.JTextField txtImportId_Detail;
     private javax.swing.JTextField txtImportQtyImportDetails;
@@ -8492,6 +8453,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSupplierId;
     private javax.swing.JTextField txtSupplierName;
     private javax.swing.JTextField txtSupplierPhone;
+    private javax.swing.JTextField txtTotalQtyUsae;
     private javax.swing.JTextField txtUnitPrice;
     private javax.swing.JTextField txtUnitPriceImportDetails;
     private javax.swing.JTextField txtUsername;
