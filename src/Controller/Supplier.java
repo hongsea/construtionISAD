@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -30,6 +31,34 @@ public class Supplier {
 
     Connection con = Application.getConnection();
 
+    public void clearSupplier(JTextField id, JTextField name, String gender, JTextField phone, JTextField address){
+        id.setText("");
+        name.setText("");
+        gender = "";
+        phone.setText("");
+        address.setText("");
+    }
+    public String getSelecttbSupplier(JTextField id, JTextField name, String gender, JTextField phone, JTextField address, JTable tbgetSuppler ){
+        String getSupplierGender = null;
+        try{
+            int i = tbgetSuppler.getSelectedRow();
+            TableModel tm = tbgetSuppler.getModel();
+            id.setText(tm.getValueAt(i, 0).toString());
+            String viewqurey = "select * from tbSupplier where id=?";
+            PreparedStatement ps = con.prepareStatement(viewqurey);
+            ps.setString(1, id.getText().trim());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                name.setText(rs.getString(2));
+                getSupplierGender = rs.getString(3);
+                phone.setText(rs.getString(4));
+                address.setText(rs.getString(5));
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return getSupplierGender;
+    }
     public void getSupplier(JTable tableName) {
         try {
 
@@ -54,7 +83,26 @@ public class Supplier {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-
+    public void updateSupplier(JTextField id,JTextField name, String gender, JTextField phone, JTextField address, JLabel labelName, JTable tableNameSupplier){
+        int s = tableNameSupplier.getSelectedRow();
+        try{
+            String value = (tableNameSupplier.getModel().getValueAt(s, 0).toString());
+            String updateSupplier = "update tbSupplier SET name=?, gender=?, phone=?, address=? where id=" + value;
+             PreparedStatement psc = con.prepareStatement(updateSupplier);
+             
+             psc.setString(1, name.getText().trim());
+             psc.setString(2, gender);
+             psc.setString(3, phone.getText().trim());
+             psc.setString(4, address.getText().trim());
+             
+             psc.executeUpdate();
+             getSupplier(tableNameSupplier);
+             labelName.setText("Update supplier sucessfully.");
+             
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
     public void createSupplier(JTextField name, String gender, JTextField phone, JTextField address, JLabel labelName, JTable tableName) {
         try {
             String supplier = "insert into tbSupplier(name,gender,phone,address)values(?,?,?,?)";

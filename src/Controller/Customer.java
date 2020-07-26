@@ -105,7 +105,6 @@ public class Customer {
             PreparedStatement psc = con.prepareStatement(updateCustomer);
             
             psc.setString(1, name.getText().trim());
-            System.out.println("Gender: " + gender);
             psc.setString(2, gender);
             psc.setString(3, phone.getText().trim());
             psc.setString(4, address.getText().trim());

@@ -240,6 +240,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         panelbar = new javax.swing.JPanel();
         lableshownamelogin = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -668,7 +669,7 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation12 = new javax.swing.JPanel();
         jLabel133 = new javax.swing.JLabel();
         btnImportDetailsNew = new javax.swing.JButton();
-        btnworkerUpdate6 = new javax.swing.JButton();
+        btnImportDetialUpdate = new javax.swing.JButton();
         btnworkerCancel6 = new javax.swing.JButton();
         jLabel136 = new javax.swing.JLabel();
         txtImportQtyImportDetails = new javax.swing.JTextField();
@@ -702,8 +703,8 @@ public class Main extends javax.swing.JFrame {
         txtSupplierAddress = new javax.swing.JTextField();
         jLabel105 = new javax.swing.JLabel();
         btnSupplierNew = new javax.swing.JButton();
-        btnworkerUpdate2 = new javax.swing.JButton();
-        btnworkerCancel2 = new javax.swing.JButton();
+        btnSupplierUpdate = new javax.swing.JButton();
+        btnSupplierClear = new javax.swing.JButton();
         jLabel106 = new javax.swing.JLabel();
         txtSupplierId = new javax.swing.JTextField();
         male1 = new javax.swing.JRadioButton();
@@ -870,13 +871,11 @@ public class Main extends javax.swing.JFrame {
         getContentPane().add(panelbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 30));
 
         panelmenu.setBackground(new java.awt.Color(0, 153, 153));
-        panelmenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lablewelcome.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lablewelcome.setForeground(new java.awt.Color(255, 255, 255));
         lablewelcome.setText("                   WELCOME");
         lablewelcome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        panelmenu.add(lablewelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 238, 40));
 
         panelmenuuser.setBackground(new java.awt.Color(0, 204, 204));
         panelmenuuser.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -980,8 +979,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelmenuhome, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        panelmenu.add(panelmenuuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 81, 436, 30));
-
         panelmenustaff.setBackground(new java.awt.Color(0, 204, 204));
         panelmenustaff.setPreferredSize(new java.awt.Dimension(155, 50));
         panelmenustaff.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1021,15 +1018,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 105, Short.MAX_VALUE))
         );
         panelmenustaffLayout.setVerticalGroup(
             panelmenustaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(panelmenustaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 117, 260, 30));
 
         panelmenworker.setBackground(new java.awt.Color(0, 204, 204));
         panelmenworker.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1078,8 +1073,6 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panelclicked3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelmenu.add(panelmenworker, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 153, 260, 30));
-
         menuCustomer.setBackground(new java.awt.Color(0, 204, 204));
         menuCustomer.setPreferredSize(new java.awt.Dimension(155, 50));
         menuCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1119,15 +1112,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 89, Short.MAX_VALUE))
         );
         menuCustomerLayout.setVerticalGroup(
             menuCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(menuCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 260, 30));
 
         panelmenpayment.setBackground(new java.awt.Color(0, 204, 204));
         panelmenpayment.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1176,8 +1167,6 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panelclicked5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelmenu.add(panelmenpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 225, 260, 30));
-
         panelmenuinvoice.setBackground(new java.awt.Color(0, 204, 204));
         panelmenuinvoice.setPreferredSize(new java.awt.Dimension(155, 50));
         panelmenuinvoice.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1217,15 +1206,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 89, Short.MAX_VALUE))
         );
         panelmenuinvoiceLayout.setVerticalGroup(
             panelmenuinvoiceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(panelmenuinvoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 261, 260, 30));
 
         panelmenprojectplan.setBackground(new java.awt.Color(0, 204, 204));
         panelmenprojectplan.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1266,15 +1253,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         panelmenprojectplanLayout.setVerticalGroup(
             panelmenprojectplanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable6, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(panelmenprojectplan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 297, 260, 30));
 
         panelmenprojectplanlist.setBackground(new java.awt.Color(0, 204, 204));
         panelmenprojectplanlist.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1315,15 +1300,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         panelmenprojectplanlistLayout.setVerticalGroup(
             panelmenprojectplanlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(panelmenprojectplanlist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 333, 260, 30));
 
         panelmenprojectplanview.setBackground(new java.awt.Color(0, 204, 204));
         panelmenprojectplanview.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1364,15 +1347,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         panelmenprojectplanviewLayout.setVerticalGroup(
             panelmenprojectplanviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(panelmenprojectplanview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 260, 30));
 
         panelmenImport.setBackground(new java.awt.Color(0, 204, 204));
         panelmenImport.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1396,13 +1377,13 @@ public class Main extends javax.swing.JFrame {
         );
         panelclicked10Layout.setVerticalGroup(
             panelclicked10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         staffmenulable10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         staffmenulable10.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
-        staffmenulable10.setText("   Import");
+        staffmenulable10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/imort.png"))); // NOI18N
+        staffmenulable10.setText("   IMPOART");
         staffmenulable10.setPreferredSize(new java.awt.Dimension(94, 26));
 
         javax.swing.GroupLayout panelmenImportLayout = new javax.swing.GroupLayout(panelmenImport);
@@ -1418,10 +1399,8 @@ public class Main extends javax.swing.JFrame {
         panelmenImportLayout.setVerticalGroup(
             panelmenImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelclicked10, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(staffmenulable10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(staffmenulable10, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(panelmenImport, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 260, 30));
 
         menuCE.setBackground(new java.awt.Color(0, 204, 204));
         menuCE.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1450,12 +1429,12 @@ public class Main extends javax.swing.JFrame {
         );
         panelclicked11Layout.setVerticalGroup(
             panelclicked11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         staffmenulable12.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         staffmenulable12.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client1.png"))); // NOI18N
+        staffmenulable12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/contruction.png"))); // NOI18N
         staffmenulable12.setText("   CONSTRUCTION");
         staffmenulable12.setPreferredSize(new java.awt.Dimension(94, 26));
 
@@ -1465,17 +1444,15 @@ public class Main extends javax.swing.JFrame {
             menuCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuCELayout.createSequentialGroup()
                 .addComponent(panelclicked11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(staffmenulable12, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         menuCELayout.setVerticalGroup(
             menuCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelclicked11, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(staffmenulable12, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(menuCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 260, 30));
 
         menuSupplier.setBackground(new java.awt.Color(0, 204, 204));
         menuSupplier.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1516,15 +1493,13 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panelclicked12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(staffmenulable9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 89, Short.MAX_VALUE))
         );
         menuSupplierLayout.setVerticalGroup(
             menuSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(staffmenulable9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(panelclicked12, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
-
-        panelmenu.add(menuSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 260, 30));
 
         menuUsage.setBackground(new java.awt.Color(0, 204, 204));
         menuUsage.setPreferredSize(new java.awt.Dimension(155, 50));
@@ -1553,7 +1528,7 @@ public class Main extends javax.swing.JFrame {
 
         staffmenulable11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         staffmenulable11.setForeground(new java.awt.Color(0, 102, 255));
-        staffmenulable11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier1.png"))); // NOI18N
+        staffmenulable11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/usage.png"))); // NOI18N
         staffmenulable11.setText("   USAGE");
         staffmenulable11.setPreferredSize(new java.awt.Dimension(94, 26));
 
@@ -1573,7 +1548,60 @@ public class Main extends javax.swing.JFrame {
             .addComponent(panelclicked13, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelmenu.add(menuUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 260, 30));
+        javax.swing.GroupLayout panelmenuLayout = new javax.swing.GroupLayout(panelmenu);
+        panelmenu.setLayout(panelmenuLayout);
+        panelmenuLayout.setHorizontalGroup(
+            panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenuLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lablewelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelmenuuser, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenustaff, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenworker, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenpayment, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenuinvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenprojectplan, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenprojectplanlist, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenprojectplanview, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelmenImport, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuCE, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuUsage, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panelmenuLayout.setVerticalGroup(
+            panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelmenuLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lablewelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(panelmenuuser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(panelmenustaff, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(panelmenworker, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenpayment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(panelmenuinvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(panelmenprojectplan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(panelmenprojectplanlist, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(panelmenprojectplanview, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelmenImport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuCE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuUsage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 700));
 
@@ -2124,6 +2152,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtstaffID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtstaffID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtstaffIDMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtstaffID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 230, 29));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2135,6 +2168,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 230, -1));
 
         txtStaffName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 230, 29));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2150,6 +2188,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 50, 20));
 
         txtStaffSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffSalary.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffSalaryMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 250, 29));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2157,6 +2200,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 80, 20));
 
         txtStaffPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffPhone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffPhoneMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 250, 29));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2164,17 +2212,37 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 270, 20));
 
         txtStaffAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffAddress.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffAddressMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 900, 29));
 
         txtStaffBirthday.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffBirthday.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffBirthdayMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 250, 29));
 
         txtStaffHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffHiredDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffHiredDateMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 250, 29));
 
         cboStaffGender.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboStaffGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female" }));
         cboStaffGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboStaffGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboStaffGenderActionPerformed(evt);
+            }
+        });
         panelstaffinfomation.add(cboStaffGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 230, 29));
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2191,6 +2259,11 @@ public class Main extends javax.swing.JFrame {
         cboStaffStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboStaffStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Working", "Stoped" }));
         cboStaffStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboStaffStatus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboStaffStatusMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(cboStaffStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 230, 29));
 
         btnStaffNew.setBackground(new java.awt.Color(0, 153, 153));
@@ -2246,6 +2319,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, 230, 20));
 
         txtStaffNationlity.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtStaffNationlity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtStaffNationlityMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(txtStaffNationlity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 230, 29));
 
         labelstaffroleidrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -2296,6 +2374,11 @@ public class Main extends javax.swing.JFrame {
         cboStaffroleID.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboStaffroleID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
         cboStaffroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboStaffroleID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboStaffroleIDMousePressed(evt);
+            }
+        });
         panelstaffinfomation.add(cboStaffroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 230, 29));
 
         javax.swing.GroupLayout panelstaffmenuLayout = new javax.swing.GroupLayout(panelstaffmenu);
@@ -2415,6 +2498,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 230, 20));
 
         txtworkerName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtworkerName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtworkerNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(txtworkerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, 29));
 
         jLabel45.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2430,6 +2518,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation1.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 50, 20));
 
         txtworkerSalary.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtworkerSalary.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtworkerSalaryMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(txtworkerSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 250, 29));
 
         jLabel48.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2437,6 +2530,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation1.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 80, 20));
 
         txtworkerPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtworkerPhone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtworkerPhoneMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(txtworkerPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 250, 29));
 
         jLabel49.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2444,17 +2542,37 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation1.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, 20));
 
         txtworkerAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtworkerAddress.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtworkerAddressMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(txtworkerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 940, 29));
 
         txtworkerBirthday.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtworkerBirthday.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtworkerBirthdayMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(txtworkerBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 250, 29));
 
         txtworkerHiredDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtworkerHiredDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtworkerHiredDateMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(txtworkerHiredDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 250, 29));
 
         cboworkerGender.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboworkerGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Male", "Female" }));
         cboworkerGender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboworkerGender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboworkerGenderMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(cboworkerGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 230, 29));
 
         jLabel50.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2481,6 +2599,11 @@ public class Main extends javax.swing.JFrame {
         cboworkerStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboworkerStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Working", "Stoped" }));
         cboworkerStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboworkerStatus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboworkerStatusMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(cboworkerStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 230, 29));
 
         btnworkerUpdate.setBackground(new java.awt.Color(0, 153, 153));
@@ -2530,6 +2653,11 @@ public class Main extends javax.swing.JFrame {
         cboworkerroleID.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboworkerroleID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboworkerroleID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboworkerroleID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboworkerroleIDMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(cboworkerroleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 230, 29));
 
         labelworkerroleidrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -2558,6 +2686,11 @@ public class Main extends javax.swing.JFrame {
 
         labelworkersaryequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         labelworkersaryequired.setForeground(new java.awt.Color(255, 0, 0));
+        labelworkersaryequired.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                labelworkersaryequiredMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(labelworkersaryequired, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 250, 20));
 
         labelworkerphonerequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -2579,6 +2712,11 @@ public class Main extends javax.swing.JFrame {
         cboworkercreatebystaff.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboworkercreatebystaff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboworkercreatebystaff.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboworkercreatebystaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboworkercreatebystaffMousePressed(evt);
+            }
+        });
         panelstaffinfomation1.add(cboworkercreatebystaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 230, 29));
 
         javax.swing.GroupLayout panelstaffmenu1Layout = new javax.swing.GroupLayout(panelstaffmenu1);
@@ -2644,6 +2782,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation2.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 230, 20));
 
         txtPaymentPaidAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtPaymentPaidAmount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPaymentPaidAmountMousePressed(evt);
+            }
+        });
         panelstaffinfomation2.add(txtPaymentPaidAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 230, 29));
 
         jLabel56.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2651,6 +2794,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation2.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 250, 20));
 
         txtPaymentDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtPaymentDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPaymentDateMouseClicked(evt);
+            }
+        });
         panelstaffinfomation2.add(txtPaymentDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 230, 29));
 
         cboPaymentCutomerName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -2737,6 +2885,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation2.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 20));
 
         txtPaymentTotalAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtPaymentTotalAmount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPaymentTotalAmountMousePressed(evt);
+            }
+        });
         panelstaffinfomation2.add(txtPaymentTotalAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, 29));
 
         labelpaymentTotalrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -2748,6 +2901,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation2.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 230, 20));
 
         txtPaymentOwesAmount.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtPaymentOwesAmount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPaymentOwesAmountMousePressed(evt);
+            }
+        });
         panelstaffinfomation2.add(txtPaymentOwesAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 230, 29));
 
         labelpaymentOwesrequired.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -2826,6 +2984,11 @@ public class Main extends javax.swing.JFrame {
         cboInvoicePaymentID.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboInvoicePaymentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboInvoicePaymentID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboInvoicePaymentID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboInvoicePaymentIDMousePressed(evt);
+            }
+        });
         cboInvoicePaymentID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboInvoicePaymentIDActionPerformed(evt);
@@ -2893,6 +3056,11 @@ public class Main extends javax.swing.JFrame {
         cboInvoicestaffrName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboInvoicestaffrName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboInvoicestaffrName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboInvoicestaffrName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboInvoicestaffrNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation3.add(cboInvoicestaffrName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 230, 29));
 
         jLabel58.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -3035,6 +3203,11 @@ public class Main extends javax.swing.JFrame {
         cboProjectPlanInfoName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboProjectPlanInfoName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboProjectPlanInfoName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboProjectPlanInfoName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboProjectPlanInfoNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation4.add(cboProjectPlanInfoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 230, 29));
 
         jLabel72.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -3044,6 +3217,11 @@ public class Main extends javax.swing.JFrame {
         cboProjectPlanStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboProjectPlanStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Doing", "Done" }));
         cboProjectPlanStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboProjectPlanStatus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboProjectPlanStatusMousePressed(evt);
+            }
+        });
         panelstaffinfomation4.add(cboProjectPlanStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 230, 29));
 
         labelProjectPlanLocation.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -3074,11 +3252,21 @@ public class Main extends javax.swing.JFrame {
         txtProjectPlanLocation.setColumns(20);
         txtProjectPlanLocation.setRows(3);
         txtProjectPlanLocation.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanLocation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanLocationMousePressed(evt);
+            }
+        });
         jScrollPane16.setViewportView(txtProjectPlanLocation);
 
         panelstaffinfomation4.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 230, -1));
 
         txtProjectPlanTimeLine.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanTimeLine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanTimeLineMousePressed(evt);
+            }
+        });
         panelstaffinfomation4.add(txtProjectPlanTimeLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 230, 29));
 
         labelProjectPlanStatus.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -3086,6 +3274,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation4.add(labelProjectPlanStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 230, 20));
 
         txtProjectPlanName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation4.add(txtProjectPlanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 29));
 
         labelProjectPlanResult.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -3141,6 +3334,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation5.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 230, 20));
 
         txtProjectPlanListFinishDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanListFinishDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanListFinishDateMousePressed(evt);
+            }
+        });
         panelstaffinfomation5.add(txtProjectPlanListFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, 230, 29));
 
         jLabel75.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -3203,6 +3401,11 @@ public class Main extends javax.swing.JFrame {
         cboProjectPlanList_ProjectPlanName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboProjectPlanList_ProjectPlanName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboProjectPlanList_ProjectPlanName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboProjectPlanList_ProjectPlanName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboProjectPlanList_ProjectPlanNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation5.add(cboProjectPlanList_ProjectPlanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 29));
 
         jLabel78.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -3222,6 +3425,11 @@ public class Main extends javax.swing.JFrame {
         panelstaffinfomation5.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 230, 20));
 
         txtProjectPlanListName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanListName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanListNameMousePressed(evt);
+            }
+        });
         panelstaffinfomation5.add(txtProjectPlanListName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, 29));
 
         jLabel81.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -3392,14 +3600,29 @@ public class Main extends javax.swing.JFrame {
         cboProjectPlanListStaff.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboProjectPlanListStaff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboProjectPlanListStaff.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboProjectPlanListStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboProjectPlanListStaffMousePressed(evt);
+            }
+        });
         panelstaffinfomation5.add(cboProjectPlanListStaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, 230, 30));
 
         txtProjectPlanListStartDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanListStartDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanListStartDateMousePressed(evt);
+            }
+        });
         panelstaffinfomation5.add(txtProjectPlanListStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, 29));
 
         cboProjectPlanListStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboProjectPlanListStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "Doing", "Done" }));
         cboProjectPlanListStatus.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboProjectPlanListStatus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboProjectPlanListStatusMousePressed(evt);
+            }
+        });
         panelstaffinfomation5.add(cboProjectPlanListStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 30));
 
         tbProjectPlanList.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
@@ -3447,6 +3670,11 @@ public class Main extends javax.swing.JFrame {
         jPanel4.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 230, 20));
 
         txtProjectPlanDetailName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanDetailName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanDetailNameMousePressed(evt);
+            }
+        });
         jPanel4.add(txtProjectPlanDetailName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 29));
 
         txtProjectPlanDetailID.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
@@ -3465,11 +3693,21 @@ public class Main extends javax.swing.JFrame {
         jPanel4.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 230, 20));
 
         txtProjectPlanDetailDateline.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        txtProjectPlanDetailDateline.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtProjectPlanDetailDatelineMousePressed(evt);
+            }
+        });
         jPanel4.add(txtProjectPlanDetailDateline, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 230, 29));
 
         cboProjectPlanDetail_ListName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cboProjectPlanDetail_ListName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
         cboProjectPlanDetail_ListName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
+        cboProjectPlanDetail_ListName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cboProjectPlanDetail_ListNameMousePressed(evt);
+            }
+        });
         jPanel4.add(cboProjectPlanDetail_ListName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, 30));
 
         tbProjectPlanListDetail.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
@@ -3787,19 +4025,19 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation12.add(btnImportDetailsNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 30));
 
-        btnworkerUpdate6.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerUpdate6.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerUpdate6.setText("Update");
-        btnworkerUpdate6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnImportDetialUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnImportDetialUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportDetialUpdate.setText("Update");
+        btnImportDetialUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerUpdate6MouseClicked(evt);
+                btnImportDetialUpdateMouseClicked(evt);
             }
         });
-        panelstaffinfomation12.add(btnworkerUpdate6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 90, 30));
+        panelstaffinfomation12.add(btnImportDetialUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 90, 30));
 
         btnworkerCancel6.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerCancel6.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerCancel6.setText("Cancel");
+        btnworkerCancel6.setText("Clear");
         btnworkerCancel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnworkerCancel6MouseClicked(evt);
@@ -3996,35 +4234,35 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation8.add(btnSupplierNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 90, 30));
 
-        btnworkerUpdate2.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerUpdate2.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerUpdate2.setText("Update");
-        btnworkerUpdate2.addActionListener(new java.awt.event.ActionListener() {
+        btnSupplierUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnSupplierUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnSupplierUpdate.setText("Update");
+        btnSupplierUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnworkerUpdate2ActionPerformed(evt);
+                btnSupplierUpdateActionPerformed(evt);
             }
         });
-        panelstaffinfomation8.add(btnworkerUpdate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 90, 30));
+        panelstaffinfomation8.add(btnSupplierUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 90, 30));
 
-        btnworkerCancel2.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerCancel2.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerCancel2.setText("Cancel");
-        btnworkerCancel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSupplierClear.setBackground(new java.awt.Color(0, 153, 153));
+        btnSupplierClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnSupplierClear.setText("Clear");
+        btnSupplierClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerCancel2MouseClicked(evt);
+                btnSupplierClearMouseClicked(evt);
             }
         });
-        panelstaffinfomation8.add(btnworkerCancel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 90, 30));
+        panelstaffinfomation8.add(btnSupplierClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 90, 30));
 
         jLabel106.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel106.setText("Supplier ID");
         panelstaffinfomation8.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
 
-        txtSupplierId.setBackground(new java.awt.Color(204, 204, 204));
         txtSupplierId.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         txtSupplierId.setEnabled(false);
         panelstaffinfomation8.add(txtSupplierId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 29));
 
+        buttonGroup2.add(male1);
         male1.setActionCommand("Male");
         male1.setLabel("Male");
         male1.addActionListener(new java.awt.event.ActionListener() {
@@ -4034,6 +4272,7 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation8.add(male1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        buttonGroup2.add(female1);
         female1.setLabel("Felmale");
         female1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -6324,11 +6563,15 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_tbInvoiceMouseClicked
 
     private void btnInvoiceNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvoiceNewMouseClicked
-        if (cboInvoicePaymentID.getSelectedItem() == "select" && txtInvoiceDate.getDate() == null && cboInvoicestaffrName.getSelectedItem() == "select") {
+        if (cboInvoicePaymentID.getSelectedItem() == "select" && 
+            txtInvoiceDate.getDate() == null && 
+            cboInvoicestaffrName.getSelectedItem() == "select" ) {
+            
             labelInvoicePaymentIDrequired.setText("require");
             labelInvoiceDatterequired.setText("require");
             labelInvoicestaffrequired.setText("require");
             cboInvoicePaymentID.requestFocus();
+            
         } else if (cboInvoicePaymentID.getSelectedItem() == "select") {
             labelInvoicePaymentIDrequired.setText("require");
             cboInvoicePaymentID.requestFocus();
@@ -7017,6 +7260,14 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_panelmenImportMousePressed
 
     private void tbImport_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_formMouseClicked
+        ImportDetails imd = new ImportDetails();
+        imd.clearImportDetail(cbCEImportDetails, txtUnitPriceImportDetails, txtImportId_Detail, txtAmountImportDetails, txtImportQtyImportDetails, tbImport_form_detail);
+        
+        ConstractionEquiment ce = new ConstractionEquiment();
+        for (String ceList : ce.getAllCE()) {
+            cbCEImportDetails.addItem(ceList);
+        }
+
         Import im = new Import();
         im.getSelecttbImport(txtImportDate, cbStaffNameImport, cbSupplierNameImport, tbImport_form);
         
@@ -7054,6 +7305,8 @@ public class Main extends javax.swing.JFrame {
         for (String supplierList : supplier.getAllSupplier()) {
             cbSupplierNameImport.addItem(supplierList);
         }
+        ImportDetails imd = new ImportDetails();
+        imd.clearImportDetail(cbCEImportDetails, txtUnitPriceImportDetails, txtImportId_Detail, txtAmountImportDetails, txtImportQtyImportDetails, tbImport_form_detail);
         
         ConstractionEquiment ce = new ConstractionEquiment();
         for (String ceList : ce.getAllCE()) {
@@ -7139,19 +7392,30 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCEMousePressed
 
     private void tbSupplier_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSupplier_formMouseClicked
-        // TODO add your handling code here:
+        Supplier sup = new Supplier();
+        
+        String getdender = sup.getSelecttbSupplier(txtSupplierId, txtSupplierName,gender, txtSupplierPhone, txtSupplierAddress, tbSupplier_form);
+        System.out.println("Supplier ID: " + getdender);
+        if (getdender.equals("male")) {
+            male1.setSelected(true);
+        } else {
+            female1.setSelected(true);
+        }
     }//GEN-LAST:event_tbSupplier_formMouseClicked
 
     private void btnSupplierNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierNewActionPerformed
         // TODO add your handling code here:
         Supplier supplier = new Supplier();
         supplier.createSupplier(txtSupplierName, gender, txtSupplierPhone, txtSupplierAddress, lbMessageSupplier, tbSupplier_form);
+        
+        supplier.clearSupplier(txtSupplierId,txtSupplierName, gender, txtSupplierPhone, txtSupplierAddress);
 
     }//GEN-LAST:event_btnSupplierNewActionPerformed
 
-    private void btnworkerCancel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerCancel2MouseClicked
+    private void btnSupplierClearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupplierClearMouseClicked
+        Supplier supplier = new Supplier();
+        supplier.clearSupplier(txtSupplierId,txtSupplierName, gender, txtSupplierPhone, txtSupplierAddress);
+    }//GEN-LAST:event_btnSupplierClearMouseClicked
 
     private void male1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_male1ActionPerformed
         // TODO add your handling code here:
@@ -7309,6 +7573,8 @@ public class Main extends javax.swing.JFrame {
         for (String stafflist : st.getAllStaff()) {
             cboCustomer_CreatebyStaff.addItem(stafflist);
         }
+        
+        
 
     }//GEN-LAST:event_btnCustomerNewActionPerformed
 
@@ -7317,9 +7583,10 @@ public class Main extends javax.swing.JFrame {
         Customer customer = new Customer();
         int staffID = st.getStaffIdByName(cboCustomer_CreatebyStaff);
         if (male.equals("Male")) {
-            gender = "Male";
-        } else {
-            gender = "Female";
+            gender = "male";
+        }
+        else {
+            gender = "female";
         }
         customer.update(txtCustomerName, gender, txtPhone, txtCustomerAddress, staffID, lbMessageCustomer, tbCustomer_form);
 
@@ -7335,7 +7602,7 @@ public class Main extends javax.swing.JFrame {
 
     private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
         // TODO add your handling code here:
-        gender = "Male";
+        gender = "male";
     }//GEN-LAST:event_maleActionPerformed
 
     private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
@@ -7355,12 +7622,14 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImportDetailsNewMouseClicked
 
-    private void btnworkerUpdate6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerUpdate6MouseClicked
+    private void btnImportDetialUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportDetialUpdateMouseClicked
+       ImportDetails imd = new ImportDetails();
+       imd.update(ABORT, NORMAL, ABORT, ABORT, WIDTH);
+    }//GEN-LAST:event_btnImportDetialUpdateMouseClicked
 
     private void btnworkerCancel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel6MouseClicked
-        // TODO add your handling code here:
+        ImportDetails imd = new ImportDetails();
+        imd.clearImportDetail(cbCEImportDetails, txtUnitPriceImportDetails, txtImportId_Detail, txtAmountImportDetails, txtImportQtyImportDetails, tbImport_form_detail);
     }//GEN-LAST:event_btnworkerCancel6MouseClicked
 
     private void btnImportDetailsNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDetailsNewActionPerformed
@@ -7377,12 +7646,19 @@ public class Main extends javax.swing.JFrame {
         ImportDetails importDetails = new ImportDetails();
         importDetails.create(importQtyImport, unitPrice, amount, importId , ceID);
         
+        importDetails.clearImportDetail(cbCEImportDetails, txtUnitPriceImportDetails, txtImportId_Detail, txtAmountImportDetails, txtImportQtyImportDetails, tbImport_form_detail);
+
+        for (String ceList : ce.getAllCE()) {
+            cbCEImportDetails.addItem(ceList);
+        }
+        
         importDetails.getImportDetailsByImportId(importId, tbImport_form_detail);
         
     }//GEN-LAST:event_btnImportDetailsNewActionPerformed
 
     private void tbImport_form_detailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_form_detailMouseClicked
-        // TODO add your handling code here:
+        ImportDetails imd = new ImportDetails();
+        imd.getSelectTableImportDetial(cbCEImportDetails, txtUnitPriceImportDetails, txtImportId_Detail, txtAmountImportDetails, txtImportQtyImportDetails, tbImport_form_detail);
     }//GEN-LAST:event_tbImport_form_detailMouseClicked
 
     private void btnImportNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportNewActionPerformed
@@ -7428,10 +7704,188 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnImportUpdateActionPerformed
 
-    private void btnworkerUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnworkerUpdate2ActionPerformed
-        // TODO add your handling code here:
+    private void btnSupplierUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierUpdateActionPerformed
+        Supplier su = new Supplier();
         
-    }//GEN-LAST:event_btnworkerUpdate2ActionPerformed
+        if (male1.equals("Male")){
+            gender = "male";
+        }
+        else{
+            gender = "female";
+        }
+        su.updateSupplier(txtSupplierId, txtSupplierName, gender,txtSupplierPhone, txtSupplierAddress,lbMessageSupplier, tbSupplier_form);
+        
+        su.clearSupplier(txtSupplierId,txtSupplierName, gender, txtSupplierPhone, txtSupplierAddress);
+    }//GEN-LAST:event_btnSupplierUpdateActionPerformed
+
+    private void txtstaffIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtstaffIDMousePressed
+        labelstaffidrequired.setText("");
+    }//GEN-LAST:event_txtstaffIDMousePressed
+
+    private void txtStaffNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffNameMousePressed
+       labelstaffNamerequired.setText("");
+       labelmessagestaff.setText("");
+    }//GEN-LAST:event_txtStaffNameMousePressed
+
+    private void cboStaffGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboStaffGenderActionPerformed
+        labelstaffgenderrequired.setText("");
+    }//GEN-LAST:event_cboStaffGenderActionPerformed
+
+    private void txtStaffNationlityMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffNationlityMousePressed
+        labelstaffnatrequired.setText("");
+    }//GEN-LAST:event_txtStaffNationlityMousePressed
+
+    private void txtStaffAddressMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffAddressMousePressed
+        labelstaffaddrerequired.setText("");
+    }//GEN-LAST:event_txtStaffAddressMousePressed
+
+    private void txtStaffBirthdayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffBirthdayMousePressed
+        labelstaffbirthrequired.setText("");
+    }//GEN-LAST:event_txtStaffBirthdayMousePressed
+
+    private void txtStaffHiredDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffHiredDateMousePressed
+        labelstaffhirdrequired.setText("");
+    }//GEN-LAST:event_txtStaffHiredDateMousePressed
+
+    private void txtStaffSalaryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffSalaryMousePressed
+        labelstaffsarequired.setText("");
+    }//GEN-LAST:event_txtStaffSalaryMousePressed
+
+    private void txtStaffPhoneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStaffPhoneMousePressed
+        labelstaffphonerequired.setText("");
+    }//GEN-LAST:event_txtStaffPhoneMousePressed
+
+    private void cboStaffroleIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboStaffroleIDMousePressed
+        labelstaffroleidrequired.setText("");
+    }//GEN-LAST:event_cboStaffroleIDMousePressed
+
+    private void cboStaffStatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboStaffStatusMousePressed
+        labelstaffstaturequired.setText("");
+    }//GEN-LAST:event_cboStaffStatusMousePressed
+
+    private void txtworkerNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtworkerNameMousePressed
+        labelworkerNamerequired.setText("");
+    }//GEN-LAST:event_txtworkerNameMousePressed
+
+    private void cboworkercreatebystaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboworkercreatebystaffMousePressed
+        labelworkercreatebystaff.setText("");
+    }//GEN-LAST:event_cboworkercreatebystaffMousePressed
+
+    private void cboworkerGenderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboworkerGenderMousePressed
+        labelworkergenderrequired.setText("");
+    }//GEN-LAST:event_cboworkerGenderMousePressed
+
+    private void txtworkerAddressMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtworkerAddressMousePressed
+        labelworkeraddrerequired.setText("");
+    }//GEN-LAST:event_txtworkerAddressMousePressed
+
+    private void txtworkerBirthdayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtworkerBirthdayMousePressed
+        labelworkerbirthrequired.setText("");
+    }//GEN-LAST:event_txtworkerBirthdayMousePressed
+
+    private void txtworkerHiredDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtworkerHiredDateMousePressed
+        labelworkerhirdrequired.setText("");
+    }//GEN-LAST:event_txtworkerHiredDateMousePressed
+
+    private void labelworkersaryequiredMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelworkersaryequiredMousePressed
+        labelworkerhirdrequired.setText("");
+    }//GEN-LAST:event_labelworkersaryequiredMousePressed
+
+    private void txtworkerPhoneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtworkerPhoneMousePressed
+        labelworkerphonerequired.setText("");
+    }//GEN-LAST:event_txtworkerPhoneMousePressed
+
+    private void cboworkerroleIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboworkerroleIDMousePressed
+        labelworkerroleidrequired.setText("");
+    }//GEN-LAST:event_cboworkerroleIDMousePressed
+
+    private void cboworkerStatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboworkerStatusMousePressed
+        labelworkerstaturequired.setText("");
+    }//GEN-LAST:event_cboworkerStatusMousePressed
+
+    private void txtworkerSalaryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtworkerSalaryMousePressed
+        labelworkersaryequired.setText("");
+    }//GEN-LAST:event_txtworkerSalaryMousePressed
+
+    private void txtPaymentTotalAmountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaymentTotalAmountMousePressed
+        labelpaymentTotalrequired.setText("");
+    }//GEN-LAST:event_txtPaymentTotalAmountMousePressed
+
+    private void txtPaymentPaidAmountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaymentPaidAmountMousePressed
+        labelpaymentPaidrequired.setText("");
+    }//GEN-LAST:event_txtPaymentPaidAmountMousePressed
+
+    private void txtPaymentOwesAmountMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaymentOwesAmountMousePressed
+        labelpaymentOwesrequired.setText("");
+    }//GEN-LAST:event_txtPaymentOwesAmountMousePressed
+
+    private void txtPaymentDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaymentDateMouseClicked
+        labelpaymentPaymentrequired.setText("");
+    }//GEN-LAST:event_txtPaymentDateMouseClicked
+
+    private void cboInvoicePaymentIDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboInvoicePaymentIDMousePressed
+        labelInvoicePaymentIDrequired.setText("");
+    }//GEN-LAST:event_cboInvoicePaymentIDMousePressed
+
+    private void cboInvoicestaffrNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboInvoicestaffrNameMousePressed
+        labelInvoicestaffrequired.setText("");
+    }//GEN-LAST:event_cboInvoicestaffrNameMousePressed
+
+    private void txtProjectPlanLocationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanLocationMousePressed
+        labelProjectPlanLocation.setText("");
+    }//GEN-LAST:event_txtProjectPlanLocationMousePressed
+
+    private void txtProjectPlanNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanNameMousePressed
+        labelProjectPlanName.setText("");
+    }//GEN-LAST:event_txtProjectPlanNameMousePressed
+
+    private void txtProjectPlanTimeLineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanTimeLineMousePressed
+       labelProjectPlanTimeLine.setText("");
+    }//GEN-LAST:event_txtProjectPlanTimeLineMousePressed
+
+    private void cboProjectPlanInfoNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboProjectPlanInfoNameMousePressed
+        labelProjectPlanInfoName.setText("");
+    }//GEN-LAST:event_cboProjectPlanInfoNameMousePressed
+
+    private void cboProjectPlanStatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboProjectPlanStatusMousePressed
+        labelProjectPlanStatus.setText("");
+    }//GEN-LAST:event_cboProjectPlanStatusMousePressed
+
+    private void txtProjectPlanListNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanListNameMousePressed
+        labelPPLName.setText("");
+    }//GEN-LAST:event_txtProjectPlanListNameMousePressed
+
+    private void cboProjectPlanListStatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboProjectPlanListStatusMousePressed
+        labelPPLStatus.setText("");
+    }//GEN-LAST:event_cboProjectPlanListStatusMousePressed
+
+    private void cboProjectPlanList_ProjectPlanNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboProjectPlanList_ProjectPlanNameMousePressed
+        labelPPL_PPName.setText("");
+    }//GEN-LAST:event_cboProjectPlanList_ProjectPlanNameMousePressed
+
+    private void txtProjectPlanListStartDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanListStartDateMousePressed
+        labelPPLStartDate.setText("");
+    }//GEN-LAST:event_txtProjectPlanListStartDateMousePressed
+
+    private void cboProjectPlanListStaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboProjectPlanListStaffMousePressed
+        labelPPLStaff.setText("");
+    }//GEN-LAST:event_cboProjectPlanListStaffMousePressed
+
+    private void txtProjectPlanListFinishDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanListFinishDateMousePressed
+        labelPPLFinishDate.setText("");
+    }//GEN-LAST:event_txtProjectPlanListFinishDateMousePressed
+
+    private void cboProjectPlanDetail_ListNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboProjectPlanDetail_ListNameMousePressed
+        labelPPLDProjectplanListName.setText("");
+    }//GEN-LAST:event_cboProjectPlanDetail_ListNameMousePressed
+
+    private void txtProjectPlanDetailNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanDetailNameMousePressed
+        labelPPLDDetailname.setText("");
+    }//GEN-LAST:event_txtProjectPlanDetailNameMousePressed
+
+    private void txtProjectPlanDetailDatelineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProjectPlanDetailDatelineMousePressed
+        labelPPLDDateline.setText("");
+    }//GEN-LAST:event_txtProjectPlanDetailDatelineMousePressed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -7464,6 +7918,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEdittableworker;
     private javax.swing.JButton btnImport;
     private javax.swing.JButton btnImportDetailsNew;
+    private javax.swing.JButton btnImportDetialUpdate;
     private javax.swing.JButton btnImportNew;
     private javax.swing.JButton btnImportUpdate;
     private javax.swing.JButton btnInvoiceCancel;
@@ -7491,8 +7946,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnStaffChoosepicture;
     private javax.swing.JButton btnStaffNew;
     private javax.swing.JButton btnStaffUpdate;
+    private javax.swing.JButton btnSupplierClear;
     private javax.swing.JButton btnSupplierCreate;
     private javax.swing.JButton btnSupplierNew;
+    private javax.swing.JButton btnSupplierUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnUpdateCustomer;
     private javax.swing.JButton btnUsage;
@@ -7503,7 +7960,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnsignin;
     private javax.swing.JButton btnworkerCancel;
     private javax.swing.JButton btnworkerCancel1;
-    private javax.swing.JButton btnworkerCancel2;
     private javax.swing.JButton btnworkerCancel4;
     private javax.swing.JButton btnworkerCancel5;
     private javax.swing.JButton btnworkerCancel6;
@@ -7511,10 +7967,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerNew2;
     private javax.swing.JButton btnworkerNew6;
     private javax.swing.JButton btnworkerUpdate;
-    private javax.swing.JButton btnworkerUpdate2;
     private javax.swing.JButton btnworkerUpdate5;
-    private javax.swing.JButton btnworkerUpdate6;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbCEImportDetails;
     private javax.swing.JComboBox<String> cbStaffNameImport;
     private javax.swing.JComboBox<String> cbSupplierNameImport;
