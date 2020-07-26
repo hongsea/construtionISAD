@@ -4657,19 +4657,19 @@ public class Main extends javax.swing.JFrame {
 
         jLabel121.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel121.setText("Create by staff name");
-        panelstaffinfomation11.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 20));
+        panelstaffinfomation11.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 230, 20));
 
         panelstaffinfomation11.add(cbStaffUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, 30));
 
         jLabel119.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel119.setText("Custraction Equipment Name");
-        panelstaffinfomation11.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 220, 20));
+        panelstaffinfomation11.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 230, 20));
 
-        panelstaffinfomation11.add(cbCEUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 230, 30));
+        panelstaffinfomation11.add(cbCEUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 230, 30));
 
         jLabel124.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel124.setText("Usage Date");
-        panelstaffinfomation11.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 230, 20));
+        panelstaffinfomation11.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 230, 20));
 
         txtDateUse.setEditable(false);
         txtDateUse.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
@@ -4677,7 +4677,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel126.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel126.setText("Total qty");
-        panelstaffinfomation11.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 230, -1));
+        panelstaffinfomation11.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 230, -1));
 
         txtTotalQtyUsae.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 153)));
         txtTotalQtyUsae.addActionListener(new java.awt.event.ActionListener() {
@@ -7418,20 +7418,24 @@ public class Main extends javax.swing.JFrame {
         usage_list.setVisible(false);
         usage_form.setVisible(true);
 
-        ConstractionEquiment ce = new ConstractionEquiment();
-        for (String ceList : ce.getAllCE()){
-            cbCEUsage.addItem(ceList);
-        }
-            
-         Staff staff = new Staff();
-        for (String staffList : staff.getAllStaff()) {
-            cbStaffUsage.addItem(staffList);
-        }
+//        ConstractionEquiment ce = new ConstractionEquiment();
+//        for (String ceList : ce.getAllCE()){
+//            cbCEUsage.addItem(ceList);
+//        }
+//            
+//         Staff staff = new Staff();
+//        for (String staffList : staff.getAllStaff()) {
+//            cbStaffUsage.addItem(staffList);
+//        }
+        Usage usage = new Usage();
+        usage.ClearUsage(cbStaffUsage, cbCEUsage, txtTotalQtyUsae);
         
         java.sql.Date usageDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         txtDateUse.setText(usageDate.toString());
 
-             
+        
+        usage.getUsage(tbUsage_form);
+                     
 //        for (String staffList : staff.get)
 
         bracUsageForm.setText("USAGE / NEW ");
@@ -7442,7 +7446,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEdittablestaff5MouseClicked
 
     private void tbUsage_formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsage_formMouseClicked
-        // TODO add your handling code here:
+        Usage us = new Usage();
+        us.getSelectTableUsage(cbStaffUsage, cbCEUsage, txtDateUse, txtTotalQtyUsae, tbUsage_form);
     }//GEN-LAST:event_tbUsage_formMouseClicked
 
     private void btnCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomerMouseClicked
@@ -7853,7 +7858,7 @@ public class Main extends javax.swing.JFrame {
         int totalQty =  Integer.parseInt(txtTotalQtyUsae.getText());
 
         Usage usage = new Usage();
-//        usage.create(usageDate, totalQty, staffId, ceID);
+        usage.create(usageDate, totalQty, staffId, ceID);
 
         usage.getUsage(tbUsage_form);
     }//GEN-LAST:event_btnNewUsageActionPerformed
@@ -7863,6 +7868,7 @@ public class Main extends javax.swing.JFrame {
         
         int ceID = 0;
         int staffId = 0;
+        
         ConstractionEquiment ce = new ConstractionEquiment();
         ceID = ce.getCEByName(cbCEUsage);
         
@@ -7875,8 +7881,8 @@ public class Main extends javax.swing.JFrame {
         
         Usage usage = new Usage();
         usage.create(usageDate, totalQty, staffId, ceID);
-        
         usage.getUsage(tbUsage_form);
+        usage.ClearUsage(cbStaffUsage, cbCEUsage, txtTotalQtyUsae);        
     }//GEN-LAST:event_btnNewUsage1ActionPerformed
 
     private void btnNewUsage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUsage2ActionPerformed
