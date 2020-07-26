@@ -115,10 +115,11 @@ public class ImportDetails {
         }
     }
     
-    public void update(int importQty, double unitPrice, double amount, int importId, int ceId){
+    public void update(int importQty, double unitPrice, double amount, int importId, int ceId, JTable tableName){
+        int s = tableName.getSelectedRow();
         try{
-       
-            String importDetail = "update tbImportDetail SET import_qty=?, unit_price=? amount=? import_id=? CE_id=? where id=" + ceId;
+            String value = (tableName.getModel().getValueAt(s, 0).toString());
+            String importDetail = "update tbImportDetail SET import_qty=?, unit_price=?, amount=?, import_id=?, CE_id=? where id=" + value;
             PreparedStatement psc = con.prepareStatement(importDetail);
             
             psc.setInt(1, importQty);

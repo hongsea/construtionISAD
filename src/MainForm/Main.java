@@ -7623,8 +7623,20 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImportDetailsNewMouseClicked
 
     private void btnImportDetialUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportDetialUpdateMouseClicked
-       ImportDetails imd = new ImportDetails();
-       imd.update(ABORT, NORMAL, ABORT, ABORT, WIDTH);
+
+        int ceID = 0;
+        ConstractionEquiment ce = new ConstractionEquiment();
+        ceID = ce.getCEByName(cbCEImportDetails);
+        
+        int importId = Integer.parseInt(txtImportId_Detail.getText());
+        int importQtyImport = Integer.parseInt(txtImportQtyImportDetails.getText());
+        int unitPrice = Integer.parseInt(txtUnitPriceImportDetails.getText());
+        double amount = importQtyImport * unitPrice;
+        
+        ImportDetails importDetails = new ImportDetails();
+        importDetails.update(importQtyImport, unitPrice, amount, importId, ceID, tbImport_form_detail);
+        importDetails.getImportDetailsByImportId(importId, tbImport_form_detail);
+
     }//GEN-LAST:event_btnImportDetialUpdateMouseClicked
 
     private void btnworkerCancel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel6MouseClicked
