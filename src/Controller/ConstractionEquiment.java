@@ -101,4 +101,23 @@ public class ConstractionEquiment {
         }        
         return cEList;
     }
+    
+    public void update(int stockQty,double unitPrice,int ceId, JTable tableName){
+ 
+        try{
+       
+            String updateImport = "update tbCustractionEquipment SET stock_qty=?, unit_price=? where id=" + ceId;
+            PreparedStatement psc = con.prepareStatement(updateImport);
+            
+            psc.setInt(1, stockQty);
+            psc.setDouble(2, unitPrice);
+            
+            
+            psc.executeUpdate();
+          
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
 }

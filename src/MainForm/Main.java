@@ -8,6 +8,7 @@ import Application.Application;
 import Controller.ConstractionEquiment;
 import Controller.Customer;
 import Controller.Import;
+import Controller.ImportDetails;
 import Controller.ProjectInforamtion;
 import Controller.Staff;
 import Controller.Supplier;
@@ -666,7 +667,7 @@ public class Main extends javax.swing.JFrame {
         cbStaffNameImport = new javax.swing.JComboBox<>();
         panelstaffinfomation12 = new javax.swing.JPanel();
         jLabel133 = new javax.swing.JLabel();
-        btnImportNew1 = new javax.swing.JButton();
+        btnImportDetailsNew = new javax.swing.JButton();
         btnworkerUpdate6 = new javax.swing.JButton();
         btnworkerCancel6 = new javax.swing.JButton();
         jLabel136 = new javax.swing.JLabel();
@@ -3771,20 +3772,20 @@ public class Main extends javax.swing.JFrame {
         jLabel133.setText("Custraction Equipment Name");
         panelstaffinfomation12.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 220, 20));
 
-        btnImportNew1.setBackground(new java.awt.Color(0, 153, 153));
-        btnImportNew1.setForeground(new java.awt.Color(255, 255, 255));
-        btnImportNew1.setText("New");
-        btnImportNew1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnImportDetailsNew.setBackground(new java.awt.Color(0, 153, 153));
+        btnImportDetailsNew.setForeground(new java.awt.Color(255, 255, 255));
+        btnImportDetailsNew.setText("New");
+        btnImportDetailsNew.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnImportNew1MouseClicked(evt);
+                btnImportDetailsNewMouseClicked(evt);
             }
         });
-        btnImportNew1.addActionListener(new java.awt.event.ActionListener() {
+        btnImportDetailsNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportNew1ActionPerformed(evt);
+                btnImportDetailsNewActionPerformed(evt);
             }
         });
-        panelstaffinfomation12.add(btnImportNew1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 30));
+        panelstaffinfomation12.add(btnImportDetailsNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 90, 30));
 
         btnworkerUpdate6.setBackground(new java.awt.Color(0, 153, 153));
         btnworkerUpdate6.setForeground(new java.awt.Color(255, 255, 255));
@@ -7020,6 +7021,11 @@ public class Main extends javax.swing.JFrame {
         im.getSelecttbImport(txtImportDate, cbStaffNameImport, cbSupplierNameImport, tbImport_form);
         
         im.getImportID(txtImportId_Detail, tbImport_form);
+        
+        ImportDetails importDetails = new ImportDetails();
+        int importId = Integer.parseInt(txtImportId_Detail.getText());
+        importDetails.getImportDetailsByImportId(importId, tbImport_form_detail);
+       
     }//GEN-LAST:event_tbImport_formMouseClicked
 
     private void btnworkerCancel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerCancel4MouseClicked
@@ -7053,6 +7059,7 @@ public class Main extends javax.swing.JFrame {
         for (String ceList : ce.getAllCE()) {
             cbCEImportDetails.addItem(ceList);
         }
+        
         
     }//GEN-LAST:event_btnImportMouseClicked
 
@@ -7344,9 +7351,9 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbProjectInformationMouseClicked
 
-    private void btnImportNew1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportNew1MouseClicked
+    private void btnImportDetailsNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportDetailsNewMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnImportNew1MouseClicked
+    }//GEN-LAST:event_btnImportDetailsNewMouseClicked
 
     private void btnworkerUpdate6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerUpdate6MouseClicked
         // TODO add your handling code here:
@@ -7356,9 +7363,23 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnworkerCancel6MouseClicked
 
-    private void btnImportNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportNew1ActionPerformed
+    private void btnImportDetailsNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDetailsNewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnImportNew1ActionPerformed
+        int ceID = 0;
+        ConstractionEquiment ce = new ConstractionEquiment();
+        ceID = ce.getCEByName(cbCEImportDetails);
+        
+        int importId = Integer.parseInt(txtImportId_Detail.getText());
+        int importQtyImport = Integer.parseInt(txtImportQtyImportDetails.getText());
+        int unitPrice = Integer.parseInt(txtUnitPriceImportDetails.getText());
+        double amount = importQtyImport * unitPrice;
+        
+        ImportDetails importDetails = new ImportDetails();
+        importDetails.create(importQtyImport, unitPrice, amount, importId , ceID);
+        
+        importDetails.getImportDetailsByImportId(importId, tbImport_form_detail);
+        
+    }//GEN-LAST:event_btnImportDetailsNewActionPerformed
 
     private void tbImport_form_detailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImport_form_detailMouseClicked
         // TODO add your handling code here:
@@ -7442,8 +7463,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEdittablestaff5;
     private javax.swing.JButton btnEdittableworker;
     private javax.swing.JButton btnImport;
+    private javax.swing.JButton btnImportDetailsNew;
     private javax.swing.JButton btnImportNew;
-    private javax.swing.JButton btnImportNew1;
     private javax.swing.JButton btnImportUpdate;
     private javax.swing.JButton btnInvoiceCancel;
     private javax.swing.JButton btnInvoiceCancel3;

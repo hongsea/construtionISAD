@@ -61,7 +61,7 @@ public class Supplier {
             PreparedStatement pst = con.prepareStatement(supplier);
 
             pst.setString(1, name.getText().trim());
-            pst.setString(2, gender.trim());
+            pst.setString(2, gender.trim()); 
             pst.setString(3, phone.getText().trim());
             pst.setString(4, address.getText().trim());
 
