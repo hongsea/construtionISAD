@@ -781,7 +781,7 @@ public class Main extends javax.swing.JFrame {
         txtTotalQtyUsae = new javax.swing.JTextField();
         btnNewUsage = new javax.swing.JButton();
         btnNewUsage1 = new javax.swing.JButton();
-        btnNewUsage2 = new javax.swing.JButton();
+        btnUpdateUsage = new javax.swing.JButton();
         customer_list = new javax.swing.JInternalFrame();
         panelCustomer = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -814,10 +814,6 @@ public class Main extends javax.swing.JFrame {
         jLabel130 = new javax.swing.JLabel();
         cboCustomer_CreatebyStaff = new javax.swing.JComboBox<>();
         jLabel132 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        btnworkerNew2 = new javax.swing.JButton();
-        jScrollPane23 = new javax.swing.JScrollPane();
-        tbProjectInformation = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4689,7 +4685,7 @@ public class Main extends javax.swing.JFrame {
 
         btnNewUsage.setBackground(new java.awt.Color(0, 153, 153));
         btnNewUsage.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewUsage.setText("New");
+        btnNewUsage.setText("Cancel");
         btnNewUsage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewUsageActionPerformed(evt);
@@ -4707,15 +4703,15 @@ public class Main extends javax.swing.JFrame {
         });
         panelstaffinfomation11.add(btnNewUsage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 90, 30));
 
-        btnNewUsage2.setBackground(new java.awt.Color(0, 153, 153));
-        btnNewUsage2.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewUsage2.setText("New");
-        btnNewUsage2.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateUsage.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpdateUsage.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateUsage.setText("Update");
+        btnUpdateUsage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewUsage2ActionPerformed(evt);
+                btnUpdateUsageActionPerformed(evt);
             }
         });
-        panelstaffinfomation11.add(btnNewUsage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 90, 30));
+        panelstaffinfomation11.add(btnUpdateUsage, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 90, 30));
 
         javax.swing.GroupLayout panelstaffmenu10Layout = new javax.swing.GroupLayout(panelstaffmenu10);
         panelstaffmenu10.setLayout(panelstaffmenu10Layout);
@@ -4923,47 +4919,6 @@ public class Main extends javax.swing.JFrame {
         jLabel132.setText("Customer Name");
         panelstaffinfomation7.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 150, 20));
 
-        btnworkerNew2.setBackground(new java.awt.Color(0, 153, 153));
-        btnworkerNew2.setForeground(new java.awt.Color(255, 255, 255));
-        btnworkerNew2.setText("click upload here");
-        btnworkerNew2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnworkerNew2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnworkerNew2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(394, 394, 394))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(btnworkerNew2)
-                .addContainerGap())
-        );
-
-        tbProjectInformation.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        tbProjectInformation.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbProjectInformationMouseClicked(evt);
-            }
-        });
-        jScrollPane23.setViewportView(tbProjectInformation);
-
         javax.swing.GroupLayout panelstaffmenu6Layout = new javax.swing.GroupLayout(panelstaffmenu6);
         panelstaffmenu6.setLayout(panelstaffmenu6Layout);
         panelstaffmenu6Layout.setHorizontalGroup(
@@ -4971,11 +4926,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(panelstaffmenu6Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(panelstaffmenu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane23)
                     .addComponent(bracCustomerForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelstaffinfomation7, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE)
-                    .addComponent(jScrollPane18)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane18))
                 .addContainerGap())
         );
         panelstaffmenu6Layout.setVerticalGroup(
@@ -4986,12 +4939,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelstaffinfomation7, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         customer_form.getContentPane().add(panelstaffmenu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 1050, 740));
@@ -7461,7 +7410,7 @@ public class Main extends javax.swing.JFrame {
 
         //list project information
         ProjectInforamtion projectInformation = new ProjectInforamtion();
-        projectInformation.getProjectInformation(tbProjectInformation);
+//        projectInformation.getProjectInformation(tbProjectInformation);
 
         bracCustomerForm.setText("CUSTOMER / NEW");
 
@@ -7543,14 +7492,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         gender = "felmale";
     }//GEN-LAST:event_femaleActionPerformed
-
-    private void btnworkerNew2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnworkerNew2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnworkerNew2MouseClicked
-
-    private void tbProjectInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProjectInformationMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbProjectInformationMouseClicked
 
     private void btnImportDetailsNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportDetailsNewMouseClicked
         // TODO add your handling code here:
@@ -7885,9 +7826,27 @@ public class Main extends javax.swing.JFrame {
         usage.ClearUsage(cbStaffUsage, cbCEUsage, txtTotalQtyUsae);        
     }//GEN-LAST:event_btnNewUsage1ActionPerformed
 
-    private void btnNewUsage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUsage2ActionPerformed
+    private void btnUpdateUsageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUsageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewUsage2ActionPerformed
+        int ceID = 0;
+        int staffId = 0;
+        
+        ConstractionEquiment ce = new ConstractionEquiment();
+        ceID = ce.getCEByName(cbCEUsage);
+        
+        Staff staff = new Staff();
+        staffId = staff.getStaffIdByName(cbStaffUsage);
+        
+        java.sql.Date usageDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        
+        int totalQty =  Integer.parseInt(txtTotalQtyUsae.getText());
+        
+        Usage usage = new Usage();
+        usage.upadte(usageDate, totalQty, staffId, ceID, tbUsage_form);
+        usage.getUsage(tbUsage_form);
+        usage.ClearUsage(cbStaffUsage, cbCEUsage, txtTotalQtyUsae);   
+        
+    }//GEN-LAST:event_btnUpdateUsageActionPerformed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -7931,7 +7890,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnInvoiceUpdate3;
     private javax.swing.JButton btnNewUsage;
     private javax.swing.JButton btnNewUsage1;
-    private javax.swing.JButton btnNewUsage2;
     private javax.swing.JButton btnPaymentNew;
     private javax.swing.JButton btnPaymentUpdate;
     private javax.swing.JButton btnPaymentclear;
@@ -7957,6 +7915,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnSupplierUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnUpdateCustomer;
+    private javax.swing.JButton btnUpdateUsage;
     private javax.swing.JButton btnUsage;
     private javax.swing.JButton btnWorkerChoosepicture;
     private javax.swing.JButton btnlogout;
@@ -7968,7 +7927,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnworkerCancel4;
     private javax.swing.JButton btnworkerCancel6;
     private javax.swing.JButton btnworkerNew;
-    private javax.swing.JButton btnworkerNew2;
     private javax.swing.JButton btnworkerUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -8141,7 +8099,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollImport;
@@ -8161,7 +8118,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
-    private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane26;
@@ -8390,7 +8346,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable tbInvoice;
     private javax.swing.JTable tbInvoice3;
     private javax.swing.JTable tbPayment;
-    private javax.swing.JTable tbProjectInformation;
     private javax.swing.JTable tbProjectPlan;
     private javax.swing.JTable tbProjectPlanList;
     private javax.swing.JTable tbProjectPlanListDetail;
