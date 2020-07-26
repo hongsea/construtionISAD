@@ -7635,6 +7635,12 @@ public class Main extends javax.swing.JFrame {
         
         ImportDetails importDetails = new ImportDetails();
         importDetails.update(importQtyImport, unitPrice, amount, importId, ceID, tbImport_form_detail);
+        
+        importDetails.clearImportDetail(cbCEImportDetails, txtUnitPriceImportDetails, txtImportId_Detail, txtAmountImportDetails, txtImportQtyImportDetails, tbImport_form_detail);
+        for (String ceList : ce.getAllCE()) {
+            cbCEImportDetails.addItem(ceList);
+        }
+        
         importDetails.getImportDetailsByImportId(importId, tbImport_form_detail);
 
     }//GEN-LAST:event_btnImportDetialUpdateMouseClicked
