@@ -10,13 +10,13 @@ Version: 0.1.1
 
 # CONSTRUCTION SYSTEM PROJECT
 
-## Software and Hardware Requirement
-
 ### Team
 
 * **Heng Hongsea** (Technical)
 
 * **Kong Sothyvathnak** (Developer)
+
+## Software and Hardware Requirement
 
 ### Software
 
@@ -42,3 +42,6 @@ You need download Apache Netbeans IDE 12.0 and Setup SQL Server
     - Unzip SQL.zip
     - Import to sql server
     ```
+
+2. Setup this project
+    Open `Apache Netbeans IDE 12.0` and Open this project. You need to change username and password for connect to SQL Database in `Login Form` . And then run Login Form and login username `admin` and password `admin`.
